@@ -1,0 +1,758 @@
+[
+    {
+        "type": "single",
+        "question": "What is the primary design goal of using Kafka in a data pipeline architecture?",
+        "options": [
+            "To provide a complex SQL engine for data transformation.",
+            "To decouple data producers from data consumers.",
+            "To serve as a replacement for HDFS file storage.",
+            "To manage user authentication for web applications."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Kafka is designed to decouple data streams, meaning producers don't need to know who the consumers are, and consumers can read at their own pace. Source: 5_kafka.pdf (Slide 3)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are core characteristics of Apache Kafka?",
+        "options": [
+            "Fast and Scalable",
+            "Durable (stores data on disk)",
+            "Fault-tolerant (via replication)",
+            "Push-based consumption model"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Kafka is fast, scalable, durable, and fault-tolerant. It uses a Pull-based model for consumption, not Push. Source: 5_kafka.pdf (Slide 4)."
+    },
+    {
+        "type": "multi",
+        "question": "Regarding Kafka Topics and Partitions, which statements are true?",
+        "options": [
+            "A Topic is a category or feed name to which records are published.",
+            "Topics are divided into Partitions for parallelism.",
+            "Ordering of messages is guaranteed across the entire Topic.",
+            "Ordering of messages is guaranteed only within a specific Partition."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Topics are logical categories divided into partitions. Kafka only guarantees ordering within a partition, not globally across the topic. Source: 5_kafka.pdf (Slide 9, 11)."
+    },
+    {
+        "type": "single",
+        "question": "In Kafka, what is an 'Offset'?",
+        "options": [
+            "A timestamp indicating when the message was sent.",
+            "A unique sequential integer that identifies a record within a partition.",
+            "The memory address of the data on the broker.",
+            "The ID of the consumer group reading the data."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "An offset is a unique identifier (sequential id) for a record within a partition. Source: 5_kafka.pdf (Slide 11)."
+    },
+    {
+        "type": "multi",
+        "question": "How does a Kafka Producer determine which partition to send a message to?",
+        "options": [
+            "It queries the Zookeeper leader explicitly.",
+            "If a Key is provided, it hashes the key to map it to a partition.",
+            "If no Key is provided, it typically uses Round-Robin balancing.",
+            "It always sends to the partition with the most available space."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Producers use the key (semantic partitioning) to ensure order for related data, or round-robin if no key is present. Source: 5_kafka.pdf (Slide 13)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following describe the 'Consumer Group' concept?",
+        "options": [
+            "It allows a pool of consumers to divide the work of reading a topic.",
+            "Each partition in a topic is consumed by exactly one consumer in the group.",
+            "Multiple consumers in the same group can read the same partition simultaneously.",
+            "It enables horizontal scalability of consumption."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Consumer Groups allow parallel processing. A fundamental rule is that one partition is consumed by only one member of the group at a time. Source: 5_kafka.pdf (Slide 15)."
+    },
+    {
+        "type": "single",
+        "question": "Why does Kafka use a 'Pull' model for consumers rather than 'Push'?",
+        "options": [
+            "It allows the broker to control the flow of data.",
+            "It allows consumers to consume at their own pace and prevents them from being overwhelmed.",
+            "It is easier to implement in Java.",
+            "It reduces the storage requirements on the broker."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Pull model allows consumers to control their consumption rate (backpressure handling) and batching. Source: 5_kafka.pdf (Slide 14)."
+    },
+    {
+        "type": "multi",
+        "question": "What are valid use cases for Apache Kafka mentioned in the lectures?",
+        "options": [
+            "Website Activity Tracking",
+            "Log Aggregation",
+            "Stream Processing",
+            "Long-term storage of large video files"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Tracking, logs, and stream processing are core use cases. Kafka is not designed for large files (videos). Source: 5_kafka.pdf (Slide 3, 44)."
+    },
+    {
+        "type": "multi",
+        "question": "How is Fault Tolerance achieved in Kafka?",
+        "options": [
+            "By backing up data to tape drives daily.",
+            "By replicating topic partitions across multiple brokers.",
+            "If a leader fails, a follower can take over (if in-sync).",
+            "By using RAID 10 on every broker disk."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Fault tolerance relies on partition replication (Leaders/Followers). RAID is a hardware detail, not the Kafka architectural mechanism. Source: 5_kafka.pdf (Slide 4)."
+    },
+    {
+        "type": "single",
+        "question": "What is the role of Zookeeper in the Kafka ecosystem (standard architecture)?",
+        "options": [
+            "It stores the actual message data for topics.",
+            "It acts as the Producer API.",
+            "It coordinates the cluster, managing brokers and leader election.",
+            "It compresses the log files."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Zookeeper is used for coordination, metadata management, and leader election, not for storing message payloads. Source: 5_kafka.pdf (General Architecture)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are reasons Kafka performs better than traditional message queues (like JMS/RabbitMQ)?",
+        "options": [
+            "It uses sequential disk I/O (append-only logs).",
+            "It supports 'Zero-Copy' data transfer.",
+            "It caches all messages in the JVM Heap memory.",
+            "It supports batching of messages."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Sequential I/O, Zero-Copy, and Batching are key performance drivers. Kafka relies on the OS Page Cache, not JVM Heap caching. Source: 5_kafka.pdf (Slide 4, General Performance)."
+    },
+    {
+        "type": "multi",
+        "question": "If you have a Consumer Group with 4 consumers and a Topic with 3 partitions, what happens?",
+        "options": [
+            "One consumer will be idle.",
+            "One partition will be read by two consumers.",
+            "3 consumers will read one partition each.",
+            "The cluster will throw an error."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "Since a partition is assigned to only one consumer, 3 consumers will work, and the 4th will be idle. Source: 5_kafka.pdf (Slide 15 logic)."
+    },
+    {
+        "type": "single",
+        "question": "How long is data retained in Kafka by default?",
+        "options": [
+            "Until it is read by a consumer.",
+            "For a configurable period (e.g., 7 days), regardless of consumption.",
+            "Until the broker runs out of RAM.",
+            "It is deleted immediately after the Producer sends it."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Kafka is a durable store; data is kept for a retention period (time or size based), whether read or not. Source: 5_kafka.pdf (Slide 4, 11)."
+    },
+    {
+        "type": "multi",
+        "question": "Select the correct statements about the 'Leader' and 'Follower' roles in replication.",
+        "options": [
+            "All reads and writes go to the Leader partition.",
+            "Producers write to Followers to balance the load.",
+            "Followers replicate data from the Leader.",
+            "Followers can become Leaders if the current Leader fails."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Clients interact with the Leader. Followers passively replicate to stay in sync and provide failover. Source: 5_kafka.pdf (Slide 4, General Architecture)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the difference between Queuing and Publish-Subscribe in Kafka?",
+        "options": [
+            "Queuing: Consumers in the same group divide up the partitions.",
+            "Pub-Sub: Consumers in different groups broadcast the data (each group gets a copy).",
+            "Kafka cannot support Queuing.",
+            "Kafka supports both models via Consumer Groups."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Kafka generalizes both models. Same group = Queue. Different groups = Pub/Sub. Source: 5_kafka.pdf (Slide 15)."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a suitable use case for Kafka?",
+        "options": [
+            "Event Sourcing",
+            "Stream Processing",
+            "Transferring large video files (GBs in size)",
+            "Metrics Collection"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Kafka is designed for messages/records. Large files should be handled by file transfers or by breaking them up. Source: 5_kafka.pdf (Slide 44)."
+    },
+    {
+        "type": "multi",
+        "question": "What happens when a new consumer joins an existing Consumer Group?",
+        "options": [
+            "The group undergoes a 'Rebalance'.",
+            "Partitions are reassigned to include the new member.",
+            "The new consumer starts reading from the beginning of the topic (offset 0) by default.",
+            "The producers pause until the rebalance is complete."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Joining triggers a rebalance to redistribute partitions. Producers are unaffected. Source: 5_kafka.pdf (Slide 15 logic)."
+    },
+    {
+        "type": "multi",
+        "question": "Which guarantees does Kafka provide regarding message delivery?",
+        "options": [
+            "Messages sent by a producer to a specific partition are appended in the order sent.",
+            "A consumer instance sees records in the order they are stored in the log.",
+            "Messages are totally ordered across all partitions.",
+            "Kafka guarantees no data loss provided replication factor > 1 and clean election."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Order is guaranteed per partition, not globally. Fault tolerance ensures no loss with proper config. Source: 5_kafka.pdf (Slide 9)."
+    },
+    {
+        "type": "single",
+        "question": "What is a 'Log Segment'?",
+        "options": [
+            "A logical grouping of Topics.",
+            "The physical file on the disk that stores a portion of a partition's data.",
+            "A user permission setting.",
+            "A type of Zookeeper node."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Partitions are physically split into segment files (e.g., .log files) on the broker's disk. Source: 5_kafka.pdf (Slide 11 diagram)."
+    },
+    {
+        "type": "multi",
+        "question": "Why is 'Sequential I/O' preferred in Kafka?",
+        "options": [
+            "It avoids expensive disk seeks on HDD.",
+            "It allows data to be written at speeds comparable to memory access.",
+            "It requires SSDs to work efficiently.",
+            "It simplifies the locking mechanism in the database."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Sequential I/O is crucial for Kafka's performance on standard HDDs, avoiding seek latency. Source: 5_kafka.pdf (General Performance context)."
+    },
+    {
+        "type": "multi",
+        "question": "What information is typically stored in the 'Log' for each message?",
+        "options": [
+            "The Message Value (payload)",
+            "The Message Key",
+            "The Offset",
+            "The Producer's IP address"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "The log stores the key, value, and the assigned offset. IP address is metadata not typically in the message record itself. Source: 5_kafka.pdf (Slide 10/11)."
+    },
+    {
+        "type": "single",
+        "question": "If you need to ensure that messages A and B are processed in order, what must you do?",
+        "options": [
+            "Send them to the same Topic.",
+            "Send them to the same Partition (using the same Key).",
+            "Send them with a high priority flag.",
+            "Kafka handles this automatically for all messages."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Ordering is only guaranteed within a partition. You must use the same key to route them to the same partition. Source: 5_kafka.pdf (Slide 9)."
+    },
+    {
+        "type": "multi",
+        "question": "What are the components of a Kafka Cluster?",
+        "options": [
+            "Brokers (Servers)",
+            "Zookeeper (Coordination)",
+            "HDFS Datanodes",
+            "Producers and Consumers (Clients)"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Brokers and Zookeeper form the cluster infrastructure; Producers/Consumers are clients. HDFS is separate. Source: 5_kafka.pdf (Slide 3)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following describes the 'At-least-once' delivery semantic?",
+        "options": [
+            "Messages are never lost.",
+            "Messages may be redelivered (duplicates possible).",
+            "Messages are delivered exactly once.",
+            "It is the default behavior for many Kafka configurations."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "At-least-once ensures no loss but allows duplicates (e.g., if a consumer fails before committing offset). Source: 5_kafka.pdf (General Delivery Semantics)."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'High Watermark' in the context of a partition log?",
+        "options": [
+            "The highest offset that has been successfully replicated to all In-Sync Replicas.",
+            "The total size of the log on disk.",
+            "The maximum number of consumers allowed.",
+            "The timestamp of the latest message."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The High Watermark is the offset up to which data is safely replicated and readable by consumers. Source: 5_kafka.pdf (General Replication concepts)."
+    },
+    {
+        "type": "multi",
+        "question": "Why is Kafka often used as a buffer between systems?",
+        "options": [
+            "To handle 'bursty' traffic loads.",
+            "To allow downstream systems to process data at their own speed.",
+            "To encrypt data in transit.",
+            "To convert JSON to XML."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Kafka acts as a shock absorber (buffer) for bursts and decouples processing speeds. Source: 5_kafka.pdf (Slide 3)."
+    },
+    {
+        "type": "multi",
+        "question": "What happens if you have more Consumers in a group than Partitions in the topic?",
+        "options": [
+            "The extra consumers will sit idle.",
+            "The extra consumers will help process the existing partitions faster.",
+            "Kafka will automatically create more partitions.",
+            "This is generally considered a waste of resources."
+        ],
+        "answer": [
+            0,
+            3
+        ],
+        "explanation": "Since a partition cannot be split between consumers in the same group, extra consumers are idle. Source: 5_kafka.pdf (Slide 15)."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Log Compaction'?",
+        "options": [
+            "Deleting old messages based on time (e.g., older than 7 days).",
+            "Retaining only the last known value for each unique Key.",
+            "Compressing the log files using Gzip.",
+            "Archiving logs to S3."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Log compaction ensures that for every key, at least the last value is kept (useful for table snapshots). Source: 5_kafka.pdf (General Compaction concepts)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are true about Kafka Brokers?",
+        "options": [
+            "A cluster is made of multiple brokers.",
+            "Each broker is identified by an integer ID.",
+            "Each broker holds a subset of the topic's partitions.",
+            "Every broker contains a full copy of all data in the cluster."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Brokers share the data; they do not all have a full copy (unless replication factor equals broker count, which is rare). Source: 5_kafka.pdf (Slide 12)."
+    },
+    {
+        "type": "single",
+        "question": "What is the unit of parallelism in Kafka?",
+        "options": [
+            "The Topic",
+            "The Partition",
+            "The Broker",
+            "The Message"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "You scale consumption by increasing the number of partitions. Source: 5_kafka.pdf (Slide 9)."
+    },
+    {
+        "type": "multi",
+        "question": "What metadata does Zookeeper manage for Kafka?",
+        "options": [
+            "List of available brokers.",
+            "Topic configurations (e.g., partition count).",
+            "Leader election states.",
+            "The content of the messages."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Zookeeper handles cluster state/metadata. Message content is on the brokers. Source: 5_kafka.pdf (General Architecture)."
+    },
+    {
+        "type": "multi",
+        "question": "Which compression codecs are supported by Kafka?",
+        "options": [
+            "Gzip",
+            "Snappy",
+            "LZ4",
+            "MPEG"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Kafka supports Gzip, Snappy, LZ4 (and Zstd in newer versions). MPEG is for video. Source: 5_kafka.pdf (Slide 4)."
+    },
+    {
+        "type": "single",
+        "question": "In the Kafka 'Pull' model, who tracks the offset?",
+        "options": [
+            "The Broker tracks what it has sent.",
+            "The Consumer tracks what it has read.",
+            "The Producer tracks what it has written.",
+            "Zookeeper tracks every message individually."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Consumers are responsible for tracking their own offsets (or committing them back to Kafka). Source: 5_kafka.pdf (Slide 3/14)."
+    },
+    {
+        "type": "multi",
+        "question": "What are the benefits of using a 'Key' in a message?",
+        "options": [
+            "It ensures semantic partitioning (all data for ID=123 goes to the same partition).",
+            "It enables log compaction.",
+            "It guarantees ordering for that specific key.",
+            "It increases the network bandwidth usage significantly."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Keys provide semantic routing (ordering) and are required for log compaction. Source: 5_kafka.pdf (Slide 13)."
+    },
+    {
+        "type": "multi",
+        "question": "When does a 'Rebalance' occur in a Consumer Group?",
+        "options": [
+            "When a consumer joins the group.",
+            "When a consumer leaves (or crashes).",
+            "When partitions are added to a topic.",
+            "When a producer sends a message."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Membership changes or topic metadata changes trigger rebalancing. Production does not. Source: 5_kafka.pdf (Slide 15 context)."
+    },
+    {
+        "type": "single",
+        "question": "What is the recommended way to handle large files (e.g., images, videos) with Kafka?",
+        "options": [
+            "Send them as a single large message.",
+            "Store the file in an object store (like S3) and send the URL/reference in Kafka.",
+            "Kafka cannot handle references.",
+            "Compress them to 1KB chunks."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Kafka is not for large blobs. Using an external store and passing the reference is best practice. Source: 5_kafka.pdf (Slide 44)."
+    },
+    {
+        "type": "multi",
+        "question": "Which security features does Kafka support (mentioned in general Big Data context)?",
+        "options": [
+            "SSL/TLS for encryption in transit.",
+            "SASL for authentication.",
+            "ACLs for authorization.",
+            "Built-in antivirus scanning."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Kafka supports SSL, SASL, and ACLs. It does not scan for viruses. Source: 5_kafka.pdf (Slide 44 mentions security was limited initially but standard now)."
+    },
+    {
+        "type": "multi",
+        "question": "How does Kafka achieve high throughput?",
+        "options": [
+            "By minimizing data copying (Zero-Copy).",
+            "By using sequential disk access patterns.",
+            "By batching multiple messages into a single network request.",
+            "By storing all data in RAM only."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Zero-copy, Sequential I/O, and Batching are the pillars of performance. It stores data on disk, not just RAM. Source: 5_kafka.pdf (Slide 4)."
+    },
+    {
+        "type": "single",
+        "question": "What does ISR stand for?",
+        "options": [
+            "Independent Storage Region",
+            "In-Sync Replica",
+            "Internal Server Request",
+            "Immediate Send Requirement"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "ISR = In-Sync Replica, the set of replicas that are caught up with the leader. Source: 5_kafka.pdf (Fault Tolerance context)."
+    },
+    {
+        "type": "multi",
+        "question": "What happens if the 'Leader' of a partition fails?",
+        "options": [
+            "The partition becomes unavailable for writes.",
+            "One of the 'Followers' in the ISR is elected as the new Leader.",
+            "Clients (Producers/Consumers) automatically switch to the new Leader.",
+            "All data in that partition is lost."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Automatic failover occurs; an ISR follower becomes leader, and clients switch. Source: 5_kafka.pdf (Slide 4)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following is true about Kafka's storage format?",
+        "options": [
+            "It uses a binary format for messages.",
+            "Messages are stored in 'segments' on disk.",
+            "It uses XML for storage.",
+            "It indexes the offset for fast lookup."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Kafka uses binary protocols and storage. Logs are segmented and indexed by offset. Source: 5_kafka.pdf (Slide 11)."
+    },
+    {
+        "type": "single",
+        "question": "Can you use Kafka as a database?",
+        "options": [
+            "Yes, it supports full SQL joins and random updates.",
+            "Sort of, using Log Compaction to maintain state (tables), but it is primarily a log.",
+            "No, it deletes data instantly.",
+            "Yes, it replaces Oracle DB completely."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Kafka can act as a source of truth (Kappa Architecture) using log compaction, but lacks rich random-access SQL features of RDBMS. Source: 5_kafka.pdf (General use case)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the role of the Producer?",
+        "options": [
+            "To write data to Topics.",
+            "To choose the partition (via key or round-robin).",
+            "To manage the consumer groups.",
+            "To store the file segments."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Producers write data and decide partitioning. Broker stores segments; Consumers manage groups. Source: 5_kafka.pdf (Slide 13)."
+    },
+    {
+        "type": "single",
+        "question": "If you want to read a topic from the very beginning, what must the consumer do?",
+        "options": [
+            "Set `auto.offset.reset` to `earliest`.",
+            "Set `auto.offset.reset` to `latest`.",
+            "Delete the topic.",
+            "Restart the broker."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Setting the offset reset policy to `earliest` allows reading from the start if no valid offset exists. Source: 5_kafka.pdf (Consumer usage)."
+    },
+    {
+        "type": "multi",
+        "question": "Which messaging patterns does Kafka support?",
+        "options": [
+            "Point-to-Point (Queue)",
+            "Publish-Subscribe",
+            "Request-Reply (Blocking)",
+            "Streaming"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Kafka supports Queue (consumer groups), Pub-Sub (multiple groups), and Streaming. Request-Reply is antipattern for async Kafka. Source: 5_kafka.pdf (Slide 4)."
+    },
+    {
+        "type": "multi",
+        "question": "What are the advantages of Decoupling systems with Kafka?",
+        "options": [
+            "Producers and Consumers can evolve independently.",
+            "Maintenance on one system doesn't necessarily stop the other.",
+            "It creates a tighter coupling for better security.",
+            "It handles spikes in load (buffering)."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Decoupling allows independent scaling, maintenance, and buffering. Source: 5_kafka.pdf (Slide 3)."
+    },
+    {
+        "type": "single",
+        "question": "Which setting controls how many copies of the data are stored?",
+        "options": [
+            "Replication Factor",
+            "Partition Count",
+            "Broker ID",
+            "Batch Size"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Replication Factor determines how many copies (replicas) of a partition exist. Source: 5_kafka.pdf (Slide 4)."
+    },
+    {
+        "type": "multi",
+        "question": "What happens if a broker goes down?",
+        "options": [
+            "The partitions for which it was Leader become unavailable temporarily.",
+            "New Leaders are elected from the ISRs on other brokers.",
+            "The entire cluster stops working.",
+            "Producers retry sending messages to the new Leaders."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Failover happens: Leaders transfer, brief unavailability, clients retry. Cluster stays up. Source: 5_kafka.pdf (Slide 4)."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary bottleneck in Kafka consumer performance?",
+        "options": [
+            "CPU speed",
+            "Network bandwidth and disk I/O",
+            "Zookeeper latency",
+            "RAM size"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Since Kafka does very little CPU processing (no parsing/indexing), it is usually bound by Network and Disk I/O. Source: 5_kafka.pdf (General Performance)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are components of the Kafka APIs?",
+        "options": [
+            "Producer API",
+            "Consumer API",
+            "Streams API",
+            "Connect API"
+        ],
+        "answer": [
+            0,
+            1,
+            2,
+            3
+        ],
+        "explanation": "Kafka provides Producer, Consumer, Streams, and Connect APIs. Source: 5_kafka.pdf (Ecosystem)."
+    }
+]
