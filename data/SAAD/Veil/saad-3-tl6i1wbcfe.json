@@ -1,0 +1,242 @@
+[
+    {
+        "type": "single",
+        "question": "Which SDLC phase answers the questions 'WHO, WHAT, WHERE, and WHEN'?",
+        "options": ["Planning", "Analysis", "Design", "Implementation"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "According to BABOK 3.0, what is a 'Requirement'?",
+        "options": ["A line of code", "A usable representation of a need", "A database schema", "A user interface design"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which type of requirement describes goals, objectives, and outcomes explaining why a change has been initiated?",
+        "options": ["Stakeholder Requirement", "Solution Requirement", "Business Requirement", "Transition Requirement"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an example of a Business Requirement?",
+        "options": ["The system must start in 2 seconds", "Reduce error rate in order processing by 10%", "Users must log in with a password", "The background color must be blue"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What do 'Stakeholder Requirements' describe?",
+        "options": ["The technical architecture of the system", "The needs of stakeholders that must be met to achieve business requirements", "The database tables required", "The code structure"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an example of a Stakeholder Requirement?",
+        "options": ["The system must be written in Java", "HR needs the system to comply with the 5-round recruitment process", "Reduce operating costs by 20%", "The server must have 16GB RAM"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What do 'Solution Requirements' describe?",
+        "options": ["The high-level business goals", "The capabilities and qualities of a solution that meets stakeholder requirements", "The transition plan", "The project budget"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Solution requirements are typically divided into which two categories?",
+        "options": ["Business and Technical", "Functional and Non-functional", "Internal and External", "Primary and Secondary"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is a 'Functional Requirement'?",
+        "options": ["A condition to ensure the system works well", "A system capability (behavior, information)", "A training plan", "A legal constraint"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an example of a Functional Requirement?",
+        "options": ["The system must be secure", "The system can CRUD order data", "The system must handle 1000 users", "The system must be easy to learn"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is a 'Non-functional Requirement'?",
+        "options": ["A specific behavior the system must perform", "Conditions to ensure the system works well (e.g., Security, Productivity)", "The logic for calculating taxes", "The steps in a use case"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an example of a Non-functional Requirement?",
+        "options": ["The system allows users to search for products", "The system sends an email confirmation", "The system must ensure high security", "The system prints an invoice"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What do 'Transition Requirements' describe?",
+        "options": ["Permanent features of the system", "Capabilities needed to move from the current state to the future state", "Long-term maintenance goals", "Core business logic"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an example of a Transition Requirement?",
+        "options": ["3 training sessions required for end users", "The system allows adding new users", "The system calculates monthly revenue", "The system backs up data daily"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "Are Transition Requirements needed once the change is complete?",
+        "options": ["Yes, always", "No, they are temporary", "Only for maintenance", "Only for upgrades"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a common problem with requirements?",
+        "options": ["Too much focus on functionality", "Clear project scope", "Conflicts and ambiguity among stakeholders", "Excessive resources"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Problem of Scope' in requirements gathering?",
+        "options": ["System boundaries are not clearly defined", "Requirements change constantly", "Users do not understand what they need", "Requirements are too simple"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "Which characteristic of a good requirement means it can be proven to be met?",
+        "options": ["Complete", "Necessary", "Validable (Verifiable)", "Prioritized"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which is the first step in the Requirements Engineering process?",
+        "options": ["Requirements Analysis", "Requirements Elicitation", "Requirements Specification", "Requirements Validation"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is the main objective of 'Requirements Elicitation'?",
+        "options": ["To write the code", "To identify stakeholders and collect requirements", "To test the system", "To design the database"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "The 'Problem of Understanding' refers to which issue?",
+        "options": ["System boundaries are unclear", "Customers do not really understand what they need", "Requirements change constantly", "Technical details are overwhelming"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which requirements gathering technique involves a group discussion to generate ideas?",
+        "options": ["Observation", "Brainstorming", "Prototyping", "Survey"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which technique involves building a simple version of the system to test requirements?",
+        "options": ["Interview", "Survey", "Prototype", "Focus group"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What is the main objective of 'Requirements Analysis'?",
+        "options": ["To collect raw data", "To transform stakeholder requirements into system/solution requirements", "To deploy the system", "To train users"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which activity is part of Requirements Analysis?",
+        "options": ["Writing code", "Installing hardware", "Resolving conflicts between requirements", "Marketing the product"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "During Requirements Analysis, why must user requirements be translated?",
+        "options": ["To make them harder to understand", "To change the business goals", "To ensure clarity, completeness, and accuracy for developers", "To ignore stakeholder feedback"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What is the objective of 'Requirements Specification'?",
+        "options": ["To create a document describing requirements in a unified format", "To write the source code", "To test the software", "To gather initial ideas"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "Which standard is mentioned for Software Requirement Specification (SRS)?",
+        "options": ["ISO 9001", "IEEE 830-1984", "CMMI Level 5", "Agile Manifesto"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In an SRS, natural language is used primarily for whose benefit?",
+        "options": ["The computer", "The customers (for validation)", "The compiler", "The database server"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is the goal of 'Requirements Validation' (Appraisal)?",
+        "options": ["To increase the project cost", "To prove that the requirements define the system the customer desires", "To write more documentation", "To delay the project"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Why is it important to fix requirement errors early?",
+        "options": ["It is easier to blame the analyst", "Fixing errors after delivery costs much more", "Developers have nothing else to do", "It increases the line count"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which validation criteria checks if the system provides the functionality the customer wants?",
+        "options": ["Validity", "Consistency", "Realism", "Verifiability"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "Which validation criteria checks for conflicting requirements?",
+        "options": ["Completeness", "Consistency", "Realism", "Validity"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which validation criteria ensures the requirements can be implemented within budget and time?",
+        "options": ["Validity", "Completeness", "Realism (Feasibility)", "Consistency"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What does 'Verifiability' in requirement validation mean?",
+        "options": ["The requirement is written in English", "The requirement is short", "One can check/test whether the requirement has been met", "The requirement is expensive"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which technique is used for Requirements Validation?",
+        "options": ["Writing Test Cases", "Writing Code", "Deploying the App", "Buying Hardware"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Problem of Volatility'?",
+        "options": ["Requirements change constantly", "The system crashes often", "The stakeholders are angry", "The budget is too low"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "Which section of the SRS (IEEE 830-1984) contains 'Functional Requirements'?",
+        "options": ["1. Foreword", "2. Introduction", "3. General Description", "4. Requirements Details"],
+        "answer": [3]
+    },
+    {
+        "type": "single",
+        "question": "What characteristic of a good requirement means it is not open to multiple interpretations?",
+        "options": ["Complete", "Unambiguous", "Prioritized", "Feasible"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Who defines the 'Business Requirements' typically?",
+        "options": ["The Junior Developer", "The End User", "The Business/Enterprise Level", "The Database Administrator"],
+        "answer": [2]
+    }
+]

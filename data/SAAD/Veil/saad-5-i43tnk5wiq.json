@@ -1,0 +1,242 @@
+[
+    {
+        "type": "single",
+        "question": "According to the object-oriented approach, what is a program defined as?",
+        "options": ["A linear sequence of instructions", "A collection of objects", "A set of database tables", "A hierarchy of functions"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What represents the state of an object?",
+        "options": ["Its operations", "Its identity", "A set of properties/attributes", "Its relationships"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which term describes a description of a set of objects sharing common attributes, operations, and relationships?",
+        "options": ["Object", "Interface", "Class", "Package"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "In attribute syntax, what symbol denotes 'Public' visibility?",
+        "options": ["-", "#", "~", "+"],
+        "answer": [3]
+    },
+    {
+        "type": "single",
+        "question": "In attribute syntax, what symbol denotes 'Private' visibility?",
+        "options": ["+", "-", "#", "/"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "How are class-scoped attributes (attributes shared by all instances) visually distinguished in a diagram?",
+        "options": ["They are italicized", "They are bolded", "They are underlined", "They are enclosed in brackets"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What character is used to indicate a derived property (one calculated from others)?",
+        "options": ["*", "/", "#", "&"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a valid direction for an operation parameter?",
+        "options": ["in", "out", "inout", "static"],
+        "answer": [3]
+    },
+    {
+        "type": "single",
+        "question": "What is the relationship where common features are extracted from many classes to form a simpler superclass?",
+        "options": ["Association", "Dependency", "Generalization", "Composition"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "How are abstract classes and abstract operations typically represented in text?",
+        "options": ["Underlined", "Bolded", "Italicized", "Strikethrough"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which relationship is described as a class being affected by changes in another class (the independent party)?",
+        "options": ["Generalization", "Dependency", "Realization", "Aggregation"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "How is a dependency relationship represented in UML?",
+        "options": ["Solid line with an arrow", "Dashed arrow", "Solid diamond", "Hollow diamond"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In code, if a method in Class A takes an object of Class B as a parameter, what relationship does this typically imply?",
+        "options": ["Generalization", "Association", "Dependency", "Composition"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What represents a connection between two classes involving a set of links between their objects?",
+        "options": ["Attribute", "Operation", "Association", "Inheritance"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "In an association, what does the multiplicity `0..1` mean?",
+        "options": ["Zero to many", "One and only one", "Zero or one", "One to many"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What are used to limit the search area in an association (e.g., searching an account by account number)?",
+        "options": ["Qualifiers", "Quantifiers", "Identifiers", "Multiplicities"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "How is an Association Class connected to the association line?",
+        "options": ["Solid line", "Double line", "Dashed line", "Arrow"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What symbol is used to represent a Multipartite (N-ary) Association?",
+        "options": ["Triangle", "Circle", "Small diamond", "Square"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Aggregation represents which type of relationship?",
+        "options": ["Inheritance", "Whole/Part", "Process flow", "Implementation"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which symbol represents an Aggregation relationship?",
+        "options": ["Solid diamond", "Hollow diamond", "Solid arrow", "Dashed arrow"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Composition is a special type of aggregation that implies what characteristic?",
+        "options": ["Weak connection", "Shared ownership", "Strong ownership/Exclusive existence", "Temporary linkage"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "In a composition relationship, what happens to the 'part' when the 'whole' is destroyed?",
+        "options": ["It continues to exist", "It is also destroyed", "It is archived", "It is moved to another object"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which symbol represents a Composition relationship?",
+        "options": ["Hollow diamond", "Solid diamond", "Dashed line", "Open arrow"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which diagram is used to model the static structure of a system including classes and relationships?",
+        "options": ["Sequence Diagram", "State Machine Diagram", "Class Diagram", "Activity Diagram"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What does an Object Diagram represent?",
+        "options": ["Dynamic behavior over time", "The static structure in a concrete way (instances)", "Data flow", "User interactions"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "According to the RUP overview, what is the primary focus of the Analysis phase?",
+        "options": ["Understanding the solution", "Ensuring performance", "Understanding the problem", "Database design"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "According to the RUP overview, what is the primary focus of the Design phase?",
+        "options": ["Understanding the problem", "Understanding the solution", "Capturing requirements", "Business modeling"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which phase is responsible for meeting non-functional requirements and ensuring performance?",
+        "options": ["Analysis", "Design", "Requirements", "Inception"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "The Analysis and Design process in RUP is described as being driven by what?",
+        "options": ["Data driven", "Use case driven", "Test driven", "Code driven"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is a key input document for Analysis and Design?",
+        "options": ["Source code", "Use Case Specification", "Test Plan", "Deployment Descriptor"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which diagram is listed as an output for designing System Behavior?",
+        "options": ["Class Diagram", "Sequence Diagram", "Component Diagram", "Deployment Diagram"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In the context of OOP, 'Polymorphism' typically involves a child class doing what?",
+        "options": ["Deleting a parent operation", "Duplicating a parent operation", "Redefining (overwriting) a parent operation", "Renaming a parent operation"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What visibility symbol is used for a 'Protected' attribute?",
+        "options": ["+", "-", "#", "~"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which type of relationship is often referred to as 'has-a'?",
+        "options": ["Dependency", "Generalization", "Association", "Realization"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What does a dashed arrow usually indicate in a class diagram?",
+        "options": ["Association", "Dependency", "Generalization", "Composition"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "If an attribute has a visibility of '-', who can access it?",
+        "options": ["Any class", "Subclasses only", "The class itself only", "Classes in the same package"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "In the RUP lifecycle, 'Analysis & Design' is best described as:",
+        "options": ["A phase", "A discipline", "An iteration", "A milestone"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which diagram represents the possible relationships like associations, generalizations, and dependencies between classes?",
+        "options": ["Object diagram", "Sequence diagram", "Class diagram", "Use case diagram"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "In an association 'Student studies at University', what role does 'Student' play relative to 'University' in an aggregation?",
+        "options": ["The whole", "The part", "The owner", "The interface"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "When modeling, if we want to reduce a 'many' relationship to a '1' using a specific property value, we use:",
+        "options": ["Qualifiers", "Stereotypes", "Generalization", "Composition"],
+        "answer": [0]
+    }
+]

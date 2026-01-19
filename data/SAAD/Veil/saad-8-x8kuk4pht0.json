@@ -1,0 +1,442 @@
+[
+    {
+        "type": "single",
+        "question": "What is the primary definition of 'Design' in the context of the lecture?",
+        "options": [
+            "The process of creating a marketing plan for the software",
+            "The process of identifying design elements with detailed specifications for conversion into source code",
+            "The process of gathering user requirements",
+            "The process of testing the final software product"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which design element corresponds to program entities created during the implementation phase?",
+        "options": [
+            "Use Cases",
+            "Actors",
+            "Design Classes",
+            "Scenarios"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What is the primary purpose of defining 'Interfaces' in a system design?",
+        "options": [
+            "To group tightly coupled elements together",
+            "To visualize the user interface design",
+            "To divide the system into smaller modules with explicitly defined responsibilities",
+            "To write the source code for the application"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What does 'Packaging' refer to in design elements?",
+        "options": [
+            "Creating the installation file",
+            "Grouping design elements that are tightly coupled together",
+            "Hiding the internal structure of a class",
+            "Converting analysis classes to source code"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "How is the mapping relationship described between Analysis Classes and Design Elements?",
+        "options": [
+            "One-to-One",
+            "One-to-Many",
+            "Many-to-One",
+            "Many-to-Many"
+        ],
+        "answer": [3]
+    },
+    {
+        "type": "single",
+        "question": "In an MVC framework, what can a 'Boundary' analysis class map to?",
+        "options": [
+            "Only the Controller class",
+            "Only the View class",
+            "Both the Controller class and the View class",
+            "The Entity class"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "In the SOLID principles, what does 'S' stand for?",
+        "options": [
+            "Simple Design",
+            "Single Responsibility",
+            "System Architecture",
+            "Separation of Concerns"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "According to the Single Responsibility principle, a class should:",
+        "options": [
+            "Have multiple purposes to maximize efficiency",
+            "Only serve one purpose",
+            "Depend on as many other classes as possible",
+            "Include all utility functions in the system"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What does the 'Open/Close' principle state?",
+        "options": [
+            "Open for modification, closed for extension",
+            "Open for extension, closed for change (modification)",
+            "Open for public access, closed for private access",
+            "Open for new developers, closed for existing ones"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which mechanism is recommended to adhere to the Open/Close principle?",
+        "options": [
+            "Modifying existing source code",
+            "Using inheritance to extend",
+            "Removing unused methods",
+            "Merging classes together"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is the core concept of the Liskov Substitution principle?",
+        "options": [
+            "Interfaces should be small and specific",
+            "High-level modules should not depend on low-level modules",
+            "An instance of a parent class can be replaced by an instance of a child class without affecting correctness",
+            "Classes should not repeat code"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which scenario is a common violation of the Liskov Substitution principle?",
+        "options": [
+            "A Square class inheriting from a Rectangle class but changing width/height behavior incompatibly",
+            "Splitting a large interface into two smaller ones",
+            "Using a database interface instead of a direct connection",
+            "Grouping classes into a package"
+        ],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "What does the Interface Segregation principle suggest?",
+        "options": [
+            "Merge all small interfaces into one large interface",
+            "A large interface should be divided into many small interfaces corresponding to different purposes",
+            "Interfaces should never be used in internal design",
+            "Interfaces should only expose data, not methods"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "According to the Dependency Inversion principle, upper layers should depend on:",
+        "options": [
+            "Lower layers directly",
+            "Detailed implementation classes",
+            "Interfaces (abstractions)",
+            "External libraries only"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What does the acronym DRY stand for?",
+        "options": [
+            "Do Repeat Yourself",
+            "Don't Repeat Yourself",
+            "Design Review Yearly",
+            "Data Redundancy Yield"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What does the acronym KISS stand for in design principles?",
+        "options": [
+            "Keep it simple, stupid!",
+            "Keep it secure, system!",
+            "Knowledge is system strength",
+            "Kernel interface system services"
+        ],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "What does YAGNI stand for?",
+        "options": [
+            "You are going to need it",
+            "You ain't gonna need it",
+            "Yet another generated interface",
+            "Yield and generate new instances"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "How is a 'Subsystem' defined in the lecture?",
+        "options": [
+            "A specific line of code",
+            "A closed package that hides internal details and exposes functions via an interface",
+            "A diagram showing user interactions",
+            "A type of design pattern for databases"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a benefit of using subsystems?",
+        "options": [
+            "They increase the complexity of the design model",
+            "They allow parts of the system to be independently developed and replaced",
+            "They eliminate the need for interfaces",
+            "They prevent the use of design patterns"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What specific UML element represents a subsystem's implementation of an interface?",
+        "options": [
+            "Generalization",
+            "Association",
+            "Realization",
+            "Composition"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "When mapping complex analysis classes to subsystems, what should be done if a class needs to transfer responsibility outside the subsystem?",
+        "options": [
+            "Use a Proxy instead of an interface",
+            "Delete the class",
+            "Merge the class with the external system",
+            "Remove the responsibility completely"
+        ],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "Which analysis classes are good candidates for mapping to subsystems?",
+        "options": [
+            "Simple entities with few attributes",
+            "Boundary classes with active partners or complex behavior",
+            "All control classes regardless of complexity",
+            "Use cases with no interactions"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In the example of mapping a CourseCatalogSystem, what role does the 'Proxy' class play?",
+        "options": [
+            "It stores the database records",
+            "It acts as an intermediary to the subsystem",
+            "It replaces the Student entity",
+            "It is the user interface for the student"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is a 'Design Pattern' described as?",
+        "options": [
+            "A piece of code that compiles without errors",
+            "A generalized design solution easily reused for similar problems",
+            "A strict rule that cannot be violated",
+            "A specific plugin for an IDE"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Who is credited with the seminal work 'Design Patterns: Elements of Reusable Object-Oriented Software' (1994)?",
+        "options": [
+            "Bill Gates",
+            "Erich Gamma et al.",
+            "Tim Berners-Lee",
+            "Ada Lovelace"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "How many design patterns did Erich Gamma's group originally divide into 3 groups?",
+        "options": [
+            "10",
+            "15",
+            "23",
+            "50"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What are the two main aspects expressed in a design pattern?",
+        "options": [
+            "Code and Comments",
+            "Structure and Behavior",
+            "Inputs and Outputs",
+            "Hardware and Software"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In the Command Pattern example, which role requests the command to be executed?",
+        "options": [
+            "Receiver",
+            "Invoker",
+            "ConcreteCommand",
+            "Client"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In the Command Pattern example involving a Menu, what corresponds to the 'Invoker'?",
+        "options": [
+            "Application",
+            "MenuItem",
+            "OpenCommand",
+            "Document"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In the Command Pattern, what method is typically defined in the Command interface?",
+        "options": [
+            "Execute() or Process()",
+            "Click()",
+            "Save()",
+            "Render()"
+        ],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "In the RDBMS/JDBC pattern example, which role is responsible for creating, reading, updating, and deleting persistent objects?",
+        "options": [
+            "PersistentClass",
+            "DBClass",
+            "Statement",
+            "ResultSet"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In the JDBC example, which Java SQL class is used to establish a session with the database?",
+        "options": [
+            "Statement",
+            "ResultSet",
+            "Connection",
+            "String"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "In the JDBC example, what does 'DriverManager.getConnection' return?",
+        "options": [
+            "A ResultSet",
+            "A Connection object",
+            "A Statement object",
+            "An Integer"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which design principle helps avoid 'Repetition in design'?",
+        "options": [
+            "YAGNI",
+            "Design Patterns / DRY",
+            "Top-Down Analysis",
+            "Bottom-Up Analysis"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is the recommended approach for analysis and design according to Slide 4?",
+        "options": [
+            "Top-Down",
+            "Bottom-Up",
+            "Use case driven",
+            "Database driven"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "When encapsulating an interaction chain in a subsystem, what is a requirement for reuse?",
+        "options": [
+            "It must be simple and transparent",
+            "It must have clear inputs and results",
+            "It must not use any interfaces",
+            "It must be written in Java"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In the context of 'Design Elements', what do 'Design Classes' largely depend on for their conversion into source code?",
+        "options": [
+            "The choice of programming language",
+            "The operating system",
+            "The hardware constraints",
+            "The marketing budget"
+        ],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "In the 'Login' example (Slide 11), what handles the URL '/login'?",
+        "options": [
+            "LoginView",
+            "Router",
+            "Account",
+            "UserHomepage"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is the result of applying 'Dependency Inversion'?",
+        "options": [
+            "Classes communicate through interfaces rather than concrete details",
+            "Upper layers control the private variables of lower layers",
+            "All classes are merged into one file",
+            "The database depends on the UI"
+        ],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "In the JDBC Read sequence (Slide 42), what object holds the data retrieved from the database?",
+        "options": [
+            "Statement",
+            "Connection",
+            "ResultSet",
+            "DriverManager"
+        ],
+        "answer": [2]
+    }
+]

@@ -1,0 +1,522 @@
+[
+    {
+        "type": "single",
+        "question": "What is the primary principle that drives the system development process (analysis, design, implementation) discussed in the slides?",
+        "options": [
+            "Data driven",
+            "Code driven",
+            "Use case driven",
+            "Test driven"
+        ],
+        "answer": [
+            2
+        ]
+    },
+    {
+        "type": "single",
+        "question": "In Use Case Analysis, what does 'Structural Analysis' primarily focus on?",
+        "options": [
+            "How objects interact with each other",
+            "Identifying the classes and their relationships",
+            "Designing the user interface protocols",
+            "Optimizing database performance"
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "Which type of analysis class is responsible for communication between partners (users/external systems) and the system?",
+        "options": [
+            "Entity class",
+            "Control class",
+            "Boundary class",
+            "Abstract class"
+        ],
+        "answer": [
+            2
+        ]
+    },
+    {
+        "type": "single",
+        "question": "Which type of analysis class is responsible for storing and managing information used in the system?",
+        "options": [
+            "Boundary class",
+            "Control class",
+            "Entity class",
+            "Interface class"
+        ],
+        "answer": [
+            2
+        ]
+    },
+    {
+        "type": "single",
+        "question": "What is the primary responsibility of a Control class?",
+        "options": [
+            "Storing persistent data",
+            "Handling user interface dialogs",
+            "Coordinating the activities of a use case",
+            "Defining communication protocols"
+        ],
+        "answer": [
+            2
+        ]
+    },
+    {
+        "type": "single",
+        "question": "According to the analysis rules, a Boundary class typically focuses on:",
+        "options": [
+            "How the user interface is implemented",
+            "The information exchanged between the user and the system",
+            "The internal database schema",
+            "The specific communication protocol details"
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "In a structural analysis, how many Boundary classes are typically identified per partner/use case pair?",
+        "options": [
+            "One",
+            "Two",
+            "Three",
+            "It varies infinitely"
+        ],
+        "answer": [
+            0
+        ]
+    },
+    {
+        "type": "single",
+        "question": "Entity classes are derived from which source?",
+        "options": [
+            "The domain class/concept",
+            "The user interface design",
+            "The database tables directly",
+            "The external system API"
+        ],
+        "answer": [
+            0
+        ]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following statements about associations in the Analysis Class Model is true?",
+        "options": [
+            "Boundary classes communicate directly with Entity classes.",
+            "Entity classes communicate directly with Boundary classes.",
+            "Boundary classes are only associated with Control classes or other Boundary classes.",
+            "Entity classes cannot be associated with other Entity classes."
+        ],
+        "answer": [
+            2
+        ]
+    },
+    {
+        "type": "single",
+        "question": "Control classes can have associations with:",
+        "options": [
+            "Only Entity classes",
+            "Only Boundary classes",
+            "Only other Control classes",
+            "All types of classes (Boundary, Entity, and Control)"
+        ],
+        "answer": [
+            3
+        ]
+    },
+    {
+        "type": "single",
+        "question": "In a sequence diagram, what does the vertical dimension represent?",
+        "options": [
+            "The arrangement of objects",
+            "The time axis",
+            "The hierarchy of classes",
+            "The memory space"
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "How is a synchronous message represented in a sequence diagram?",
+        "options": [
+            "A solid arrow with a triangular arrowhead",
+            "A regular arrow (open arrowhead)",
+            "A dashed arrow",
+            "A bold line"
+        ],
+        "answer": [
+            0
+        ]
+    },
+    {
+        "type": "single",
+        "question": "What does a regular arrow (open arrowhead) represent in a sequence diagram?",
+        "options": [
+            "Synchronous message",
+            "Asynchronous message",
+            "Return message",
+            "Object destruction"
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "In a sequence diagram, what is a 'Lost message'?",
+        "options": [
+            "A message where the sender is unknown.",
+            "A message that is never received.",
+            "A message where the sender is known but the receiver is outside the diagram scope.",
+            "A message that returns no value."
+        ],
+        "answer": [
+            2
+        ]
+    },
+    {
+        "type": "single",
+        "question": "What symbol represents a 'Found message' in a sequence diagram?",
+        "options": [
+            "An arrow ending with a black circle",
+            "An arrow starting with a black circle",
+            "A dashed arrow",
+            "A double-headed arrow"
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of the narrow rectangular strip on a lifeline in a sequence diagram?",
+        "options": [
+            "To show the object's creation time",
+            "To indicate the focus of control (active period)",
+            "To represent the object's destruction",
+            "To list the object's attributes"
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "Which fragment operator is used to represent an 'if/else' conditional branch in a sequence diagram?",
+        "options": [
+            "opt",
+            "loop",
+            "alt",
+            "par"
+        ],
+        "answer": [
+            2
+        ]
+    },
+    {
+        "type": "single",
+        "question": "Which fragment operator is used to represent a loop or iteration?",
+        "options": [
+            "alt",
+            "break",
+            "loop",
+            "opt"
+        ],
+        "answer": [
+            2
+        ]
+    },
+    {
+        "type": "single",
+        "question": "The 'opt' fragment in a sequence diagram is equivalent to which programming construct?",
+        "options": [
+            "if (without else)",
+            "if/else",
+            "switch/case",
+            "while loop"
+        ],
+        "answer": [
+            0
+        ]
+    },
+    {
+        "type": "single",
+        "question": "In a Communication Diagram, how are messages numbered to show nesting?",
+        "options": [
+            "1, 2, 3, 4...",
+            "A, B, C, D...",
+            "Using dot notation (e.g., 1.1, 1.2)",
+            "They are not numbered"
+        ],
+        "answer": [
+            2
+        ]
+    },
+    {
+        "type": "single",
+        "question": "What was the Communication Diagram called in UML 1.x?",
+        "options": [
+            "Collaboration diagram",
+            "Object diagram",
+            "Deployment diagram",
+            "Activity diagram"
+        ],
+        "answer": [
+            0
+        ]
+    },
+    {
+        "type": "single",
+        "question": "What is the main emphasis of a Communication Diagram compared to a Sequence Diagram?",
+        "options": [
+            "The temporal sequence of messages",
+            "The organizational context and connections between objects",
+            "The internal state changes of an object",
+            "The physical deployment of components"
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "In a Communication Diagram, what does the stereotype <<self>> indicate on a connection?",
+        "options": [
+            "The message is sent to a global object",
+            "The receiving object is a parameter",
+            "The receiving object is the same as the sending object",
+            "The object is created locally"
+        ],
+        "answer": [
+            2
+        ]
+    },
+    {
+        "type": "single",
+        "question": "How is a 'multi-object' represented in a Communication Diagram?",
+        "options": [
+            "A single rectangle with an asterisk",
+            "Two objects stacked on top of each other",
+            "A circle",
+            "A dashed rectangle"
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "What does the asterisk (*) symbol denote in a message sequence expression?",
+        "options": [
+            "The message is optional",
+            "The message is repeated (iteration)",
+            "The message is asynchronous",
+            "The message creates a new object"
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "If a message in a Communication Diagram has a predecessor '1.1, 2.3/', what does this mean?",
+        "options": [
+            "It is the 1.1 and 2.3 message combined.",
+            "It must wait until messages 1.1 and 2.3 are delivered.",
+            "It is an alternative to messages 1.1 and 2.3.",
+            "It is a return message for 1.1 and 2.3."
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "When modifying class diagrams based on interaction diagrams, if class A sends a message to class B, what must be added to class B?",
+        "options": [
+            "A new attribute",
+            "A public operation corresponding to the message",
+            "A private constructor",
+            "A dependency on class A"
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "If a structural diagram contains a class that does not participate in any interaction diagram, what should generally be done?",
+        "options": [
+            "Keep it for future use",
+            "Mark it as abstract",
+            "Remove it from the structural diagram",
+            "Connect it to the Control class"
+        ],
+        "answer": [
+            2
+        ]
+    },
+    {
+        "type": "single",
+        "question": "What type of operations do Entity classes typically contain?",
+        "options": [
+            "Operations that represent business processes",
+            "Operations for UI rendering",
+            "Operations for collecting user input",
+            "Attributes representing persistent information (operations are often implicit or simple accessors)"
+        ],
+        "answer": [
+            3
+        ]
+    },
+    {
+        "type": "single",
+        "question": "In the context of mapping Sequence Diagrams to code, what does a synchronous message usually correspond to?",
+        "options": [
+            "Sending a signal over a network",
+            "A method/function call",
+            "Creating a new thread",
+            "Throwing an exception"
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a step in creating a sequence diagram for a use case?",
+        "options": [
+            "Identifying participating objects from the class diagram",
+            "Designing the database schema",
+            "Arranging objects horizontally",
+            "Drawing lifelines for each object"
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "In a sequence diagram, objects that initiate messages are usually placed where?",
+        "options": [
+            "On the right side",
+            "On the left side",
+            "At the bottom",
+            "In the center"
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "When an object is destroyed in a sequence diagram, how is its lifeline terminated?",
+        "options": [
+            "With a circle",
+            "With a square",
+            "With a large X",
+            "With a horizontal line"
+        ],
+        "answer": [
+            2
+        ]
+    },
+    {
+        "type": "single",
+        "question": "What is the correct syntax for a message in a sequence diagram?",
+        "options": [
+            "returnType methodName(parameters)",
+            "message-name(list-of-parameters)",
+            "class.method()",
+            "variable = value"
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "In a Communication Diagram, what does the stereotype <<local>> on a connection imply?",
+        "options": [
+            "The receiving object is a global variable.",
+            "The receiving object is a local variable within the method.",
+            "The receiving object is passed as a parameter.",
+            "The receiving object is a field of the class."
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "What does a guard condition (e.g., [x < 0]) indicate in an interaction diagram?",
+        "options": [
+            "The message is sent repeatedly.",
+            "The message is only sent if the condition is true.",
+            "The message returns a boolean value.",
+            "The message is a constructor."
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "When mapping to code, if an object sends a message to a GUI interface class, the request is typically set to:",
+        "options": [
+            "A private operation",
+            "A graphical element (field, button)",
+            "A static method",
+            "A database trigger"
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "Private operations in a class usually correspond to which type of messages in an interaction diagram?",
+        "options": [
+            "Messages from external actors",
+            "Messages from other objects",
+            "Recursive (self) messages",
+            "Return messages"
+        ],
+        "answer": [
+            2
+        ]
+    },
+    {
+        "type": "single",
+        "question": "When refining the model, if a dependency is 'inherent' and 'long-term', it should be modeled as:",
+        "options": [
+            "A local variable",
+            "An association",
+            "A parameter",
+            "A global variable"
+        ],
+        "answer": [
+            1
+        ]
+    },
+    {
+        "type": "single",
+        "question": "What is the final step discussed in the Analysis process regarding diagrams?",
+        "options": [
+            "Generating code immediately",
+            "Comparing and modifying structural and interaction models for consistency",
+            "Designing the physical network topology",
+            "Writing the user manual"
+        ],
+        "answer": [
+            1
+        ]
+    }
+]

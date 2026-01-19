@@ -1,0 +1,442 @@
+[
+    {
+        "type": "single",
+        "question": "What is the primary focus of the Logical Perspective in software architecture?",
+        "options": [
+            "The physical arrangement of hardware nodes",
+            "The organization of source code files and libraries",
+            "The system requirements in terms of classes, objects, and their relationships",
+            "The processes and threads executing in the system"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a role of software architecture as described in the document?",
+        "options": [
+            "Supporting information exchange between team members",
+            "Detailed coding of every specific function",
+            "Supporting decision making in early development stages",
+            "Facilitating reuse of elements with similar life cycles"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "According to the '4+1' model shown in the slides, which view serves as the central point connecting the others?",
+        "options": [
+            "Logical View",
+            "Implementation View",
+            "Use-Case View",
+            "Deployment View"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which perspective is primarily concerned with 'System topology', 'Delivery', and 'Installation'?",
+        "options": [
+            "Process View",
+            "Logical View",
+            "Deployment View",
+            "Implementation View"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "In the context of the Implementation Perspective, what are the primary elements of interest?",
+        "options": [
+            "Classes and Objects",
+            "Source code files, executables, and libraries",
+            "Hardware nodes and networks",
+            "Use cases and actors"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which principle suggests that there should be strong coupling between classes within the same package?",
+        "options": [
+            "Weak Coupling",
+            "Strong Cohesion",
+            "Dependency Inversion",
+            "Interface Segregation"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "When organizing classes into packages, what is the goal regarding the relationship between *different* packages?",
+        "options": [
+            "Strong Cohesion",
+            "Strong Coupling",
+            "Weak Coupling",
+            "Circular Dependency"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "In a Layered Architecture, how are dependencies generally restricted?",
+        "options": [
+            "Lower layers depend on upper layers",
+            "Upper layers depend on lower layers",
+            "Layers can depend on any other layer freely",
+            "Dependencies are only allowed between non-adjacent layers"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In the MVC architecture, which component is responsible for presenting information and communicating with users?",
+        "options": [
+            "Model",
+            "View",
+            "Controller",
+            "Router"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is the primary responsibility of the Controller in MVC architecture?",
+        "options": [
+            "Managing information and data logic",
+            "Displaying the user interface",
+            "Receiving user requests and updating View/Model objects",
+            "Storing data in the database"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "In Microservices Architecture, how do independent services typically interact with the outside world?",
+        "options": [
+            "Directly through shared databases",
+            "Through a Gateway",
+            "By calling each other's private methods",
+            "They do not interact with the outside world"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which architectural pattern divides the system into event-generating layers (sources) and event-handling layers (listeners)?",
+        "options": [
+            "Layered Architecture",
+            "MVC Architecture",
+            "Microservices Architecture",
+            "Event-bus Architecture"
+        ],
+        "answer": [3]
+    },
+    {
+        "type": "single",
+        "question": "What is a significant advantage of Microservices Architecture mentioned in the slides?",
+        "options": [
+            "It requires a single massive database",
+            "Independence in development, deployment, and integration",
+            "Tight coupling between all components",
+            "Complex deployment of a single monolithic file"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In UML, what is defined as 'a physical and replaceable part of a system that adapts and provides implementation for a set of interfaces'?",
+        "options": [
+            "A Class",
+            "A Component",
+            "A Node",
+            "A Process"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which type of component includes dynamic libraries (DLLs) and executables necessary to create a viable system?",
+        "options": [
+            "Work product components",
+            "Deployment components",
+            "Execution components",
+            "Logical components"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which UML stereotype represents a static or dynamic object library in a Component Diagram?",
+        "options": [
+            "<<executable>>",
+            "<<file>>",
+            "<<library>>",
+            "<table>"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which stereotype is used to represent a database table in a Component Diagram?",
+        "options": [
+            "<<database>>",
+            "<table>",
+            "<<infrastructure>>",
+            "<<source>>"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What does the implementation perspective primarily describe?",
+        "options": [
+            "The logical relationships between classes",
+            "The organization of source code and executable components",
+            "The flow of events in a use case",
+            "The topology of hardware nodes"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is the main purpose of a Component Diagram?",
+        "options": [
+            "To show the interaction between users and the system",
+            "To visualize the physical structure of the system's software products",
+            "To describe the state changes of an object",
+            "To illustrate the hardware network topology"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In a Deployment Diagram, what does a 'Node' represent?",
+        "options": [
+            "A logical class in the code",
+            "A physical element representing a computational resource at runtime",
+            "A database table",
+            "A specific function in the source code"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "If a node name in a Deployment Diagram is NOT underlined, what does it represent?",
+        "options": [
+            "A specific individual resource (instance)",
+            "A class of resources",
+            "A software component",
+            "A connection protocol"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which stereotype is commonly used to denote a hardware node in a Deployment Diagram?",
+        "options": [
+            "<<execution env>>",
+            "<<device>>",
+            "<<process>>",
+            "<<artifact>>"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What does the stereotype <<execution env>> represent in a Deployment Diagram?",
+        "options": [
+            "A physical hardware device like a server or printer",
+            "A software node that hosts or executes other software elements",
+            "A communication protocol between nodes",
+            "A database schema"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In the Deployment Perspective, what do 'Connections' represent?",
+        "options": [
+            "Logical inheritance between classes",
+            "Communication relationships/paths between hardware nodes",
+            "Compiler dependencies between source files",
+            "The order of function calls in a sequence"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which connection stereotype represents a synchronous connection where the sender waits for a response?",
+        "options": [
+            "<<Asynchronous>>",
+            "<<HTTP>>",
+            "<<Synchronous>>",
+            "<<RMI>>"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What does the stereotype <<JDBC>> stand for in the context of connection templates?",
+        "options": [
+            "Java Data Business Connectivity",
+            "Java Database Connectivity",
+            "Joint Database Connection",
+            "Just Data Bridge Connection"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which architectural perspective addresses the question: 'On which processes is the system executed?'",
+        "options": [
+            "Logical Perspective",
+            "Implementation Perspective",
+            "Process Perspective",
+            "Deployment Perspective"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "How are processes typically modeled in UML diagrams?",
+        "options": [
+            "Using Class Diagrams with active classes",
+            "Using Use Case Diagrams only",
+            "Using simple block flowcharts",
+            "Processes cannot be modeled in UML"
+        ],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "Which distribution strategy involves grouping frequently interacting design elements into the same process first?",
+        "options": [
+            "Outside-In",
+            "Inside-Out",
+            "Top-Down",
+            "Bottom-Up"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "The 'Outside-In' distribution strategy starts by defining independent flows for which of the following?",
+        "options": [
+            "Internal database tables",
+            "External service requests or events",
+            "Small utility classes",
+            "The operating system kernel"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In a single-process architecture, when are processes typically created?",
+        "options": [
+            "When the application starts",
+            "Every time a user clicks a button",
+            "Whenever a new object is instantiated",
+            "Only when the database is accessed"
+        ],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is true about Multi-process architecture?",
+        "options": [
+            "All processes must share the same memory space",
+            "Processes can be destroyed independently",
+            "It is impossible to have multiple processes",
+            "Processes are never created from a parent process"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which package principle states that circular dependencies between packages should be avoided?",
+        "options": [
+            "Acyclic Dependencies Principle",
+            "Strong Cohesion",
+            "Weak Coupling",
+            "Common Reuse Principle"
+        ],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "Source code files (e.g., .h, .cpp) are considered which type of component?",
+        "options": [
+            "Deployment components",
+            "Work product components",
+            "Execution components",
+            "Hardware components"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "A '.JAR' file created as a result of an execution system is an example of which component type?",
+        "options": [
+            "Work product component",
+            "Execution component",
+            "Logical component",
+            "View component"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In the context of package dependencies, if Package A depends on Package B, what does this usually imply?",
+        "options": [
+            "Classes in A inherit from or use classes in B",
+            "Classes in B inherit from classes in A",
+            "There is no relationship between the classes",
+            "Package A and B must serve different users"
+        ],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "Which standard UML template represents a file containing source code or data?",
+        "options": [
+            "<<library>>",
+            "<<file>>",
+            "<<executable>>",
+            "<table>"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What does the 'RMI' connection template stand for?",
+        "options": [
+            "Remote Method Invocation",
+            "Real-time Message Interface",
+            "Rapid Memory Interaction",
+            "Remote Machine Interface"
+        ],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "In the Layered Architecture, what is a 'leapfrog' dependency?",
+        "options": [
+            "A dependency that follows the strict layer order",
+            "A dependency that skips an intermediate layer to access a lower one",
+            "A dependency going from a lower layer to an upper layer",
+            "A dependency between two classes in the same layer"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which logical perspective principle suggests separating stable classes from those likely to change?",
+        "options": [
+            "Development trends / Stability",
+            "Strong Coupling",
+            "Circular Dependency",
+            "User Interface Design"
+        ],
+        "answer": [0]
+    }
+]

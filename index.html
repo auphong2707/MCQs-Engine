@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Review Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQ Review Application</h1>
+        </header>
+
+        <!-- Question Sets Selection -->
+        <div id="setsContainer" class="sets-container">
+            <h2>Select Question Sets</h2>
+            
+            <!-- Search Box -->
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search subjects or files...">
+                <button id="clearSearchBtn" class="clear-search-btn" style="display: none;">✕</button>
+            </div>
+            
+            <!-- Folder Tree View -->
+            <div id="treeContainer" class="tree-container">
+                <p class="loading-text">Loading folder structure...</p>
+            </div>
+            
+            <div class="sets-actions">
+                <button id="selectAllBtn" class="btn btn-secondary">Select All</button>
+                <button id="deselectAllBtn" class="btn btn-secondary">Deselect All</button>
+                <button id="expandAllBtn" class="btn btn-secondary">Expand All</button>
+                <button id="collapseAllBtn" class="btn btn-secondary">Collapse All</button>
+                <button id="loadSelectedBtn" class="btn btn-primary" disabled>Load Selected Sets</button>
+            </div>
+            <div class="file-selector">
+                <label for="folderInput" class="folder-label-small">
+                    <span>📁 Or Select Folder</span>
+                    <input type="file" id="folderInput" webkitdirectory directory multiple style="display: none;">
+                </label>
+            </div>
+        </div>
+
+        <!-- Questions Display -->
+        <div id="questionsSection" class="questions-section" style="display: none;">
+            <div class="section-header">
+                <h2>Questions</h2>
+                <button id="backToSetsBtn" class="btn btn-secondary">← Back to Sets</button>
+            </div>
+            <div id="questionsContainer" class="questions-container"></div>
+
+            <div id="controlPanel" class="control-panel">
+                <button id="submitBtn" class="btn btn-submit">Submit Answers</button>
+                <button id="resetBtn" class="btn btn-reset" style="display: none;">Reset Quiz</button>
+                <div id="scoreDisplay" class="score-display" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+[
+    {
+        "type": "single",
+        "question": "Which analysis identifies the functional requirements (WHAT) of the system?",
+        "options": ["Structural analysis", "Behavioral analysis", "Functional analysis", "Environmental analysis"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which analysis identifies the necessary components of the system to meet functions?",
+        "options": ["Functional analysis", "Structural analysis", "Behavioral analysis", "Needs analysis"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which analysis identifies the interactions between system elements?",
+        "options": ["Functional analysis", "Structural analysis", "Behavioral analysis", "SWOT analysis"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What is the primary output of Functional Analysis?",
+        "options": ["Database Schema", "Internal Code Structure", "Explicit representation of user requests (Business & Use Case Modeling)", "Hardware Specifications"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "In which RUP phase does Business Modeling predominantly occur?",
+        "options": ["Inception and Elaboration", "Construction", "Transition", "Maintenance"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "What does the 'AS-IS' business model represent?",
+        "options": ["The system after deployment", "The organization's business activities before building the system", "The user interface design", "The database structure"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of the 'TO-BE' business model?",
+        "options": ["To analyze current weaknesses", "To clarify user requirements after building/applying the system", "To document past mistakes", "To list hardware costs"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is considered an 'External Partner' (Business Actor) in a business model?",
+        "options": ["Office staff", "Manager", "Supplier", "Business worker"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What are 'Business Objects' in a business model?",
+        "options": ["The people working in the office", "Documents and information used in business activities", "The software code", "The hardware servers"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "According to Davenport (1993), what is a Business Process?",
+        "options": ["A random set of tasks", "A specific ordering of work activities with inputs and outputs", "A database query", "A software function"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an example of a Manufacturing business process?",
+        "options": ["Recruitment", "Billing", "Product Creation", "Selling"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which diagram is commonly used for Diagrammatic Business Process Modeling?",
+        "options": ["Class Diagram", "Activity Diagram (BPMN)", "Component Diagram", "Deployment Diagram"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In an Activity Diagram, what does a diamond shape represent?",
+        "options": ["Activity", "Decision", "Start Node", "End Node"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is a 'Guard Condition' in an Activity Diagram?",
+        "options": ["A condition that must be met for a transition to execute", "A security firewall", "A comment in the code", "A type of actor"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "Which element in an Activity Diagram is used to open parallel branches?",
+        "options": ["Join", "Fork", "Decision", "Merge"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which element in an Activity Diagram is used to close parallel branches?",
+        "options": ["Fork", "Join", "Decision", "Merge"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What do 'Swimlanes' in an Activity Diagram represent?",
+        "options": ["Time duration", "Groupings of activities (e.g., by responsible person or department)", "Data flow", "Network cables"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is a 'Use Case'?",
+        "options": ["A database table", "A technique for describing functional requirements via observable events", "A graphic design tool", "A project management schedule"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a goal of Use Case modeling?",
+        "options": ["Communication with customers", "Starting point for development", "Providing information for testing", "Defining the physical network topology"],
+        "answer": [3]
+    },
+    {
+        "type": "single",
+        "question": "In a Use Case Specification, what does 'Pre-condition' define?",
+        "options": ["The result after the use case", "The state of the system before the use case starts", "The main event flow", "The actor's name"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which representation of Use Case Specification is better for covering exception situations?",
+        "options": ["Textual", "Diagrammatic (Activity/Sequence)", "Oral description", "Excel table"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which representation of Use Case Specification is better for customer communication?",
+        "options": ["Textual", "Diagrammatic", "Source Code", "Binary"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "What does a 'Business Use Case Diagram' express?",
+        "options": ["System requirements", "User requirements (Stakeholder requirements)", "Database requirements", "Network requirements"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In a Use Case Diagram, what is an 'Actor'?",
+        "options": ["Only the end user", "A system function", "Users, external systems, or devices interacting with the system", "A programming variable"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "A 'Primary Partner' (Actor) in a Use Case is typically:",
+        "options": ["Passive", "Active", "Hidden", "Optional"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What does 'Partner Generalization' imply in a Use Case Diagram?",
+        "options": ["A includes B", "A extends B", "Actor A inherits roles and use cases from Actor B", "Actor A and B are unrelated"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of the 'Include' relationship between use cases?",
+        "options": ["To show optional behavior", "To avoid duplication by separating common mandatory parts", "To link actors together", "To represent inheritance"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "If Use Case A 'includes' Use Case B, what does it mean?",
+        "options": ["B is optional", "The event sequence of A contains the event sequence of B", "A occurs after B", "A and B are mutually exclusive"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "If Use Case A 'extends' Use Case B, what does it typically mean?",
+        "options": ["A is a mandatory part of B", "B contains the event sequence of A (often optional/conditional)", "A is the parent of B", "A always happens before B"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which UML element is used to group and organize Use Cases?",
+        "options": ["Class", "Package", "Actor", "Interface"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is a common mistake when building Use Case Diagrams?",
+        "options": ["Using actors", "Using relationships", "Using 'context' or 'top' level diagrams to represent groups of functions", "Using packages"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "In the SRS document structure, where are Functional Requirements typically detailed?",
+        "options": ["Section 1: Foreword", "Section 2: Introduction", "Section 4: Requirements Details", "Section 5: Appendix"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which event flow is 'not good at covering exception situations' when described in text?",
+        "options": ["Main flow", "Alternative flow", "Textual representation in general", "Diagrammatic representation"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Trigger Event' in a Use Case Specification?",
+        "options": ["The outcome", "The event that starts the use case", "The error message", "The final step"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which activity involves 'Resolving conflicts'?",
+        "options": ["Business Modeling", "Project Coordination (from previous context, but mentioned in generic skills)", "Requirements Analysis (implied)", "Personnel Selection"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In the example 'Buy Stamp', what is the System's first action?",
+        "options": ["Ask for PIN", "Display Welcome message and Start button", "Print Invoice", "Scan Card"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is the relationship called when `Buy Stamp` uses `Pay` as a mandatory sub-process?",
+        "options": ["Extend", "Include", "Generalization", "Association"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is the relationship called when `Add customer profile` is an optional part of `Manage customer`?",
+        "options": ["Include", "Extend", "Inheritance", "Realization"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which phase of the SDLC is 'Business Modeling' primarily associated with in the RUP diagram?",
+        "options": ["Inception", "Construction", "Transition", "Testing"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "What does a 'Fork Node' look like in an Activity Diagram?",
+        "options": ["A diamond", "A solid bar with one incoming and multiple outgoing flows", "A circle", "A rectangle"],
+        "answer": [1]
+    }
+]

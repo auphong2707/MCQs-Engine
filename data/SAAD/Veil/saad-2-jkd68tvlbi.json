@@ -1,0 +1,242 @@
+[
+    {
+        "type": "single",
+        "question": "Which question does the 'Planning' phase of the SDLC primarily answer?",
+        "options": ["WHO?", "HOW?", "WHY?", "WHEN?"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which phase of the SDLC answers the questions 'WHO, WHAT, WHERE, and WHEN'?",
+        "options": ["Planning", "Analysis", "Design", "Implementation"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which phase of the SDLC focuses on 'HOW' the system will be built?",
+        "options": ["Analysis", "Design", "Planning", "Implementation"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a primary activity during the Planning phase?",
+        "options": ["Identify opportunities", "Assess feasibility", "Develop a plan", "Design database schema"],
+        "answer": [3]
+    },
+    {
+        "type": "single",
+        "question": "What is the starting point for 'Project Identification'?",
+        "options": ["Technical constraints", "Business needs", "Project size", "Programming language selection"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an example of a 'Tangible Value'?",
+        "options": ["Improving customer service", "Reducing operating costs by 20%", "Enhancing brand reputation", "Better supplier relations"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is considered an 'Intangible Value'?",
+        "options": ["Increased sales by 3%", "Reduced labor costs", "Improved customer service", "Reduced supply chain costs"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "In the System Request table, what does 'Project Sponsor' refer to?",
+        "options": ["The person who builds the code", "The project proponent or contact person (e.g., CEO, CIO)", "The customer using the software", "The database administrator"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT one of the three major areas of Feasibility Analysis?",
+        "options": ["Technical Feasibility", "Economic Feasibility", "Organizational Feasibility", "Legal Feasibility"],
+        "answer": [3]
+    },
+    {
+        "type": "single",
+        "question": "Which factor is assessed under 'Technical Feasibility'?",
+        "options": ["Project size", "Return on Investment (ROI)", "User acceptance", "Development team salaries"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "Assessing 'Familiarity with the application system' is part of which feasibility study?",
+        "options": ["Economic", "Organizational", "Technical", "Operational"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which feasibility analysis considers 'Compatibility' with existing systems?",
+        "options": ["Organizational Feasibility", "Economic Feasibility", "Technical Feasibility", "Schedule Feasibility"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What is the primary focus of 'Economic Feasibility'?",
+        "options": ["Technical risks", "Alignment with business goals", "Costs and benefits (Cash flow)", "User training"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which concept is used to measure the efficiency of an investment by comparing gain to cost?",
+        "options": ["BEP (Break-even Point)", "ROI (Return on Investment)", "PV (Present Value)", "Cash Flow"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is the formula for calculating ROI (Return on Investment)?",
+        "options": ["(Total Benefits + Total Costs) / Total Costs", "(Total Benefits - Total Costs) / Total Costs", "Total Costs / Total Benefits", "Total Benefits - Total Costs"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What does BEP stand for in economic feasibility analysis?",
+        "options": ["Benefit Estimation Plan", "Break-Even Point", "Business Entry Point", "Budget Evaluation Process"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "The Break-Even Point (BEP) represents the time it takes to:",
+        "options": ["Double the initial investment", "Recover the initial total investment", "Complete the project coding", "Identify the project sponsor"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which financial measure accounts for the 'time value of money'?",
+        "options": ["ROI", "BEP", "NPV", "Cash Flow"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "In the NPV formula, what is used to discount future cash flows?",
+        "options": ["Inflation rate", "Tax rate", "Discount rate (r)", "Growth rate"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "If the NPV (Net Present Value) is positive, the project is generally considered:",
+        "options": ["Financially sound", "Too risky", "Not profitable", "Technically unfeasible"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "How is the Present Value (PV) of a future cash flow calculated?",
+        "options": ["Cash Flow * (1 + r)^n", "Cash Flow / (1 + r)^n", "Cash Flow + (1 + r)^n", "Cash Flow - (1 + r)^n"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which factor is part of 'Organizational Feasibility'?",
+        "options": ["Familiarity with technology", "System operating costs", "User and stakeholder acceptance", "Hardware compatibility"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a 'Development Cost'?",
+        "options": ["Software updates", "Cloud services", "Development team salaries", "Hardware repairs"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an 'Operating Cost'?",
+        "options": ["Consulting costs", "Software licensing", "Data conversion", "Setting up a sales system"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In Cash Flow Analysis, 'Year 0' typically represents:",
+        "options": ["The first year of profit", "The initial investment (outflow)", "The break-even year", "The final year of the project"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "If Total Benefits = $185,000 and Total Costs = $100,000, what is the ROI?",
+        "options": ["0.85 (85%)", "1.85 (185%)", "0.54 (54%)", "0.46 (46%)"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "In a project, if the cumulative cash flow becomes positive in Year 3, the Break-Even Point is:",
+        "options": ["Exactly 3 years", "Between Year 2 and Year 3", "Between Year 3 and Year 4", "Less than 2 years"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a criterion for Project Selection mentioned in the slides?",
+        "options": ["Size", "Risks", "Code complexity", "Economic values"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which tool is commonly used for project management scheduling?",
+        "options": ["Use Case Diagram", "Gantt Chart", "ER Diagram", "Class Diagram"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Who is typically at the top of the project personnel hierarchy shown in the slides?",
+        "options": ["Technical Lead", "Functional Lead", "Project Manager", "Analyst"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "The 'Functional Lead' primarily manages which group of personnel?",
+        "options": ["Programmers", "Analysts", "System Architects", "Database Designers"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "The 'Technical Lead' primarily manages which group of personnel?",
+        "options": ["Analysts", "Business Experts", "Programmers", "Project Sponsors"],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which three variables represent the project management trade-off?",
+        "options": ["Quality, Risk, Money", "Size, Time, Cost", "People, Process, Product", "Scope, Hardware, Software"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is 'Timeboxing' used for?",
+        "options": ["Calculating NPV", "Managing project scope and schedule", "Designing database interfaces", "Estimating ROI"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which step follows 'Project Selection' in the planning process?",
+        "options": ["Project Planning", "Implementation", "Maintenance", "Termination"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "What activity involves 'Waterfall', 'Iterative', or 'Agile' choices?",
+        "options": ["Choosing a Project Development Methodology", "Assessing Economic Feasibility", "Personnel Selection", "Defining Business Requirements"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a task in 'Project Management and Coordination'?",
+        "options": ["Managing risks", "Writing code", "Designing the UI", "Installing hardware"],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "If a project has negative cash flow for 2 years, and Year 3 cash flow is $50,000, while $30,000 is needed to recover, what is the BEP?",
+        "options": ["2.3 years", "2.6 years", "3.0 years", "2.5 years"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What kind of cost is 'Hardware Repairs and Upgrades' classified as?",
+        "options": ["Development Cost", "Operating Cost", "Intangible Cost", "Sunk Cost"],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which document is created to describe the reasons for building a system and its expected value?",
+        "options": ["Gantt Chart", "System Request", "Architecture Design", "ERD"],
+        "answer": [1]
+    }
+]
