@@ -587,6 +587,7 @@ function createQuestionElement(question, index) {
             <button class="btn-check-answer" data-question-index="${index}" ${isQuestionSubmitted || isSubmitted ? 'style="display:none;"' : ''}>Check Answer</button>
             <div class="question-feedback" style="display:none;"></div>
         </div>
+        <div class="question-explanation" style="display:none;"></div>
     `;
     
     div.innerHTML = html;
@@ -661,7 +662,16 @@ function checkSingleQuestion(questionIndex) {
     checkBtn.style.display = 'none';
     feedback.style.display = 'block';
     feedback.className = `question-feedback ${isCorrect ? 'correct-feedback' : 'incorrect-feedback'}`;
-    feedback.textContent = isCorrect ? '✓ Correct!' : '✗ Incorrect';
+    feedback.innerHTML = isCorrect ? '✓ Correct!' : '✗ Incorrect';
+    
+    // Show explanation if available
+    if (question.explanation) {
+        const explanationDiv = questionBlock.querySelector('.question-explanation');
+        if (explanationDiv) {
+            explanationDiv.innerHTML = `<strong>Explanation:</strong> ${escapeHtml(question.explanation)}`;
+            explanationDiv.style.display = 'block';
+        }
+    }
     
     // Disable inputs for this question
     const inputs = questionBlock.querySelectorAll('input');
@@ -696,6 +706,15 @@ function highlightSingleQuestion(questionIndex) {
             item.classList.add('user-selected');
         }
     });
+    
+    // Show explanation if available
+    if (question.explanation) {
+        const explanationDiv = questionBlock.querySelector('.question-explanation');
+        if (explanationDiv) {
+            explanationDiv.innerHTML = `<strong>Explanation:</strong> ${escapeHtml(question.explanation)}`;
+            explanationDiv.style.display = 'block';
+        }
+    }
 }
 
 /**

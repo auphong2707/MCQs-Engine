@@ -30,13 +30,15 @@ Each JSON file should contain an array of question objects:
         "type": "single",
         "question": "What is the capital of France?",
         "options": ["London", "Berlin", "Paris", "Madrid"],
-        "answer": [2]
+        "answer": [2],
+        "explanation": "Paris is the capital and largest city of France."
     },
     {
         "type": "multi",
         "question": "Select all programming languages that are object-oriented:",
         "options": ["C", "Java", "Python", "Assembly"],
-        "answer": [1, 2]
+        "answer": [1, 2],
+        "explanation": "Java and Python are object-oriented languages. C is procedural, and Assembly is a low-level language."
     }
 ]
 ```
@@ -47,6 +49,7 @@ Each JSON file should contain an array of question objects:
 - **question**: The question text
 - **options**: Array of answer options (strings)
 - **answer**: Array of correct answer indices (0-based)
+- **explanation**: (Optional) Explanation text shown after answering
 
 ## Sample Data
 
