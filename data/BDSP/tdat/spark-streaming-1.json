@@ -1,0 +1,780 @@
+[
+    {
+        "type": "multi",
+        "question": "What is the core processing model of Spark Streaming?",
+        "options": [
+            "Continuous operator-based streaming.",
+            "Micro-batch processing.",
+            "Discretized Stream processing.",
+            "Record-at-a-time processing."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Spark Streaming uses a 'micro-batch' architecture where the live stream is divided into batches (Discretized Streams), and each batch is processed as an RDD. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is a DStream (Discretized Stream)?",
+        "options": [
+            "The basic abstraction provided by Spark Streaming.",
+            "A continuous sequence of RDDs.",
+            "A specialized Kafka topic.",
+            "A static file stored in HDFS."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "A DStream is the basic abstraction representing a continuous stream of data. Internally, it is represented as a sequence of RDDs. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid input sources for Spark Streaming?",
+        "options": [
+            "Kafka",
+            "Flume",
+            "TCP Sockets",
+            "Kinesis"
+        ],
+        "answer": [
+            0,
+            1,
+            2,
+            3
+        ],
+        "explanation": "Spark Streaming supports many sources including Kafka, Flume, Kinesis, and TCP sockets. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the 'Batch Interval'?",
+        "options": [
+            "The time duration of each micro-batch.",
+            "A parameter set when initializing the StreamingContext.",
+            "The time it takes to process one record.",
+            "The latency of the network."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "The Batch Interval is the duration (e.g., 1 second) that defines the size of the micro-batches. It is set during context initialization. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is a 'Receiver' in Spark Streaming?",
+        "options": [
+            "A long-running task on a worker node that receives data.",
+            "It stores received data into Spark's memory.",
+            "It runs on the Driver node.",
+            "It is used for file-based streams."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Receivers run on worker nodes (executors) to receive data from sources like Kafka (Receiver-based) or sockets and store it in memory. File streams do not use receivers. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the 'StreamingContext'?",
+        "options": [
+            "The main entry point for all Spark Streaming functionality.",
+            "It requires a SparkConf object to initialize.",
+            "It is used to create DStreams.",
+            "It is a database connection."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "StreamingContext is the main entry point, analogous to SparkContext. It creates DStreams and manages the streaming application. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "Which methods are used to control the execution of a Streaming application?",
+        "options": [
+            "ssc.start()",
+            "ssc.awaitTermination()",
+            "ssc.stop()",
+            "ssc.run()"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "You must call `start()` to begin processing, `awaitTermination()` to keep the process alive, and `stop()` to end it. `run()` is not a standard control method. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What happens if you define a transformation on a DStream but do not call an output operation?",
+        "options": [
+            "The application will run but produce no output.",
+            "Spark will throw an error.",
+            "Nothing will be executed because DStreams are lazy.",
+            "The data will be stored in memory forever."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Like RDDs, DStreams are lazy. If no output operation (like print or save) is called, the computations are not triggered. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are stateless transformations in Spark Streaming?",
+        "options": [
+            "map",
+            "filter",
+            "reduceByKey",
+            "updateStateByKey"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`map`, `filter`, and `reduceByKey` (within a batch) are stateless. `updateStateByKey` is stateful as it tracks data across batches. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What characterizes 'Stateful Transformations'?",
+        "options": [
+            "They operate on data from previous batches.",
+            "Examples include `updateStateByKey` and `window` operations.",
+            "They require Checkpointing to be enabled.",
+            "They consume less memory than stateless transformations."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Stateful transformations use data from history. They require checkpointing to cut lineage dependencies and prevent infinite growth. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What are the two parameters required for a Window operation?",
+        "options": [
+            "Window Length.",
+            "Sliding Interval.",
+            "Batch Interval.",
+            "Replication Factor."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Window operations need Window Length (duration of the window) and Sliding Interval (how often to calculate). Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What constraint applies to Window Length and Sliding Interval?",
+        "options": [
+            "They must be multiples of the Batch Interval.",
+            "Window Length must be greater than Sliding Interval.",
+            "Sliding Interval must be greater than Window Length.",
+            "They must be prime numbers."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Both parameters must be multiples of the batch interval because DStreams are processed in discrete batch units. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What does the `window(windowLength, slideInterval)` transformation do?",
+        "options": [
+            "It returns a new DStream which computes results over a sliding window.",
+            "It unifies the RDDs in the window into a single RDD.",
+            "It deletes old data.",
+            "It is an output operation."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "The `window` method creates a new DStream where each RDD contains all data falling within the window duration. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the purpose of `reduceByWindow()`?",
+        "options": [
+            "To aggregate elements within a sliding window.",
+            "It takes a reduce function (e.g., +) as input.",
+            "It requires an inverse reduce function (e.g., -) for optimization.",
+            "It is used for stateless processing."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`reduceByWindow` aggregates data. Providing an inverse function (e.g., subtracting data leaving the window) optimizes performance (incremental calculation). Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What does `updateStateByKey` allow you to do?",
+        "options": [
+            "Maintain arbitrary state for each key across batches.",
+            "Implement a running count of words.",
+            "Track user sessions over time.",
+            "Read files from HDFS."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`updateStateByKey` is designed for maintaining state (like running counts or sessions) continuously across the stream. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "Why is Checkpointing necessary for `updateStateByKey`?",
+        "options": [
+            "Because the RDD lineage graph would grow infinitely long.",
+            "To prevent StackOverflowError during lineage recovery.",
+            "To save the state to reliable storage.",
+            "It is not necessary."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Without checkpointing, the dependency chain (lineage) grows with every batch, leading to long recovery times or stack overflows. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What are the two types of Checkpointing in Spark Streaming?",
+        "options": [
+            "Metadata Checkpointing.",
+            "Data Checkpointing.",
+            "Log Checkpointing.",
+            "Process Checkpointing."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Spark separates checkpointing into Metadata (for driver recovery) and Data (for stateful RDDs). Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What information is stored in Metadata Checkpointing?",
+        "options": [
+            "Configuration.",
+            "DStream Operations (DAG).",
+            "Incomplete Batches.",
+            "The actual data inside the RDDs."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Metadata checkpointing saves the configuration, operation definitions, and queued batches to recover the Driver. It does not save the data (that is Data Checkpointing). Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "When should you enable Checkpointing?",
+        "options": [
+            "When using stateful transformations (updateStateByKey, reduceByKeyAndWindow).",
+            "When the application needs to recover from Driver failures.",
+            "For every simple streaming application.",
+            "When reading from text files."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Checkpointing is mandatory for stateful operations and for applications requiring Driver fault tolerance. It adds overhead, so it's not for 'every' app. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are Output Operations?",
+        "options": [
+            "print()",
+            "saveAsTextFiles()",
+            "saveAsHadoopFiles()",
+            "foreachRDD()"
+        ],
+        "answer": [
+            0,
+            1,
+            2,
+            3
+        ],
+        "explanation": "All listed options are valid output operations that push data out of the DStream to external systems or console. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the most generic output operation that lets you push data to any external system?",
+        "options": [
+            "foreachRDD",
+            "print",
+            "saveAsObjectFiles",
+            "reduce"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "`foreachRDD` allows you to apply arbitrary functions to the RDD, enabling writes to databases like MySQL, Cassandra, etc. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "When writing data to a database inside `foreachRDD`, what is the correct pattern?",
+        "options": [
+            "Create a connection object on the Driver and pass it to the workers.",
+            "Create a connection for every single record in the iterator.",
+            "Use `rdd.foreachPartition` and create a connection per partition.",
+            "Use a static connection pool lazily instantiated on the workers."
+        ],
+        "answer": [
+            2,
+            3
+        ],
+        "explanation": "You cannot serialize connections from Driver. Creating one per record is slow. `foreachPartition` with a connection pool is best practice. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is a 'Reliable Receiver'?",
+        "options": [
+            "A receiver that acknowledges sources only after data has been replicated in Spark.",
+            "A receiver that uses Write Ahead Logs (WAL).",
+            "A receiver that never crashes.",
+            "A receiver that runs on the master node."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Reliable receivers ensure zero data loss by ACKing data only after it is safely stored (replicated or WAL). Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the 'Receiver-based Approach' for Kafka integration?",
+        "options": [
+            "It uses a Receiver to consume data from Kafka.",
+            "It stores data in Spark executors.",
+            "It typically requires Write Ahead Logs (WAL) for zero data loss.",
+            "It allows parallel reading directly from Kafka partitions."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "The Receiver approach pulls data into executors. It needs WAL to prevent loss on failure. It does not naturally parallelize with Kafka partitions like the Direct API. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the 'Direct Approach' for Kafka integration?",
+        "options": [
+            "It does not use Receivers.",
+            "It reads directly from Kafka partitions using the consumer API.",
+            "It provides simplified parallelism (1:1 mapping between Kafka partitions and Spark partitions).",
+            "It guarantees Exactly-Once semantics more easily."
+        ],
+        "answer": [
+            0,
+            1,
+            2,
+            3
+        ],
+        "explanation": "The Direct API queries offsets and reads directly. It maps Kafka partitions to RDD partitions and simplifies Exactly-Once guarantees. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is a Write Ahead Log (WAL) in Spark Streaming?",
+        "options": [
+            "A mechanism to ensure data durability.",
+            "Received data is written to a log on a reliable file system (HDFS) before processing.",
+            "It prevents data loss if the Receiver fails.",
+            "It is enabled by default."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "WAL writes incoming data to HDFS/S3 synchronously. This ensures that if the executor crashes, the data can be recovered. It is not enabled by default. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "How does Spark Streaming handle Worker (Executor) failure?",
+        "options": [
+            "Tasks running on the failed node are restarted on other nodes.",
+            "Lost RDD partitions are recomputed from lineage or replicas.",
+            "The entire application crashes.",
+            "Data buffered in the memory of the failed worker is lost (unless replicated/WAL)."
+        ],
+        "answer": [
+            0,
+            1,
+            4
+        ],
+        "explanation": "Spark tolerates worker failure by restarting tasks. Buffered data is safe if replicated; otherwise, it might be lost without WAL. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "How does Spark Streaming recover from Driver failure?",
+        "options": [
+            "It requires `StreamingContext.getOrCreate` with a checkpoint directory.",
+            "The new driver reloads the metadata (DAG, offsets) from the checkpoint.",
+            "It automatically restarts without any configuration.",
+            "It restarts the unfinished batches."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "To support driver recovery, the code must be written to check for an existing checkpoint directory to resume state. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What performance tuning metrics should be monitored?",
+        "options": [
+            "Processing Time vs Batch Interval.",
+            "Scheduling Delay.",
+            "Receiver Throughput.",
+            "GC Pause Times."
+        ],
+        "answer": [
+            0,
+            1,
+            2,
+            3
+        ],
+        "explanation": "Key metrics include checking if processing time < batch interval, scheduling delay (queueing), and memory/GC pressure. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What indicates that a Spark Streaming system is unstable?",
+        "options": [
+            "Scheduling Delay keeps increasing.",
+            "Processing Time is consistently greater than Batch Interval.",
+            "Active Batches are piling up in the queue.",
+            "The input rate is zero."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "If the system cannot keep up (Process Time > Interval), the queue grows indefinitely (Delay increases), causing instability. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "How can you improve the performance of a Spark Streaming application?",
+        "options": [
+            "Increase the number of receivers (or partitions in Direct API).",
+            "Use Kryo serialization.",
+            "Adjust the Batch Interval.",
+            "Disable caching."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Parallelism (more receivers/partitions), efficient serialization (Kryo), and finding the right batch size improve performance. Caching usually helps, not hurts. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the effect of using `persist(StorageLevel.MEMORY_AND_DISK_SER)` on DStreams?",
+        "options": [
+            "It stores data in serialized format (compact).",
+            "It spills to disk if memory is full.",
+            "It is the default storage level for Receiver-based input streams.",
+            "It reduces GC overhead."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Serialized storage reduces GC pressure and memory usage. Spilling to disk ensures durability. Note: Default is usually MEMORY_AND_DISK_SER_2 for Receivers. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is 'Backpressure' in Spark Streaming?",
+        "options": [
+            "A mechanism to automatically adjust the receiving rate.",
+            "It prevents the system from crashing when the input rate spikes.",
+            "It signals the data source to slow down.",
+            "It is enabled by setting `spark.streaming.backpressure.enabled` to true."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Backpressure dynamically controls the ingestion rate based on current processing conditions to ensure stability. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following describes 'At-most-once' semantics?",
+        "options": [
+            "Each record will be processed either once or not at all.",
+            "Data loss is possible.",
+            "It is the default behavior without WAL or Ack.",
+            "It guarantees no duplicates."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "At-most-once means no retry logic; data can be lost if a worker fails before processing is logged. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following describes 'At-least-once' semantics?",
+        "options": [
+            "Each record will be processed one or more times.",
+            "No data loss, but duplicates are possible.",
+            "Achieved using Reliable Receivers and WAL.",
+            "Requires idempotent output operations."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "At-least-once ensures data is safe, but failure updates might result in re-processing the same data. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following describes 'Exactly-once' semantics?",
+        "options": [
+            "Each record is processed exactly one time (effectively).",
+            "Achieved using Direct Kafka API + Idempotent Output / Transactional Output.",
+            "It is the hardest guarantee to achieve.",
+            "It is impossible in distributed systems."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Exactly-once is possible end-to-end but requires specific input (Direct API) and output handling (Transactions/Idempotency). Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What does `countByWindow` do?",
+        "options": [
+            "Returns a sliding window count of elements.",
+            "It is a stateful transformation.",
+            "It requires window length and sliding interval.",
+            "It returns a single integer for the whole stream."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`countByWindow` returns the count of elements within the window duration. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the `transform()` operation used for?",
+        "options": [
+            "It allows applying arbitrary RDD-to-RDD functions on the DStream.",
+            "It enables using RDD functionality not directly exposed in the DStream API.",
+            "It allows joining a DStream with a static RDD.",
+            "It is a stateless transformation."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`transform` exposes the underlying RDDs, allowing advanced RDD operations like joining with a static dataset. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "In a Flume integration, what are the two models?",
+        "options": [
+            "Push-based (Flume pushes to Spark Receiver).",
+            "Pull-based (Spark pulls from Flume Sink).",
+            "Custom-Sink.",
+            "File-based."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Spark supports Flume via Push (Legacy) and Pull (Custom Sink, more reliable). Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the syntax to create a socket text stream?",
+        "options": [
+            "ssc.socketTextStream(hostname, port)",
+            "ssc.textFile(path)",
+            "ssc.createStream(tcp)",
+            "new Socket(hostname, port)"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The standard method is `ssc.socketTextStream(host, port)`. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What happens when `stop(stopSparkContext=true)` is called?",
+        "options": [
+            "The StreamingContext is stopped.",
+            "The underlying SparkContext is also stopped.",
+            "The application exits.",
+            "Only the receivers are stopped."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "By default, stopping the StreamingContext also stops the SparkContext. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "Can you start multiple StreamingContexts in the same JVM?",
+        "options": [
+            "No, only one StreamingContext can be active per JVM.",
+            "Yes, if they use different ports.",
+            "Yes, if they use different SparkContexts.",
+            "Spark does not support this."
+        ],
+        "answer": [
+            0,
+            3
+        ],
+        "explanation": "A JVM can only have one active StreamingContext. You must stop one to start another. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the default persistence level for DStreams created by `socketTextStream`?",
+        "options": [
+            "MEMORY_AND_DISK_SER_2",
+            "MEMORY_ONLY",
+            "DISK_ONLY",
+            "NONE"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Input streams usually default to replication (SER_2) for fault tolerance since recomputing from a socket is impossible. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the role of the 'Block Manager' in Streaming?",
+        "options": [
+            "Receivers pass received data blocks to the Block Manager.",
+            "It manages replication of blocks to other nodes.",
+            "It serves blocks to executors for processing.",
+            "It coordinates the DAG."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "The Block Manager handles the storage and replication of the data blocks generated by Receivers. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "How do you achieve 'One-time' semantics for output operations?",
+        "options": [
+            "Design output operations to be idempotent.",
+            "Use transactions to write results.",
+            "It is automatic.",
+            "Disable checkpointing."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "To ensure exactly-once output, the operation must be idempotent (repeating it doesn't change result) or transactional. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What happens to data received during a 'Graceful Shutdown'?",
+        "options": [
+            "The system stops receiving new data immediately.",
+            "It finishes processing the data already received.",
+            "It discards all buffered data.",
+            "It waits for the current batch to finish."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Graceful shutdown (`ssc.stop(true, true)`) ensures processing completes for received data before exiting. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the difference between `reduceByKeyAndWindow` with and without inverse function?",
+        "options": [
+            "With inverse function is more efficient (incremental).",
+            "Without inverse function recomputes the entire window from scratch.",
+            "Inverse function requires Checkpointing.",
+            "There is no difference."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Incremental reduction (add new, subtract old) is efficient but requires checkpointing. Recomputing from scratch is slower for large windows. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What does `glom()` do in a streaming context?",
+        "options": [
+            "Coalesces all elements in a partition into an array.",
+            "It is an RDD transformation available via `transform()`.",
+            "It is used to flatten DStreams.",
+            "It deletes empty partitions."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "`glom()` transforms each partition into a single array. It is a standard RDD method. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "Why might you use `repartition()` on a DStream?",
+        "options": [
+            "To increase parallelism if the input stream has few partitions.",
+            "To distribute load across more workers.",
+            "It triggers a shuffle.",
+            "To save memory."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "If the input (e.g., socket) has only 1 partition, repartitioning allows utilizing the whole cluster. It involves a shuffle. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the correct way to recover a StreamingContext from checkpoint?",
+        "options": [
+            "Use `StreamingContext.getOrCreate(checkpointPath, setupFunc)`.",
+            "Manually read the checkpoint file.",
+            "Restart the driver with a new context.",
+            "It happens automatically by the cluster manager."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The `getOrCreate` pattern checks the path; if a checkpoint exists, it rebuilds the context from it. If not, it calls `setupFunc` to create a new one. Source: IT4931_lecture_notes.pdf (Chapter 7)."
+    }
+]

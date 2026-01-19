@@ -1,0 +1,792 @@
+[
+    {
+        "type": "multi",
+        "question": "What are the primary advantages of Apache Spark over Hadoop MapReduce?",
+        "options": [
+            "In-memory processing for faster data sharing.",
+            "Support for iterative algorithms (e.g., Machine Learning).",
+            "It replaces HDFS as the storage layer.",
+            "General execution graphs (DAGs) allowing multiple stages."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Spark provides in-memory computation which is much faster for iterative jobs (like ML) compared to MapReduce's disk-based approach. It uses DAGs for optimization. It does not replace HDFS. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What are the defining characteristics of an RDD (Resilient Distributed Dataset)?",
+        "options": [
+            "Immutable (Read-only).",
+            "Partitioned across the cluster.",
+            "Fault-tolerant via lineage.",
+            "Always stored in RAM."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "RDDs are immutable, partitioned collections of objects that can be recomputed if lost (resilient). They are not *always* in RAM; they can spill to disk or be recomputed. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following operations are 'Transformations' in Spark?",
+        "options": [
+            "map",
+            "filter",
+            "count",
+            "reduceByKey"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Transformations creates a new RDD from an existing one (map, filter, reduceByKey). 'count' is an Action that returns a value to the driver. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following operations are 'Actions' in Spark?",
+        "options": [
+            "collect",
+            "saveAsTextFile",
+            "take",
+            "join"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Actions trigger computation and return results (collect, take) or write to storage (saveAsTextFile). 'join' is a transformation. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is 'Lazy Evaluation' in Spark?",
+        "options": [
+            "Transformations are not computed immediately when defined.",
+            "Computation is triggered only when an Action is called.",
+            "It allows Spark to optimize the execution plan (DAG) before running.",
+            "It means Spark runs slowly to save energy."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Spark waits until an action is invoked to execute the graph. This allows the scheduler to optimize the pipeline (e.g., pipelining maps). Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "How does Spark achieve Fault Tolerance for RDDs?",
+        "options": [
+            "By replicating every data block to 3 nodes (like HDFS).",
+            "By logging the transformations (Lineage) used to build the dataset.",
+            "By recomputing lost partitions from the lineage graph.",
+            "By using a heavy write-ahead log for every operation."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "RDDs track the graph of transformations (lineage). If a partition is lost, Spark re-executes the operations to rebuild just that partition. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is a 'Narrow Dependency'?",
+        "options": [
+            "Each partition of the parent RDD is used by at most one partition of the child RDD.",
+            "It requires a data shuffle across the network.",
+            "Examples include `map` and `filter`.",
+            "It allows for pipelined execution on a single node."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Narrow dependencies (like map/filter) do not require shuffling. Data remains local, allowing pipelining. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is a 'Wide Dependency'?",
+        "options": [
+            "Multiple child partitions may depend on a single parent partition.",
+            "It involves a Shuffle (redistributing data across the cluster).",
+            "Examples include `groupByKey` and `reduceByKey`.",
+            "It is faster than Narrow Dependency."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Wide dependencies require data from many partitions to be combined (shuffle), such as in grouping or joining. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the role of the 'Driver' in Spark architecture?",
+        "options": [
+            "It runs the `main()` function of the application.",
+            "It creates the SparkContext.",
+            "It stores the actual data blocks.",
+            "It schedules tasks and coordinates the executors."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "The Driver is the master process that runs the main code, creates the context, converts code to a DAG, and schedules tasks. Executors store data. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the role of an 'Executor'?",
+        "options": [
+            "It is a process running on a worker node.",
+            "It executes tasks assigned by the driver.",
+            "It stores RDD partitions in memory or disk.",
+            "It decides the optimal execution plan."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Executors are worker processes responsible for running computations (tasks) and providing storage for RDDs. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What are 'Broadcast Variables'?",
+        "options": [
+            "Read-only variables cached on each machine.",
+            "Variables used to send a large lookup table to workers efficiently.",
+            "Variables that can be updated by workers.",
+            "A mechanism to reduce network I/O compared to shipping variables with every task."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Broadcast variables allow the developer to keep a read-only variable cached on each machine rather than shipping a copy with tasks. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What are 'Accumulators'?",
+        "options": [
+            "Variables that are only 'added' to through an associative operation.",
+            "Used to implement counters or sums.",
+            "Workers can read the value of an accumulator.",
+            "Only the driver can read the value of an accumulator."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Accumulators are variables that workers can add to (like counters) but cannot read. Only the driver can read the final value. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What happens when you call `cache()` on an RDD?",
+        "options": [
+            "It persists the RDD in memory (StorageLevel.MEMORY_ONLY).",
+            "It immediately computes the RDD.",
+            "It saves the RDD to HDFS.",
+            "It allows future actions to reuse the RDD without recomputing it."
+        ],
+        "answer": [
+            0,
+            3
+        ],
+        "explanation": "`cache()` hints that the RDD should be kept in memory after the first time it is computed, speeding up subsequent access. It is lazy (doesn't compute immediately). Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid Cluster Managers for Spark?",
+        "options": [
+            "Spark Standalone.",
+            "Hadoop YARN.",
+            "Apache Mesos.",
+            "Apache Zookeeper (as a resource manager)."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Spark supports Standalone, YARN, and Mesos. Zookeeper is for coordination, not resource management/scheduling. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is a DAG (Directed Acyclic Graph) in Spark context?",
+        "options": [
+            "A logical representation of the operations to be performed.",
+            "It allows the scheduler to split the graph into stages.",
+            "It represents the physical network topology.",
+            "It prevents circular dependencies in operations."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Spark builds a DAG of operators. The DAG Scheduler splits this graph into stages based on shuffle boundaries. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "Why is `reduceByKey` generally more efficient than `groupByKey`?",
+        "options": [
+            "It performs map-side combination (pre-aggregation) before shuffling.",
+            "It sends less data over the network.",
+            "`groupByKey` shuffles all records to the reducers.",
+            "`reduceByKey` does not require a shuffle."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`reduceByKey` combines data locally on the mapper side (like a Combiner in Hadoop) before sending it, reducing network traffic. `groupByKey` sends everything. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What are the components of the Spark Ecosystem?",
+        "options": [
+            "Spark SQL (Structured Data).",
+            "Spark Streaming (Real-time).",
+            "MLlib (Machine Learning).",
+            "GraphX (Graph Processing)."
+        ],
+        "answer": [
+            0,
+            1,
+            2,
+            3
+        ],
+        "explanation": "Spark is a unified engine including SQL, Streaming, MLlib, and GraphX libraries. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What happens during a 'Shuffle'?",
+        "options": [
+            "Data is redistributed across partitions.",
+            "It creates a physical barrier between stages.",
+            "It typically involves disk I/O and network transmission.",
+            "It happens during narrow transformations."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Shuffle moves data across nodes (redistribution). It is expensive (disk/network) and marks the boundary between stages. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "How are RDDs created?",
+        "options": [
+            "Parallelizing an existing collection (e.g., list) in the driver.",
+            "Loading an external dataset (e.g., HDFS, S3).",
+            "Transforming an existing RDD.",
+            "Directly editing a file on disk."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "RDDs are created by `parallelize()`, `textFile()`, or transforming another RDD. They are read-only, so you don't edit them. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the `SparkContext`?",
+        "options": [
+            "The main entry point for Spark functionality.",
+            "The connection to the Spark cluster.",
+            "Used to create RDDs and broadcast variables.",
+            "A database storage engine."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "SparkContext connects to the cluster manager and acts as the entry point to create RDDs. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "Which serialization libraries are supported by Spark?",
+        "options": [
+            "Java Serialization (default).",
+            "Kryo Serialization (faster, more compact).",
+            "XML Serialization.",
+            "Python Pickle (for PySpark)."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Spark uses Java serialization by default but supports Kryo for better performance. PySpark uses Pickle. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the benefit of 'Data Locality' in Spark?",
+        "options": [
+            "Sending the computation (code) to the data is faster than moving data to code.",
+            "It minimizes network congestion.",
+            "It is handled automatically by the scheduler.",
+            "It ensures data is always stored on the Driver."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Spark tries to launch tasks on the nodes where the data blocks reside to avoid network transfers (Data Locality). Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the difference between `map` and `flatMap`?",
+        "options": [
+            "`map` returns exactly one element for each input element.",
+            "`flatMap` can return zero, one, or many elements for each input element.",
+            "`flatMap` flattens the result.",
+            "`map` is an Action, `flatMap` is a Transformation."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`map` is 1-to-1. `flatMap` is 1-to-many (flattens the output). Both are transformations. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What does `persist()` allow you to do that `cache()` does not?",
+        "options": [
+            "Specify the Storage Level (e.g., MEMORY_AND_DISK).",
+            "Save data to S3.",
+            "Encrypt the data.",
+            "There is no difference."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "`cache()` is a shorthand for `persist(MEMORY_ONLY)`. `persist()` allows specifying other levels like DISK_ONLY or MEMORY_AND_DISK. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What constitutes a 'Job' in Spark?",
+        "options": [
+            "A set of computations triggered by an Action.",
+            "It consists of one or more Stages.",
+            "It is a single line of code.",
+            "It is equivalent to a single Map task."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "A Job is created when an Action is called. It is divided into Stages based on shuffles. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What constitutes a 'Stage' in Spark?",
+        "options": [
+            "A collection of tasks that can run in parallel with the same logic.",
+            "Stages are separated by Shuffle boundaries.",
+            "A stage corresponds to a single RDD.",
+            "A stage is always executed on the Driver."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "The DAG Scheduler splits the graph into stages at shuffle boundaries. A stage consists of tasks (pipelined narrow deps). Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What constitutes a 'Task' in Spark?",
+        "options": [
+            "The smallest unit of execution.",
+            "It runs on a single executor core.",
+            "It processes a single partition of data.",
+            "It runs the entire DAG."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "A Task is a unit of work sent to an executor. It corresponds to one partition of data and one stage of the pipeline. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What are the benefits of using Spark for 'Iterative Algorithms'?",
+        "options": [
+            "Intermediate results can be cached in memory.",
+            "It avoids the disk I/O overhead of MapReduce.",
+            "It is suitable for algorithms like K-Means or PageRank.",
+            "It allows the algorithm to run on a single thread."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Iterative algorithms reuse data. Spark's in-memory caching makes it 10-100x faster than MapReduce which writes to disk after every job. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid 'Deploy Modes' for Spark on YARN?",
+        "options": [
+            "Client Mode (Driver runs on the submission machine).",
+            "Cluster Mode (Driver runs inside the Application Master).",
+            "Cloud Mode.",
+            "Serverless Mode."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Spark on YARN supports Client mode (interactive) and Cluster mode (production/driver on cluster). Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What information does the Spark Web UI provide?",
+        "options": [
+            "List of Scheduler Stages and Tasks.",
+            "RDD sizes and memory usage.",
+            "Environment variables and Executor logs.",
+            "The source code of the application."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "The UI (port 4040) shows jobs, stages, storage (RDDs), environment, and executor status. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is 'Lineage'?",
+        "options": [
+            "The sequence of transformations used to derive an RDD.",
+            "Used for fault tolerance to recompute lost data.",
+            "A graph of the network topology.",
+            "The history of user logins."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Lineage is the logical graph of transformations. It is the key to Spark's resilience without replication. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "When is `coalesce()` preferred over `repartition()`?",
+        "options": [
+            "When decreasing the number of partitions.",
+            "Because `coalesce` avoids a full shuffle if possible.",
+            "`repartition` always triggers a shuffle.",
+            "When increasing the number of partitions."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`coalesce` is optimized for reducing partitions (merging local partitions) without a full shuffle. `repartition` does a full shuffle. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the 'Block Manager'?",
+        "options": [
+            "A component on every executor.",
+            "Manages the storage of RDD partitions (RAM/Disk).",
+            "Handles the replication of blocks if requested.",
+            "It is the main scheduler."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "The Block Manager runs on every node (driver/executor) and manages the storage and retrieval of local and remote blocks. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "Which formats can Spark read natively?",
+        "options": [
+            "Text files (csv, json, txt).",
+            "SequenceFiles.",
+            "Parquet / ORC.",
+            "Hadoop InputFormats."
+        ],
+        "answer": [
+            0,
+            1,
+            2,
+            3
+        ],
+        "explanation": "Spark supports all Hadoop InputFormats, plus native support for text, sequence, Parquet, JSON, etc. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the purpose of `sc.parallelize()`?",
+        "options": [
+            "To convert a local collection (e.g., Python list) into an RDD.",
+            "To distribute data across the cluster.",
+            "Useful for testing and prototyping.",
+            "To read a file from HDFS."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`parallelize` takes a collection in the driver program and slices it to form a distributed RDD. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "Why does Spark generally outperform MapReduce in DAG execution?",
+        "options": [
+            "MapReduce forces a rigid Map -> Shuffle -> Reduce structure.",
+            "Spark can optimize arbitrary DAGs (e.g., Map -> Map -> Reduce).",
+            "MapReduce writes intermediate data to disk between every step.",
+            "Spark executes everything in a single thread."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "MapReduce is rigid and disk-heavy. Spark optimizes general DAGs and keeps data in memory between stages. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the default storage level for `persist()`?",
+        "options": [
+            "MEMORY_ONLY",
+            "DISK_ONLY",
+            "MEMORY_AND_DISK",
+            "OFF_HEAP"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The default for `persist()` (and `cache()`) is MEMORY_ONLY. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "In the 'Word Count' example, which transformations are typically used?",
+        "options": [
+            "flatMap (to split lines into words).",
+            "map (to create (word, 1) pairs).",
+            "reduceByKey (to sum counts).",
+            "join."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Standard WordCount: textFile -> flatMap(split) -> map(word, 1) -> reduceByKey(+). Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the role of the 'Cluster Manager'?",
+        "options": [
+            "To allocate resources (containers/nodes) to the application.",
+            "To manage the physical hardware.",
+            "Examples include YARN and Mesos.",
+            "To execute the actual code."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "The Cluster Manager (like YARN) negotiates resources. Spark acquires executors from it. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What does `rdd.collect()` do?",
+        "options": [
+            "Retrieves all elements of the RDD from the cluster to the Driver.",
+            "It can cause an OutOfMemoryError on the Driver if the RDD is too large.",
+            "It forces the computation of the RDD.",
+            "It saves the data to disk."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`collect()` brings the entire dataset to the driver. This is dangerous for large datasets. It is an Action. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the difference between `StorageLevel.MEMORY_ONLY` and `MEMORY_AND_DISK`?",
+        "options": [
+            "`MEMORY_ONLY` will fail if data does not fit in RAM.",
+            "`MEMORY_ONLY` will not cache partitions that don't fit in RAM (they will be recomputed).",
+            "`MEMORY_AND_DISK` spills excess partitions to disk.",
+            "`MEMORY_AND_DISK` is faster."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "If `MEMORY_ONLY` is full, some partitions are simply not cached (recomputed on access). `MEMORY_AND_DISK` spills them to disk so they don't need recomputation. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What does `rdd.saveAsTextFile(path)` do?",
+        "options": [
+            "Writes the elements of the RDD to a directory on the file system.",
+            "Each partition is written to a separate file (part-00000, part-00001...).",
+            "It is an Action.",
+            "It creates a single file always."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "It writes to a directory, outputting one file per partition. It triggers the job (Action). Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "How does Spark handle 'Stragglers' (slow tasks)?",
+        "options": [
+            "It uses Speculative Execution.",
+            "It launches a backup copy of the slow task.",
+            "It kills the slow task immediately.",
+            "It takes the result from whichever copy finishes first."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Spark (like MapReduce) can speculate: launch a duplicate task for a slow-running one and take the first result. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is `spark-submit`?",
+        "options": [
+            "A command-line tool to launch applications.",
+            "It handles setting up the classpath and dependencies.",
+            "It allows specifying configuration flags like `--master`.",
+            "It is a Python library."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`spark-submit` is the script used to deploy applications to the cluster. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What does the `union` transformation do?",
+        "options": [
+            "Combines elements from two RDDs into a new RDD.",
+            "Requires both RDDs to have the same type.",
+            "Removes duplicates automatically.",
+            "Triggers a shuffle."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "`union` merges two RDDs. It does *not* remove duplicates (unlike `distinct`) and usually does not trigger a shuffle (narrow dep). Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What does the `intersection` transformation do?",
+        "options": [
+            "Returns elements found in both RDDs.",
+            "Removes duplicates.",
+            "Triggers a shuffle (Wide Dependency).",
+            "Is a Narrow Dependency."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`intersection` finds common elements. It requires a shuffle to compare data across partitions. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What does `distinct()` do?",
+        "options": [
+            "Returns a new RDD with unique elements.",
+            "Triggers a shuffle.",
+            "Is expensive for large datasets.",
+            "Runs locally only."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`distinct` requires shuffling to identify duplicates across the whole dataset. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the typical input for Spark Streaming?",
+        "options": [
+            "Kafka",
+            "Flume",
+            "TCP Sockets",
+            "Static Excel files"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Spark Streaming ingests data from sources like Kafka, Flume, or Sockets. Static files are usually for Batch, though file monitoring is possible. Source: IT4931_lecture_notes.pdf (Chapter 6/7)."
+    },
+    {
+        "type": "multi",
+        "question": "How do you specify the number of partitions when reading a file?",
+        "options": [
+            "Using the second argument in `sc.textFile(path, minPartitions)`.",
+            "Using `repartition()` after loading.",
+            "It is always fixed to 1.",
+            "It defaults to the number of HDFS blocks."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "You can set minPartitions in `textFile`. By default, it maps to HDFS blocks (128MB). You can also repartition later. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the purpose of the `Master` parameter (e.g., `local[2]`)?",
+        "options": [
+            "It specifies where the application runs.",
+            "`local[2]` means run locally with 2 worker threads.",
+            "`yarn` means run on a YARN cluster.",
+            "It specifies the memory size."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "The master URL tells Spark where to run. `local[N]` is for local testing. `yarn` or `spark://` is for clusters. Source: IT4931_lecture_notes.pdf (Chapter 6)."
+    }
+]
