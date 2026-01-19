@@ -1,0 +1,482 @@
+[
+    {
+        "type": "single",
+        "question": "According to the lecture, what are the three aspects through which a user interacts with a system?",
+        "options": [
+            "Physically, Perceptualy, and Conceptually",
+            "Visually, Audibly, and Tactilely",
+            "Hardware, Software, and Network",
+            "Input, Output, and Processing"
+        ],
+        "answer": [0],
+        "explanation": "The user interface is everything the user interacts with when using the system: physically, perceptually, and conceptually[cite: 18]."
+    },
+    {
+        "type": "single",
+        "question": "When is user interface design often started?",
+        "options": [
+            "After the system is fully coded",
+            "During the testing phase",
+            "Early, often from the requirements definition stage",
+            "Only after the database is designed"
+        ],
+        "answer": [2],
+        "explanation": "User interface design is often done early (from the requirements definition stage) and adjusted according to user feedback[cite: 36]."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary purpose of building User Interface (UI) prototypes?",
+        "options": [
+            "To serve as the final product snapshots",
+            "To replace the backend documentation",
+            "To survey user opinions and support design decisions",
+            "To test the database performance"
+        ],
+        "answer": [2],
+        "explanation": "UI prototypes serve to survey user opinions to complete functional requirements and support design decisions in choosing appropriate techniques[cite: 33, 34, 35]."
+    },
+    {
+        "type": "single",
+        "question": "Which level of UI prototyping is often done on paper or a whiteboard to quickly capture an idea?",
+        "options": [
+            "Mockup",
+            "Sketch",
+            "Wireframe",
+            "High-fidelity Prototype"
+        ],
+        "answer": [1],
+        "explanation": "A Sketch is quickly drawn, often used during brainstorming, and usually done on paper or a whiteboard[cite: 76, 77]."
+    },
+    {
+        "type": "single",
+        "question": "What does 'Overall Interface Design' identify?",
+        "options": [
+            "The specific colors and fonts used",
+            "The interface units (screens, pages) and navigation between them",
+            "The database schema",
+            "The backend API endpoints"
+        ],
+        "answer": [1],
+        "explanation": "Overall design for a user interface is the identification of the units and the navigation between the units (e.g., screenflow, sitemap)[cite: 44, 45, 46]."
+    },
+    {
+        "type": "single",
+        "question": "Which prototyping level focuses on 'Skeletons' and 'Layouts' to show user flow and information structure?",
+        "options": [
+            "Sketch",
+            "Wireframe",
+            "Mockup",
+            "Final Build"
+        ],
+        "answer": [1],
+        "explanation": "Wireframes act as skeletons or layouts that clearly show the user flow and information structure on the interface[cite: 90]."
+    },
+    {
+        "type": "single",
+        "question": "Which tools are commonly listed for creating Wireframes?",
+        "options": [
+            "MS Word and Notepad",
+            "Balsamiq and Figma",
+            "Visual Studio and Eclipse",
+            "MySQL and Oracle"
+        ],
+        "answer": [1],
+        "explanation": "Wireframes are usually created using tools like Balsamiq, Figma, etc., by a BA or UX designer[cite: 91]."
+    },
+    {
+        "type": "single",
+        "question": "What distinguishes a 'Mockup' from a 'Wireframe'?",
+        "options": [
+            "Mockups add details like color, position, size, and font",
+            "Mockups are less detailed than wireframes",
+            "Mockups are only done on paper",
+            "Mockups have full database connectivity"
+        ],
+        "answer": [0],
+        "explanation": "A Mockup provides the detail of the wireframe (color, position, size, font, input rules, etc.) towards the 'real' version[cite: 120, 121]."
+    },
+    {
+        "type": "single",
+        "question": "What is the key feature added in the 'Prototype' stage compared to a 'Mockup'?",
+        "options": [
+            "Better colors",
+            "Interactivity",
+            "Lower resolution",
+            "Static images"
+        ],
+        "answer": [1],
+        "explanation": "The Prototype stage involves adding interactivity, allowing users to experience functions[cite: 123, 125]."
+    },
+    {
+        "type": "single",
+        "question": "Why should prototypes often be built at a 'shallow' or 'surface' level?",
+        "options": [
+            "To save hard drive space",
+            "To simulate interaction without building the full system",
+            "Because designers don't know how to code",
+            "To ensure the system crashes easily"
+        ],
+        "answer": [1],
+        "explanation": "Prototype is often only built at a 'shallow', 'surface' level to simulate the interaction between the system and the user in certain situations[cite: 126]."
+    },
+    {
+        "type": "single",
+        "question": "What is a potential risk when showing a high-fidelity prototype to a user?",
+        "options": [
+            "The user will not understand the colors",
+            "The user might misconceive it as a completed system version",
+            "The prototype will be too slow",
+            "The user will want fewer features"
+        ],
+        "answer": [1],
+        "explanation": "It is important to avoid users' misconceptions about a completed system version[cite: 127]."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT one of the '8 golden rules in user interface design'?",
+        "options": [
+            "Promote consistency",
+            "Enable users to frequently use shortcuts",
+            "Use as many colors as possible",
+            "Provide informative feedback"
+        ],
+        "answer": [2],
+        "explanation": "Using as many colors as possible is not a rule. The rules include promoting consistency, shortcuts, and informative feedback[cite: 136, 138, 139]."
+    },
+    {
+        "type": "single",
+        "question": "Rule 1 of the golden rules emphasizes 'Consistency'. What does this apply to?",
+        "options": [
+            "Only the colors used",
+            "Naming, arrangement of menu items, icon shapes, and action sequences",
+            "The backend code structure",
+            "The hardware selection"
+        ],
+        "answer": [1],
+        "explanation": "Consistency applies to naming and arrangement of menu items, the size and shape of icons, and the sequence of actions for a task[cite: 137]."
+    },
+    {
+        "type": "single",
+        "question": "According to the golden rules, how should feedback be designed?",
+        "options": [
+            "It should be hidden to avoid distraction",
+            "It should allow users to understand which actions have been recorded",
+            "It should only appear when an error occurs",
+            "It should be delayed by 5 seconds"
+        ],
+        "answer": [1],
+        "explanation": "Provide informative feedback: Ensure feedback allows users to understand which actions have been recorded by the system[cite: 139, 140]."
+    },
+    {
+        "type": "single",
+        "question": "What does 'Design closed dialog and interaction flows' imply?",
+        "options": [
+            "Every task should have a beginning, middle, and end",
+            "Dialog boxes should never close",
+            "Users should not be able to exit the software",
+            "Interactions should be endless loops"
+        ],
+        "answer": [0],
+        "explanation": "Design closed dialog and interaction flows means each task should have a beginning, middle, and end[cite: 141, 142]."
+    },
+    {
+        "type": "single",
+        "question": "Which golden rule relates to the 'Undo' functionality?",
+        "options": [
+            "Simple error and handling mechanisms",
+            "Allow actions to be easily reversed",
+            "Promote consistency",
+            "Reduce the load on short-term memory"
+        ],
+        "answer": [1],
+        "explanation": "Rule 6 is 'Allow actions to be easily reversed (e.g., Undo)'[cite: 146]."
+    },
+    {
+        "type": "single",
+        "question": "The 'User-oriented control mechanisms' rule suggests that:",
+        "options": [
+            "The system decides all actions",
+            "The user should feel they decide which actions are executed",
+            "The administrator controls the user's mouse",
+            "The system should be autonomous"
+        ],
+        "answer": [1],
+        "explanation": "The system should make users feel that they are the ones deciding which actions are executed by the system[cite: 148]."
+    },
+    {
+        "type": "single",
+        "question": "Rule 8 suggests reducing the load on which type of memory?",
+        "options": [
+            "Long-term memory",
+            "Short-term memory",
+            "Visual memory",
+            "Muscle memory"
+        ],
+        "answer": [1],
+        "explanation": "Rule 8: Reduce the load on short-term memory for the contents, conventions, and processing flows[cite: 149]."
+    },
+    {
+        "type": "single",
+        "question": "Which ISO standard is related to 'Human-centred design for interactive systems'?",
+        "options": [
+            "ISO 9001",
+            "ISO 27001",
+            "ISO 9241-210",
+            "ISO 14001"
+        ],
+        "answer": [2],
+        "explanation": "The slide references ISO 9241-210: Ergonomics of human-system interaction - Human-centred design for interactive systems[cite: 159, 163]."
+    },
+    {
+        "type": "single",
+        "question": "The UI Design Process is described as:",
+        "options": [
+            "A linear waterfall process",
+            "An iterative process",
+            "A one-time activity",
+            "A coding-first process"
+        ],
+        "answer": [1],
+        "explanation": "The User Interface Design Process is an iterative process with three main activities[cite: 179]."
+    },
+    {
+        "type": "single",
+        "question": "What are the three main activities of the UI Design Process?",
+        "options": [
+            "Coding, Testing, Deploying",
+            "Interface analysis, UI prototype building, Evaluation",
+            "Planning, Buying, Selling",
+            "Database design, API design, Frontend design"
+        ],
+        "answer": [1],
+        "explanation": "The three main activities are Interface analysis, UI prototype building, and Evaluation[cite: 179, 180, 181]."
+    },
+    {
+        "type": "single",
+        "question": "In 'Interface Analysis', which component asks 'Who uses the interface'?",
+        "options": [
+            "Task Analysis",
+            "User Analysis",
+            "Display Content Analysis",
+            "Environment Analysis"
+        ],
+        "answer": [1],
+        "explanation": "User Analysis focuses on 'Who uses the interface'[cite: 186]."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following questions is part of 'User Analysis'?",
+        "options": [
+            "What is the hierarchy of tasks?",
+            "How will error messages be presented?",
+            "What is the average education level of users?",
+            "What is the response speed of the system?"
+        ],
+        "answer": [2],
+        "explanation": "User analysis asks questions like 'What is the average education level of users?'[cite: 194]."
+    },
+    {
+        "type": "single",
+        "question": "Which analysis activity asks 'What do users use the interface for'?",
+        "options": [
+            "User Analysis",
+            "Task Analysis",
+            "Content Analysis",
+            "System Analysis"
+        ],
+        "answer": [1],
+        "explanation": "Task Analysis focuses on 'What do users use the interface for'[cite: 187]."
+    },
+    {
+        "type": "single",
+        "question": "In Task Analysis, what defines the basic interactions?",
+        "options": [
+            "Object construction",
+            "Workflow analysis",
+            "Use-cases",
+            "Class diagrams"
+        ],
+        "answer": [2],
+        "explanation": "Use-cases define the basic interactions[cite: 220]."
+    },
+    {
+        "type": "single",
+        "question": "What does 'Workflow analysis' define?",
+        "options": [
+            "The interface colors",
+            "How a work process is completed when several people are involved",
+            "The database structure",
+            "The hierarchy of menus"
+        ],
+        "answer": [1],
+        "explanation": "Workflow analysis defines how a work process is completed when several people (and roles) are involved[cite: 223]."
+    },
+    {
+        "type": "single",
+        "question": "Which question belongs to 'Analyze the displayed content'?",
+        "options": [
+            "What is the age range of the user?",
+            "How will color be used to increase readability?",
+            "What is the sequence of tasks?",
+            "Do users want to know about the technology?"
+        ],
+        "answer": [1],
+        "explanation": "Analyzing displayed content includes questions like 'How will color be used to increase readability?'[cite: 234]."
+    },
+    {
+        "type": "single",
+        "question": "During prototype creation, what should be modeled regarding user actions?",
+        "options": [
+            "The cost of the action",
+            "The events that cause the user interface state to change",
+            "The marketing strategy",
+            "The hardware requirements"
+        ],
+        "answer": [1],
+        "explanation": "Identify events (user actions) that will cause the state of the user interface to change and model this behavior[cite: 241]."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an issue to consider when making interface prototypes?",
+        "options": [
+            "Server cooling systems",
+            "Response time",
+            "Employee salaries",
+            "Office furniture"
+        ],
+        "answer": [1],
+        "explanation": "Issues to consider include Response time, User convenience help, Error handling, etc.[cite: 247, 248]."
+    },
+    {
+        "type": "single",
+        "question": "What follows the 'User evaluate's interface' step in the evaluation cycle?",
+        "options": [
+            "Final release",
+            "Preliminary design",
+            "Evaluation is studied by designer",
+            "Build prototype #1"
+        ],
+        "answer": [2],
+        "explanation": "After the user evaluates the interface, the 'evaluation is studied by designer' before design modifications are made[cite: 264, 266]."
+    },
+    {
+        "type": "single",
+        "question": "How is 'Learnability' defined in the evaluation criteria?",
+        "options": [
+            "The response speed of the system",
+            "How long it takes for a new user to work effectively with the system",
+            "How the system tolerates errors",
+            "How the system recovers from errors"
+        ],
+        "answer": [1],
+        "explanation": "Learnability: How long does it take for a new user to work effectively with the system[cite: 270]."
+    },
+    {
+        "type": "single",
+        "question": "Which evaluation criterion measures 'How the system can be restored from users' errors'?",
+        "options": [
+            "Tolerance",
+            "Compatibility",
+            "Recovery ability",
+            "Operating speed"
+        ],
+        "answer": [2],
+        "explanation": "Recovery ability: How the system can be restored from users' errors[cite: 270]."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a technique for User Interface Evaluation?",
+        "options": [
+            "Guessing",
+            "Video recording of system usage",
+            "Code compilation",
+            "Database normalization"
+        ],
+        "answer": [1],
+        "explanation": "Techniques include video recording of system usage and evaluating the content[cite: 277]."
+    },
+    {
+        "type": "single",
+        "question": "Why must interface evaluation be selective?",
+        "options": [
+            "Because users don't care",
+            "Because it is often costly and labor intensive",
+            "Because the system is perfect",
+            "Because there are no tools available"
+        ],
+        "answer": [1],
+        "explanation": "Interface evaluations are often costly and labor intensive, so representative interfaces should be selected[cite: 281]."
+    },
+    {
+        "type": "single",
+        "question": "What are 'UI design patterns'?",
+        "options": [
+            "Specific code snippets for databases",
+            "General solutions to common design problems",
+            "Graphic design software",
+            "User manuals"
+        ],
+        "answer": [1],
+        "explanation": "UI design patterns are general solutions to common design problems[cite: 286]."
+    },
+    {
+        "type": "single",
+        "question": "What is a benefit of using UI design patterns?",
+        "options": [
+            "They increase the cost of design",
+            "They make the system inconsistent",
+            "They help designers make decisions quickly and save time",
+            "They require expert coding skills"
+        ],
+        "answer": [2],
+        "explanation": "UI design patterns help designers make design decisions quickly, save time and effort[cite: 287]."
+    },
+    {
+        "type": "single",
+        "question": "Which UI design pattern addresses the overall organization of a page or display of individual screens?",
+        "options": [
+            "Forms and Input",
+            "Page Layout",
+            "Tables",
+            "Search"
+        ],
+        "answer": [1],
+        "explanation": "Page Layout: Addresses the overall organization of a page or the display of individual screens[cite: 295]."
+    },
+    {
+        "type": "single",
+        "question": "Which pattern provides guidance for creating and manipulating tabular data?",
+        "options": [
+            "Navigation",
+            "Page Elements",
+            "Tables",
+            "Direct Data Manipulation"
+        ],
+        "answer": [2],
+        "explanation": "Tables: Provides design guidance for creating and manipulating tabular data in any form[cite: 297]."
+    },
+    {
+        "type": "single",
+        "question": "The 'Breadcrumbs' or 'Hierarchical menus' concepts fall under which design pattern category?",
+        "options": [
+            "Navigation",
+            "Forms and Input",
+            "Search",
+            "Page Layout"
+        ],
+        "answer": [0],
+        "explanation": "Navigation: Helps users navigate through hierarchical menus, web pages, and interactive displays[cite: 299]."
+    },
+    {
+        "type": "single",
+        "question": "Who typically creates Wireframes according to the lecture?",
+        "options": [
+            "The CEO",
+            "The System Architect",
+            "BA or UX designer",
+            "The End User"
+        ],
+        "answer": [2],
+        "explanation": "Usually created using tools like Balsamiq, Figma,... by BA or UX designer[cite: 91]."
+    }
+]
