@@ -1,0 +1,40 @@
+Generate 40 multiple-choice questions (MCQs) in "multi" type format for Big Data Storage and Management.
+
+Requirements:
+- Each question must have "type": "multi" (even if only one correct answer)
+- Match the style and vibe of the sample questions below
+- Wrong options must be plausible but definitively incorrect (avoid obviously wrong distractors)
+- Provide detailed explanations without citation
+- Mix question styles: "Which are wrong?", "What are features of...?", "Which statements are correct?", etc.
+
+Sample questions for reference:
+[
+    {
+        "type": "multi",
+        "question": "Which of the following statements are wrong?",
+        "options": [
+            "NoSQL requires pre-defined database schema.",
+            "NoSQL allows dynamic database schema.",
+            "There are SQL engines for running SQL statements over NoSQL."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "NoSQL databases are specifically designed to be schema-less or allow for dynamic schemas, meaning they do not require a pre-defined schema. The other two statements are factually correct (NoSQL allows dynamic schemas, and tools like Hive, Spark SQL, or Phoenix allow SQL queries over NoSQL stores)."
+    },
+    {
+        "type": "multi",
+        "question": "What are the features of Spark structured streaming?",
+        "options": [
+            "It still processes data streams as a sequence of small RDD batches.",
+            "Conceptually, it treats the stream as a continuously growing table of data records.",
+            "Periodically, querying the stream only returns the results of the query for newly arrived records."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The defining concept of Spark Structured Streaming is that it treats a live data stream as an unbounded table that is being continuously appended. Option 1 describes the legacy 'Spark Streaming' (DStreams) model, not Structured Streaming. Option 3 is incorrect because the output depends on the mode (e.g., 'Complete' mode returns the entire updated table, not just new records)."
+    }
+]
+
+Output format: JSON array with identical structure to samples above.

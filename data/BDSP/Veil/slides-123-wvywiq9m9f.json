@@ -1,0 +1,570 @@
+[
+    {
+        "type": "multi",
+        "question": "According to the 'Fourth Paradigm' of scientific discovery, what characterizes the current era of science?",
+        "options": [
+            "It is driven primarily by theoretical models like Newton's laws.",
+            "It relies on large-scale computer simulations of complex phenomena.",
+            "It unifies theory, experiment, and simulation using massive data exploration and data mining.",
+            "It focuses solely on empirical descriptions of natural phenomena."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Fourth Paradigm involves unifying theory, experiment, and simulation through large multidisciplinary data exploration and data mining (data-intensive scientific discovery)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following constitute the '5 V's' of Big Data?",
+        "options": [
+            "Volume, Velocity, Variety, Veracity, Value",
+            "Volume, Velocity, Variety, Visualization, Value",
+            "Volume, Velocity, Variability, Verification, Value",
+            "Volume, Velocity, Variety, Virtualization, Value"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The 5 V's defined in the context are Volume (amount), Velocity (speed), Variety (types), Veracity (quality/uncertainty), and Value (socio-economic potential)."
+    },
+    {
+        "type": "multi",
+        "question": "Based on data science industry surveys, which task is considered the most time-consuming and least enjoyable for data scientists?",
+        "options": [
+            "Building training sets",
+            "Cleaning and organizing data",
+            "Refining algorithms",
+            "Mining data for patterns"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Surveys indicate that cleaning and organizing data accounts for about 60% of the work and is regarded as the least enjoyable task by 57% of data scientists."
+    },
+    {
+        "type": "multi",
+        "question": "What is the primary design goal of HDFS (Hadoop Distributed File System)?",
+        "options": [
+            "To provide low-latency data access for real-time applications.",
+            "To store massive amounts of data reliably on inexpensive commodity hardware.",
+            "To support frequent updates and random writes to existing files.",
+            "To replace traditional Relational Database Management Systems (RDBMS) for transaction processing."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "HDFS is designed to provide inexpensive and reliable storage for massive amounts of data running on commodity hardware, optimized for big files and 'write once, read many' patterns."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements about HDFS blocks and metadata are correct?",
+        "options": [
+            "Files are split into small chunks (e.g., 4KB) to maximize storage efficiency.",
+            "The Namenode stores all metadata in main memory for fast access.",
+            "Block metadata is distributed across all Datanodes to reduce the load on the Namenode.",
+            "A large block size (e.g., 64MB or 128MB) reduces metadata size and network communication overhead."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "The Namenode keeps the entire metadata in main memory (Option 1). Files are split into big chunks (e.g., 64MB) to reduce metadata size and network overhead (Option 3). Small chunks would overwhelm the Namenode's memory."
+    },
+    {
+        "type": "multi",
+        "question": "What is the specific role of the Secondary Namenode in HDFS?",
+        "options": [
+            "It acts as a hot standby that immediately takes over if the active Namenode fails.",
+            "It manages the replication of data blocks across Datanodes.",
+            "It periodically merges the FsImage and Transaction Log (EditLog) to prevent the log from growing too large.",
+            "It handles read and write requests from clients to offload the primary Namenode."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Secondary Namenode is responsible for checkpointing: it copies the FsImage and Transaction Log, merges them into a new FsImage, and uploads it back to the Namenode. It is not a real-time failover node."
+    },
+    {
+        "type": "multi",
+        "question": "How does HDFS handle data replication to ensure fault tolerance?",
+        "options": [
+            "It uses RAID 5 on every Datanode.",
+            "It places all replicas on the same rack to maximize write speed.",
+            "It usually places one replica on the local node, a second on a remote rack, and a third on the same remote rack.",
+            "It relies on the client to manually send data to three different nodes."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The default strategy places the first replica on the local node, the second on a remote rack, and the third on a different node in that same remote rack to balance reliability and network performance."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following describes the 'Heartbeat' mechanism in HDFS?",
+        "options": [
+            "Clients send heartbeats to Datanodes to keep connections alive during long reads.",
+            "Datanodes send heartbeats to the Namenode every 3 seconds to indicate they are alive.",
+            "The Namenode sends heartbeats to the Secondary Namenode to trigger checkpoints.",
+            "Datanodes send heartbeats to each other to synchronize block data."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Datanodes send a heartbeat to the Namenode once every 3 seconds. If the Namenode stops receiving heartbeats, it assumes the Datanode has failed."
+    },
+    {
+        "type": "multi",
+        "question": "In the MapReduce programming model, how are data elements structured?",
+        "options": [
+            "As tables with rows and columns.",
+            "As Key-Value (K, V) pairs.",
+            "As unstructured raw text strings only.",
+            "As hierarchical JSON objects."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In MapReduce, data elements are always structured as key-value pairs. Both the map and reduce functions receive and emit (K, V) pairs."
+    },
+    {
+        "type": "multi",
+        "question": "What happens during the 'Shuffle and Sort' phase of MapReduce?",
+        "options": [
+            "The Mappers write data directly to the Reducers' local disk.",
+            "Hadoop automatically sorts and merges output from all map tasks before passing it to reducers.",
+            "The Reducers randomly pull unsorted data from Mappers to maximize concurrency.",
+            "Data is permanently written to HDFS during the shuffle phase."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The shuffle and sort process acts as an intermediate step where the framework sorts the Mapper outputs by key and transfers them to the appropriate Reducers."
+    },
+    {
+        "type": "multi",
+        "question": "Which component in YARN is responsible for negotiating resources (containers) from the ResourceManager?",
+        "options": [
+            "NodeManager",
+            "ApplicationMaster",
+            "JobTracker",
+            "TaskTracker"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The ApplicationMaster is a per-application component that negotiates resources from the ResourceManager and works with the NodeManager(s) to execute and monitor tasks."
+    },
+    {
+        "type": "multi",
+        "question": "What is the primary function of Apache Hive?",
+        "options": [
+            "To provide a real-time NoSQL database on top of HDFS.",
+            "To provide a data warehouse infrastructure that enables SQL-like querying (HiveQL) of data in HDFS.",
+            "To coordinate distributed applications and manage leader election.",
+            "To ingest streaming data logs into Hadoop."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Hive is an abstraction on top of MapReduce that allows users to query data stored in HDFS using a SQL-like language called HiveQL."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements about Apache HBase are correct?",
+        "options": [
+            "It is a distributed column-oriented data store built on top of HDFS.",
+            "It provides a high-level SQL query language for complex joins.",
+            "It is designed to support high write throughput and random access.",
+            "It strictly follows ACID transactions for multi-row operations."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "HBase is a NoSQL, column-oriented store on HDFS (Option 0) that provides high write throughput and random access (Option 2). It does not provide a high-level SQL language (Option 1 is wrong) or multi-row ACID transactions by default."
+    },
+    {
+        "type": "multi",
+        "question": "What is the purpose of Apache ZooKeeper?",
+        "options": [
+            "To schedule MapReduce jobs.",
+            "To perform complex data transformations like joins.",
+            "To provide distributed coordination services like leader election and configuration management.",
+            "To transfer bulk data between HDFS and relational databases."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "ZooKeeper is a highly reliable distributed coordination service used for group membership, leader election, dynamic configuration, and status monitoring."
+    },
+    {
+        "type": "multi",
+        "question": "Which tool is designed for efficiently transferring bulk data between Apache Hadoop and structured datastores like RDBMS?",
+        "options": [
+            "Apache Flume",
+            "Apache Sqoop",
+            "Apache Oozie",
+            "Apache Pig"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Sqoop (SQL-to-Hadoop) is designed for bulk transfer of data between Hadoop and relational databases (importing to HDFS or exporting to RDBMS)."
+    },
+    {
+        "type": "multi",
+        "question": "Which file format is a column-oriented binary format that supports nested columns and predicate pushdown?",
+        "options": [
+            "SequenceFile",
+            "Apache Avro",
+            "Apache Parquet",
+            "CSV"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Apache Parquet is a columnar storage format that is efficient for disk I/O when querying specific columns and supports features like predicate pushdown and nested schemas."
+    },
+    {
+        "type": "multi",
+        "question": "What are the characteristics of Apache Avro?",
+        "options": [
+            "It is a row-based binary format.",
+            "It stores the schema (JSON) within the file itself.",
+            "It is highly optimized for analytical queries that read only a few columns.",
+            "It supports schema evolution (adding/changing fields)."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Avro is row-based (Option 0), embeds the schema in JSON format in the file (Option 1), and supports schema evolution (Option 3). It is not optimized for column-specific analytical queries (Option 2 is false; that describes Parquet)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following is a feature of Apache Iceberg?",
+        "options": [
+            "It provides ACID transactions for Big Data tables.",
+            "It enables 'Time Travel' queries to access historical snapshots of data.",
+            "It requires all data to be physically sorted on disk before writing.",
+            "It creates a hidden partitioning scheme so users don't need to know the physical layout."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Iceberg supports ACID transactions, Time Travel (querying historical snapshots), and hidden partitioning. It does not enforce strict physical sorting before writing as a requirement for use."
+    },
+    {
+        "type": "multi",
+        "question": "In the HDFS write process, what is a 'Pipeline'?",
+        "options": [
+            "A series of MapReduce jobs executed in sequence.",
+            "The path data takes from the client to the first Datanode, which then forwards it to the second, and so on.",
+            "The network cable connecting the Namenode to the Datanodes.",
+            "A tool used to move data from local disk to HDFS."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Data pipelining in HDFS means the client writes the block to the first Datanode, which forwards the data to the next node in the pipeline, ensuring replication is handled efficiently."
+    },
+    {
+        "type": "multi",
+        "question": "Which statement best describes the 'Schema on Read' concept often associated with Hadoop-based tools like Pig and Hive?",
+        "options": [
+            "Data must be validated against a strict schema before it can be loaded into the system.",
+            "The schema is defined and applied only when the data is queried or processed, not when it is stored.",
+            "Hadoop automatically generates a schema for every file uploaded to HDFS.",
+            "Data is stored in a proprietary binary format that includes a fixed schema."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "While not explicitly defined in the provided snippets, the context of Pig/Hive handling raw data implies 'Schema on Read', where structure is applied at query time rather than storage time (unlike RDBMS 'Schema on Write')."
+    },
+    {
+        "type": "multi",
+        "question": "What is the 'Curse of Dimensionality' in the context of Big Data Analytics?",
+        "options": [
+            "The difficulty of visualizing data with more than 3 dimensions.",
+            "The phenomenon where classifier performance degrades as the number of features increases, requiring exponentially more training data.",
+            "The storage cost associated with high-resolution video data.",
+            "The latency introduced when joining tables with many columns."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Curse of Dimensionality refers to the issue where adding more features (dimensions) eventually degrades classifier performance because the data becomes sparse, requiring exponentially more samples to maintain accuracy."
+    },
+    {
+        "type": "multi",
+        "question": "What are the roles of the Namenode in HDFS?",
+        "options": [
+            "It stores the actual file data blocks.",
+            "It manages the file system namespace (metadata).",
+            "It maps file names to sets of blocks.",
+            "It executes the Map functions in a MapReduce job."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "The Namenode manages metadata (namespace) and the mapping of files to blocks. It does not store actual data blocks (Datanodes do that) nor executes MapReduce tasks (NodeManagers/TaskTrackers do that)."
+    },
+    {
+        "type": "multi",
+        "question": "Which command is used to list files in HDFS?",
+        "options": [
+            "hdfs dfs -ls /path",
+            "hdfs dfs -dir /path",
+            "hadoop fs -list /path",
+            "hdfs list /path"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The standard command line interface for listing files is `hdfs dfs -ls`."
+    },
+    {
+        "type": "multi",
+        "question": "How does Apache ORC (Optimized Row Columnar) organize data?",
+        "options": [
+            "It stores data strictly row-by-row like a CSV.",
+            "It organizes data into 'stripes' (large row collections), where each stripe stores data in columnar format.",
+            "It uses a pure binary key-value format without any schema.",
+            "It compresses the entire file as a single GZIP block."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "ORC organizes data into stripes. Within each stripe, the data is stored in a columnar format, and it includes lightweight indexes for efficient retrieval."
+    },
+    {
+        "type": "multi",
+        "question": "What is the function of the 'Combiner' in MapReduce (often described as a mini-reducer)?",
+        "options": [
+            "It merges output files from different jobs.",
+            "It runs on the map node to perform local aggregation, reducing network traffic during the shuffle.",
+            "It allocates resources to the Reducers.",
+            "It joins data from two different tables."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Although not deeply detailed in the text, the concept of reducing network communication implies local aggregation. The Combiner runs after the map function to aggregate local data before the shuffle phase."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements about YARN is true?",
+        "options": [
+            "YARN stands for 'Yet Another Resource Negotiator'.",
+            "YARN replaces HDFS as the storage layer.",
+            "YARN allows multiple data processing engines (like MapReduce, Spark) to run on the same cluster.",
+            "YARN manages the metadata for the file system."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "YARN (Yet Another Resource Negotiator) is a cluster resource management framework that allows various processing engines to share the same cluster resources. It does not replace HDFS (storage)."
+    },
+    {
+        "type": "multi",
+        "question": "What is 'Safe Mode' in the context of the HDFS Namenode?",
+        "options": [
+            "A mode where the system encrypts all data.",
+            "A read-only mode where the Namenode does not accept changes to the namespace (e.g., during startup).",
+            "A mode where Datanodes automatically delete corrupted blocks.",
+            "A mode where the Secondary Namenode takes full control."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Safe Mode is a state (often at startup) where the Namenode loads the file system state and receives block reports but does not allow modifications (write operations) to the file system."
+    },
+    {
+        "type": "multi",
+        "question": "What distinguishes Apache Pig from MapReduce?",
+        "options": [
+            "Pig uses a high-level scripting language (Pig Latin) which is translated into MapReduce jobs.",
+            "Pig is faster because it bypasses HDFS completely.",
+            "Pig is a database, whereas MapReduce is a processing engine.",
+            "Pig requires users to write Java code for every operation."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Apache Pig provides a high-level language called Pig Latin that abstracts the complexity of writing raw MapReduce (Java) code. The Pig interpreter translates scripts into MapReduce jobs."
+    },
+    {
+        "type": "multi",
+        "question": "In an Iceberg architecture, what does the 'Manifest List' point to?",
+        "options": [
+            "The raw Parquet data files directly.",
+            "A list of Manifest Files, which in turn track data files.",
+            "The Zookeeper leader node.",
+            "The Hive Metastore database."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In Iceberg, the Snapshot points to a Manifest List. The Manifest List contains references to Manifest Files, and the Manifest Files contain stats and references to the actual Data Files."
+    },
+    {
+        "type": "multi",
+        "question": "Why is 'Data Locality' important in Hadoop?",
+        "options": [
+            "It ensures data is always stored on the fastest SSDs.",
+            "It moves the computation (code) to the node where the data resides, reducing network congestion.",
+            "It ensures that all data is replicated to a single central server.",
+            "It compresses data to make it local to the CPU cache."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A key principle of Hadoop is moving code to data rather than data to code. This minimizes network traffic and improves processing speed (Data Locality)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following is NOT a responsibility of the HDFS Datanode?",
+        "options": [
+            "Storing actual data blocks.",
+            "Sending heartbeats to the Namenode.",
+            "Serving read/write requests from clients.",
+            "Managing the file system namespace tree (directory structure)."
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Managing the namespace tree (metadata) is the exclusive responsibility of the Namenode. Datanodes handle the actual data storage and I/O."
+    },
+    {
+        "type": "multi",
+        "question": "What problem does the 'Small Files' issue cause in HDFS?",
+        "options": [
+            "It consumes excessive storage space on Datanodes.",
+            "It overloads the Namenode's memory because every file object requires metadata.",
+            "It causes the network bandwidth to saturate.",
+            "It makes the replication factor ineffective."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "HDFS is optimized for large files. Storing many small files is inefficient because each file, block, and directory requires an object in the Namenode's memory, potentially exhausting it."
+    },
+    {
+        "type": "multi",
+        "question": "Which command allows you to copy a file from the local file system to HDFS?",
+        "options": [
+            "hdfs dfs -get localfile /hdfs/path",
+            "hdfs dfs -put localfile /hdfs/path",
+            "hdfs dfs -copyToLocal localfile /hdfs/path",
+            "hdfs dfs -read localfile /hdfs/path"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The `put` command (or `copyFromLocal`) is used to copy files from the local source to the HDFS destination."
+    },
+    {
+        "type": "multi",
+        "question": "What role does the 'Partitioner' play in MapReduce?",
+        "options": [
+            "It splits the input file into chunks for the Mappers.",
+            "It determines which Reducer instance will receive a specific intermediate key-value pair.",
+            "It sorts the keys within a single Reducer.",
+            "It merges spilled files on the Mapper's disk."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Partitioner divides the intermediate key space, assigning specific keys to specific Reducers (partitions) to ensure all values for a single key end up at the same Reducer."
+    },
+    {
+        "type": "multi",
+        "question": "Which statement accurately describes 'Vertical Scaling' (Scale Up) vs 'Horizontal Scaling' (Scale Out) in the context of Hadoop?",
+        "options": [
+            "Hadoop is designed for Vertical Scaling by adding more RAM/CPU to a single supercomputer.",
+            "Hadoop is designed for Horizontal Scaling by adding more commodity nodes to the cluster.",
+            "Horizontal Scaling is more expensive than Vertical Scaling.",
+            "Vertical Scaling provides better fault tolerance than Horizontal Scaling."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Hadoop is designed to scale out (horizontally) by adding more machines (nodes) to the cluster, rather than relying on upgrading a single machine (scale up/vertical)."
+    },
+    {
+        "type": "multi",
+        "question": "What is Apache Flume primarily used for?",
+        "options": [
+            "Executing complex scientific simulations.",
+            "Collecting, aggregating, and moving large amounts of streaming data (like logs) into HDFS.",
+            "Providing a SQL interface for HBase.",
+            "Managing cluster resources."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Flume is a distributed service for efficiently collecting, aggregating, and moving large amounts of log data or streaming data into HDFS."
+    },
+    {
+        "type": "multi",
+        "question": "Which component allows Hadoop to detect if a Datanode has failed?",
+        "options": [
+            "The ZooKeeper election process.",
+            "The absence of Heartbeat messages received by the Namenode.",
+            "The Client reporting a write failure.",
+            "The Secondary Namenode's checkpoint validation."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Namenode monitors Datanodes via heartbeats. If a heartbeat is missing for a specific interval, the Namenode marks the Datanode as dead."
+    },
+    {
+        "type": "multi",
+        "question": "Why does HDFS use a 'Write Once, Read Many' model?",
+        "options": [
+            "Because commodity hard drives cannot handle random writes.",
+            "To simplify data coherency and enable high throughput for data analysis.",
+            "Because Java does not support file modifications.",
+            "To prevent users from accidentally deleting data."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "HDFS assumes an access pattern where files are written once and read many times. This assumption simplifies data coherency issues and enables high throughput access."
+    },
+    {
+        "type": "multi",
+        "question": "What is the function of Apache Oozie?",
+        "options": [
+            "It is a distributed file system.",
+            "It is a workflow scheduler system to manage Hadoop jobs (DAGs of actions).",
+            "It is a column-oriented database.",
+            "It is a machine learning library."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Oozie is a workflow scheduler that manages jobs (like MapReduce, Pig, Hive) arranged in a Directed Acyclical Graph (DAG)."
+    },
+    {
+        "type": "multi",
+        "question": "In the context of Big Data formats, what advantage does Parquet offer over CSV?",
+        "options": [
+            "Parquet is human-readable in a text editor.",
+            "Parquet stores data in a columnar format, allowing the engine to skip reading unnecessary columns (IO reduction).",
+            "Parquet does not require any schema definition.",
+            "Parquet files are always larger than CSV files due to metadata."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Parquet is a columnar binary format. If a query only needs 2 out of 100 columns, Parquet allows the engine to read only those 2 columns, significantly reducing I/O compared to row-based formats like CSV."
+    }
+]
