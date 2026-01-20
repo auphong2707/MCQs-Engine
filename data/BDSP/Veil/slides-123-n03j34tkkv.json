@@ -406,19 +406,19 @@
     },
     {
         "type": "multi",
-        "question": "Which of the following are components of the 'Big Data Technology Stack' mentioned in the documents?",
+        "question": "According to the 'Big Data Technology Stack' diagram in the slides, which of the following are the correct layer names?",
         "options": [
-            "Infrastructure (Storage, Compute, Network).",
-            "Data Management (NoSQL, NewSQL, Integration).",
-            "Analytics (ML, Reporting, Dashboard).",
-            "Manual Paper Filing."
+            "Big Data Utilization",
+            "Big Data Analytics",
+            "Big Data Management",
+            "Big Data Processing"
         ],
         "answer": [
             0,
             1,
             2
         ],
-        "explanation": "The Big Data stack includes Infrastructure (hardware/cloud), Data Management (storage/databases), and Analytics/Utilization. Manual filing is obviously not part of the Big Data technology stack."
+        "explanation": "The slides explicitly identify the four layers of the stack as: 1. Big Data Utilization (Applications), 2. Big Data Analytics (Reporting, Visualization), 3. Big Data Management (Integration, Data Flow), and 4. Infrastructure. 'Big Data Processing' is a general term but is not listed as one of the specific distinct layers in that diagram."
     },
     {
         "type": "multi",
