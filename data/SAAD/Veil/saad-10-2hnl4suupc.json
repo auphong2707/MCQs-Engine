@@ -1,0 +1,442 @@
+[
+    {
+        "type": "single",
+        "question": "What is the primary focus of system analysis compared to detailed design?",
+        "options": [
+            "It focuses on the technical perspective and computing resources.",
+            "It focuses on studying the logical structure of information necessary for a business solution.",
+            "It focuses on optimizing the application's performance.",
+            "It focuses on the specific programming language implementation."
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are considered inputs for detailed design?",
+        "options": [
+            "Source code",
+            "Structural models (class diagrams, components, etc.)",
+            "Dynamic models (use case diagrams, interactions, etc.)",
+            "Executable binaries"
+        ],
+        "answer": [1, 2]
+    },
+    {
+        "type": "single",
+        "question": "The output of detailed design must be a model ready for what?",
+        "options": [
+            "Requirement gathering",
+            "Programming",
+            "Business Analysis",
+            "Marketing"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is the correct order of the detailed design loop?",
+        "options": [
+            "Design attributes -> Design methods -> Design associations -> Design classes",
+            "Design classes -> Design associations -> Design attributes -> Design methods",
+            "Design methods -> Design classes -> Design associations -> Design attributes",
+            "Design associations -> Design attributes -> Design classes -> Design methods"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "multi",
+        "question": "Why might responsibilities be reallocated during the detailed design of layers?",
+        "options": [
+            "To remove technical tasks from analysis layers.",
+            "To ignore the layered architecture requirements.",
+            "To transfer the storage of intermediate results to new layers.",
+            "To combine all layers into a single layer."
+        ],
+        "answer": [0, 2]
+    },
+    {
+        "type": "single",
+        "question": "In detailed design, how are data structures often handled if they are available in a programming language's library?",
+        "options": [
+            "They are ignored.",
+            "New classes are always created from scratch to implement them.",
+            "They are implemented using new classes (like arrays, lists, queues) from the library.",
+            "They are converted into database tables immediately."
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "How can a State Machine concept from analysis be implemented in an object-oriented programming language?",
+        "options": [
+            "By using an array.",
+            "By using the State Design Pattern.",
+            "By ignoring the state changes.",
+            "By using a database trigger."
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What is a descriptive class (meta-class)?",
+        "options": [
+            "A class that describes the database schema.",
+            "A class whose object is another class, used to group responsibilities belonging to types of objects.",
+            "A class that inherits from all other classes.",
+            "A class used solely for user interface design."
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are methods to update derived attributes?",
+        "options": [
+            "Explicit code in update methods.",
+            "Periodic recalculation.",
+            "Automatic procedure (Trigger).",
+            "Random assignment."
+        ],
+        "answer": [0, 1, 2]
+    },
+    {
+        "type": "single",
+        "question": "Why are parent classes used in detailed design?",
+        "options": [
+            "To increase the complexity of the code.",
+            "To place common operations or attributes from multiple classes into a single class for inheritance.",
+            "To force semantically dissimilar classes into the same hierarchy.",
+            "To create a one-to-one mapping with database tables."
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Since the concept of 'links' is not available in programming languages, how are they converted?",
+        "options": [
+            "They are converted into comments.",
+            "They are converted into attributes or tables of attributes.",
+            "They are converted into separate files.",
+            "They are converted into methods only."
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "If a link is two-way, what must be ensured regarding the attributes representing the link?",
+        "options": [
+            "They must be ignored.",
+            "They must be placed on only one side without any reference on the other.",
+            "Synchronization must be ensured.",
+            "They must always be public."
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "When implementing a 'Composition' type link, what constraint must be noted?",
+        "options": [
+            "The part can exist independently of the whole.",
+            "When the whole is removed, the part must also be removed.",
+            "There are no constraints.",
+            "The part must be removed before the whole is created."
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "How should a many-to-many link be implemented in detailed design?",
+        "options": [
+            "By placing attributes in the class at the 'many' end.",
+            "By creating an additional class containing the link's attributes.",
+            "By using a one-way link.",
+            "By ignoring the attributes."
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "multi",
+        "question": "What templates are used to distinguish special data structures in attribute design?",
+        "options": [
+            "<<struct>>",
+            "<<class>>",
+            "<<enum>>",
+            "<<object>>"
+        ],
+        "answer": [0, 2]
+    },
+    {
+        "type": "single",
+        "question": "Which diagram is useful for describing an algorithm with many stages and situational choices during method design?",
+        "options": [
+            "Class Diagram",
+            "Activity Diagram",
+            "Use Case Diagram",
+            "Component Diagram"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "The Presentation Layer is limited to which part of the application?",
+        "options": [
+            "The business logic.",
+            "The data storage.",
+            "The visible part that implements the interface between human and computer.",
+            "The network communication."
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "multi",
+        "question": "What are the three main components of the MVC model used in Presentation Layer design?",
+        "options": [
+            "Model",
+            "View",
+            "Controller",
+            "Database"
+        ],
+        "answer": [0, 1, 2]
+    },
+    {
+        "type": "single",
+        "question": "In the MVC model, what is the 'Model' component?",
+        "options": [
+            "The visible part of the interface.",
+            "The component responsible for managing interface dynamics.",
+            "An entity class belonging to the business layer.",
+            "The document managed by the application layer."
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "In the MVC model, which component is responsible for managing the interface's behavior and state transitions?",
+        "options": [
+            "Model",
+            "View",
+            "Controller",
+            "Document"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "multi",
+        "question": "What types of rules can a system have, according to James Martin?",
+        "options": [
+            "Integrity rules",
+            "Derivation rules",
+            "Behavioral rules",
+            "Documentation rules"
+        ],
+        "answer": [0, 1, 2]
+    },
+    {
+        "type": "single",
+        "question": "What is the definition of a 'Document' in the context of Application Layer design?",
+        "options": [
+            "A physical paper file.",
+            "The memory image representing data when exchanging with windows.",
+            "A database table.",
+            "A user manual."
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "What does 'Synchronizing Windows' mean?",
+        "options": [
+            "Making all windows the same size.",
+            "Ensuring different windows do not conflict when presenting data from a common source.",
+            "Closing all windows at the same time.",
+            "Opening windows in a specific sequence."
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "To optimize information loading from entities, what mechanism is used to reference entity objects by their OID?",
+        "options": [
+            "A listbox",
+            "A catalog",
+            "A menu",
+            "A trigger"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "multi",
+        "question": "Why can commands issued from a window NOT be immediately transmitted to the document?",
+        "options": [
+            "The command may need to be blocked to check permissions.",
+            "The command must be placed in a queue.",
+            "The command may need to be undone or redone.",
+            "The window does not have a connection to the application."
+        ],
+        "answer": [0, 1, 2]
+    },
+    {
+        "type": "single",
+        "question": "Which layer is considered the most stable and highly reusable?",
+        "options": [
+            "Presentation Layer",
+            "Application Layer",
+            "Business Layer",
+            "Data Storage Layer"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which objects are typically stored permanently as persistent data?",
+        "options": [
+            "Boundary objects",
+            "Control objects",
+            "Entity objects",
+            "Temporary variables"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "Which data storage method is the most commonly used?",
+        "options": [
+            "File systems",
+            "Relational Databases (RDBMS)",
+            "Object-Oriented Database Management Systems (OBMS)",
+            "NoSQL"
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "When mapping classes to tables in a relational model, what does an object (instance) correspond to?",
+        "options": [
+            "A table",
+            "A column",
+            "A row (tuple)",
+            "A foreign key"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "How are complex attribute types mapped to a relational database?",
+        "options": [
+            "They are ignored.",
+            "Using multiple columns or a separate table linked by a foreign key.",
+            "Using a single integer column.",
+            "Using a boolean flag."
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Why should one-to-one mapping from classes to tables NOT be understood mechanically?",
+        "options": [
+            "It is illegal in SQL.",
+            "It leads to too many tables and joins, impacting access speed.",
+            "It is impossible to implement.",
+            "It requires too much storage space."
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In a relational model, how is a one-to-many relationship typically mapped?",
+        "options": [
+            "Create a single table for both classes.",
+            "Create a table for each class; the primary key of the 'one' end is the foreign key in the 'many' end.",
+            "Create an intersection table.",
+            "Use a recursive link."
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "In a relational model, how is a many-to-many relationship typically mapped?",
+        "options": [
+            "Create a table for each class and an additional intersection table.",
+            "Create two tables and link them directly.",
+            "Merge both classes into one table.",
+            "It cannot be mapped."
+        ],
+        "answer": [0]
+    },
+    {
+        "type": "single",
+        "question": "How are recursive links (a link between a class and itself) implemented in a database?",
+        "options": [
+            "By creating a new table.",
+            "By adding a column acting as a foreign key that references the primary key of the same table.",
+            "By ignoring the link.",
+            "By using a separate database."
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "multi",
+        "question": "What are the common ways to map generalized relationships (inheritance) to the relational model?",
+        "options": [
+            "Create a table for each class (parent and child) using a common OID.",
+            "Create only one table (parent) and consolidate all child attributes into it.",
+            "Create one table for each child class, repeating parent attributes.",
+            "Create a table only for the grand-parent class."
+        ],
+        "answer": [0, 1, 2]
+    },
+    {
+        "type": "single",
+        "question": "What is a disadvantage of creating only one table for a parent class and consolidating all child attributes?",
+        "options": [
+            "It increases the number of tables.",
+            "It requires joins to access data.",
+            "It increases the number of columns, and some columns are unused for individuals.",
+            "It makes it easy to add new child classes."
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "What is a disadvantage of creating a table for each class (parent and child) for inheritance mapping?",
+        "options": [
+            "It minimizes the number of tables.",
+            "Accessing data requires a join between parent and child classes.",
+            "It repeats data across tables.",
+            "It does not support adding new child classes."
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "When designing attributes, properties marked as {frozen} typically require initialization where?",
+        "options": [
+            "In a set() method.",
+            "In the class constructor.",
+            "In the database.",
+            "In the destructor."
+        ],
+        "answer": [1]
+    },
+    {
+        "type": "single",
+        "question": "Which database type is described as suitable for very large storage sizes (terabytes) and high update speeds?",
+        "options": [
+            "File systems",
+            "Relational Databases",
+            "Non-relational/NoSQL DBMS",
+            "Spreadsheets"
+        ],
+        "answer": [2]
+    },
+    {
+        "type": "single",
+        "question": "In the detailed design of the Business Layer, what must be added to entity classes?",
+        "options": [
+            "GUI components.",
+            "Get and set operations for attributes and services for information retrieval/updates.",
+            "Main method.",
+            "HTML tags."
+        ],
+        "answer": [1]
+    }
+]
