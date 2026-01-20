@@ -2,6 +2,7 @@ Generate 40 multiple-choice questions (MCQs) in "multi" type format for Big Data
 
 Requirements:
 - Each question must have "type": "multi" (even if only one correct answer)
+- Balance the question type ratio (multi and single)
 - Match the style and vibe of the sample questions below
 - Wrong options must be plausible but definitively incorrect (avoid obviously wrong distractors)
 - Provide detailed explanations without citation
