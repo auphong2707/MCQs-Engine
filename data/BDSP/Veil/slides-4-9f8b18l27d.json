@@ -1,0 +1,624 @@
+[
+    {
+        "type": "multi",
+        "question": "Which of the following are primary motivations for adopting NoSQL databases over traditional RDBMS?",
+        "options": [
+            "The need for strong ACID consistency in all transactions.",
+            "Handling massive data volume and high velocity workloads.",
+            "The requirement for a fixed, static schema to ensure data integrity.",
+            "Horizontal scalability to lower costs and handle large datasets."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "NoSQL databases are designed for massive data volume, high velocity, and horizontal scalability (scaling out). They typically offer flexible or dynamic schemas rather than fixed ones and often trade strict ACID consistency for higher availability and partition tolerance (BASE properties)."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements accurately describe the Key-Value data model?",
+        "options": [
+            "It requires complex joins to retrieve related data across different keys.",
+            "Values can contain any kind of data (BLOB, string, etc.) without the database understanding the content.",
+            "It is highly scalable because it avoids expensive join operations.",
+            "Querying is typically limited to simple get, put, and delete operations by key."
+        ],
+        "answer": [
+            1,
+            2,
+            3
+        ],
+        "explanation": "Key-Value stores treat values as opaque blobs, allowing any data type. They are scalable precisely because they avoid complex relationships and joins. The interface is generally simple (CRUD by key)."
+    },
+    {
+        "type": "multi",
+        "question": "What distinguishes the Column-Family data model from a traditional Relational model?",
+        "options": [
+            "It stores data in a row-by-row manner optimized for transaction processing.",
+            "It uses a sparse, distributed, persistent multi-dimensional sorted map structure.",
+            "New columns can be added dynamically without an expensive 'ALTER TABLE' operation.",
+            "It enforces strict referential integrity between column families."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Column-family stores (like Bigtable/HBase) are sparse, multi-dimensional maps (Row, Column, Timestamp -> Value). They allow dynamic addition of columns (schema flexibility) unlike the rigid schema of RDBMS. They typically do not enforce referential integrity."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are characteristics of Graph databases?",
+        "options": [
+            "They are optimized for aggregation queries over large datasets.",
+            "They use nodes, relationships, and properties as core abstractions.",
+            "Queries are fundamentally graph traversals rather than table joins.",
+            "They are best suited for simple key-lookup operations."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Graph databases (like Neo4j) model data as nodes and edges (relationships). They excel at traversing connected data. They are not primarily optimized for large-scale aggregation (like column stores) or simple key lookups (like key-value stores)."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements are true regarding the CAP theorem?",
+        "options": [
+            "A distributed system can simultaneously guarantee Consistency, Availability, and Partition Tolerance.",
+            "In the presence of a network partition, a system must choose between Consistency and Availability.",
+            "Partition Tolerance is rarely required in large-scale distributed systems.",
+            "Consistency in CAP refers to all nodes seeing the same data at the same time."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "The CAP theorem states you can have at most two of the three. Since network partitions are inevitable in distributed systems (Partition Tolerance is mandatory), the real trade-off is between Consistency and Availability."
+    },
+    {
+        "type": "multi",
+        "question": "What are the core properties of the BASE consistency model?",
+        "options": [
+            "Basically Available",
+            "Always Consistent",
+            "Soft state",
+            "Eventual consistency"
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "BASE stands for Basically Available, Soft state, and Eventual consistency. It is the alternative to the ACID model used in traditional RDBMS, favoring availability over immediate consistency."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements about Amazon DynamoDB are correct?",
+        "options": [
+            "It uses consistent hashing for partitioning data across nodes.",
+            "It prioritizes strong consistency over availability in all configurations.",
+            "It is a zero-hop Distributed Hash Table (DHT).",
+            "It uses vector clocks to handle conflicting updates."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "DynamoDB uses consistent hashing to partition data. It is a zero-hop DHT (nodes know where data lives). It uses vector clocks for versioning to handle conflicts (optimizing for availability/write-always), rather than prioritizing strong consistency."
+    },
+    {
+        "type": "multi",
+        "question": "How does DynamoDB handle temporary failures using 'Sloppy Quorum'?",
+        "options": [
+            "The write operation fails immediately if the designated replica node is down.",
+            "Writes are sent to the next available healthy node in the preference list (hinted handoff).",
+            "The system pauses all operations until the failed node recovers.",
+            "The temporary node stores a hint to deliver the data back to the original node upon recovery."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "In a sloppy quorum, if a node is down, the request is handled by another healthy node (hinted handoff). This node stores the data with a hint to send it back to the intended replica once it recovers, ensuring high availability."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements accurately describe Presto's architecture?",
+        "options": [
+            "It is a distributed SQL query engine, not a database storage system.",
+            "It uses MapReduce for query execution to ensure fault tolerance.",
+            "It employs a coordinator-worker architecture.",
+            "It processes data in-memory and pipelines stages to reduce latency."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Presto is a query engine that queries data where it lives (HDFS, S3, etc.), not a storage system. It uses a coordinator/worker model. Unlike MapReduce which writes to disk, Presto uses in-memory pipelined execution for speed. It does not use MapReduce."
+    },
+    {
+        "type": "multi",
+        "question": "What are valid differences between Hive and Presto?",
+        "options": [
+            "Hive uses MapReduce (or Tez) which writes intermediate results to disk, while Presto streams data in memory.",
+            "Presto is designed for interactive queries, whereas Hive is traditionally for batch processing.",
+            "Hive provides fault tolerance for long-running jobs, whereas a Presto query fails if a task fails.",
+            "Presto can only query data stored in HDFS, while Hive can query multiple sources."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Hive is disk-based/batch-oriented (fault tolerant via restart). Presto is memory-based/interactive (fast but fragile; if a worker fails, the query fails). Presto is actually designed to query *multiple* sources via connectors, not just HDFS."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are examples of Key-Value stores?",
+        "options": [
+            "Redis",
+            "Riak",
+            "Neo4j",
+            "Amazon DynamoDB"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Redis, Riak, and DynamoDB are primarily Key-Value stores. Neo4j is a Graph database."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements are wrong regarding Document Stores?",
+        "options": [
+            "They store data in formats like JSON or XML.",
+            "They require a rigid schema definition before inserting data.",
+            "They allow indexing on properties within the document.",
+            "They are primarily optimized for traversing highly connected data relationships."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Document stores are schema-less (flexible). Graph databases are optimized for traversing relationships, not document stores. Document stores do use JSON/XML and allow indexing."
+    },
+    {
+        "type": "multi",
+        "question": "What role does the Coordinator play in Presto?",
+        "options": [
+            "It parses SQL statements and creates a query plan.",
+            "It stores the actual data blocks on its local disk.",
+            "It acts as the public interface for clients to submit queries.",
+            "It distributes tasks to worker nodes for execution."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "The Coordinator is responsible for parsing SQL, planning the query, handling client interfaces (accepting queries), and managing execution by distributing tasks to workers. It does not store data (storage is decoupled), and the specific management of node membership is handled by the Discovery Service (though the Coordinator uses this service)."
+    },
+    {
+        "type": "multi",
+        "question": "How does Consistent Hashing facilitate incremental scalability?",
+        "options": [
+            "It requires re-hashing all keys when a node is added.",
+            "Adding a node only affects the keys in the immediate neighbor's range.",
+            "It distributes load evenly by mapping data to a ring topology.",
+            "It allows nodes to be added or removed with minimal data movement."
+        ],
+        "answer": [
+            1,
+            2,
+            3
+        ],
+        "explanation": "Consistent hashing minimizes data movement. Only the keys falling into the range of the new node (taken from its neighbor) need to move, not the entire dataset."
+    },
+    {
+        "type": "multi",
+        "question": "Which features are associated with MongoDB?",
+        "options": [
+            "It is a Column-Family store.",
+            "It stores data as JSON-like documents.",
+            "It supports automatic sharding for horizontal scaling.",
+            "It uses a master-slave replication model."
+        ],
+        "answer": [
+            1,
+            2,
+            3
+        ],
+        "explanation": "MongoDB is a Document store (not Column-Family), uses JSON documents, supports sharding, and uses replica sets (master-slave model)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements about Vector Clocks are correct?",
+        "options": [
+            "They are used to capture causality between different versions of an object.",
+            "They guarantee that no conflicts will ever occur during writes.",
+            "They consist of a list of (node, counter) pairs.",
+            "They help reconcile divergent versions of data during read operations."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Vector clocks track causality (ancestry) to identify conflicts, they do not prevent them. They are lists of counters used to reconcile versions upon reading."
+    },
+    {
+        "type": "multi",
+        "question": "What is the purpose of Merkle Trees in DynamoDB?",
+        "options": [
+            "To map keys to nodes in the consistent hashing ring.",
+            "To detect inconsistencies between replicas efficiently.",
+            "To store the actual values of the keys for fast retrieval.",
+            "To minimize the amount of data transferred during replica synchronization."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Merkle Trees (hash trees) are used for anti-entropy (synchronization). They allow nodes to quickly check if their data differs without sending the actual data, minimizing transfer overhead."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are benefits of using Presto Connectors?",
+        "options": [
+            "They allow Presto to query multiple different data sources (Hive, MySQL, Cassandra) in a single query.",
+            "They convert data from external sources into a format Presto can process.",
+            "They persist data permanently within the Presto cluster.",
+            "They provide metadata (like table schemas) to the Coordinator."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Connectors abstract data sources, allowing federation (querying multiple sources). They provide data and metadata. Presto does not persist data itself."
+    },
+    {
+        "type": "multi",
+        "question": "In the context of the CAP theorem, which pair of properties do systems like HBase and MongoDB (by default) typically prioritize?",
+        "options": [
+            "Availability and Partition Tolerance (AP)",
+            "Consistency and Partition Tolerance (CP)",
+            "Consistency and Availability (CA)",
+            "Scalability and Latency"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "HBase and MongoDB (in default strong consistency configurations) are typically CP systems. They prioritize Consistency and Partition Tolerance, potentially sacrificing Availability during partitions (e.g., stopping writes if a quorum isn't met)."
+    },
+    {
+        "type": "multi",
+        "question": "What mechanisms does Presto use to optimize query execution?",
+        "options": [
+            "Predicate pushdown to filter data at the source.",
+            "Writing intermediate results to HDFS to recover from failures.",
+            "In-memory pipelined execution to avoid disk I/O latency.",
+            "Lazy split assignment to balance load among workers."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Presto uses predicate pushdown (filtering at source), in-memory pipelines (no disk I/O), and lazy split assignment. It does *not* write intermediate results to disk (that's MapReduce behavior)."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements are true about Virtual Nodes in DynamoDB?",
+        "options": [
+            "A physical node is responsible for only one virtual node token.",
+            "They help distribute load more evenly across physical nodes.",
+            "They allow for handling heterogeneous node capacities.",
+            "They enable faster rebalancing when a node is added or removed."
+        ],
+        "answer": [
+            1,
+            2,
+            3
+        ],
+        "explanation": "Physical nodes host *multiple* virtual nodes. This improves load balancing, supports heterogeneity (stronger nodes get more virtual nodes), and speeds up rebalancing."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following scenarios are best suited for NoSQL databases?",
+        "options": [
+            "Real-time big data analytics.",
+            "Content management systems requiring flexible schemas.",
+            "Complex transactional banking systems requiring strict ACID compliance.",
+            "High-velocity Internet of Things (IoT) data ingestion."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "NoSQL fits real-time analytics, flexible content management, and high-velocity IoT. Traditional banking requiring strict ACID is usually the domain of RDBMS (though some NoSQL support transactions, RDBMS is the classic fit)."
+    },
+    {
+        "type": "multi",
+        "question": "Which are components of the Presto execution model?",
+        "options": [
+            "Stages",
+            "Tasks",
+            "Pipelines",
+            "Reducers"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Presto uses Stages, Tasks, and Pipelines (drivers/operators). 'Reducers' is specific terminology for MapReduce."
+    },
+    {
+        "type": "multi",
+        "question": "What is the function of the Discovery Service in Presto?",
+        "options": [
+            "It stores the table schemas and metadata.",
+            "It helps the Coordinator and Workers find each other in the cluster.",
+            "It executes the final aggregation of query results.",
+            "It monitors the health of the nodes in the cluster."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "The Discovery Service allows nodes to register and find peers. It essentially acts as the cluster membership and health monitor."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements are correct regarding 'Read Repair' in DynamoDB?",
+        "options": [
+            "It is executed during the write phase to ensure all replicas are updated.",
+            "It is a conflict resolution mechanism executed during the read phase.",
+            "It updates outdated replicas with the latest version after a read detects a discrepancy.",
+            "It blocks the read operation until all replicas acknowledge the update."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Read repair happens during reads. If the system detects divergent versions (via vector clocks), it reconciles them and updates the outdated replicas in the background."
+    },
+    {
+        "type": "multi",
+        "question": "Which technologies are examples of Column-Family stores?",
+        "options": [
+            "Apache HBase",
+            "Apache Cassandra",
+            "MongoDB",
+            "Redis"
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "HBase and Cassandra are Column-Family stores. MongoDB is a Document store. Redis is a Key-Value store."
+    },
+    {
+        "type": "multi",
+        "question": "What are the advantages of Presto's 'all-at-once' stage scheduling?",
+        "options": [
+            "It minimizes wall clock time by scheduling all stages concurrently.",
+            "It processes data as soon as it is available (streaming).",
+            "It is highly memory-efficient for extremely large batch jobs.",
+            "It is beneficial for latency-sensitive interactive analytics."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "All-at-once scheduling runs everything concurrently for low latency (streaming). However, it is memory-intensive, so it is *not* the most memory-efficient approach for massive batch jobs (phased scheduling is better for that)."
+    },
+    {
+        "type": "multi",
+        "question": "Which statement describes the 'Soft State' property in BASE?",
+        "options": [
+            "The system is always consistent at every moment.",
+            "The state of the system may change over time, even without new input.",
+            "Data is written to disk immediately to ensure durability.",
+            "It relies on eventual consistency mechanisms to converge."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Soft State means the system state is volatile or changing (due to eventual consistency convergence) even without new writes."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements are correct about 'Quorum' (N, R, W) configuration in DynamoDB?",
+        "options": [
+            "If R + W > N, the system guarantees strong consistency.",
+            "W is the number of replicas that must acknowledge a write for it to be successful.",
+            "N represents the total number of nodes in the cluster.",
+            "Low values for R and W improve latency but increase the risk of inconsistency."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Quorum consistency is achieved if R+W > N. W is the write quorum. Low R/W improves latency (wait for fewer nodes) but risks reading stale data. N is the replication factor (replicas per key), not the total cluster size."
+    },
+    {
+        "type": "multi",
+        "question": "What makes Graph databases optimized for connected data?",
+        "options": [
+            "They store relationships explicitly as edges connecting nodes.",
+            "They perform joins at query time like RDBMS.",
+            "They implement 'index-free adjacency', allowing rapid traversal.",
+            "They are primarily designed for aggregating unconnected documents."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "Graph DBs store relationships explicitly (edges) and use index-free adjacency (nodes point directly to neighbors), making traversal efficient. They do not rely on expensive joins."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are limitations of vertical scaling (scaling up)?",
+        "options": [
+            "It introduces complex data sharding requirements.",
+            "There is a physical limit to the amount of CPU and RAM a single machine can have.",
+            "It often involves significant hardware costs.",
+            "It creates a single point of failure if not replicated."
+        ],
+        "answer": [
+            1,
+            2,
+            3
+        ],
+        "explanation": "Vertical scaling hits hardware limits, is expensive, and relies on a single machine (SPOF). Sharding is a complexity of *horizontal* scaling."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are true about 'Sharding' in distributed databases?",
+        "options": [
+            "It involves partitioning data across multiple servers.",
+            "It is a method of vertical scaling.",
+            "It helps in handling datasets larger than the capacity of a single node.",
+            "It enables parallel processing of data chunks."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Sharding is horizontal scaling (partitioning data across nodes), enabling storage of large datasets and parallel processing."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following represent valid NoSQL data models?",
+        "options": [
+            "Key-Value",
+            "Document",
+            "Relational",
+            "Graph"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Key-Value, Document, and Graph are core NoSQL types. Relational is the traditional SQL model."
+    },
+    {
+        "type": "multi",
+        "question": "Why might a company choose Presto over Hive for data analysis?",
+        "options": [
+            "To achieve sub-second or minute-level latency for interactive queries.",
+            "To perform extremely long-running ETL jobs that require high fault tolerance.",
+            "To query data sources other than HDFS (e.g., Cassandra, MySQL) directly.",
+            "To avoid the overhead of writing intermediate results to disk."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Presto is preferred for speed (interactive), federation (multiple sources), and in-memory processing. Hive is better for long-running, fault-tolerant ETL."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following describes the 'Partition Tolerance' attribute in CAP?",
+        "options": [
+            "The system continues to operate despite arbitrary message loss or failure of part of the system.",
+            "All nodes see the same data at the same time.",
+            "The system guarantees that every request receives a response about whether it succeeded or failed.",
+            "It allows the system to sustain operations when the network between nodes breaks."
+        ],
+        "answer": [
+            0,
+            3
+        ],
+        "explanation": "Partition Tolerance ensures the system functions even if network communication between nodes fails (network partitions)."
+    },
+    {
+        "type": "multi",
+        "question": "What is 'Hinted Handoff' in DynamoDB?",
+        "options": [
+            "A method to permanently migrate data to a new node.",
+            "A mechanism where a healthy node temporarily stores writes for a failed node.",
+            "A hint stored with the data indicating the original recipient node.",
+            "A way to improve read latency by querying the fastest node."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Hinted handoff involves a node taking a write for a failed peer and storing a hint to replay that write to the peer once it recovers."
+    },
+    {
+        "type": "multi",
+        "question": "Which statement about Presto's memory management is correct?",
+        "options": [
+            "Presto spills data to disk whenever memory is full to prevent failure.",
+            "If a query exceeds the memory limit, the query generally fails.",
+            "Presto relies entirely on the OS page cache for memory management.",
+            "Memory is managed globally across all running queries."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Presto is purely in-memory. If a query exceeds memory limits, it typically fails (unlike MapReduce which spills to disk). Memory is managed globally."
+    },
+    {
+        "type": "multi",
+        "question": "What defines a 'Column-Oriented' storage layout compared to 'Row-Oriented'?",
+        "options": [
+            "It stores values for the same column contiguously on disk.",
+            "It is generally more efficient for write-heavy transactional workloads.",
+            "It allows for reading only the specific columns needed for a query.",
+            "It enables better compression rates due to similar data types being stored together."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Column-oriented storage stores columns together. This speeds up analytics (reading only needed columns) and improves compression. Row-oriented is better for transactional (OLTP) writes."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are true regarding the symmetry property in DynamoDB's design?",
+        "options": [
+            "Every node has the same set of responsibilities.",
+            "There is a specialized 'master' node that coordinates all writes.",
+            "It simplifies system operation and maintenance.",
+            "It avoids single points of failure associated with centralized control."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Symmetry means all nodes are peers (P2P); there is no special master node. This simplifies ops and removes SPOFs."
+    },
+    {
+        "type": "multi",
+        "question": "What is the 'Gossip Protocol' used for in distributed systems like DynamoDB?",
+        "options": [
+            "To transfer bulk data between nodes.",
+            "To maintain cluster membership lists.",
+            "To detect node failures.",
+            "To execute SQL queries across nodes."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Gossip protocols are lightweight mechanisms for nodes to share state, primarily used for maintaining membership lists and failure detection."
+    }
+]
