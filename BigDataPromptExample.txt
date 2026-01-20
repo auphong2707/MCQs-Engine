@@ -7,6 +7,7 @@ Requirements:
 - Wrong options must be plausible but definitively incorrect (avoid obviously wrong distractors)
 - Provide detailed explanations without citation
 - Mix question styles: "Which are wrong?", "What are features of...?", "Which statements are correct?", etc.
+- Make sure options is 0-indexed
 
 Sample questions for reference:
 [
