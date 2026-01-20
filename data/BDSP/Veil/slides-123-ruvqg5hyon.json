@@ -141,7 +141,7 @@
     "type": "multi",
     "question": "What advantages does Apache ORC provide?",
     "options": [
-      "It is optimized for Hive and supports ACID transactions.",
+      "It is optimized for Hive.",
       "It uses row-based storage for transactional writes.",
       "It provides lightweight indexes (min/max/count) for data skipping.",
       "It offers high compression ratios."
