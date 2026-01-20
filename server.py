@@ -4,6 +4,38 @@ import json
 
 app = Flask(__name__)
 
+# Path to cache directory for storing done state
+CACHE_DIR = os.path.join('data', '.cache')
+DONE_STATE_FILE = os.path.join(CACHE_DIR, 'done_files.json')
+
+def ensure_cache_dir():
+    """Ensure cache directory exists"""
+    if not os.path.exists(CACHE_DIR):
+        os.makedirs(CACHE_DIR)
+
+def load_done_state():
+    """Load done state from cache file"""
+    ensure_cache_dir()
+    if os.path.exists(DONE_STATE_FILE):
+        try:
+            with open(DONE_STATE_FILE, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"Error loading done state: {e}")
+            return []
+    return []
+
+def save_done_state(done_files):
+    """Save done state to cache file"""
+    ensure_cache_dir()
+    try:
+        with open(DONE_STATE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(done_files, f, indent=2)
+        return True
+    except Exception as e:
+        print(f"Error saving done state: {e}")
+        return False
+
 # Serve static files
 @app.route('/')
 def index():
@@ -135,6 +167,68 @@ def get_questions():
             'files_loaded': len(file_paths)
         })
     
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+# API endpoint to get done state
+@app.route('/api/done')
+def get_done_state():
+    try:
+        done_files = load_done_state()
+        return jsonify({'done_files': done_files})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+# API endpoint to update done state
+@app.route('/api/done', methods=['POST'])
+def update_done_state():
+    try:
+        data = request.get_json()
+        if not data or 'done_files' not in data:
+            return jsonify({'error': 'Invalid data'}), 400
+        
+        done_files = data['done_files']
+        if not isinstance(done_files, list):
+            return jsonify({'error': 'done_files must be an array'}), 400
+        
+        success = save_done_state(done_files)
+        if success:
+            return jsonify({'success': True, 'done_files': done_files})
+        else:
+            return jsonify({'error': 'Failed to save done state'}), 500
+            
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+# API endpoint to toggle done status for a file
+@app.route('/api/done/toggle', methods=['POST'])
+def toggle_done_status():
+    try:
+        data = request.get_json()
+        if not data or 'file_path' not in data:
+            return jsonify({'error': 'file_path is required'}), 400
+        
+        file_path = data['file_path']
+        done_files = load_done_state()
+        
+        if file_path in done_files:
+            done_files.remove(file_path)
+            is_done = False
+        else:
+            done_files.append(file_path)
+            is_done = True
+        
+        success = save_done_state(done_files)
+        if success:
+            return jsonify({
+                'success': True,
+                'file_path': file_path,
+                'is_done': is_done,
+                'done_files': done_files
+            })
+        else:
+            return jsonify({'error': 'Failed to save done state'}), 500
+            
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

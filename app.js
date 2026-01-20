@@ -39,8 +39,8 @@ searchInput.addEventListener('input', handleSearch);
 clearSearchBtn.addEventListener('click', clearSearch);
 
 // Auto-load available files on page load
-window.addEventListener('DOMContentLoaded', () => {
-    loadDoneState();
+window.addEventListener('DOMContentLoaded', async () => {
+    await loadDoneState();
     loadAvailableFiles();
 });
 
@@ -810,14 +810,16 @@ function arraysEqual(arr1, arr2) {
 }
 
 /**
- * Load done state from localStorage
+ * Load done state from server cache
  */
-function loadDoneState() {
+async function loadDoneState() {
     try {
-        const saved = localStorage.getItem('mcq-done-files');
-        if (saved) {
-            doneFiles = new Set(JSON.parse(saved));
+        const response = await fetch('/api/done');
+        if (!response.ok) {
+            throw new Error('Failed to load done state');
         }
+        const data = await response.json();
+        doneFiles = new Set(data.done_files || []);
     } catch (error) {
         console.error('Error loading done state:', error);
         doneFiles = new Set();
@@ -825,11 +827,23 @@ function loadDoneState() {
 }
 
 /**
- * Save done state to localStorage
+ * Save done state to server cache
  */
-function saveDoneState() {
+async function saveDoneState() {
     try {
-        localStorage.setItem('mcq-done-files', JSON.stringify([...doneFiles]));
+        const response = await fetch('/api/done', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                done_files: [...doneFiles]
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error('Failed to save done state');
+        }
     } catch (error) {
         console.error('Error saving done state:', error);
     }
@@ -838,12 +852,26 @@ function saveDoneState() {
 /**
  * Toggle done status for a file
  */
-function toggleDoneStatus(filePath) {
-    if (doneFiles.has(filePath)) {
-        doneFiles.delete(filePath);
-    } else {
-        doneFiles.add(filePath);
+async function toggleDoneStatus(filePath) {
+    try {
+        const response = await fetch('/api/done/toggle', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                file_path: filePath
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error('Failed to toggle done status');
+        }
+        
+        const data = await response.json();
+        doneFiles = new Set(data.done_files || []);
+        renderTree(searchInput.value);
+    } catch (error) {
+        console.error('Error toggling done status:', error);
     }
-    saveDoneState();
-    renderTree(searchInput.value);
 }
