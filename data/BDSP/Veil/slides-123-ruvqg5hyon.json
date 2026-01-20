@@ -1,0 +1,613 @@
+[
+  {
+    "type": "multi",
+    "question": "Which of the following characteristics correctly describe HDFS?",
+    "options": [
+      "It is optimized for low-latency data access.",
+      "It is designed for write-once, read-many access patterns.",
+      "It uses commodity hardware for storage.",
+      "It efficiently handles billions of small files."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "explanation": "HDFS is designed for high throughput (batch processing) rather than low latency. It runs on commodity hardware. It is not optimized for low latency or for managing billions of small files due to NameNode memory limitations."
+  },
+  {
+    "type": "multi",
+    "question": "Which statements about the HDFS NameNode are correct?",
+    "options": [
+      "It stores the actual data blocks for files.",
+      "It manages the file system namespace and metadata.",
+      "It keeps the entire metadata in main memory.",
+      "It periodically sends heartbeats to DataNodes."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "explanation": "The NameNode manages metadata and keeps it in RAM. It does not store actual data blocks (DataNodes do that). DataNodes send heartbeats to the NameNode, not the reverse."
+  },
+  {
+    "type": "multi",
+    "question": "Identify the incorrect statements regarding HDFS DataNodes.",
+    "options": [
+      "They store data blocks in the local file system.",
+      "They act as the master node in the HDFS architecture.",
+      "They send periodic block reports to the NameNode.",
+      "They are responsible for replication decisions."
+    ],
+    "answer": [
+      1,
+      3
+    ],
+    "explanation": "DataNodes are worker nodes, not masters. Replication decisions are made by the NameNode; DataNodes merely execute them."
+  },
+  {
+    "type": "multi",
+    "question": "What is the primary function of the Secondary NameNode?",
+    "options": [
+      "It acts as a hot standby to immediately take over if the active NameNode fails.",
+      "It merges the FsImage and Edit Log to prevent the log from growing too large.",
+      "It stores a real-time backup of all data blocks.",
+      "It manages resource negotiation for the cluster."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The Secondary NameNode performs periodic checkpoints (merging FsImage and Edit Log) to ensure efficient NameNode restarts. It is not a high-availability failover node."
+  },
+  {
+    "type": "multi",
+    "question": "Which of the following HDFS commands are valid?",
+    "options": [
+      "hdfs dfs -put localfile /hdfs/path",
+      "hdfs dfs -rmdir /non_empty_directory",
+      "hdfs dfs -cat /hdfs/path/to/file",
+      "hdfs dfs -get /hdfs/path localfile"
+    ],
+    "answer": [
+      0,
+      2,
+      3
+    ],
+    "explanation": "`put`, `cat`, and `get` are standard commands. `rmdir` only removes empty directories; `rm -r` is needed for non-empty ones."
+  },
+  {
+    "type": "multi",
+    "question": "Which statements accurately describe the HDFS replication strategy?",
+    "options": [
+      "The default replication factor is usually 3.",
+      "All three replicas are placed on the same rack for speed.",
+      "Ideally, one replica is local, a second is on a remote rack, and a third is on that same remote rack.",
+      "The NameNode detects failed DataNodes via missing heartbeats."
+    ],
+    "answer": [
+      0,
+      2,
+      3
+    ],
+    "explanation": "Default replication is 3. The strategy uses rack awareness (1 local, 2 remote) for fault tolerance, not placing all on one rack. Heartbeats indicate node health."
+  },
+  {
+    "type": "multi",
+    "question": "What are the characteristics of the Apache Parquet format?",
+    "options": [
+      "It is a row-oriented text format.",
+      "It is a column-oriented binary format.",
+      "It supports predicate pushdown.",
+      "It includes schema information in the file footer."
+    ],
+    "answer": [
+      1,
+      2,
+      3
+    ],
+    "explanation": "Parquet is a columnar binary format (not row/text) that stores metadata in the footer and supports optimizations like predicate pushdown."
+  },
+  {
+    "type": "multi",
+    "question": "Which of the following are true regarding Apache Avro?",
+    "options": [
+      "It is a row-based binary format.",
+      "It requires a central schema registry to read any file.",
+      "It stores the schema in JSON format within the file itself.",
+      "It supports schema evolution."
+    ],
+    "answer": [
+      0,
+      2,
+      3
+    ],
+    "explanation": "Avro is row-based and embeds the schema (JSON) in the file, making it self-describing and excellent for schema evolution."
+  },
+  {
+    "type": "multi",
+    "question": "Which of the following statements are wrong regarding the 'SequenceFile' format?",
+    "options": [
+      "It is a text-based file format.",
+      "It stores key-value pairs.",
+      "It supports block compression.",
+      "It is the default format for modern Spark workloads."
+    ],
+    "answer": [
+      0,
+      3
+    ],
+    "explanation": "SequenceFile is binary, not text-based. It is a legacy Hadoop format, whereas Parquet/Avro are preferred for modern Spark workloads."
+  },
+  {
+    "type": "multi",
+    "question": "What advantages does Apache ORC provide?",
+    "options": [
+      "It is optimized for Hive and supports ACID transactions.",
+      "It uses row-based storage for transactional writes.",
+      "It provides lightweight indexes (min/max/count) for data skipping.",
+      "It offers high compression ratios."
+    ],
+    "answer": [
+      0,
+      2,
+      3
+    ],
+    "explanation": "ORC is columnar (not row-based), optimized for Hive (supporting ACID), uses lightweight indexes, and compresses well."
+  },
+  {
+    "type": "multi",
+    "question": "Which features distinguish Apache Iceberg from standard Parquet files?",
+    "options": [
+      "It adds a metadata layer to support ACID transactions.",
+      "It supports time travel queries.",
+      "It replaces HDFS as the physical storage layer.",
+      "It allows for schema evolution without rewriting data files."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "explanation": "Iceberg is a table format that adds metadata for ACID, time travel, and evolution. It sits *on top* of storage (HDFS/S3), it does not replace it."
+  },
+  {
+    "type": "multi",
+    "question": "In the context of MapReduce, which statements are correct?",
+    "options": [
+      "Map tasks process input splits in parallel.",
+      "Reduce tasks process data before the Map phase begins.",
+      "The Shuffle and Sort phase occurs between Map and Reduce.",
+      "Mappers and Reducers must run on the same physical node."
+    ],
+    "answer": [
+      0,
+      2
+    ],
+    "explanation": "Map tasks run in parallel. Shuffle/Sort happens between Map and Reduce. Reduce happens last. Mappers and Reducers can run on different nodes."
+  },
+  {
+    "type": "multi",
+    "question": "What is the purpose of the 'Shuffle' phase in MapReduce?",
+    "options": [
+      "To randomly distribute data to Reducers.",
+      "To transfer map outputs to the appropriate reducers based on keys.",
+      "To sort the intermediate keys before they reach the reducer.",
+      "To encrypt the data."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "explanation": "Shuffle ensures all values for a key reach the same Reducer. Sorting orders these keys. It does not distribute randomly or encrypt by default."
+  },
+  {
+    "type": "multi",
+    "question": "Which of the following are components of YARN?",
+    "options": [
+      "ResourceManager",
+      "NodeManager",
+      "TaskTracker",
+      "ApplicationMaster"
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "explanation": "YARN uses ResourceManager, NodeManager, and ApplicationMaster. TaskTracker was part of the legacy MapReduce v1 architecture."
+  },
+  {
+    "type": "multi",
+    "question": "Which statements are true about Apache ZooKeeper?",
+    "options": [
+      "It provides a distributed coordination service.",
+      "It is used for storing massive datasets like HDFS.",
+      "It handles leader election and configuration management.",
+      "It uses an atomic broadcast protocol (ZAB)."
+    ],
+    "answer": [
+      0,
+      2,
+      3
+    ],
+    "explanation": "ZooKeeper is for coordination and metadata (leader election, config), not for storing large data volumes."
+  },
+  {
+    "type": "multi",
+    "question": "What is the primary role of Apache Hive?",
+    "options": [
+      "To provide real-time stream processing.",
+      "To provide a SQL-like interface (HiveQL) for data in Hadoop.",
+      "To act as a NoSQL database.",
+      "To translate SQL queries into MapReduce/Tez jobs."
+    ],
+    "answer": [
+      1,
+      3
+    ],
+    "explanation": "Hive is a data warehouse tool providing SQL (HiveQL) which it translates into execution jobs (MapReduce/Tez). It is not a streaming or NoSQL engine."
+  },
+  {
+    "type": "multi",
+    "question": "Which statements correctly describe Apache HBase?",
+    "options": [
+      "It is a relational database management system (RDBMS).",
+      "It is a distributed, column-oriented NoSQL store.",
+      "It provides random read/write access to HDFS data.",
+      "It supports complex SQL joins natively."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "explanation": "HBase is a NoSQL column store for random access on HDFS. It is not an RDBMS and does not support complex SQL joins natively."
+  },
+  {
+    "type": "multi",
+    "question": "What function does Apache Sqoop serve?",
+    "options": [
+      "It processes real-time data streams.",
+      "It transfers bulk data between Hadoop and relational databases (RDBMS).",
+      "It schedules workflows.",
+      "It creates data visualizations."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "Sqoop is a tool designed for efficiently transferring bulk data between Hadoop and structured datastores like RDBMS."
+  },
+  {
+    "type": "multi",
+    "question": "Which of the following are standard 'Big Data' characteristics?",
+    "options": [
+      "Volume",
+      "Velocity",
+      "Variety",
+      "Virtualization"
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "The 'Vs' include Volume, Velocity, Variety (and Veracity/Value). Virtualization is an infrastructure technology, not a data characteristic."
+  },
+  {
+    "type": "multi",
+    "question": "Which statement about the 'Map' function is correct?",
+    "options": [
+      "It aggregates values into a single result.",
+      "It processes input key-value pairs to generate intermediate pairs.",
+      "It writes the final output to HDFS.",
+      "It runs after the Reduce phase."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "Map transforms inputs to intermediate key-values. Aggregation is for Reduce. Map runs first."
+  },
+  {
+    "type": "multi",
+    "question": "In HDFS, what is a 'Block'?",
+    "options": [
+      "A physical hard drive sector.",
+      "The smallest unit of data HDFS stores and replicates.",
+      "A metadata tag.",
+      "A client-side memory buffer."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "A block is the logical unit of storage and replication in HDFS (e.g., 128MB)."
+  },
+  {
+    "type": "multi",
+    "question": "What are benefits of columnar file formats like Parquet?",
+    "options": [
+      "Faster retrieval when querying subsets of columns.",
+      "Better compression ratios than row-oriented formats.",
+      "Efficient handling of single-row updates.",
+      "Support for nested data structures."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "explanation": "Columnar formats offer column pruning and good compression. They are poor at single-row updates."
+  },
+  {
+    "type": "multi",
+    "question": "What is 'Safe Mode' in the HDFS NameNode?",
+    "options": [
+      "A read-only mode for file system maintenance.",
+      "A mode where data is encrypted.",
+      "A startup state where the NameNode receives block reports.",
+      "A failure state requiring a restart."
+    ],
+    "answer": [
+      0,
+      2
+    ],
+    "explanation": "Safe Mode is a read-only state, often during startup, where the NameNode validates block availability before allowing writes."
+  },
+  {
+    "type": "multi",
+    "question": "Which components are part of the YARN application submission flow?",
+    "options": [
+      "Client submits job to ResourceManager.",
+      "ResourceManager starts an ApplicationMaster on a NodeManager.",
+      "ApplicationMaster requests containers from ResourceManager.",
+      "NameNode executes the tasks."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "The NameNode is not involved in YARN resource negotiation or task execution."
+  },
+  {
+    "type": "multi",
+    "question": "What is the purpose of Apache Oozie?",
+    "options": [
+      "To store Hive metadata.",
+      "To schedule and manage Hadoop workflows.",
+      "To provide distributed locking.",
+      "To index data for search."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "Oozie is a workflow scheduler for managing dependent Hadoop jobs."
+  },
+  {
+    "type": "multi",
+    "question": "Which statements about 'Data Locality' are correct?",
+    "options": [
+      "It means moving computation to the node where data resides.",
+      "It means moving data to the compute node.",
+      "It minimizes network congestion.",
+      "It is a key performance principle in MapReduce."
+    ],
+    "answer": [
+      0,
+      2,
+      3
+    ],
+    "explanation": "Data locality moves code (computation) to data to save network bandwidth."
+  },
+  {
+    "type": "multi",
+    "question": "What is the 'fsimage' file in HDFS?",
+    "options": [
+      "A temporary log of changes.",
+      "A persistent snapshot of file system metadata stored on disk.",
+      "A transaction log.",
+      "The actual data content."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "`fsimage` is the static snapshot of metadata. The Edit Log is the transaction log."
+  },
+  {
+    "type": "multi",
+    "question": "What is Apache Kafka best suited for?",
+    "options": [
+      "Batch processing of historical archives.",
+      "Building real-time streaming data pipelines.",
+      "Decoupling data producers from consumers.",
+      "Hosting a static website."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "explanation": "Kafka is for real-time streaming and system decoupling, not static hosting or pure batch archives."
+  },
+  {
+    "type": "multi",
+    "question": "Which statements are true regarding 'Pig Latin'?",
+    "options": [
+      "It is a low-level assembly language.",
+      "It is a high-level data flow language.",
+      "It compiles into MapReduce jobs.",
+      "It is used for real-time transactions."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "explanation": "Pig Latin is a high-level language for Apache Pig that abstracts MapReduce. It is for batch analysis."
+  },
+  {
+    "type": "multi",
+    "question": "How does HDFS ensure data integrity?",
+    "options": [
+      "By using RAID 10 hardware.",
+      "By computing and storing checksums for blocks.",
+      "By encrypting data at rest.",
+      "By verifying checksums upon client reads."
+    ],
+    "answer": [
+      1,
+      3
+    ],
+    "explanation": "HDFS uses checksums (CRC32) to detect corruption upon read. It does not rely on hardware RAID."
+  },
+  {
+    "type": "multi",
+    "question": "Which are 'Modern Table Formats' addressing Parquet limitations?",
+    "options": [
+      "Apache Iceberg",
+      "Apache Hudi",
+      "Delta Lake",
+      "Apache ZooKeeper"
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Iceberg, Hudi, and Delta Lake are table formats. ZooKeeper is a coordination service."
+  },
+  {
+    "type": "multi",
+    "question": "What is the 'Combiner' in MapReduce?",
+    "options": [
+      "A mandatory final phase.",
+      "A local aggregation function to reduce network traffic.",
+      "A file merging tool.",
+      "A global reducer."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "A Combiner runs locally on the map node to aggregate data before the shuffle, reducing bandwidth usage."
+  },
+  {
+    "type": "multi",
+    "question": "Which are valid HDFS administrative commands?",
+    "options": [
+      "hdfs dfsadmin -report",
+      "hdfs dfsadmin -safemode enter",
+      "hdfs namenode -format",
+      "hdfs dfs -cat"
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "`dfsadmin` and `namenode -format` are admin commands. `dfs -cat` is a standard user command."
+  },
+  {
+    "type": "multi",
+    "question": "What happens when a DataNode fails?",
+    "options": [
+      "The NameNode stops accepting all writes.",
+      "The NameNode detects failure via heartbeat timeout.",
+      "The NameNode initiates re-replication of affected blocks.",
+      "Data is lost if replication is set to 1."
+    ],
+    "answer": [
+      1,
+      2,
+      3
+    ],
+    "explanation": "NameNode detects failure (heartbeat), re-replicates from other copies. Data is lost only if no other copies exist (replication=1)."
+  },
+  {
+    "type": "multi",
+    "question": "Which statement best describes 'Schema on Read'?",
+    "options": [
+      "Data is validated before writing.",
+      "Data is stored raw; schema is applied at query time.",
+      "It prevents unstructured data storage.",
+      "It offers flexibility for diverse data formats."
+    ],
+    "answer": [
+      1,
+      3
+    ],
+    "explanation": "Schema on Read applies schema during query execution, allowing flexible storage of raw/unstructured data."
+  },
+  {
+    "type": "multi",
+    "question": "What is the role of the ApplicationMaster in YARN?",
+    "options": [
+      "It manages the entire cluster's resources.",
+      "It negotiates resources for a specific application.",
+      "It coordinates tasks with NodeManagers.",
+      "It stores the file system namespace."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "explanation": "ApplicationMaster manages a single app's lifecycle, negotiating with RM and working with NMs."
+  },
+  {
+    "type": "multi",
+    "question": "Which is true regarding Apache Flume?",
+    "options": [
+      "It is for collecting and moving log data.",
+      "It is a complex event processing engine.",
+      "It can write data into HDFS or HBase.",
+      "It uses a Source-Channel-Sink architecture."
+    ],
+    "answer": [
+      0,
+      2,
+      3
+    ],
+    "explanation": "Flume is for log ingestion into storage (HDFS/HBase) using Source-Channel-Sink. It is not a CEP engine."
+  },
+  {
+    "type": "multi",
+    "question": "What is a 'Manifest File' in Apache Iceberg?",
+    "options": [
+      "A list of data files in a snapshot.",
+      "The actual data content.",
+      "A file storing table statistics for pruning.",
+      "A configuration file for the cluster."
+    ],
+    "answer": [
+      0,
+      2
+    ],
+    "explanation": "Manifest files list data files and contain statistics (bounds/counts) used for query pruning."
+  },
+  {
+    "type": "multi",
+    "question": "Which are correct regarding HDFS 'Rack Awareness'?",
+    "options": [
+      "It improves fault tolerance (replicas on different racks).",
+      "It improves read performance (reading from closest rack).",
+      "It requires manual block placement.",
+      "It is automated by the NameNode."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "explanation": "Rack awareness places replicas across racks for safety and speed. It is automated, not manual per block."
+  },
+  {
+    "type": "multi",
+    "question": "Which statements are true about the HDFS 'Edit Log'?",
+    "options": [
+      "It records metadata transactions.",
+      "It is merged with FsImage by the Secondary NameNode.",
+      "It stores file content.",
+      "A large Edit Log delays NameNode startup."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "explanation": "Edit Log tracks metadata changes. Large logs delay startup (replay time), so Secondary NameNode compacts them."
+  }
+]
