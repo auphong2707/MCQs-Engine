@@ -1,0 +1,617 @@
+[
+    {
+        "type": "multi",
+        "question": "Which of the following statements about Apache Kafka are correct?",
+        "options": [
+            "Kafka topics are immutable sequences of records continually appended to a structured commit log.",
+            "Kafka guarantees that messages across different partitions of the same topic are always strictly ordered.",
+            "Kafka uses Zookeeper for managing cluster configuration and leader election.",
+            "Kafka pushes messages to consumers rather than consumers pulling messages from brokers."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "Kafka topics are indeed immutable logs where records are appended. Zookeeper is used for cluster management and leader election. However, Kafka only guarantees ordering within a single partition, not across different partitions. Also, Kafka consumers pull messages from brokers; brokers do not push messages to consumers."
+    },
+    {
+        "type": "multi",
+        "question": "What is the role of Zookeeper in a Kafka ecosystem?",
+        "options": [
+            "It stores the actual message data for all topics.",
+            "It manages service discovery for Kafka Brokers.",
+            "It handles the leadership election for Kafka Broker and Topic Partition pairs.",
+            "It acts as a producer sending data to the Kafka cluster."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Zookeeper is responsible for coordinating the Kafka cluster, including service discovery and leader election. It does not store the actual message data (which is stored on the brokers' disks) nor does it act as a producer."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements regarding Kafka Partitions are true?",
+        "options": [
+            "A topic can be split into multiple partitions to allow for parallel processing.",
+            "Each partition is an ordered, immutable sequence of records.",
+            "A single partition can be replicated across multiple brokers for fault tolerance.",
+            "Consumers in the same consumer group can read from the same partition simultaneously."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Partitions allow parallelism, are ordered/immutable logs, and can be replicated. However, within a single consumer group, only one consumer instance can read from a specific partition at any given time to maintain ordering guarantees."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid Kafka delivery semantics?",
+        "options": [
+            "At least once",
+            "At most once",
+            "Exactly once",
+            "Variable once"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Kafka supports 'At least once' (default, potentially duplicated), 'At most once' (messages may be lost but never duplicated), and 'Exactly once' (transactions/idempotence). 'Variable once' is not a standard delivery semantic."
+    },
+    {
+        "type": "multi",
+        "question": "What happens when a Consumer in a Kafka Consumer Group fails?",
+        "options": [
+            "The partitions assigned to the failed consumer are permanently lost.",
+            "The entire consumer group stops processing until the failed consumer restarts.",
+            "The partitions assigned to the failed consumer are reassigned to remaining live consumers in the group.",
+            "Kafka automatically deletes the unconsumed messages for that consumer."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Kafka provides fault tolerance for consumers. If a consumer fails, a rebalance is triggered, and its partitions are reassigned to other active consumers in the same group. Data is not lost or deleted."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements about the Spark Structured Streaming model are correct?",
+        "options": [
+            "It treats a live data stream as an unbounded table that is continuously appended.",
+            "It requires users to manually manage batch intervals and RDD transformations.",
+            "It supports event-time processing and handling of late data.",
+            "It unifies streaming, interactive, and batch queries under a single high-level API."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Structured Streaming's core concept is the unbounded table. It handles event-time and late data automatically (unlike DStreams). It is built on the Dataset/DataFrame API, unifying batch and stream processing. Manual batch interval management is a characteristic of the legacy DStreams API."
+    },
+    {
+        "type": "multi",
+        "question": "What is the purpose of 'Watermarking' in Spark Structured Streaming?",
+        "options": [
+            "To compress the data stream for faster network transmission.",
+            "To handle late data by specifying a threshold of how late data is allowed to be.",
+            "To mark the beginning of a new streaming query.",
+            "To determine when it is safe to drop old state data and finalize windowed aggregations."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Watermarking allows the engine to track the progress of event time. It sets a threshold for lateness, allowing the system to handle late data appropriately and eventually drop intermediate state for old windows that are no longer expected to receive updates."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are output modes in Spark Structured Streaming?",
+        "options": [
+            "Append Mode",
+            "Complete Mode",
+            "Update Mode",
+            "Delete Mode"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Append Mode (write new rows), Complete Mode (write the whole table), and Update Mode (write only changed rows) are the standard output modes. Delete Mode is not a standard output mode in this context."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements distinguish Spark DataFrames from RDDs?",
+        "options": [
+            "DataFrames provide a schema view of data, similar to relational database tables.",
+            "RDDs allow for more optimized execution plans via the Catalyst optimizer compared to DataFrames.",
+            "DataFrames generally offer better performance than RDDs due to optimizations like code generation.",
+            "RDDs are the primary high-level abstraction in Spark 2.0 and later."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "DataFrames have a schema and benefit from the Catalyst optimizer and Project Tungsten, making them generally faster than raw RDDs. RDDs are the lower-level abstraction and do not benefit from Catalyst optimizations in the same way. DataFrames/Datasets are the primary API in newer Spark versions."
+    },
+    {
+        "type": "multi",
+        "question": "What mechanisms does Spark use for fault tolerance?",
+        "options": [
+            "It replicates every single RDD partition to disk immediately upon creation.",
+            "It uses RDD lineage to recompute lost partitions from the original input data.",
+            "It relies on Write Ahead Logs (WAL) for streaming state recovery.",
+            "It uses a master-slave architecture where the master mirrors the entire memory of every worker."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Spark relies on lineage (remembering the sequence of operations) to recompute lost data. For streaming, it also uses Write Ahead Logs (WAL) and checkpointing to ensure state and offset recovery. It does not replicate all RDDs to disk by default, nor does the master mirror worker memory."
+    },
+    {
+        "type": "multi",
+        "question": "Which components are part of the Apache Spark ecosystem?",
+        "options": [
+            "Spark SQL",
+            "Spark Streaming",
+            "MLlib",
+            "MapReduce"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Spark SQL, Spark Streaming, and MLlib are core components of the Spark ecosystem. MapReduce is a separate processing model/framework typically associated with Hadoop, although Spark can perform MapReduce-like operations."
+    },
+    {
+        "type": "multi",
+        "question": "How does Kafka handle message retention?",
+        "options": [
+            "Messages are deleted immediately after they are consumed by a consumer.",
+            "Messages can be retained based on a configurable time period (e.g., 7 days).",
+            "Messages can be retained based on a configurable size limit for the log.",
+            "Messages are kept indefinitely by default until disk space runs out."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Kafka retains messages based on time or size policies. It does not delete messages immediately upon consumption (which decouples consumption from storage) and while indefinite retention is possible, it is not the standard behavior without configuration."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements about Spark's DStream (Discretized Stream) are correct?",
+        "options": [
+            "It is a sequence of RDDs representing a continuous stream of data.",
+            "It processes data strictly one record at a time with zero latency.",
+            "It divides the live stream into small batches of X seconds.",
+            "It is the underlying abstraction for the newer Structured Streaming API."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "DStreams operate by micro-batching input data into sequences of RDDs over small time intervals. They do not process one record at a time (which would be continuous processing, not micro-batching) and Structured Streaming uses DataFrames/Datasets, not DStreams, as its abstraction."
+    },
+    {
+        "type": "multi",
+        "question": "What is the function of the 'Driver' in a Spark application?",
+        "options": [
+            "It executes the physical tasks on the worker nodes.",
+            "It converts the user's code into a Directed Acyclic Graph (DAG) of tasks.",
+            "It stores the data partitions for the RDDs.",
+            "It schedules tasks on the executors."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "The Driver is the master node process that runs the main() function, creates the SparkContext, converts code to a DAG, and schedules tasks. Executors (on worker nodes) execute the tasks and store data."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are benefits of using Kafka over traditional messaging systems like RabbitMQ?",
+        "options": [
+            "Higher throughput suitable for big data pipelines.",
+            "Built-in persistent storage allowing replayability of messages.",
+            "Complex routing logic inside the broker itself.",
+            "Horizontal scalability via partitioning."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Kafka is designed for high throughput, scalability, and durability (persistence). Unlike traditional brokers (like RabbitMQ) which often support complex routing logic (exchanges/bindings) within the broker, Kafka uses a simpler 'dumb broker, smart client' model to maximize performance."
+    },
+    {
+        "type": "multi",
+        "question": "What is 'Event Time' in the context of stream processing?",
+        "options": [
+            "The time when the data arrived at the processing engine.",
+            "The time when the event actually occurred in the real world.",
+            "The time when the data was written to the output sink.",
+            "The time when the data was processed by the system."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Event time is the time the event actually happened, usually recorded as a timestamp within the data record. This is distinct from processing time (when the system processes it) or ingestion time."
+    },
+    {
+        "type": "multi",
+        "question": "Which statement regarding Spark Transformations is false?",
+        "options": [
+            "Transformations are evaluated immediately when called.",
+            "Transformations create a new RDD from an existing one.",
+            "Transformations are lazy and only execute when an Action is called.",
+            "Examples of transformations include map, filter, and reduceByKey."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Transformations in Spark are lazy; they build up a lineage graph but do not execute computation until an Action (like collect or count) is invoked. Therefore, the statement that they are evaluated immediately is false."
+    },
+    {
+        "type": "multi",
+        "question": "What role do 'Offsets' play in Kafka?",
+        "options": [
+            "They uniquely identify a record within a partition.",
+            "They determine the replication factor of a topic.",
+            "They allow consumers to track their read position in the log.",
+            "They are used to encrypt the message content."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "Offsets are sequential IDs assigned to messages in a partition. Consumers use them to checkpoint their progress (track what they have read) and resume from that point if they fail."
+    },
+    {
+        "type": "multi",
+        "question": "Which are features of the 'Complete' output mode in Spark Structured Streaming?",
+        "options": [
+            "The entire updated result table is written to the sink after every trigger.",
+            "It is only feasible for aggregation queries.",
+            "It writes only the new rows that were added since the last trigger.",
+            "It is efficient for streams where the total result size grows indefinitely without bound."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Complete mode rewrites the whole result table every time. This is primarily used for aggregations (like word counts) where the result needs to reflect the total state. It is inefficient or impossible for unbounded non-aggregated streams."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements accurately describe the Spark Catalyst Optimizer?",
+        "options": [
+            "It optimizes RDD transformations at runtime.",
+            "It optimizes logical plans for DataFrames and Datasets.",
+            "It generates optimized physical execution plans.",
+            "It is exclusively available for the Python API."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Catalyst is the query optimizer for Spark SQL (DataFrames/Datasets). It optimizes the logical plan and generates physical plans. It does not optimize raw RDDs, and it works across all supported languages (Scala, Java, Python, R)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the main difference between 'Processing Time' and 'Event Time'?",
+        "options": [
+            "Processing time is deterministic, while event time is variable.",
+            "Event time is when the event happened; Processing time is when the system observes it.",
+            "Event time is required for accurate windowing on out-of-order data.",
+            "Processing time handles late data better than event time."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Event time reflects the source timestamp, crucial for handling data that arrives out of order. Processing time is simply the clock time of the server processing the data. Processing time cannot inherently handle 'late' data because 'late' is relative to event time."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid window types in streaming analytics?",
+        "options": [
+            "Tumbling Windows (fixed size, non-overlapping)",
+            "Sliding Windows (fixed size, overlapping)",
+            "Session Windows (dynamic size based on activity)",
+            "Partition Windows (static size based on disk space)"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Tumbling, Sliding, and Session windows are standard time-based windowing concepts. 'Partition Windows' based on disk space is not a standard streaming window type."
+    },
+    {
+        "type": "multi",
+        "question": "How does Spark Structured Streaming handle late data?",
+        "options": [
+            "By discarding any data that arrives after the micro-batch starts.",
+            "By maintaining intermediate state for old windows until a watermark threshold is passed.",
+            "By updating the result table for the corresponding old window if it is within the watermark.",
+            "By automatically pausing the stream until the late data arrives."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Spark keeps the state of old windows in memory. If late data arrives within the watermark threshold, it aggregates it into the old window and updates the result. It does not pause the stream."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements about Kafka Consumer Groups are correct?",
+        "options": [
+            "A consumer group allows a pool of consumers to cooperate to consume a topic.",
+            "If a consumer group has more consumers than partitions, the extra consumers will be idle.",
+            "A single partition can be consumed by multiple consumers within the same group simultaneously.",
+            "Each consumer group acts as an independent subscriber to the topic."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Consumer groups enable parallel consumption and load balancing. Extra consumers stay idle if partitions are fewer than consumers. Crucially, a partition is consumed by only *one* member of a specific group at a time to ensure ordering."
+    },
+    {
+        "type": "multi",
+        "question": "What is the purpose of the 'write ahead log' (WAL) in Spark Streaming?",
+        "options": [
+            "To optimize the execution plan for faster processing.",
+            "To ensure fault tolerance by saving received data to reliable storage before processing.",
+            "To send logs to the driver for debugging purposes.",
+            "To allow data recovery if the driver or executor fails."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "WAL is a durability feature. It writes incoming data to a durable file system (like HDFS) so that if the processing node fails, the data can be recovered and re-processed, preventing data loss."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are actions in Apache Spark?",
+        "options": [
+            "count()",
+            "collect()",
+            "map()",
+            "saveAsTextFile()"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "count(), collect(), and saveAsTextFile() are actions because they trigger computation and return a result or write to storage. map() is a transformation that defines a new RDD lazily."
+    },
+    {
+        "type": "multi",
+        "question": "What are characteristics of a 'Topic' in Kafka?",
+        "options": [
+            "It acts as a category or feed name for records.",
+            "It is physically stored as a commit log on the broker disk.",
+            "It ensures strict global ordering of all messages across the entire cluster.",
+            "It can be divided into partitions for scalability."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Topics are categories for messages, stored as logs, and partitioned. Kafka does *not* ensure global ordering across a whole topic (only within a partition)."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements apply to Spark's 'Windowed Grouped Aggregation'?",
+        "options": [
+            "It can compute aggregates like counts or averages over time windows.",
+            "It supports both tumbling and sliding windows.",
+            "It requires the data to be sorted by timestamp before processing.",
+            "It can handle late data by updating the counts for previous windows."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Windowed aggregation works on time windows (tumbling or sliding) and can update older windows if late data arrives (subject to watermarking). It does not require pre-sorted data as it groups by the time window derived from the timestamp."
+    },
+    {
+        "type": "multi",
+        "question": "What is the primary function of a Kafka Producer?",
+        "options": [
+            "To subscribe to topics and process data.",
+            "To publish records to Kafka topics.",
+            "To manage the cluster configuration.",
+            "To assign partitions to consumer groups."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Producers are client applications that publish (write) events/records to Kafka topics. Consumers subscribe; Zookeeper/Controllers manage configuration and assignments."
+    },
+    {
+        "type": "multi",
+        "question": "Which scenarios are suitable for using Apache Kafka?",
+        "options": [
+            "Real-time log aggregation.",
+            "Traditional batch processing of static files.",
+            "Messaging systems for decoupling microservices.",
+            "Stream processing and analytics pipelines."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Kafka excels at real-time data, decoupling systems, and stream pipelines. While it can feed data into batch systems, it is not primarily a tool for processing static files itself (that is more the domain of HDFS/Spark Batch)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are components of a Kafka Record?",
+        "options": [
+            "Key (optional)",
+            "Value",
+            "Timestamp",
+            "Next_Record_Pointer"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "A Kafka record consists of a key, a value, and a timestamp. It does not contain a pointer to the next record; the sequence is determined by the log offset."
+    },
+    {
+        "type": "multi",
+        "question": "What distinguishes 'Sliding Windows' from 'Tumbling Windows'?",
+        "options": [
+            "Tumbling windows never overlap.",
+            "Sliding windows overlap and can contain the same data point in multiple windows.",
+            "Tumbling windows are based on system time only.",
+            "Sliding windows move forward by an interval smaller than the window duration."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Tumbling windows are fixed non-overlapping blocks. Sliding windows move by a slide interval (often smaller than the window size), creating overlaps where a single event falls into multiple windows."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements describing Spark's memory management are correct?",
+        "options": [
+            "Spark processes data in-memory to reduce disk I/O.",
+            "Spark spills data to disk if it does not fit in memory.",
+            "Spark requires all data to fit in memory or the job will fail immediately.",
+            "Spark uses a Least Recently Used (LRU) policy for cache eviction by default."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Spark prioritizes in-memory processing for speed but handles datasets larger than memory by spilling partitions to disk. It does not fail immediately. LRU is the standard policy for evicting old data from the cache."
+    },
+    {
+        "type": "multi",
+        "question": "What is the significance of the 'Replication Factor' in Kafka?",
+        "options": [
+            "It determines how many partitions a topic has.",
+            "It defines how many copies of a partition exist across the cluster.",
+            "It increases the fault tolerance of the system.",
+            "It allows consumer groups to read essentially the same data N times."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Replication factor controls reliability. If factor is N, there are N copies of the partition data. This ensures that if N-1 brokers fail, the data is still safe. It is distinct from the number of partitions (which is for scalability)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are accurate regarding Kafka's 'Log Compaction'?",
+        "options": [
+            "It deletes old data based solely on the timestamp.",
+            "It ensures that for every key, at least the last known value is retained.",
+            "It allows restoring the state of a system by replaying the log.",
+            "It compresses the data using GZIP to save space."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Log compaction is a retention policy that retains the latest value for each key, effectively treating the log as a database snapshot. This is different from standard compression (gzip) or time-based retention."
+    },
+    {
+        "type": "multi",
+        "question": "Which capabilities are provided by Spark SQL?",
+        "options": [
+            "Running SQL queries over imported data.",
+            "Providing a schema-less data structure for unstructured text.",
+            "Integration with Hive tables and metadata.",
+            "Optimization of query execution plans via Catalyst."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Spark SQL enables SQL queries, integrates with Hive, and uses Catalyst for optimization. It relies on DataFrames/Datasets which enforce schemas, so it does not provide a 'schema-less' structure (that would be closer to a raw RDD of strings)."
+    },
+    {
+        "type": "multi",
+        "question": "What happens in the 'Shuffle' phase of a Spark job?",
+        "options": [
+            "Data is redistributed across partitions and executors.",
+            "It typically occurs during transformations like reduceByKey, groupBy, or join.",
+            "It is a purely in-memory operation that incurs no disk I/O.",
+            "It often involves moving data over the network."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Shuffling moves data between stages to group keys together. It involves network transfer and disk I/O (writing intermediate files), making it an expensive operation. It is not purely in-memory."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements are true about the 'Leader' and 'Follower' roles in Kafka partitions?",
+        "options": [
+            "The Leader handles all read and write requests for the partition.",
+            "Followers passively replicate data from the Leader.",
+            "Consumers can choose to read from Followers to reduce latency.",
+            "If the Leader fails, one of the In-Sync Replicas (ISR) is elected as the new Leader."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "In standard Kafka, the Leader handles all I/O. Followers just replicate. Consumers do not typically read from followers (though recent versions introduced follower fetching, the standard architectural definition emphasizes Leader-based I/O). ISRs provide failover candidates."
+    },
+    {
+        "type": "multi",
+        "question": "What is 'Accumulator' in Spark?",
+        "options": [
+            "A variable that can be used for counters or sums.",
+            "A variable that is read-only for worker nodes.",
+            "A variable that allows worker nodes to update a value efficiently.",
+            "A mechanism for broadcasting large datasets to all nodes."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "Accumulators are variables that are only 'added' to through an associative and commutative operation. They are used to implement counters or sums. Workers can update them, but only the driver program can read their value."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following describes 'Zero-Copy' in the context of Kafka?",
+        "options": [
+            "A technique where data is copied into the application memory space before sending.",
+            "A technique leveraging the sendfile() system call.",
+            "It allows data to be transferred directly from the file system cache to the network socket.",
+            "It reduces CPU context switches and memory copying overhead."
+        ],
+        "answer": [
+            1,
+            2,
+            3
+        ],
+        "explanation": "Zero-copy (via sendfile) allows the OS to transfer data directly from the page cache to the network card, bypassing the application (JVM) memory. This reduces overhead and copies, improving performance significantly."
+    }
+]
