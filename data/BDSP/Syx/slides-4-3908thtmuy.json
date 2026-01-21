@@ -109,7 +109,7 @@
         "question": "In the context of Vector Clocks, what does it mean if two objects have vector clocks [A:1, B:1] and [A:1, B:2]?",
         "options": [
             "The objects are in conflict.",
-            "The second object is a causal descendant of the first (no conflict).",
+            "The second object is a causal descendant of the first.",
             "The first object is a causal descendant of the second.",
             "They were updated by different nodes at the exact same physical time."
         ],
@@ -140,7 +140,7 @@
         "options": [
             "To map data keys to specific nodes in the ring.",
             "To resolve conflicts during the read process.",
-            "To detect inconsistencies between replicas efficiently (Anti-Entropy).",
+            "To detect inconsistencies between replicas efficiently.",
             "To store the actual value data associated with keys."
         ],
         "answer": [
@@ -222,17 +222,18 @@
     },
     {
         "type": "multi",
-        "question": "According to the PACELC theorem, what happens when a system is running normally (no partition)?",
+        "question": "Which of the following statements about consistency and scalability in large-scale databases are correct?",
         "options": [
-            "The system must choose between Consistency and Availability.",
-            "The system must choose between Latency (L) and Consistency (C).",
-            "The system must choose between Partition Tolerance and Availability.",
-            "The system ignores Consistency entirely."
+            "To ensure high Availability and Partition Tolerance, strict Consistency is often sacrificed.",
+            "Strict Consistency is generally easier to implement and more efficient than Loose Consistency.",
+            "Loose Consistency allows the system to be more efficient.",
+            "Google and Amazon designed their large-scale databases to prioritize strict Consistency over Availability."
         ],
         "answer": [
-            1
+            0,
+            2
         ],
-        "explanation": "PACELC extends CAP. It states: If Partition (P), choose A or C. Else (E) (normal operation), choose between Latency (L) and Consistency (C). For example, replicating synchronously increases consistency but increases latency."
+        "explanation": "Large-scale systems (like those at Google and Amazon) often sacrifice strict consistency to guarantee Availability and Partition Tolerance. The slides explicitly state that strict consistency is generally hard to implement and inefficient, whereas loose consistency is easier to implement and is efficient."
     },
     {
         "type": "multi",
@@ -297,7 +298,7 @@
         "type": "multi",
         "question": "Which of the following are features of Key-Value stores?",
         "options": [
-            "The value is opaque to the database (it doesn't care what's inside).",
+            "The value can contain any kind of data.",
             "They are highly optimized for simple lookups by key.",
             "They natively support complex SQL queries and joins.",
             "Redis and DynamoDB are examples of this model."
@@ -307,7 +308,7 @@
             1,
             3
         ],
-        "explanation": "Key-Value stores treat the value as a 'blob' (opaque). They are designed for speed on primary key lookups. They do *not* natively support complex SQL joins (Option 2 is wrong)."
+        "explanation": "In the Key-Value data model, the value can contain any kind of data. They are designed for speed on primary key lookups. They do *not* natively support complex SQL joins (Option 2 is wrong)."
     },
     {
         "type": "multi",
@@ -343,7 +344,7 @@
         "type": "multi",
         "question": "Which are valid strategies for handling conflicts in DynamoDB?",
         "options": [
-            "Last Write Wins (LWW)",
+            "Last Write Wins",
             "Client-side reconciliation (using Vector Clocks)",
             "Locking the entire table for every write.",
             "Ignoring the conflict and keeping both versions indefinitely."
