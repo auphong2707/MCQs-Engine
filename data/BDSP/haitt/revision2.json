@@ -1,0 +1,588 @@
+[
+    {
+        "type": "multi",
+        "question": "Which of the following statements regarding Apache Kafka's architecture are correct?",
+        "options": [
+            "A Topic is divided into one or more Partitions.",
+            "Kafka guarantees total ordering of messages across all partitions in a topic.",
+            "Partitions allow Kafka to scale by distributing data across multiple brokers.",
+            "Once a message is consumed by a consumer group, it is immediately deleted from the broker."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "Topics are indeed divided into partitions to allow for parallel processing and scaling across brokers. Kafka only guarantees ordering within a specific partition, not globally across the whole topic. Furthermore, Kafka retains messages based on a retention policy (time or size), not based on consumption status."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are characteristics of NoSQL databases compared to traditional RDBMS?",
+        "options": [
+            "They typically prioritize vertical scaling (adding more CPU/RAM) over horizontal scaling.",
+            "They are designed to handle unstructured or semi-structured data.",
+            "They strictly enforce ACID properties for all transactions across all nodes.",
+            "They often use a schemaless or flexible schema design."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "NoSQL databases are designed for horizontal scaling (sharding across commodity hardware) and handling unstructured data with flexible schemas. They usually relax strict ACID properties (favoring BASE) to achieve higher availability and partition tolerance in distributed setups."
+    },
+    {
+        "type": "multi",
+        "question": "In the context of the CAP theorem, which of the following statements is true?",
+        "options": [
+            "It is possible to achieve Consistency, Availability, and Partition Tolerance simultaneously in a distributed system subject to network failures.",
+            "In the presence of a network partition, a system must choose between Consistency and Availability.",
+            "Traditional RDBMS usually prioritize Availability over Consistency.",
+            "Partition Tolerance is optional in large-scale distributed systems."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The CAP theorem states that in the event of a network partition (P), a distributed system must choose between being Available (A) or Consistent (C). It is impossible to guarantee all three simultaneously. Partition Tolerance is generally not optional in distributed systems because networks are unreliable."
+    },
+    {
+        "type": "multi",
+        "question": "What mechanisms does Amazon Dynamo (the research paper basis for DynamoDB) use to handle temporary node failures?",
+        "options": [
+            "Master-Slave Replication",
+            "Hinted Handoff",
+            "Sloppy Quorum",
+            "Two-Phase Commit"
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Dynamo uses 'Sloppy Quorum' (allowing reads/writes on the first N healthy nodes, even if they aren't the designated owners) and 'Hinted Handoff' (storing a write on a temporary node if the target is down, to be delivered later) to ensure high availability during temporary failures. Master-Slave and Two-Phase Commit are centralized/blocking concepts avoided by Dynamo."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements about Presto are wrong?",
+        "options": [
+            "Presto is a storage engine that replaces HDFS.",
+            "Presto uses an in-memory execution model to reduce I/O latency.",
+            "Presto separates computation from storage.",
+            "Presto relies on MapReduce for query execution."
+        ],
+        "answer": [
+            0,
+            3
+        ],
+        "explanation": "Presto is a query engine, not a storage engine; it queries data where it lives (HDFS, S3, SQL DBs). It uses a custom distributed query execution engine (MPP), not MapReduce, to achieve lower latency through in-memory processing."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following describes the 'Zero-Copy' feature in Kafka?",
+        "options": [
+            "It allows producers to write to memory without copying to disk.",
+            "It transfers data from the disk cache to the network socket without copying it into the application's user space memory.",
+            "It ensures that messages are never replicated to other brokers to save bandwidth.",
+            "It prevents consumers from reading the same message twice."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Zero-Copy is an optimization that reduces CPU context switches and memory copying. It allows the kernel to copy data directly from the page cache (disk buffer) to the network socket, bypassing the application (JVM) heap entirely, which significantly boosts throughput."
+    },
+    {
+        "type": "multi",
+        "question": "What is the primary purpose of Consistent Hashing in distributed databases like Cassandra or Dynamo?",
+        "options": [
+            "To encrypt data for security purposes.",
+            "To minimize data movement when nodes are added or removed from the cluster.",
+            "To ensure that all nodes have identical copies of the entire dataset.",
+            "To generated unique primary keys for every record."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Consistent Hashing maps data to nodes using a ring topology. Its main benefit is that adding or removing a node only affects the immediate neighbors in the ring, requiring only K/N keys to be remapped (where K is keys and N is nodes), rather than reshuffling the entire dataset."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements about the BASE model in NoSQL are correct?",
+        "options": [
+            "It stands for Basically Available, Soft state, Eventual consistency.",
+            "It guarantees that data is always consistent at every moment in time.",
+            "It prioritizes availability over immediate consistency.",
+            "It is strictly used for relational databases."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "BASE is the alternative to ACID for many NoSQL systems. It accepts that the system will be 'Basically Available', the state may be 'Soft' (changing without input due to convergence), and the system will become 'Eventually Consistent'. It does not guarantee immediate strong consistency."
+    },
+    {
+        "type": "multi",
+        "question": "In a Quorum-based replication system (N, R, W), how do you guarantee strong consistency for reads?",
+        "options": [
+            "R + W > N",
+            "R + W <= N",
+            "W = 1",
+            "R = 1"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "To guarantee strong consistency (read-your-writes), the Read Quorum (R) plus the Write Quorum (W) must overlap, meaning R + W > N (where N is the replication factor). This ensures that a read operation will consult at least one node that saw the most recent write."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following is true regarding Kafka Consumer Groups?",
+        "options": [
+            "All consumers in a group read the same messages (broadcast).",
+            "Each partition in a topic is consumed by exactly one consumer within a group.",
+            "If a consumer fails, the partitions it was reading are reassigned to other consumers in the same group.",
+            "A single consumer can never read from multiple partitions."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "In a Consumer Group, partitions are load-balanced. Each partition is assigned to only one consumer in the group to avoid duplicate processing. If a consumer dies, a rebalance occurs, and its partitions are picked up by remaining members. A single consumer *can* read from multiple partitions if there are more partitions than consumers."
+    },
+    {
+        "type": "multi",
+        "question": "What are Vector Clocks used for in distributed systems like Dynamo?",
+        "options": [
+            "To synchronize the physical time across all servers.",
+            "To capture causality between different versions of an object.",
+            "To schedule periodic backups.",
+            "To detect conflicting updates that occurred concurrently."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Vector Clocks are not for physical time synchronization (like NTP). They are logical clocks used to track the 'happens-before' relationship. This allows the system to determine if one version is an ancestor of another or if they are concurrent conflicts that need reconciliation."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid architectural components of Presto?",
+        "options": [
+            "Coordinator",
+            "NameNode",
+            "Worker",
+            "RegionServer"
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "Presto uses a Coordinator (for parsing, planning, and scheduling) and Workers (for executing tasks). NameNode is from HDFS, and RegionServer is from HBase."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements are wrong regarding Column-Oriented Stores?",
+        "options": [
+            "They are generally more efficient for OLTP (Transactional) workloads than Row-Oriented stores.",
+            "They are highly efficient for aggregation queries over large datasets.",
+            "They allow for better compression rates because similar data types are stored contiguously.",
+            "They must read the entire row even if only one attribute is queried."
+        ],
+        "answer": [
+            0,
+            3
+        ],
+        "explanation": "Column stores are optimized for OLAP (Analytics), not OLTP, because writing a single row requires accessing multiple column files. They do *not* read the entire row; they only read the specific columns requested, which minimizes I/O. Options 1 and 2 are correct features."
+    },
+    {
+        "type": "multi",
+        "question": "What is the role of the 'Gossip Protocol' in Dynamo-style databases?",
+        "options": [
+            "To manage the secure encryption keys between nodes.",
+            "To allow nodes to discover membership changes and detect failures.",
+            "To stream data to the end-user.",
+            "To serve as the centralized configuration manager."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Gossip protocols are decentralized communication methods where nodes periodically exchange state information with random peers. This allows the cluster to maintain an eventually consistent view of member status (who is up/down) without a centralized registry."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following is a disadvantage of using a pure Key-Value store?",
+        "options": [
+            "High latency for simple lookups.",
+            "Inability to scale horizontally.",
+            "Lack of query capabilities on values (e.g., cannot easily filter by 'age > 25' if 'age' is inside the value blob).",
+            "Complex schema management."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Key-Value stores treat the value as an opaque blob. The database engine does not understand the internal structure of the value, making complex queries (like ranges or secondary indexes on fields inside the value) difficult or impossible without client-side processing."
+    },
+    {
+        "type": "multi",
+        "question": "In Kafka, what determines the order in which a consumer receives messages?",
+        "options": [
+            "The timestamp of the message creation, globally sorted.",
+            "The order in which messages were appended to the specific partition log.",
+            "The priority flag set on the message header.",
+            "The network latency of the consumer."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Kafka provides ordering guarantees *only* within a partition. The consumer reads messages in the exact order they are stored (by offset) in the partition log. There is no global priority or global timestamp sorting across partitions."
+    },
+    {
+        "type": "multi",
+        "question": "What is 'Polyglot Persistence'?",
+        "options": [
+            "Writing database queries in multiple programming languages.",
+            "Storing the same data in multiple formats for backup.",
+            "Using different data storage technologies to handle different data storage needs within the same application.",
+            "Translating SQL queries into NoSQL API calls."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Polyglot Persistence is the architectural pattern of using the 'best tool for the job'—for example, using Redis for caching, Cassandra for high-write logs, and Elasticsearch for search, all within the same system."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements about Merkle Trees (used in Dynamo/Cassandra) are correct?",
+        "options": [
+            "They are used to quickly detect inconsistencies between data replicas.",
+            "They minimize the amount of data transferred during anti-entropy (repair) operations.",
+            "They are used to index data for faster search queries.",
+            "They replace the need for Write-Ahead Logs."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Merkle Trees are hash trees where leaves are hashes of data blocks. Nodes can compare the root hash; if they match, the data is identical. If they differ, they traverse down to find specifically which buckets differ. This efficiently identifies missing/corrupted data for repair without transferring the whole dataset."
+    },
+    {
+        "type": "multi",
+        "question": "What happens when a 'Network Partition' occurs in a distributed system?",
+        "options": [
+            "The network bandwidth increases significantly.",
+            "The system is divided into two or more sub-networks that cannot communicate with each other.",
+            "All nodes automatically shut down to prevent data corruption.",
+            "The CAP theorem dictates a trade-off between Consistency and Availability."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "A network partition is a communication failure splitting the cluster. When this physical event occurs (Option 1), the system software must make a logic decision based on the CAP theorem (Option 3)—either stop accepting writes to ensure consistency, or accept writes and risk inconsistency."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following is true regarding Presto's 'Connectors'?",
+        "options": [
+            "They convert Presto internal data structures to the native storage format of the source (and vice versa).",
+            "They allow Presto to query data from multiple sources like HDFS, MySQL, and Kafka in a single query.",
+            "They require data to be imported into Presto before querying.",
+            "They are only available for HDFS."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Connectors are plugins that allow Presto to communicate with external data sources. They enable the 'federated query' capability, allowing joins across different systems (e.g., joining Hive data with MySQL data) without moving/importing the data first."
+    },
+    {
+        "type": "multi",
+        "question": "What is the concept of 'Virtual Nodes' in Consistent Hashing?",
+        "options": [
+            "Running multiple database instances on a single physical machine.",
+            "Assigning multiple positions on the hash ring to a single physical node.",
+            "Nodes that exist only in the cloud.",
+            "It ensures better load balancing and faster recovery when nodes join or leave."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Virtual nodes involve mapping one physical node to many points on the hash ring. This prevents 'hot spots' (uneven data distribution) and allows for more granular load balancing when a node crashes or is added."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements are wrong regarding Horizontal Scaling (Sharding)?",
+        "options": [
+            "It involves adding more power (CPU/RAM) to an existing machine.",
+            "It increases the complexity of the application or database management layer.",
+            "It is generally cheaper than vertical scaling at very high volumes.",
+            "It guarantees that joins across shards will be faster."
+        ],
+        "answer": [
+            0,
+            3
+        ],
+        "explanation": "Option 0 describes Vertical Scaling. Option 3 is wrong because joins across shards (distributed joins) are expensive and often slower due to network overhead. Horizontal scaling helps storage and write throughput but complicates complex queries."
+    },
+    {
+        "type": "multi",
+        "question": "In the context of PACELC, what does the 'E' stand for?",
+        "options": [
+            "Error",
+            "Else",
+            "Eventual",
+            "Efficiency"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "PACELC extends CAP. It states: If there is a Partition (P), choose A or C. **Else** (E) (if the system is running normally), choose between Latency (L) and Consistency (C)."
+    },
+    {
+        "type": "multi",
+        "question": "Which are features of a Document Store (e.g., MongoDB)?",
+        "options": [
+            "Data is stored in formats like JSON, BSON, or XML.",
+            "Every document in a collection must have the exact same fields.",
+            "It supports hierarchical data structures (nested arrays/objects).",
+            "It uses SQL as its primary query language."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "Document stores are semi-structured. They allow nested data (Option 2) and do not enforce a rigid schema (Option 1 is wrong). While some offer SQL-like wrappers, their primary interaction is usually via API or specific query languages (like MQL), making Option 3 generally incorrect or less defining."
+    },
+    {
+        "type": "multi",
+        "question": "What is the function of the 'Offset' in Kafka?",
+        "options": [
+            "It indicates the timestamp of the message.",
+            "It acts as a unique identifier for a message within a partition.",
+            "It tracks the consumer's position in the log.",
+            "It determines which broker is the leader."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "The offset is a sequential integer assigned to each message effectively identifying it (Option 1). Consumers track their progress by committing the offset of the last message they successfully processed (Option 2)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following scenarios best fits a Graph Database?",
+        "options": [
+            "Processing banking transactions with strict ACID requirements.",
+            "Storing time-series log data from servers.",
+            "Recommendation engines and social network analysis.",
+            "Warehousing historical sales data for aggregate reporting."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Graph databases (like Neo4j) are optimized for traversing relationships between data points. Social networks (who follows whom) and recommendation engines (product A is related to B) rely heavily on these relationships, making graph DBs the ideal choice."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are true about 'Eventual Consistency'?",
+        "options": [
+            "It ensures that if no new updates are made, all replicas will eventually converge to the same state.",
+            "It guarantees that a read immediately following a write will return the updated value.",
+            "It allows for higher availability and lower latency writes.",
+            "It is the standard consistency model for traditional RDBMS."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "Eventual consistency sacrifices immediate currency for availability (Option 2). It guarantees convergence *eventually* (Option 0). It does *not* guarantee immediate read-after-write (Option 1), which is Strong Consistency."
+    },
+    {
+        "type": "multi",
+        "question": "In Presto, what is a 'Split'?",
+        "options": [
+            "A division of the final output file.",
+            "A unit of data parallelism/work assigned to a Worker.",
+            "A specific type of SQL join.",
+            "A configuration error."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A Split in Presto is a chunk of data (like a section of a file in HDFS) that can be processed independently. The Coordinator assigns Splits to Workers to execute tasks in parallel."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements about Master-Slave replication are correct?",
+        "options": [
+            "Writes are typically directed to the Master node.",
+            "Reads can be scaled by adding more Slave nodes.",
+            "If the Master fails, the system can continue to accept writes without any downtime or intervention.",
+            "Slaves replicate data from the Master."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "In Master-Slave, the Master handles writes (Option 0) and replicates to Slaves (Option 3). Slaves can handle read traffic (Option 1). However, if the Master fails, write availability is lost until a new Master is promoted (failover), so Option 2 is incorrect."
+    },
+    {
+        "type": "multi",
+        "question": "What is 'Log Compaction' in Kafka?",
+        "options": [
+            "Compressing old log files using GZIP to save space.",
+            "Deleting old messages based on time retention.",
+            "Retaining at least the last known value for each message key within the log of data.",
+            "Merging multiple partitions into one."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Log Compaction is a specific retention policy where Kafka ensures it keeps the *latest* value for every key, discarding older values with the same key. This is useful for restoring state (e.g., a table snapshot) rather than just a stream of events."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements regarding DynamoDB's 'Provisioned Throughput' are correct?",
+        "options": [
+            "You must specify the expected Read Capacity Units (RCU) and Write Capacity Units (WCU).",
+            "Requests exceeding the provisioned capacity may be throttled.",
+            "It automatically scales infinitely without any configuration.",
+            "RCUs are not required for eventually consistent reads."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "DynamoDB (traditionally) requires users to provision throughput (RCU/WCU). If traffic exceeds this, requests are throttled (HTTP 400 errors). While auto-scaling exists now, the core concept relies on capacity units. RCUs *are* required for all reads (eventual consistency just uses half the RCUs of strong consistency)."
+    },
+    {
+        "type": "multi",
+        "question": "Why might a system choose 'Sloppy Quorum' over 'Strict Quorum'?",
+        "options": [
+            "To guarantee strict data consistency.",
+            "To increase write availability during network partitions or node failures.",
+            "To reduce the storage space required for replication.",
+            "To ensure only the designated 'owner' nodes process the data."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Sloppy Quorum allows the system to accept writes even if the designated owner nodes are down, by storing the data on temporary healthy nodes. This prioritizes Availability (A) over Consistency (C)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are examples of Column-Family (Wide Column) stores?",
+        "options": [
+            "Apache Cassandra",
+            "Apache HBase",
+            "Redis",
+            "Neo4j"
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Cassandra and HBase are classic examples of Wide Column stores. Redis is a Key-Value store, and Neo4j is a Graph database."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following describes 'Anti-Entropy' in distributed systems?",
+        "options": [
+            "A process to prevent data from being deleted.",
+            "A background process that compares replicas and updates them to be consistent.",
+            "The tendency of a system to become more organized over time.",
+            "A security protocol."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Anti-Entropy is the synchronization mechanism (like using Merkle Trees in Cassandra/Dynamo) used to detect inconsistencies between replicas and repair them (make them consistent), combating the natural 'entropy' (disorder/drift) of the system."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements about Kafka Topics are wrong?",
+        "options": [
+            "A topic is a category or feed name to which records are published.",
+            "Topics must be deleted manually and cannot expire data automatically.",
+            "A single topic can be consumed by multiple distinct consumer groups.",
+            "Topics are strictly limited to one partition."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Topics *can* expire data automatically based on retention policies (Option 1 is wrong). Topics are typically divided into multiple partitions to scale (Option 3 is wrong). Options 0 and 2 are correct."
+    },
+    {
+        "type": "multi",
+        "question": "What distinguishes an 'Interactive Query Engine' (like Presto or Impala) from a 'Batch Processing Engine' (like MapReduce)?",
+        "options": [
+            "Interactive engines are designed for low-latency responses to ad-hoc queries.",
+            "Batch engines are better suited for long-running ETL jobs on massive datasets.",
+            "Interactive engines never write data to disk.",
+            "Batch engines cannot handle SQL."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "The main distinction is latency and use case. Presto/Impala are optimized for speed (seconds/minutes) for analysis. MapReduce is optimized for throughput and reliability on massive jobs (hours). Interactive engines *do* spill to disk if memory is full (so Option 2 is imprecise/wrong). Batch engines *can* handle SQL (via Hive)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following is true about 'Leader-based' replication (as used in Kafka partitions)?",
+        "options": [
+            "All reads and writes for a partition go to the Leader.",
+            "Followers passively replicate data from the Leader.",
+            "If a Follower fails, the partition becomes unavailable.",
+            "Writes are split evenly across Leader and Followers."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "In Kafka (standard setup), the Leader handles all client interaction (produce/consume). Followers just replicate. If a Follower fails, the system continues (Option 2 is wrong). Writes do not go to followers directly (Option 3 is wrong)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the primary advantage of using a 'Schema-on-Read' approach (e.g., in Data Lakes/Hive)?",
+        "options": [
+            "It enforces strict data quality at the time of ingestion.",
+            "It allows for faster data ingestion since no validation is required at write time.",
+            "It ensures indexes are built immediately.",
+            "It prevents unstructured data from being stored."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Schema-on-Read means raw data is stored as-is. The structure is applied only when the data is queried. This allows for very fast ingestion (dumping files) and flexibility to interpret the data differently later, as opposed to Schema-on-Write (RDBMS) which validates structure before storing."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements are correct regarding the coordination in a Distributed System?",
+        "options": [
+            "Zookeeper is a common tool used for configuration management and leader election.",
+            "In a decentralized peer-to-peer system, a single coordinator node is a single point of failure.",
+            "Split-brain is a scenario where two nodes both believe they are the leader.",
+            "Heartbeats are used to signal that a node is alive."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Zookeeper is the standard for coordination (Option 0). Split-brain is a classic failure mode in clusters (Option 2). Heartbeats are the standard liveness check (Option 3). Option 1 is contradictory; decentralized systems avoid single coordinators to *prevent* single points of failure."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following describes 'Vertical Scaling'?",
+        "options": [
+            "Adding more servers to a cluster.",
+            "Partitioning data across multiple machines.",
+            "Upgrading the CPU, RAM, or Disk of a single server.",
+            "Distributing the load using a load balancer."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Vertical scaling (scaling up) involves making a single node more powerful. The other options describe Horizontal scaling (scaling out)."
+    }
+]
