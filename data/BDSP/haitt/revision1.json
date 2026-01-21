@@ -1,0 +1,592 @@
+[
+    {
+        "type": "multi",
+        "question": "Which of the following statements regarding the CAP theorem are correct?",
+        "options": [
+            "It states that a distributed system can simultaneously provide Consistency, Availability, and Partition Tolerance.",
+            "In the presence of a network partition, a system must choose between Consistency and Availability.",
+            "RDBMS systems generally prioritize Partition Tolerance over Consistency.",
+            "NoSQL systems generally sacrifice strong Consistency or high Availability to ensure Partition Tolerance."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "The CAP theorem states that a distributed data store can effectively provide only two of the three guarantees. In a distributed system, network partitions are inevitable (P), so the trade-off is usually between Consistency (C) and Availability (A). RDBMS usually prioritize CA (sacrificing P, which makes them hard to scale horizontally), while NoSQL prioritizes AP or CP."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are core components of the Apache Hadoop ecosystem?",
+        "options": [
+            "HDFS (Hadoop Distributed File System)",
+            "MapReduce",
+            "YARN (Yet Another Resource Negotiator)",
+            "All of the above"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Hadoop consists of three main layers: HDFS for storage, MapReduce for processing (in Hadoop 1.0, though Spark is now often used), and YARN for resource management (introduced in Hadoop 2.0). Therefore, all options listed are core components."
+    },
+    {
+        "type": "multi",
+        "question": "What is the primary function of the NameNode in HDFS?",
+        "options": [
+            "It stores the actual file data blocks.",
+            "It manages the file system namespace and metadata.",
+            "It executes the MapReduce tasks.",
+            "It acts as a backup for DataNodes."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The NameNode is the master server that manages the file system namespace and regulates access to files by clients. It stores metadata (file names, permissions, and the location of blocks), while the DataNodes store the actual data blocks."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements about Apache Spark RDDs (Resilient Distributed Datasets) are wrong?",
+        "options": [
+            "RDDs are immutable collections of objects.",
+            "RDDs can be cached in memory for faster reuse.",
+            "RDDs allow for in-place modification of data.",
+            "RDDs recover from failures using lineage information."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "RDDs are immutable, meaning they cannot be changed once created. You cannot modify data in-place; instead, you apply transformations to create new RDDs. The other statements (immutability, caching, and lineage-based fault tolerance) are correct features of RDDs."
+    },
+    {
+        "type": "multi",
+        "question": "In the context of Apache Spark, what distinguishes a Transformation from an Action?",
+        "options": [
+            "Transformations return a new RDD, whereas Actions return a result to the driver program or write data to storage.",
+            "Transformations are evaluated eagerly, while Actions are evaluated lazily.",
+            "map(), filter(), and flatMap() are examples of Actions.",
+            "reduce(), count(), and collect() are examples of Transformations."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Transformations (like map, filter) are lazy and create a new RDD from an existing one. Actions (like count, collect) trigger the actual computation and return results. Option 1 is wrong because Transformations are lazy. Options 2 and 3 have the examples swapped."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid features of Apache Kafka?",
+        "options": [
+            "It is a push-based messaging system where brokers push data to consumers.",
+            "It stores streams of records in categories called topics.",
+            "It uses Zookeeper (or KRaft) for managing cluster metadata and coordination.",
+            "It deletes messages immediately after they are consumed."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Kafka organizes data into topics and relies on Zookeeper (legacy) or KRaft (modern) for coordination. It is a pull-based system (consumers pull data), and it persists messages for a configurable retention period, regardless of whether they have been consumed."
+    },
+    {
+        "type": "multi",
+        "question": "Which scenario results in a 'Wide Dependency' (Shuffle) in Apache Spark?",
+        "options": [
+            "Applying a map() operation where one input element maps to one output element.",
+            "Applying a filter() operation to select specific rows.",
+            "Applying a groupByKey() or reduceByKey() operation.",
+            "Reading data from a local text file."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Wide dependencies occur when a single partition of the parent RDD may be required by multiple partitions of the child RDD. Operations like `groupByKey` and `reduceByKey` require data to be shuffled across the network so that keys end up on the same node."
+    },
+    {
+        "type": "multi",
+        "question": "What is the role of a 'Consumer Group' in Kafka?",
+        "options": [
+            "It allows multiple producers to write to the same topic simultaneously.",
+            "It allows a group of consumers to parallelize the processing of a topic.",
+            "It ensures that every consumer in the group receives a copy of every message.",
+            "It is used to replicate data across different brokers for fault tolerance."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Consumer Groups allow a pool of consumers to coordinate and consume data from a topic in parallel. Each partition in the topic is assigned to exactly one member of the consumer group, allowing for scalable processing."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements about Spark Streaming (DStreams) are correct?",
+        "options": [
+            "It processes data in real-time, record-by-record, with zero latency.",
+            "It discretizes the input data stream into batches of RDDs.",
+            "It cannot interoperate with Spark's batch processing libraries (like MLlib or Spark SQL).",
+            "The basic abstraction is the Discretized Stream or DStream."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Spark Streaming works on a micro-batch architecture, breaking the stream into small batches (RDDs), not record-by-record real-time processing. The core abstraction is the DStream. It allows interoperability with Spark's other libraries."
+    },
+    {
+        "type": "multi",
+        "question": "Regarding data serialization in Big Data frameworks, which of the following are true?",
+        "options": [
+            "Java serialization is generally faster and more compact than Kryo serialization.",
+            "Columnar formats like Parquet and ORC are optimized for read-heavy analytical workloads.",
+            "Row-based formats like Avro are better suited for write-heavy transactional workloads.",
+            "SequenceFiles are a flat file format specific to Microsoft Azure."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Columnar formats (Parquet) skip unnecessary columns during reads, making them great for analytics. Row-based formats (Avro) are efficient for writing. Java serialization is known to be heavy and slow compared to Kryo. SequenceFiles are a Hadoop-specific binary format."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are characteristics of NoSQL databases?",
+        "options": [
+            "They strictly enforce ACID properties for all transactions.",
+            "They often support flexible schemas (schema-less or schema-on-read).",
+            "They are designed to scale vertically (scale-up) rather than horizontally (scale-out).",
+            "They can handle unstructured and semi-structured data."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "NoSQL databases are defined by their ability to handle flexible schemas and unstructured data. They typically follow the BASE model rather than strict ACID and are designed for horizontal scalability (adding more commodity servers)."
+    },
+    {
+        "type": "multi",
+        "question": "In Spark Structured Streaming, what is the 'Complete' output mode?",
+        "options": [
+            "Only the new rows appended to the result table since the last trigger are written to the sink.",
+            "The entire updated result table is written to the sink after every trigger.",
+            "Only the rows that were updated in the result table are written to the sink.",
+            "It deletes the previous output and restarts the stream."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In 'Complete' mode, the entire result table is computed and written to the sink after every trigger. This is useful for aggregation queries. 'Append' mode writes only new rows, and 'Update' mode writes only rows that changed."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements about HDFS Replication are wrong?",
+        "options": [
+            "The default replication factor is usually 3.",
+            "Replication ensures data availability even if a DataNode fails.",
+            "All replicas of a block are stored on the same rack to minimize network latency.",
+            "The NameNode decides where replicas are placed based on rack awareness."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Storing all replicas on the same rack would be a single point of failure (if the rack switch fails/loses power). HDFS uses a rack-aware policy: usually one replica on the local node, one on a different rack, and a third on a different node in that second rack."
+    },
+    {
+        "type": "multi",
+        "question": "What is the purpose of the 'Driver' in a Spark application?",
+        "options": [
+            "It stores the data blocks for the application.",
+            "It runs the main() function and creates the SparkContext.",
+            "It executes the individual tasks on the worker nodes.",
+            "It is responsible for converting the user program into tasks."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "The Driver is the process that runs the `main()` function of the application and creates the `SparkContext`. It is responsible for analyzing the application logic, creating the DAG, and scheduling tasks. Executors (on worker nodes) run the actual tasks and store data."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following describes the 'Lambda Architecture'?",
+        "options": [
+            "A system that processes data only using batch processing layers.",
+            "A system that processes data only using stream processing layers.",
+            "A hybrid approach combining a batch layer (for accuracy) and a speed layer (for low latency).",
+            "A serverless computing model provided by AWS."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Lambda Architecture is a data-processing architecture designed to handle massive quantities of data by taking advantage of both batch- and stream-processing methods. It consists of a Batch Layer, a Speed Layer, and a Serving Layer."
+    },
+    {
+        "type": "multi",
+        "question": "Which are valid window operations in Spark Streaming?",
+        "options": [
+            "Tumbling Window (non-overlapping)",
+            "Sliding Window (overlapping)",
+            "Session Window (based on activity duration)",
+            "All of the above"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Spark Streaming supports various windowing strategies. Tumbling windows have a fixed size and do not overlap. Sliding windows have a size and a slide interval (creating overlap). Session windows are dynamic based on data activity."
+    },
+    {
+        "type": "multi",
+        "question": "Why is 'Data Locality' important in Hadoop and Spark?",
+        "options": [
+            "It ensures that computations are moved to the node where the data resides, minimizing network congestion.",
+            "It ensures that data is always moved to the fastest CPU in the cluster.",
+            "It compresses data to save disk space.",
+            "It encrypts data locally before transmission."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Data Locality is the principle of 'moving computation to data' rather than 'moving data to computation.' Since network I/O is often the bottleneck in big data, processing data on the node where it is stored is significantly faster."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements about Spark's DAG (Directed Acyclic Graph) Scheduler are correct?",
+        "options": [
+            "It breaks the RDD graph into stages based on shuffle boundaries.",
+            "It executes the physical tasks on the worker nodes.",
+            "It determines the optimal location to run tasks based on data locality.",
+            "It is responsible for restarting failed tasks."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "The DAG Scheduler is responsible for the high-level scheduling layer. It divides the logical graph of RDD operations into stages (separated by shuffles) and computes the best location for tasks (locality). The Task Scheduler (a lower level) is responsible for submitting tasks to the cluster manager and handling retries."
+    },
+    {
+        "type": "multi",
+        "question": "In Kafka, what guarantees the ordering of messages?",
+        "options": [
+            "Messages are ordered globally across all topics.",
+            "Messages are ordered globally across all partitions in a topic.",
+            "Messages are ordered only within a single partition.",
+            "Kafka does not guarantee any message ordering."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Kafka only guarantees the order of messages within a specific partition. There is no global ordering guarantee across the entire topic if that topic has multiple partitions."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following is true about 'Broadcast Variables' in Spark?",
+        "options": [
+            "They are used to update values across the cluster, like counters.",
+            "They allow the developer to keep a read-only variable cached on each machine rather than shipping a copy with tasks.",
+            "They are primarily used for joining a large table with a very small table.",
+            "They are mutable variables shared across all nodes."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Broadcast variables are read-only shared variables. They are efficiently distributed to every node once, rather than being serialized with every single task. A common use case is a 'Map-Side Join' (or Broadcast Join) where a small lookup table is broadcasted to all nodes."
+    },
+    {
+        "type": "multi",
+        "question": "What is the function of the 'Shuffle' phase in MapReduce or Spark?",
+        "options": [
+            "It filters out invalid data.",
+            "It redistributes data so that all data belonging to the same key is grouped together on the same node.",
+            "It writes the final output to HDFS.",
+            "It compresses the data for storage."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Shuffling is the process of redistributing data across the partitions/nodes. It ensures that all records with the same key end up on the same reducer/partition, which is necessary for operations like aggregation, joining, or grouping."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements are wrong regarding Spark SQL?",
+        "options": [
+            "It allows querying structured data using SQL queries.",
+            "It uses the Catalyst Optimizer to optimize query execution plans.",
+            "It cannot read data from JSON or Parquet files.",
+            "It provides the Dataset and DataFrame APIs."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Spark SQL is explicitly designed to handle various structured data sources, including JSON, Parquet, Avro, Hive tables, and JDBC. The other options are core features of Spark SQL."
+    },
+    {
+        "type": "multi",
+        "question": "What does 'Lazy Evaluation' mean in the context of Spark?",
+        "options": [
+            "Spark executes transformations immediately as they are defined.",
+            "Spark waits until an Action is called to execute the graph of transformations.",
+            "Spark slows down execution to prevent CPU overheating.",
+            "Spark allows the optimizer to see the entire DAG before executing, enabling optimizations."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Lazy evaluation means that when you define a transformation (like map or filter), it doesn't happen immediately. Spark records the lineage and waits for an Action (like count or collect). This allows Spark to optimize the execution plan (e.g., combining filters) before running it."
+    },
+    {
+        "type": "multi",
+        "question": "In HDFS, what happens if a client cannot contact the NameNode?",
+        "options": [
+            "The client reads data directly from the DataNodes using cached metadata.",
+            "The client cannot read or write files because it cannot locate blocks.",
+            "The Secondary NameNode automatically takes over instantly.",
+            "The cluster shuts down."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The NameNode is the single point of contact for metadata. Without it, the client doesn't know which DataNodes hold the blocks for a file. Note: While HA (High Availability) setups exist, the standard behavior (and the role of the Secondary NameNode, which is *not* a hot standby) implies failure to access metadata blocks access."
+    },
+    {
+        "type": "multi",
+        "question": "Which are advantages of Column-Oriented storage (e.g., HBase, Cassandra, Parquet)?",
+        "options": [
+            "Efficient for writing single records quickly.",
+            "Efficient for queries that aggregate a specific field over many rows.",
+            "Better compression rates due to similar data types being stored continuously.",
+            "Ideal for retrieving all fields of a specific single user."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Column-oriented storage stores columns together. This is great for analytics (e.g., 'average salary') because you only read the salary column. It compresses well because the data is homogeneous. Row-oriented storage is better for retrieving a full entity (single record) or transactional writes."
+    },
+    {
+        "type": "multi",
+        "question": "What is the 'Watermark' in Spark Structured Streaming?",
+        "options": [
+            "A visual tag added to the output data.",
+            "A threshold to handle late-arriving data.",
+            "A mechanism to drop data that is older than a specified time threshold.",
+            "The timestamp when the processing actually started."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Watermarks allow the engine to automatically track the 'current' event time in the data and attempt to clean up old state. It defines how late the system is willing to wait for data before finalizing a window."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following is true about Zookeeper?",
+        "options": [
+            "It is a centralized service for maintaining configuration information and naming.",
+            "It provides distributed synchronization and group services.",
+            "It is used to store the actual Big Data content (Petabytes of data).",
+            "It is essential for Kafka (older versions) and HBase operations."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Zookeeper is a coordination service. It manages metadata, leader election, and configuration. It is NOT a data store for large datasets; it holds small amounts of metadata in memory."
+    },
+    {
+        "type": "multi",
+        "question": "What is the difference between `repartition()` and `coalesce()` in Spark?",
+        "options": [
+            "`repartition()` always triggers a full shuffle, while `coalesce()` tries to avoid shuffles.",
+            "`coalesce()` allows you to increase the number of partitions.",
+            "`repartition()` allows you to increase or decrease the number of partitions.",
+            "`coalesce()` is generally more efficient for decreasing the number of partitions."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "`repartition()` performs a full shuffle to redistribute data evenly and can increase or decrease partition counts. `coalesce()` minimizes movement and merges existing partitions; it is efficient for reducing partition count but cannot increase it without forcing a shuffle."
+    },
+    {
+        "type": "multi",
+        "question": "Which are potential downsides of using a very small HDFS block size (e.g., 4KB)?",
+        "options": [
+            "It increases the storage overhead on the NameNode due to excessive metadata.",
+            "It reduces the parallelism of MapReduce jobs.",
+            "It causes excessive disk seeking, hurting performance.",
+            "It allows for faster processing of large video files."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "Small blocks mean more blocks for the same amount of data. This floods the NameNode memory (which holds metadata for every block) and causes the disk head to seek constantly during reads, destroying throughput."
+    },
+    {
+        "type": "multi",
+        "question": "What does ACID stand for in the context of databases?",
+        "options": [
+            "Atomicity, Consistency, Isolation, Durability",
+            "Availability, Consistency, Isolation, Durability",
+            "Atomicity, Concurrency, Isolation, Distribution",
+            "Availability, Consistency, Integrity, Durability"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "ACID stands for Atomicity (all or nothing), Consistency (valid state), Isolation (transactions don't interfere), and Durability (saved permanently). This is the standard for RDBMS transactions."
+    },
+    {
+        "type": "multi",
+        "question": "Which statement correctly describes 'Accumulators' in Spark?",
+        "options": [
+            "They are read-only variables on the worker nodes.",
+            "They are variables that can only be 'added' to effectively support counters and sums.",
+            "The driver can read the accumulator's value, but workers cannot.",
+            "They are used to broadcast large lookup tables."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Accumulators are write-only on the executor side (workers add to them) and read-only on the driver side. They are used for counters or sums (e.g., counting errors in logs)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are components of the 'YARN' architecture?",
+        "options": [
+            "ResourceManager (Global)",
+            "NodeManager (Per-machine)",
+            "ApplicationMaster (Per-application)",
+            "RegionServer"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "YARN consists of a global ResourceManager, a NodeManager on every slave node, and an ApplicationMaster for every running application. RegionServer is a component of HBase, not YARN."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following is true regarding Spark's 'memory management'?",
+        "options": [
+            "Spark uses a unified memory manager for both execution and storage.",
+            "Execution memory is used for computation (shuffles, joins, sorts).",
+            "Storage memory is used for caching RDDs and broadcast variables.",
+            "If execution memory is full, it spills to disk; storage memory effectively borrows from execution memory."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Spark (since 1.6) uses Unified Memory Management. It shares a region between Execution (computation) and Storage (caching). Execution memory is prioritized; if space is needed, cached data may be evicted, but execution data spills to disk if it runs out."
+    },
+    {
+        "type": "multi",
+        "question": "What is the primary difference between Batch Processing and Stream Processing?",
+        "options": [
+            "Batch processing handles finite datasets; Stream processing handles infinite/unbounded datasets.",
+            "Batch processing has high latency; Stream processing targets low latency.",
+            "Batch processing is used for complex analysis; Stream processing cannot do complex analysis.",
+            "Hadoop MapReduce is a Stream processing engine."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Batch processing works on static, historical data with higher latency (hours/days). Stream processing works on continuous live data with low latency (milliseconds/seconds). Stream processing *can* do complex analysis (e.g., windowed aggregations). MapReduce is strictly Batch."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid serialization libraries often used with Big Data tools?",
+        "options": [
+            "Avro",
+            "Thrift",
+            "Protobuf (Protocol Buffers)",
+            "JSON"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Avro, Thrift, and Protobuf are efficient binary serialization frameworks widely used in Hadoop and RPC communications. While JSON is a data format, it is text-based and generally not considered an efficient *serialization library* in the same category as the others for internal system communication."
+    },
+    {
+        "type": "multi",
+        "question": "In Kafka, what is an ISR (In-Sync Replica)?",
+        "options": [
+            "A replica that has fully caught up with the leader partition.",
+            "A replica that is currently offline.",
+            "A replica that is located in a different data center.",
+            "The set of replicas that must acknowledge a write for it to be considered committed (depending on configuration)."
+        ],
+        "answer": [
+            0,
+            3
+        ],
+        "explanation": "ISR stands for In-Sync Replicas. It includes the leader and any followers that are currently up-to-date with the leader. Kafka guarantees that committed messages will not be lost as long as at least one ISR remains alive."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements about the 'Combiner' in MapReduce are correct?",
+        "options": [
+            "It is also known as a 'semi-reducer' or 'mini-reducer'.",
+            "It executes on the reducer node after the shuffle phase.",
+            "It executes on the mapper node to reduce network traffic.",
+            "It is guaranteed to run for every MapReduce job."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "A Combiner runs locally on the Map node after the map phase but before the shuffle. It pre-aggregates data (e.g., local word counts) to reduce the amount of data sent over the network. It is not guaranteed to run (Hadoop optimization decision)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are benefits of using 'Parquet' file format?",
+        "options": [
+            "Schema evolution support.",
+            "High compression ratios due to column-wise storage.",
+            "Predicate pushdown (skipping data chunks that don't match a filter).",
+            "Human readability (like CSV or JSON)."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Parquet is a binary columnar format. It supports schema evolution, compresses very well, and supports predicate pushdown (allowing the reader to skip entire blocks of data). It is NOT human-readable."
+    },
+    {
+        "type": "multi",
+        "question": "What is 'Speculative Execution' in Hadoop/Spark?",
+        "options": [
+            "The system predicts the output of a task before it finishes.",
+            "The system detects slow-running tasks (stragglers) and launches a duplicate backup task.",
+            "The system runs tasks on nodes that do not have the data yet, speculating they will receive it soon.",
+            "It is a security feature to prevent unauthorized code execution."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Speculative execution is an optimization where the system notices a task is running slower than expected. It launches a duplicate copy on another node. Whichever copy finishes first is accepted, and the other is killed. This mitigates the impact of slow hardware."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are true regarding 'Stateful Transformations' in Spark Streaming (e.g., updateStateByKey)?",
+        "options": [
+            "They allow you to maintain state across batches.",
+            "They require 'Checkpointing' to be enabled to prevent data loss.",
+            "They are used to perform stateless operations like 'map' or 'filter'.",
+            "They can be used to track user sessions over time."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Stateful transformations allow computing results that depend on previous batches (e.g., running totals). Because the lineage would grow infinitely over time, Checkpointing is mandatory to cut the lineage and save the state to disk."
+    }
+]
