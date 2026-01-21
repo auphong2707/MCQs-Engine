@@ -1,0 +1,554 @@
+[
+    {
+        "type": "multi",
+        "question": "Which of the following statements accurately describe the 'One Size Fits All' era of database history according to the provided text?",
+        "options": [
+            "It refers to the dominance of Relational DBMS (RDBMS) for all types of data processing needs.",
+            "It implies that RDBMS architectures were originally designed and optimized for modern social network data.",
+            "Stonebraker and Cetintemel argued in 2005 that this concept was no longer applicable to the database market.",
+            "It represents the current era where NoSQL databases have completely replaced RDBMS."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "The 'One Size Fits All' era refers to the period (roughly 1985-2005) where traditional RDBMS architecture was used for widely varying applications. Stonebraker and Cetintemel argued in 2005 that this concept was no longer applicable and the market would fracture. The text states RDBMS were originally optimized for business data processing, not social networks, and RDBMS are still used today (the eras overlap), so they haven't been completely replaced."
+    },
+    {
+        "type": "multi",
+        "question": "What are the primary characteristics of the Key-Value data model?",
+        "options": [
+            "It requires a predefined schema enforcing data types for values.",
+            "It provides a simple interface primarily consisting of GET, PUT, and DELETE operations.",
+            "It is optimized for complex queries involving joins across multiple keys.",
+            "The value can contain any kind of data (BLOB, string, etc.) without the database knowing its structure."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Key-Value stores feature a simple interface (GET, PUT, DELETE) and allow values to contain arbitrary data types (opaque to the store). They do not enforce schemas on values and are specifically noted for not performing joins or complex queries efficiently compared to relational models."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are distinct features of Column Family stores like HBase?",
+        "options": [
+            "They store data in a row-by-row manner similar to standard RDBMS.",
+            "They utilize a sparse, distributed, persistent multi-dimensional sorted map.",
+            "New columns can be added to a row without an 'alter table' operation.",
+            "They group columns into 'Column Families' to improve access speed for related data."
+        ],
+        "answer": [
+            1,
+            2,
+            3
+        ],
+        "explanation": "Column Family stores (like Bigtable/HBase) are described as sparse, distributed, multi-dimensional sorted maps. They allow flexible schema evolution where new columns can be added dynamically without altering the table structure, and they group data into column families to optimize storage and retrieval. They do not store data in a traditional row-by-row manner."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements regarding Neo4j are correct?",
+        "options": [
+            "It is a graph database that only stores data in RAM.",
+            "It supports full ACID transactions.",
+            "It is designed to be easily used by Java developers.",
+            "It lacks a REST API."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Neo4j is a disk-based graph database (not just RAM), supports full ACID properties, and is designed for Java developers (with an embedded library). It explicitly includes a REST API."
+    },
+    {
+        "type": "multi",
+        "question": "What distinguishes Document Stores from Key-Value stores?",
+        "options": [
+            "Document stores cannot handle semi-structured data.",
+            "Document stores identify documents by ID but allow indexing on properties within the document.",
+            "Document stores typically use JSON or XML formats for the value.",
+            "Document stores require a rigid schema definition before inserting data."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Document stores (like MongoDB) store data in formats like JSON or XML and allow indexing on the internal properties of the document, unlike Key-Value stores where the value is opaque. They do not require rigid schemas."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements is wrong regarding MongoDB's architecture?",
+        "options": [
+            "It uses a master-slave model for scale-out.",
+            "Sharding is built-in and automatic.",
+            "It requires a separate Zookeeper cluster for coordination.",
+            "Replica sets provide data safety and high availability."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "MongoDB uses Config Servers and `mongos` routers for coordination in a sharded environment, but the sources do not state it requires a separate Zookeeper cluster (unlike HBase, which explicitly lists Zookeeper). The other options are listed features: master-slave model, automatic sharding, and replica sets."
+    },
+    {
+        "type": "multi",
+        "question": "What is the primary motivation for the 'NoSQL' movement as described in the sources?",
+        "options": [
+            "To completely replace SQL with a new standardized query language.",
+            "To address the needs of web applications, such as horizontal scalability and flexible schemas.",
+            "To enforce stricter ACID compliance than RDBMS.",
+            "To reduce the storage space required for small datasets."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The sources attribute the rise of NoSQL to the specific needs of web applications, including horizontal scalability (lowering cost), elasticity, schema-less flexibility for semi-structured data, and high availability. NoSQL often relaxes ACID properties rather than enforcing them more strictly."
+    },
+    {
+        "type": "multi",
+        "question": "Which NoSQL category is best optimized for traversing connected data?",
+        "options": [
+            "Key-Value Stores",
+            "Column-Family Stores",
+            "Document Stores",
+            "Graph Databases"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Graph databases are explicitly described as being optimized for connections and traversing connected data (e.g., \"nodes know their adjacent nodes\"), whereas other models are better for aggregation or simple lookups."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following correctly pairs a NoSQL database with its type?",
+        "options": [
+            "Redis: Key-Value",
+            "Cassandra: Graph",
+            "MongoDB: Document",
+            "HBase: Column Family"
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Redis is a Key-Value store. MongoDB is a Document store. HBase is a Column Family store. Cassandra is a Column Family store, not a Graph database."
+    },
+    {
+        "type": "multi",
+        "question": "What is a limitation of Vertical Scaling (Scaling Up)?",
+        "options": [
+            "It requires database sharding.",
+            "It is limited by the maximum CPU, RAM, and disk capacity of a single machine.",
+            "It introduces complex communication overhead between nodes.",
+            "It is generally achieved by adding more machines to the cluster."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Vertical scaling involves upgrading hardware (CPU, RAM) on a single node. Its primary limitation is the physical ceiling of hardware capacity on one machine. Sharding and communication overhead are characteristics/issues of Horizontal Scaling."
+    },
+    {
+        "type": "multi",
+        "question": "According to the CAP theorem, which three properties are involved in the trade-off?",
+        "options": [
+            "Consistency, Atomicity, Partition Tolerance",
+            "Consistency, Availability, Partition Tolerance",
+            "Concurrency, Availability, Performance",
+            "Consistency, Availability, Persistence"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "CAP stands for Consistency, Availability, and Partition Tolerance. Atomicity is part of ACID. Concurrency and Performance are general metrics, not the specific CAP components."
+    },
+    {
+        "type": "multi",
+        "question": "What does 'Partition Tolerance' mean in the context of the CAP theorem?",
+        "options": [
+            "The system continues to operate even if nodes crash or hardware fails.",
+            "Every node always sees the same data at any given instance.",
+            "The system continues to operate in the presence of network partitions.",
+            "Data is automatically partitioned across multiple disks for speed."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Partition Tolerance is defined as the system's ability to continue operating despite physical network partitions (communication breakdowns between nodes). Operating despite node crashes refers to Availability."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements are true regarding the CAP theorem proof with two nodes?",
+        "options": [
+            "If the system guarantees Consistency and Availability, it cannot tolerate network partitions.",
+            "If the network is partitioned, updating one node while maintaining Consistency requires sacrificing Availability (blocking updates).",
+            "It is possible to achieve strong Consistency and high Availability simultaneously in a partitioned network.",
+            "If the system prioritizes Availability during a partition, the nodes may become inconsistent."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "The CAP theorem states you can have at most two properties. In a distributed system (which implies partitions can happen), you must choose between Consistency and Availability. If you choose C, you must block access (losing A). If you choose A, you accept divergent data (losing C). You cannot have all three."
+    },
+    {
+        "type": "multi",
+        "question": "What do the BASE properties stand for?",
+        "options": [
+            "Basic Availability, Soft-state, Eventual Consistency",
+            "Best Effort, Atomicity, Scalable Efficiency",
+            "Basically Available, Stable-state, Eventual Consistency",
+            "Basic Availability, Soft-state, Enforced Consistency"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "BASE stands for Basically Available, Soft-state, and Eventual Consistency. It is the alternative consistency model to ACID used by many NoSQL databases."
+    },
+    {
+        "type": "multi",
+        "question": "Which statement best describes 'Eventual Consistency'?",
+        "options": [
+            "Data is immediately consistent across all nodes after a write.",
+            "If no new updates are made, all replicas will gradually become consistent.",
+            "The system guarantees that reads always return the most recent write.",
+            "It is a stricter form of consistency than ACID."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Eventual Consistency means that if update activity stops, the system will eventually propagate updates to all replicas, making them consistent. It does not guarantee immediate consistency."
+    },
+    {
+        "type": "multi",
+        "question": "In the context of scaling, what are the characteristics of Data Sharding?",
+        "options": [
+            "It involves replicating the entire dataset to every node.",
+            "It stripes data across machines to allow for concurrent access.",
+            "It automatically solves complex query processing challenges.",
+            "It can be limited by communication overhead."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Sharding distributes (stripes) data chunks across multiple machines to enable parallel access. However, it introduces challenges for complex queries (joins across shards) and is limited by communication overhead."
+    },
+    {
+        "type": "multi",
+        "question": "Why did large-scale systems like Amazon and Google sacrifice strict consistency?",
+        "options": [
+            "Strict consistency was too expensive to implement in software.",
+            "To guarantee 24/7 Availability and Partition Tolerance at scale.",
+            "Because they did not care about data accuracy.",
+            "Strict consistency is incompatible with the relational data model."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The sources state that for large-scale databases, 24/7 availability is key because downtime means lost revenue. To ensure Availability and Partition Tolerance in large clusters, they had to sacrifice strict Consistency (based on CAP)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following is correct about 'Read-after-write' consistency?",
+        "options": [
+            "It ensures that a user immediately sees the update they just made.",
+            "It is guaranteed by default in all eventual consistency models.",
+            "It requires the user to wait for all replicas to acknowledge a write.",
+            "Protocols like 'Read Your Own Writes' (RYOW) are used to implement it."
+        ],
+        "answer": [
+            0,
+            3
+        ],
+        "explanation": "Read-after-write consistency ensures that if a client updates a value, their subsequent read returns that updated value. In distributed systems with eventual consistency, this isn't automatic and requires protocols like RYOW."
+    },
+    {
+        "type": "multi",
+        "question": "What is Amazon DynamoDB's primary design goal regarding write operations?",
+        "options": [
+            "Writes are rejected if a partition occurs to save data integrity.",
+            "It functions as an 'always writeable' data store.",
+            "It prioritizes strong consistency over write availability.",
+            "It uses a centralized master to handle all writes."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "DynamoDB is designed as an 'always writeable' data store. It sacrifices strong consistency for availability, ensuring no updates are rejected due to failures or concurrent writes."
+    },
+    {
+        "type": "multi",
+        "question": "How does DynamoDB achieve incremental scalability and partitioning?",
+        "options": [
+            "Using a central directory server to map keys to nodes.",
+            "Using Consistent Hashing to treat the output range as a fixed circular ring.",
+            "By manually assigning ranges of keys to specific servers.",
+            "By using a round-robin DNS approach."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "DynamoDB uses Consistent Hashing where the hash output range is treated as a ring. Nodes are assigned positions on this ring, allowing for incremental scalability."
+    },
+    {
+        "type": "multi",
+        "question": "What is the purpose of 'Virtual Nodes' in DynamoDB?",
+        "options": [
+            "To allow a single physical node to operate as multiple nodes on the hash ring.",
+            "To ensure that all nodes, regardless of capacity, handle the exact same load.",
+            "To help disperse load evenly when a node becomes unavailable.",
+            "To increase the total storage capacity of the hard drives."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "Virtual nodes allow a physical node to be responsible for multiple points on the ring. This accounts for heterogeneity (powerful nodes get more virtual nodes) and ensures load is evenly dispersed when nodes fail or are added."
+    },
+    {
+        "type": "multi",
+        "question": "How does DynamoDB handle data versioning and conflict resolution?",
+        "options": [
+            "It uses timestamps and always keeps the latest one.",
+            "It uses Vector Clocks to capture causality between versions.",
+            "It rejects concurrent writes to avoid conflicts.",
+            "Conflict resolution is executed during the write phase."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "DynamoDB uses Vector Clocks (lists of node-counter pairs) to track version history and causality. Conflict resolution is executed during the *read* phase, not the write phase."
+    },
+    {
+        "type": "multi",
+        "question": "In DynamoDB's quorum system, what does the condition $R + W > N$ imply?",
+        "options": [
+            "The system is strictly consistent.",
+            "The latency is dictated by the slowest of the R or W replicas.",
+            "At least one node that participated in the write will participate in the read.",
+            "W must always equal N for durability."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "A quorum-like system where $R+W > N$ ensures overlap: at least one node involved in the read (R) has seen the latest write (W). It does not guarantee strict consistency in the presence of failures/partitions in the same way ACID does, but it provides a consistency guarantee. Latency is indeed dictated by the slowest replica in the quorum."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements are true about 'Sloppy Quorum' and 'Hinted Handoff'?",
+        "options": [
+            "They are used to handle permanent node failures.",
+            "They allow writes to succeed even if the 'preference list' nodes are unavailable.",
+            "The data is sent to a temporary node with a hint to deliver it to the intended node later.",
+            "They ensure strict consistency during network partitions."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Sloppy Quorum and Hinted Handoff handle *temporary* failures. If the intended replica nodes are down, another node accepts the write (Sloppy Quorum) and stores a hint to hand it off to the correct node once it recovers (Hinted Handoff). This supports high availability, not strict consistency."
+    },
+    {
+        "type": "multi",
+        "question": "What is the primary use of Merkle Trees in DynamoDB?",
+        "options": [
+            "To index data for fast retrieval.",
+            "To synchronize divergent replicas in the background (Anti-entropy).",
+            "To distribute keys across the ring.",
+            "To manage membership and failure detection."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Merkle Trees (hash trees) are used for replica synchronization (Anti-entropy). They allow nodes to efficiently check for inconsistencies and transfer only the specific data blocks that differ."
+    },
+    {
+        "type": "multi",
+        "question": "How does DynamoDB manage cluster membership and failure detection?",
+        "options": [
+            "Using a centralized Zookeeper cluster.",
+            "Using a Gossip-based membership protocol.",
+            "Using a static configuration file distributed to all nodes.",
+            "Using a single master node to monitor all slaves."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "DynamoDB uses a Gossip-based protocol to preserve symmetry and avoid centralized registries. Nodes propagate membership and liveness information among themselves."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following concepts are part of DynamoDB's architecture?",
+        "options": [
+            "Preference List (N)",
+            "Master-Slave Replication",
+            "Symmetry (all nodes have same responsibilities)",
+            "ACID Transactions for all operations"
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "DynamoDB uses a Preference List (top N nodes in the ring). It relies on Symmetry (decentralization), contrasting with Master-Slave architectures. It generally sacrifices ACID for Availability (though modern DynamoDB has ACID features, the source text emphasizes the CAP/BASE trade-offs)."
+    },
+    {
+        "type": "multi",
+        "question": "What was the primary motivation for creating Presto at Facebook?",
+        "options": [
+            "Hive was too slow for interactive queries.",
+            "They needed a system to replace HDFS storage.",
+            "Existing commercial BI tools could not connect to Hadoop.",
+            "They wanted a system exclusively for batch processing."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The motivation was that Hive was too slow (not interactive) for dashboards and BI tools. They needed a system that could run interactive queries on HDFS data without moving it to a separate database."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are components of the Presto architecture?",
+        "options": [
+            "Coordinator",
+            "Worker",
+            "Discovery Service",
+            "NameNode"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Presto's architecture consists of a Coordinator, Workers, and a Discovery Service. NameNode is a component of HDFS, not Presto itself."
+    },
+    {
+        "type": "multi",
+        "question": "How does Presto differs from MapReduce regarding query execution?",
+        "options": [
+            "Presto writes intermediate results to disk for fault tolerance.",
+            "Presto uses a pipelined execution model with memory-to-memory data transfer.",
+            "Presto executes tasks strictly sequentially.",
+            "Presto requires the entire dataset to fit in the coordinator's memory."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Presto uses a pipelined execution model where intermediate data is transferred memory-to-memory between stages, unlike MapReduce which writes to disk. This makes it faster but less fault-tolerant for long-running batch jobs."
+    },
+    {
+        "type": "multi",
+        "question": "What is the role of 'Connectors' in Presto?",
+        "options": [
+            "They serve as the main storage layer for Presto.",
+            "They are plugins that allow Presto to access data and metadata from various sources.",
+            "They are used to visualize the query results.",
+            "They manage the cluster resources."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Connectors are plugins (written in Java) that provide table schemas to coordinators and table rows to workers, allowing Presto to query external data sources like Hive, Cassandra, or MySQL."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements about Presto's 'Splits' are correct?",
+        "options": [
+            "A split is an addressable chunk of data (e.g., a file path and offsets).",
+            "Splits are assigned to workers lazily as the query executes.",
+            "All splits must be assigned before execution begins.",
+            "A single task handles exactly one split."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Splits represent chunks of data. Presto assigns them lazily (during execution) to workers with the shortest queues. This allows processing to start without enumerating all data upfront."
+    },
+    {
+        "type": "multi",
+        "question": "What is 'Predicate Pushdown' in Presto?",
+        "options": [
+            "Moving the query processing to the client machine.",
+            "Pushing filtering logic (ranges, equality) down to the connector/storage level.",
+            "Delaying the execution of predicates until the final aggregation stage.",
+            "Writing the query results back to the source database."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Predicate pushdown involves the optimizer pushing filtering constraints (predicates) down to the connector so that less data needs to be read and transferred to Presto workers."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following is true about Presto's fault tolerance compared to MapReduce?",
+        "options": [
+            "Presto has better fault tolerance because it writes check-points to disk.",
+            "If a Presto task fails, the entire query usually fails.",
+            "Presto workers automatically restart failed tasks on other nodes.",
+            "Presto is designed for long-running batch ETL jobs requiring high fault tolerance."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Presto prioritizes speed over fault tolerance. Because it pipelines data in memory, if one task fails, the whole query generally fails. MapReduce is better for fault tolerance."
+    },
+    {
+        "type": "multi",
+        "question": "Which data sources can Presto query?",
+        "options": [
+            "Hive (HDFS)",
+            "Cassandra",
+            "MySQL",
+            "All of the above"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Presto is designed to query multiple sources via connectors, including Hive, Cassandra, MySQL, and commercial DBs."
+    },
+    {
+        "type": "multi",
+        "question": "What happens during the 'Shuffle' phase in Presto?",
+        "options": [
+            "Data is written to HDFS for permanent storage.",
+            "Data is exchanged between workers via buffered in-memory transfers.",
+            "The coordinator organizes the final results.",
+            "Data is compressed and archived."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Shuffles in Presto involve exchanging data between stages (and workers) using in-memory buffers. This allows parallel processing but adds latency and CPU overhead."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following describes the relationship between Stages, Tasks, and Pipelines in Presto?",
+        "options": [
+            "A Stage is a part of the plan executed in parallel across workers.",
+            "A Task is the execution of a Stage on a specific worker.",
+            "A Pipeline consists of a chain of operators within a Task.",
+            "A Stage always runs on a single worker."
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "A query plan is broken into Stages. The Coordinator distributes Stages as Tasks to Workers (1 task/worker/stage). A Task contains Pipelines, which are chains of operators."
+    },
+    {
+        "type": "multi",
+        "question": "Which statement regarding Presto's 'Discovery Service' is correct?",
+        "options": [
+            "It is used to discover the schema of the data.",
+            "It allows workers to announce their presence and the coordinator to find the cluster nodes.",
+            "It discovers optimal query plans.",
+            "It finds the location of data blocks in HDFS."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Discovery Service is used for cluster membership. Workers announce themselves to the Discovery Service, and the Coordinator uses it to find the list of available servers."
+    }
+]
