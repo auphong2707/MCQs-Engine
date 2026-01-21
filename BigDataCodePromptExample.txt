@@ -1,0 +1,60 @@
+
+Generate 40 multiple-choice questions (MCQs) in "multi" type format for Spark DataFrame API and Structured Streaming API.
+
+Requirements:
+- Each question must have "type": "multi" (even if only one correct answer)
+- Balance the question type ratio (multi and single)
+- Match the style and vibe of the sample questions below
+- Wrong options must be plausible but definitively incorrect (avoid obviously wrong distractors)
+- Provide detailed explanations without citation
+- Mix question styles: "Which are wrong?", "What are features of...?", "Which statements are correct?", etc.
+- Make sure options is 0-indexed
+- Focus on programming syntax, usage, and code behavior rather than definitions
+
+Sample questions for reference:
+[
+    {
+        "type": "multi",
+        "question": "Which of the following code snippets are correct for creating a DataFrame with schema?",
+        "options": [
+            "df = spark.read.format('json').schema(mySchema).load('file.json')",
+            "df = spark.read.json('file.json').withSchema(mySchema)",
+            "df = spark.createDataFrame([myRow], mySchema)"
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "Option 0 correctly uses the schema() method when reading JSON files. Option 2 correctly creates a DataFrame from Python objects with a schema using createDataFrame(). Option 1 is incorrect because DataFrame API does not have a withSchema() method; the correct method is schema() which must be called before load()."
+    },
+    {
+        "type": "multi",
+        "question": "In Structured Streaming, which statements about window operations are correct?",
+        "options": [
+            "Window length and sliding interval must be multiples of the trigger interval",
+            "window(col('timestamp'), '10 minutes', '5 minutes') creates a sliding window",
+            "Tumbling windows are created when window length equals sliding interval"
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Option 1 is correct: the window() function with three parameters (column, window duration, slide duration) creates a sliding window. Option 2 is correct: tumbling windows occur when the window length equals the sliding interval, meaning there's no overlap between windows. Option 0 is incorrect: window parameters do not need to be multiples of the trigger interval; they are independent timing configurations."
+    },
+    {
+        "type": "multi",
+        "question": "Which code snippets will successfully write a streaming DataFrame to console?",
+        "options": [
+            "query = df.writeStream.format('console').start()",
+            "query = df.write.format('console').mode('append').save()",
+            "query = df.writeStream.outputMode('complete').format('console').start()"
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "Options 0 and 2 are correct for streaming writes. Option 0 uses the minimal required syntax with writeStream and format('console'). Option 2 additionally specifies an output mode, which is also valid. Option 1 is incorrect because it uses write instead of writeStream - the write API is for batch operations, not streaming."
+    }
+]
+
+Output format: JSON array with identical structure to samples above.

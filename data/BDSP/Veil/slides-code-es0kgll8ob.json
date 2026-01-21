@@ -1,0 +1,620 @@
+[
+    {
+        "type": "multi",
+        "question": "Which of the following are valid ways to read a JSON file into a Spark DataFrame?",
+        "options": [
+            "spark.read.json('/path/to/file.json')",
+            "spark.read.format('json').load('/path/to/file.json')",
+            "spark.read.load('/path/to/file.json', format='json')",
+            "spark.read.option('format', 'json').load('/path/to/file.json')"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Options 0 and 1 represent the standard methods: using the specific `json()` method or the generic `format('json').load()` method. Option 2 is also valid because `load()` accepts a `format` parameter in Python. Option 3 is incorrect because there is no `option('format', ...)` syntax specifically for setting the file format; format is set via `format()` or `load()`."
+    },
+    {
+        "type": "multi",
+        "question": "Which statement about `approx_count_distinct` is FALSE?",
+        "options": [
+            "It returns an exact count if the dataset is small enough.",
+            "It is generally faster than `countDistinct` for large datasets.",
+            "It takes a second argument representing the maximum estimation error allowed.",
+            "It is an action that triggers immediate computation."
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "`approx_count_distinct` is a transformation (specifically an aggregation function) used within `select` or `agg`, not an action itself. It defines *how* to compute the value but doesn't trigger execution until an action like `show()` or `collect()` is called. The other statements are true characteristics of this function."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following code snippets correctly perform a left outer join?",
+        "options": [
+            "df1.join(df2, df1['id'] == df2['id'], 'left_outer')",
+            "df1.join(df2, 'id', 'left')",
+            "df1.leftOuterJoin(df2, 'id')",
+            "df1.join(df2, df1.id == df2.id, how='left_outer')"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Option 0 and 3 show the standard `join` method with condition and type specified (either positionally or as keyword). Option 1 is a valid shorthand where 'left' is synonymous with 'left_outer'. Option 2 is incorrect because DataFrame API does not have a method named `leftOuterJoin`; that is a method on RDDs, not DataFrames."
+    },
+    {
+        "type": "multi",
+        "question": "Regarding the `coalesce` and `repartition` methods, which statements are accurate?",
+        "options": [
+            "`repartition` performs a full shuffle of the data.",
+            "`coalesce` can increase or decrease the number of partitions.",
+            "`coalesce` typically avoids a full shuffle when reducing partition count.",
+            "`repartition` guarantees a specific data distribution based on column values if columns are provided."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "`repartition` always shuffles data to create balanced partitions or partition by columns (Options 0 and 3). `coalesce` is optimized to avoid shuffling when *decreasing* the number of partitions by merging existing ones; however, `coalesce` generally cannot *increase* the number of partitions effectively because it avoids the necessary shuffle to redistribute data (Option 1 is false for increasing partitions)."
+    },
+    {
+        "type": "multi",
+        "question": "In Structured Streaming, what does the `outputMode('complete')` setting imply?",
+        "options": [
+            "Only the new rows appended to the result table will be written to the sink.",
+            "The entire updated result table will be written to the sink after every trigger.",
+            "It is supported for all queries, including simple map-only transformations.",
+            "It is typically used with aggregation queries."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Complete mode writes the *entire* result table every time (Option 1). This is primarily used for aggregations where the result changes over time (Option 3). It is *not* supported for map-only queries (Option 2 is false) because keeping the entire history of infinite streams without aggregation is infeasible. Option 0 describes `append` mode."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following window specifications are valid in PySpark?",
+        "options": [
+            "Window.partitionBy('dept').orderBy('salary')",
+            "Window.partitionBy('dept').rowsBetween(Window.unboundedPreceding, Window.currentRow)",
+            "Window.orderBy('date').rangeBetween(-100, 100)",
+            "Window.partitionBy('dept').rangeBetween(Window.currentRow, Window.unboundedFollowing)"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Options 0, 1, and 2 are all valid valid window definitions involving partitioning, ordering, and frame specifications (rows or range). Option 3 is technically invalid because `rangeBetween` usually requires an `orderBy` clause to define what the 'range' refers to (the value of the ordering column). Without `orderBy`, `rangeBetween` behavior is undefined or errors out."
+    },
+    {
+        "type": "multi",
+        "question": "Which methods effectively cache a DataFrame in memory?",
+        "options": [
+            "df.cache()",
+            "df.persist()",
+            "df.persist(StorageLevel.MEMORY_ONLY)",
+            "df.store()"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`cache()` is a shorthand for `persist(StorageLevel.MEMORY_AND_DISK)` (or `MEMORY_ONLY` depending on version/context, but usually synonymous). `persist()` allows specifying storage levels. There is no `store()` method on DataFrames."
+    },
+    {
+        "type": "multi",
+        "question": "Which scenarios would trigger a `AnalysisException` in Spark?",
+        "options": [
+            "Selecting a column that does not exist in the DataFrame schema.",
+            "Using an ambiguous column name after joining two DataFrames with duplicate column names.",
+            "Calling `collect()` on a DataFrame larger than the driver memory.",
+            "Reading a CSV file that is missing from the specified path."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "`AnalysisException` occurs during the analysis phase of query planning. Referencing a missing column (Option 0) or an ambiguous column reference (Option 1) fails analysis. Calling `collect()` on large data (Option 2) causes an OutOfMemoryError (runtime), not an analysis exception. Reading a missing file (Option 3) typically throws a PathNotFoundException or similar runtime IO error."
+    },
+    {
+        "type": "multi",
+        "question": "How can you register a DataFrame `df` as a temporary SQL view named 'table_view'?",
+        "options": [
+            "df.createTempView('table_view')",
+            "df.createOrReplaceTempView('table_view')",
+            "spark.catalog.createView('table_view', df)",
+            "df.registerTempTable('table_view')"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "`createTempView` and `createOrReplaceTempView` are the modern standard methods. `registerTempTable` is the older (deprecated but still working) API. Option 2 is incorrect syntax for the catalog API."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid `writeStream` triggers?",
+        "options": [
+            "trigger(processingTime='10 seconds')",
+            "trigger(once=True)",
+            "trigger(continuous='1 second')",
+            "trigger(availableNow=True)"
+        ],
+        "answer": [
+            0,
+            1,
+            2,
+            3
+        ],
+        "explanation": "All options listed are valid trigger configurations in recent Spark versions. `processingTime` is the standard micro-batch trigger. `once` runs a single batch. `continuous` enables continuous processing mode. `availableNow` is the newer version of 'once' that processes all available data in multiple batches if needed."
+    },
+    {
+        "type": "multi",
+        "question": "Which functions can be used to handle null values in a DataFrame?",
+        "options": [
+            "df.na.drop()",
+            "df.na.fill(0)",
+            "df.fillna(0)",
+            "df.isNull()"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`na.drop()` removes rows with nulls. `na.fill()` and `fillna()` (an alias) replace nulls with values. `isNull()` is a Column expression method, not a DataFrame method; you would use it like `col('c').isNull()` inside a filter, not directly on the DataFrame object."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements regarding User Defined Functions (UDFs) in PySpark are correct?",
+        "options": [
+            "UDFs are generally more performant than native Spark SQL functions.",
+            "You can register a UDF using `spark.udf.register`.",
+            "UDFs process data row-by-row in Python, which incurs serialization overhead.",
+            "Pandas UDFs (Vectorized UDFs) can improve performance over standard Python UDFs."
+        ],
+        "answer": [
+            1,
+            2,
+            3
+        ],
+        "explanation": "Native Spark functions are JVM-optimized and usually faster than Python UDFs, making Option 0 false. Option 1 is correct for SQL usage. Option 2 is correct and explains the performance cost. Option 3 is correct as Pandas UDFs process batches of data to minimize serialization overhead."
+    },
+    {
+        "type": "multi",
+        "question": "What happens when you execute `df.explain()`?",
+        "options": [
+            "It runs the query and prints the execution time.",
+            "It prints the physical plan of the DataFrame execution.",
+            "It prints the logical plan (parsed, analyzed, optimized) and physical plan.",
+            "It returns a DataFrame containing the plan as strings."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "`explain()` (specifically without arguments or with `True` in older versions) prints the query plans to the console (Option 2). It does *not* execute the query (Option 0). It prints *more* than just the physical plan usually (unless specified otherwise). It returns `None`, not a DataFrame (Option 3)."
+    },
+    {
+        "type": "multi",
+        "question": "Which statement correctly describes the `withColumn` transformation?",
+        "options": [
+            "It is used to rename an existing column.",
+            "It returns a new DataFrame with the specified column added or replaced.",
+            "It modifies the DataFrame in-place.",
+            "It can cause performance issues if chained excessively due to plan complexity."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "`withColumn` creates a new DataFrame (DataFrames are immutable, so Option 2 is false). It is used for adding/replacing, while `withColumnRenamed` is for renaming (Option 0 is imprecise). Excessive chaining creates a long lineage/complex logical plan which can degrade catalyst optimizer performance (Option 3)."
+    },
+    {
+        "type": "multi",
+        "question": "Which code correctly creates a session-based window in a streaming query?",
+        "options": [
+            "groupBy(session_window(col('time'), '10 minutes'))",
+            "groupBy(window(col('time'), '10 minutes'))",
+            "groupBy(session(col('time'), '10 minutes'))",
+            "groupBy(window_session(col('time'), '10 minutes'))"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "`session_window` is the specific function introduced in later Spark versions for sessionization. `window` is for fixed/sliding windows. The others (session, window_session) are not standard API methods."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following joins will result in a DataFrame with potentially fewer rows than the left DataFrame?",
+        "options": [
+            "Left Outer Join",
+            "Inner Join",
+            "Left Semi Join",
+            "Right Outer Join"
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Inner join keeps only matching rows, so unmatched left rows are dropped. Left Semi join keeps left rows *only if* they match the right, so unmatched left rows are dropped. Left Outer preserves all left rows. Right Outer preserves all right rows, but could drop non-matching left rows (technically correct, but usually framed as preserving the right side; however, strictly speaking compared to the 'Left DataFrame', rows can be lost)."
+    },
+    {
+        "type": "multi",
+        "question": "When reading CSV files, what does `inferSchema=True` do?",
+        "options": [
+            "It forces all columns to be read as Strings.",
+            "It triggers a pass over the data to guess column types.",
+            "It ensures that the header is used for column names.",
+            "It may increase the cost of the read operation compared to providing a schema manually."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "`inferSchema` requires reading the data (or a sample) to determine types (Option 1), which adds overhead (Option 3). It does *not* force strings; that would be the default behavior *without* inference. Using the header is controlled by the `header` option, not `inferSchema`."
+    },
+    {
+        "type": "multi",
+        "question": "Which operations constitute a 'wide' dependency (shuffle) in Spark?",
+        "options": [
+            "filter()",
+            "groupBy().count()",
+            "join() (SortMerge)",
+            "map()"
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Operations that require data redistribution across partitions are wide. `groupBy` and most `join` types require shuffling data so keys end up on the same partition. `filter` and `map` are narrow transformations; they process data within the existing partition."
+    },
+    {
+        "type": "multi",
+        "question": "Which methods allow you to execute arbitrary SQL queries on a registered view?",
+        "options": [
+            "spark.sql('SELECT * FROM view')",
+            "df.sql('SELECT * FROM view')",
+            "spark.execute('SELECT * FROM view')",
+            "spark.read.sql('SELECT * FROM view')"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The standard entry point for running SQL strings is `spark.sql()`. There is no `df.sql()` or `spark.execute()` or `spark.read.sql()`."
+    },
+    {
+        "type": "multi",
+        "question": "Which statement about the `foreach` and `foreachPartition` actions is correct?",
+        "options": [
+            "`foreach` executes a function on every row in the driver.",
+            "`foreachPartition` executes a function on each partition, often used for connection management.",
+            "Both methods return a new DataFrame.",
+            "`foreach` is an action, while `foreachPartition` is a transformation."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "`foreach` executes on the *executors*, not the driver (Option 0 false). `foreachPartition` is indeed used for efficient resource initialization per partition (Option 1 true). Both are actions that return `None` (Option 2 false). Both are actions (Option 3 false)."
+    },
+    {
+        "type": "multi",
+        "question": "In the context of Structured Streaming, what is the 'watermark' used for?",
+        "options": [
+            "To throttle the input rate of the stream.",
+            "To handle late-arriving data by specifying how long to wait before dropping it.",
+            "To define the trigger interval for micro-batches.",
+            "To allow the engine to clean up old state aggregates."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Watermarks tell the system how late data can be before it is ignored (Option 1) and, crucially, allow the system to discard old intermediate state for windows that are now 'closed' (Option 3). It does not control input rate or trigger intervals."
+    },
+    {
+        "type": "multi",
+        "question": "Which Column expressions correctly filter for values that are contained in a list `[1, 2, 3]`?",
+        "options": [
+            "col('id').isin([1, 2, 3])",
+            "col('id') in [1, 2, 3]",
+            "col('id').contains([1, 2, 3])",
+            "col('id').isin(1, 2, 3)"
+        ],
+        "answer": [
+            0,
+            3
+        ],
+        "explanation": "`isin` accepts a list/collection (Option 0) or varargs (Option 3). Python's `in` operator (Option 1) does not work on Column objects to produce a filter expression (it evaluates immediately to bool). `contains` is generally for string substrings, not list membership."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid `join` types in the PySpark API?",
+        "options": [
+            "inner",
+            "outer",
+            "full_outer",
+            "left_semi",
+            "cross_join"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "`inner`, `outer` (and `full`, `full_outer`), and `left_semi` are valid string identifiers for join types. `cross_join` is generally a method `.crossJoin()`, though some versions might accept 'cross' as a type, 'cross_join' is not standard string syntax for the `how` parameter (usually it's 'cross')."
+    },
+    {
+        "type": "multi",
+        "question": "Which statement about `Dataset` vs `DataFrame` is correct in the context of PySpark?",
+        "options": [
+            "PySpark has a distinct `Dataset` API separate from `DataFrame`.",
+            "In PySpark, a DataFrame is essentially a Dataset[Row], similar to Scala.",
+            "PySpark does not have a strongly-typed `Dataset` API like Scala/Java.",
+            "DataFrames in PySpark are untyped."
+        ],
+        "answer": [
+            2,
+            3
+        ],
+        "explanation": "Python is dynamically typed, so it doesn't support the compile-time typed `Dataset` API available in Scala/Java (Option 2). In PySpark, we only work with `DataFrames`, which are structurally typed but not strongly typed at compile time (Option 3). Option 1 describes the Scala implementation, not Python's."
+    },
+    {
+        "type": "multi",
+        "question": "How do you add a literal value column 'status' with value 'active' to a DataFrame?",
+        "options": [
+            "df.withColumn('status', 'active')",
+            "df.withColumn('status', lit('active'))",
+            "df.select('*', lit('active').alias('status'))",
+            "df.add('status', 'active')"
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "`withColumn` requires the second argument to be a `Column` expression, so a raw string 'active' fails; you must use `lit('active')` (Option 1). Option 2 is a valid alternative using select. Option 0 fails because 'active' is interpreted as a column name not a literal. Option 3 is invalid syntax."
+    },
+    {
+        "type": "multi",
+        "question": "Which options can be tuned when writing a DataFrame to Parquet?",
+        "options": [
+            "compression (e.g., 'snappy', 'gzip')",
+            "partitionBy",
+            "header",
+            "mode (e.g., 'overwrite', 'append')"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "`compression`, `partitionBy` (to partition on disk), and `mode` are valid write options for Parquet. `header` (Option 2) is specific to CSV/text formats; Parquet files store schema in their metadata, so a 'header' option is irrelevant."
+    },
+    {
+        "type": "multi",
+        "question": "What is the purpose of `df.checkpoint()`?",
+        "options": [
+            "It saves the DataFrame to a temporary disk location to truncate the logical plan lineage.",
+            "It saves the DataFrame to the configured checkpoint directory specifically for streaming recovery.",
+            "It is identical to `cache()`.",
+            "It forces the computation of the DataFrame up to that point."
+        ],
+        "answer": [
+            0,
+            3
+        ],
+        "explanation": "`checkpoint()` saves the data to a reliable file system (or local directory if not reliable) and, crucially, *clears the lineage* of the RDD (Option 0). This is useful for long iterative algorithms to prevent stack overflows. Since it involves writing to disk, it forces computation (Option 3). It is 'stronger' than cache (Option 2 false) because cache remembers lineage to recompute if memory is lost."
+    },
+    {
+        "type": "multi",
+        "question": "Which statement accurately describes `df.groupBy('a').agg(max('b'))`?",
+        "options": [
+            "It groups by column 'a' and finds the maximum value of 'b' in each group.",
+            "It returns a DataFrame with columns 'a' and 'max(b)'.",
+            "It is a narrow transformation.",
+            "It requires a shuffle."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "The code performs a grouping aggregation (Option 0). The resulting DataFrame has the grouping key and the aggregate result (Option 1). Aggregations across keys require bringing matching keys to the same partition, which is a shuffle (Option 3). Therefore, it is a wide transformation, not narrow (Option 2 false)."
+    },
+    {
+        "type": "multi",
+        "question": "Which syntax creates a StructType schema programmatically?",
+        "options": [
+            "StructType([StructField('name', StringType(), True)])",
+            "Schema([Field('name', 'string')])",
+            "StructType().add('name', StringType())",
+            "StructType().add('name', 'string')"
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Option 0 is the classic constructor. Options 2 and 3 use the builder pattern `add` method which accepts both Type objects and string representations. Option 1 is imaginary syntax."
+    },
+    {
+        "type": "multi",
+        "question": "What is the correct way to specify a custom delimiter when reading a CSV?",
+        "options": [
+            "spark.read.csv('file.csv', sep='|')",
+            "spark.read.option('delimiter', '|').csv('file.csv')",
+            "spark.read.option('sep', '|').csv('file.csv')",
+            "spark.read.format('csv').load('file.csv', delimiter='|')"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Spark accepts both 'sep' and 'delimiter' as options. `csv()` accepts keyword arguments like `sep` (Option 0). `option()` can be chained (Options 1 and 2). Option 3 is invalid because `load()` usually does not take format-specific kwargs in that manner (though specific python implementations vary, strict API usage usually puts options in `option()` or `csv()` kwargs)."
+    },
+    {
+        "type": "multi",
+        "question": "Which are valid ways to drop duplicates from a DataFrame?",
+        "options": [
+            "df.distinct()",
+            "df.dropDuplicates()",
+            "df.dropDuplicates(['col1', 'col2'])",
+            "df.unique()"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`distinct()` removes duplicate rows (all columns). `dropDuplicates()` is an alias for distinct, but also allows specifying a subset of columns to check for duplication (Option 2). `unique()` is a Pandas method, not PySpark DataFrame."
+    },
+    {
+        "type": "multi",
+        "question": "Which of these are valid numeric aggregation functions in `pyspark.sql.functions`?",
+        "options": [
+            "mean",
+            "average",
+            "stddev",
+            "variance"
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "`mean`, `stddev`, and `variance` are valid functions. `average` is not a standard function name; the function is `avg`."
+    },
+    {
+        "type": "multi",
+        "question": "Which statement implies a broadcasting join strategy?",
+        "options": [
+            "One table is significantly smaller than the other.",
+            "Using the hint `df.join(broadcast(df_small), ...)`.",
+            "The join condition is a non-equi join (e.g., <, >).",
+            "Both tables are large."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Broadcast joins are optimized for scenarios where one side fits in memory (Small table - Option 0). Hints explicitly request this strategy (Option 1). Non-equi joins often use broadcast nested loop join, but that's a specific subtype; simple broadcast hash joins require equality. Large-large joins typically use SortMerge."
+    },
+    {
+        "type": "multi",
+        "question": "Which method is used to define a user-defined schema for a JSON read?",
+        "options": [
+            "spark.read.schema(json_schema).json(path)",
+            "spark.read.json(path, schema=json_schema)",
+            "spark.read.option('schema', json_schema).json(path)",
+            "spark.read.json(path).withSchema(json_schema)"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The standard API is chaining `.schema()` before the load command (Option 0). While some overrides exist, the `json()` method in PySpark typically takes the path as the first arg and options, but passing schema as a kwarg to `json` is not standard across all versions compared to the builder `.schema()`. `withSchema` does not exist."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following correctly describes 'lazy evaluation' in Spark?",
+        "options": [
+            "Transformations are not executed until an action is called.",
+            "Data is read from disk immediately when `spark.read.load()` is called.",
+            "Execution plans are optimized before running.",
+            "Actions return results to the driver or write to storage."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Lazy evaluation means transformations build a logical plan but don't run (Option 0). The Catalyst optimizer optimizes this plan before execution (Option 2). Actions trigger the actual run (Option 3). Reading (Option 1) is lazily executed (usually just schema inference happens immediately if not provided, but full data isn't read)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid `SaveMode` options in `df.write.mode(...)`?",
+        "options": [
+            "error",
+            "ignore",
+            "append",
+            "update"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Standard save modes are `overwrite`, `append`, `ignore`, and `error` (or `errorIfExists`). `update` is not a file save mode (it is a streaming output mode, but not a batch file write mode)."
+    },
+    {
+        "type": "multi",
+        "question": "How do you access the value of a nested column 'city' inside a struct column 'address'?",
+        "options": [
+            "col('address.city')",
+            "df.address.city",
+            "col('address')['city']",
+            "df['address.city']"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Spark supports dot notation in strings `col('address.city')` (Option 0). Column object attribute access `df.address.city` works (Option 1). GetItem syntax `col('address')['city']` works (Option 2). `df['address.city']` (Option 3) usually looks for a column explicitly named 'address.city' (with a dot in the name), rather than traversing the struct."
+    },
+    {
+        "type": "multi",
+        "question": "Which are valid sources for Structured Streaming `readStream`?",
+        "options": [
+            "kafka",
+            "socket",
+            "rate",
+            "jdbc"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`kafka`, `socket` (for testing), and `rate` (for testing) are built-in streaming sources. `jdbc` is currently only a batch source; it does not support streaming reads out of the box in standard Spark."
+    },
+    {
+        "type": "multi",
+        "question": "Which functions allow you to rename a column?",
+        "options": [
+            "df.withColumnRenamed('old', 'new')",
+            "df.select(col('old').alias('new'))",
+            "df.rename('old', 'new')",
+            "df.selectExpr('old as new')"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "`withColumnRenamed` is the direct method. Aliasing in `select` or `selectExpr` also effectively renames columns in the resulting DataFrame. `rename` (Option 2) is a Pandas method, not PySpark."
+    },
+    {
+        "type": "multi",
+        "question": "What is the result of `df.selectExpr('price * 0.9 as discounted_price')`?",
+        "options": [
+            "It runs the SQL expression `price * 0.9` and names the result `discounted_price`.",
+            "It returns a DataFrame containing only the `discounted_price` column.",
+            "It adds `discounted_price` to the existing columns.",
+            "It fails if `price` is not a numeric column."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "`selectExpr` acts like a `select` with SQL strings. It returns only the selected columns (Option 1, making Option 2 false). It performs the calculation and renaming (Option 0). If types are incompatible (e.g. price is a string), runtime SQL analysis will fail (Option 3)."
+    }
+]
