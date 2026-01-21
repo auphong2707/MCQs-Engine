@@ -1,0 +1,611 @@
+[
+    {
+        "type": "multi",
+        "question": "Which of the following statements accurately describe the HBase Data Model?",
+        "options": [
+            "It is a sparse, distributed, persistent multidimensional sorted map.",
+            "Data is indexed by Row Key, Column Family, Column Qualifier, and Timestamp.",
+            "Columns must be defined strictly in the schema before data insertion.",
+            "Rows are sorted lexicographically based on the row key."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "HBase is defined as a sparse, distributed, persistent multidimensional sorted map. Its data model is indexed by the quadruple {Row Key, Column Family, Column Qualifier, Timestamp}. Rows are indeed sorted lexicographically by the row key. The third option is incorrect because while Column Families must be defined upfront, Column Qualifiers can be added dynamically on the fly."
+    },
+    {
+        "type": "multi",
+        "question": "In the context of HBase Architecture, what are the primary responsibilities of the HMaster?",
+        "options": [
+            "Handling the actual read and write requests from clients.",
+            "Monitoring RegionServers and managing failover.",
+            "Assigning regions to RegionServers.",
+            "Performing data replication across DataNodes."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "The HMaster is responsible for administrative tasks such as assigning regions to RegionServers, load balancing, and handling RegionServer failovers (detecting crashes). It does not handle actual read/write data requests (which go directly to RegionServers) nor does it handle low-level block replication (which is handled by HDFS)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are true regarding HBase's ACID properties?",
+        "options": [
+            "HBase provides full ACID compliance across multiple rows and tables.",
+            "HBase guarantees atomicity for mutations within a single row.",
+            "HBase supports cross-row transactions natively.",
+            "All visible data in HBase is durable data."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "HBase is not fully ACID-compliant like a traditional RDBMS. It guarantees atomicity only at the single-row level (any Put is atomic within that row). It does not support cross-row transactions natively. However, it guarantees durability; once an operation returns success, the data is durable."
+    },
+    {
+        "type": "multi",
+        "question": "What is the function of the MemStore in HBase?",
+        "options": [
+            "It acts as a write cache where data is stored before being flushed to disk.",
+            "It stores the transaction logs for recovery purposes.",
+            "It acts as a read cache for frequently accessed HFiles.",
+            "It is sorted in memory to allow efficient sequential writing to HFiles."
+        ],
+        "answer": [
+            0,
+            3
+        ],
+        "explanation": "The MemStore is the in-memory write buffer for a Column Family. New writes are added to the MemStore, where they are sorted. Once the MemStore fills up, its contents are flushed to disk as a new HFile. The transaction logs are stored in the Write Ahead Log (WAL/HLog), not the MemStore (though data goes to WAL first)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements about HBase Compaction are correct?",
+        "options": [
+            "Minor compaction merges small adjacent HFiles into a single larger HFile without deleting obsolete data.",
+            "Major compaction merges all HFiles in a store into a single HFile.",
+            "Major compaction is the only time deleted records and expired versions are physically removed.",
+            "Compaction is necessary because reading a row may require accessing many files."
+        ],
+        "answer": [
+            1,
+            2,
+            3
+        ],
+        "explanation": "Major compaction merges all HFiles for a region into one and physically removes deleted records and expired versions (tombstones). Minor compaction merges smaller files but does not guarantee the removal of deleted data. Compaction is crucial for read performance to reduce the number of disk seeks required to assemble a row."
+    },
+    {
+        "type": "multi",
+        "question": "How does HBase relate to the CAP theorem?",
+        "options": [
+            "HBase is an AP system (Available and Partition Tolerant).",
+            "HBase is a CP system (Consistent and Partition Tolerant).",
+            "HBase prioritizes availability over consistency during network partitions.",
+            "HBase guarantees strong consistency, meaning all clients see the same data."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "HBase is designed as a CP system. It provides strong consistency (all clients see the same data at the same time) and partition tolerance. During a network partition or server failure, parts of the data may become unavailable until recovery is complete, meaning it sacrifices Availability for Consistency."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid HBase operations?",
+        "options": [
+            "Put",
+            "Select",
+            "Scan",
+            "Join"
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "HBase supports `Put`, `Get`, `Scan`, and `Delete` operations. It does not support SQL-style `Select` or `Join` operations natively; joins are typically handled via MapReduce or client-side logic."
+    },
+    {
+        "type": "multi",
+        "question": "What role does Zookeeper play in an HBase cluster?",
+        "options": [
+            "It stores the actual data files (HFiles).",
+            "It maintains configuration information and tracks the status of RegionServers.",
+            "It coordinates the election of the active HMaster.",
+            "It serves as the Write Ahead Log for data recovery."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Zookeeper is the coordination service for the cluster. It manages cluster state, tracks which RegionServers are alive (via ephemeral nodes), and handles the election of the active Master if the current one fails. It does not store HFiles (HDFS does that) or act as the WAL."
+    },
+    {
+        "type": "multi",
+        "question": "Identify the incorrect statements regarding HBase vs. HDFS.",
+        "options": [
+            "HDFS is optimized for random read/write access.",
+            "HBase is optimized for fast record lookups and updates.",
+            "HDFS is good for batch processing and large file scans.",
+            "HBase cannot run on top of HDFS."
+        ],
+        "answer": [
+            0,
+            3
+        ],
+        "explanation": "HDFS is designed for batch processing and high throughput streaming access to large files, not random read/write access. HBase runs *on top* of HDFS to provide the random access and low-latency lookups that HDFS lacks."
+    },
+    {
+        "type": "multi",
+        "question": "In Spark Streaming (DStreams), what is a DStream?",
+        "options": [
+            "A continuous sequence of RDDs representing a stream of data.",
+            "A low-level API similar to Storm's Bolts and Spouts.",
+            "A static unbounded table that receives updates.",
+            "A collection of data organized into micro-batches."
+        ],
+        "answer": [
+            0,
+            3
+        ],
+        "explanation": "A Discretized Stream (DStream) is the basic abstraction in Spark Streaming. It represents a continuous stream of data, which is internally organized as a sequence of RDDs (Resilient Distributed Datasets), with each RDD containing data from a specific time interval (micro-batch)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid Output Operations in Spark Streaming?",
+        "options": [
+            "print()",
+            "saveAsTextFile()",
+            "foreachRDD()",
+            "collect()"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`print()`, `saveAsTextFile()` (or `saveAsHadoopFiles`), and `foreachRDD()` are valid output operations that trigger the computation and push data to external systems or the console. `collect()` is an RDD action that brings data to the driver, but in streaming, it is rarely used as a direct output operation for the stream itself without context inside a `foreachRDD`."
+    },
+    {
+        "type": "multi",
+        "question": "What distinguishes Spark Structured Streaming from the legacy DStream API?",
+        "options": [
+            "Structured Streaming uses a micro-batch execution model exclusively.",
+            "Structured Streaming treats live data as an unbounded table.",
+            "Structured Streaming requires users to reason about batch intervals manually.",
+            "Structured Streaming supports Event Time and Watermarking natively."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Structured Streaming provides a higher-level API based on DataFrames/Datasets and treats the stream as an unbounded table appended to continuously. It simplifies handling Event Time (timestamp in the data) and late data via Watermarking. While it can use micro-batches physically, the logical model is different from DStreams."
+    },
+    {
+        "type": "multi",
+        "question": "In Spark Structured Streaming, what is the purpose of 'Watermarking'?",
+        "options": [
+            "To limit the total amount of memory used by the application.",
+            "To handle late-arriving data by specifying a threshold of how late data can be.",
+            "To synchronize the clock between the driver and the executors.",
+            "To determine when intermediate state for an old window can be dropped."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Watermarking allows the engine to handle late data by establishing a threshold (e.g., \"10 minutes late\"). Data arriving after this threshold is dropped. This mechanism also allows the engine to clean up old intermediate state that is no longer needed for updates, preventing memory issues."
+    },
+    {
+        "type": "multi",
+        "question": "Which Output Modes are available in Spark Structured Streaming?",
+        "options": [
+            "Append Mode",
+            "Complete Mode",
+            "Update Mode",
+            "Delete Mode"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "The three supported output modes are: Append (only new rows added to the result table), Complete (the entire updated result table), and Update (only the rows that were updated in the result table). Delete Mode is not a standard output mode."
+    },
+    {
+        "type": "multi",
+        "question": "What is the behavior of 'Sliding Windows' in Spark Streaming?",
+        "options": [
+            "Windows must be non-overlapping.",
+            "A window is defined by a window length and a sliding interval.",
+            "If the sliding interval is less than the window length, windows will overlap.",
+            "An element can belong to multiple sliding windows."
+        ],
+        "answer": [
+            1,
+            2,
+            3
+        ],
+        "explanation": "Sliding windows are defined by length and slide interval. If the slide interval is smaller than the length, the windows overlap, and a single data point will fall into multiple windows (e.g., a 10-minute window sliding every 5 minutes means data belongs to two windows). Tumbling windows are the non-overlapping case."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements about Transformation operations in Spark Streaming are correct?",
+        "options": [
+            "Stateless transformations apply to each batch independently (e.g., map, filter).",
+            "Stateful transformations track data across batches (e.g., updateStateByKey).",
+            "Transformations immediately execute the code and return results.",
+            "Windowed operations are a type of stateful transformation."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Transformations in Spark are lazy; they define the computation graph but do not execute until an output operation is called. Stateless transformations (map, filter) work on the current batch only. Stateful transformations (updateStateByKey, window) rely on data from previous batches/time."
+    },
+    {
+        "type": "multi",
+        "question": "What guarantees does Spark Streaming provide for Fault Tolerance?",
+        "options": [
+            "Data is replicated in memory across worker nodes.",
+            "If a worker node fails, lost partitions can be recomputed from lineage.",
+            "It guarantees 'exactly-once' processing for all output sinks automatically without configuration.",
+            "Write Ahead Logs (WAL) can be used to prevent data loss from receiver failures."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Spark ensures fault tolerance via RDD lineage (recomputing lost data) and replication of input data in memory. WALs are used for receiver-based sources to ensure data durability. However, 'exactly-once' semantics often require specific idempotent sink implementations or transactional support; it is not automatic for *all* sinks without proper setup."
+    },
+    {
+        "type": "multi",
+        "question": "Regarding the Lambda Architecture, what is the primary role of the Batch Layer?",
+        "options": [
+            "To serve low-latency queries on the most recent data.",
+            "To store the immutable, master dataset.",
+            "To precompute comprehensive views (Batch Views) from the master dataset.",
+            "To merge real-time and historical data on the fly."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "The Batch Layer is responsible for storing the immutable master dataset (HDFS/S3) and computing batch views (via MapReduce/Spark) that provide accurate, comprehensive results. It is not responsible for low-latency queries or the final merge (which happens in the Serving Layer or query time)."
+    },
+    {
+        "type": "multi",
+        "question": "What is the purpose of the Speed Layer in the Lambda Architecture?",
+        "options": [
+            "To correct errors made in the Batch Layer.",
+            "To provide low-latency views of recent data that has not yet been processed by the batch layer.",
+            "To store the master dataset for long-term archival.",
+            "To compensate for the high latency of the Batch Layer."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "The Speed Layer exists to handle the \"gap\" of data that the Batch Layer hasn't processed yet (due to latency). It processes recent data streams to provide near real-time views, compensating for the slowness of the batch layer."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are components or characteristics of the Speed Layer?",
+        "options": [
+            "It often uses stream processing frameworks like Storm or Spark Streaming.",
+            "It deals with the most recent data only.",
+            "It produces Batch Views.",
+            "The views it produces are eventually replaced by the Batch Layer's views."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "The Speed Layer uses streaming technologies (Storm, Flink, Spark Streaming) to process recent data. Its results (Real-time Views) are transient; once the Batch Layer processes that data timeframe, the Batch View replaces the Speed Layer's approximate or temporary view."
+    },
+    {
+        "type": "multi",
+        "question": "What is the 'Serving Layer' responsible for in the Lambda Architecture?",
+        "options": [
+            "Indexing and exposing the Batch Views for querying.",
+            "Running the MapReduce jobs.",
+            "Providing random read access to the precomputed views.",
+            "Calculating real-time analytics on incoming streams."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "The Serving Layer loads the Batch Views (e.g., into HBase, ElephantDB, or Impala) and indexes them so they can be queried with low latency. It is generally a read-only layer for the batch results. It does not run the computation itself."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are considered disadvantages or criticisms of the Lambda Architecture?",
+        "options": [
+            "It requires maintaining two separate codebases (Batch and Speed).",
+            "It cannot handle large volumes of data.",
+            "It introduces operational complexity by running two different distributed systems.",
+            "It fails to provide eventual consistency."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "The main criticism of Lambda Architecture is complexity: developers often have to implement the same business logic twice (once for batch, once for streaming) and maintain two complex systems. It is explicitly designed to handle large volumes of data and provide eventual consistency."
+    },
+    {
+        "type": "multi",
+        "question": "In the context of Big Data processing, how does 'Event Time' differ from 'Processing Time'?",
+        "options": [
+            "Event Time is when the data was created at the source.",
+            "Processing Time is when the data arrives at the processing engine.",
+            "Event Time is always later than Processing Time.",
+            "Spark Structured Streaming prefers Processing Time for accurate windowing."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Event Time is the timestamp embedded in the data itself (when it happened). Processing Time is the wall-clock time when the system processes the data. Structured Streaming focuses on Event Time to handle late data correctly. Event Time is usually earlier than Processing Time."
+    },
+    {
+        "type": "multi",
+        "question": "What are the characteristics of HBase Row Keys?",
+        "options": [
+            "They are arbitrary byte arrays.",
+            "They serve as the primary index for the table.",
+            "Sequential row keys (e.g., timestamps) prevent region hotspotting.",
+            "Designing the row key is critical for query performance."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Row keys are byte arrays and are the primary way to access data efficiently. Row key design is the most critical part of HBase schema design. Sequential keys (like pure timestamps) are actually *bad* because they cause hotspotting (RegionServer hotspotting) where all writes go to a single region."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements are correct regarding HBase Column Families?",
+        "options": [
+            "They physically group columns together on disk.",
+            "A table should have a large number of column families.",
+            "All members of a column family have the same column prefix.",
+            "Access control (permissions) is defined at the Column Family level."
+        ],
+        "answer": [
+            0,
+            3
+        ],
+        "explanation": "Column Families are the unit of physical storage (stored in separate files). HBase advises having a *low* number of column families (usually 1-3) because flushing is done per region, and too many families fragment files. Access controls and storage attributes (compression, caching) are defined at the Family level."
+    },
+    {
+        "type": "multi",
+        "question": "What is the 'WAL' in HBase and what is its purpose?",
+        "options": [
+            "Write Ahead Log.",
+            "It records all changes to data in HDFS before they are written to MemStore.",
+            "It allows for data recovery if a RegionServer crashes before flushing MemStore.",
+            "It is used to index data for faster reads."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "WAL stands for Write Ahead Log. Its primary purpose is durability/recovery. When a write comes in, it is written to the WAL (on disk/HDFS) and the MemStore (RAM). If the server crashes, the MemStore is lost, but the WAL can be replayed to recover the data. It is not used for read indexing."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following describes the 'Update Mode' in Spark Structured Streaming?",
+        "options": [
+            "The entire Result Table is written to the external storage.",
+            "Only the rows that were updated since the last trigger are written.",
+            "It is similar to Append Mode but allows changing existing rows.",
+            "It cannot be used with aggregation queries."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Update Mode writes only the rows that have changed (updated or new) since the last trigger. Append mode does not allow changes to existing rows (it assumes rows are immutable once finalized). Update mode is specifically useful for aggregations where the count/value changes over time."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements about 'Accumulators' and 'Broadcast Variables' in Spark are true?",
+        "options": [
+            "Broadcast Variables allow efficient distribution of a large read-only variable to all executors.",
+            "Accumulators are variables that are only added to (associative and commutative).",
+            "Executors can read the value of an Accumulator.",
+            "Broadcast Variables are updated by executors and sent back to the driver."
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Broadcast variables are read-only on the executors; they are distributed once by the driver. Accumulators are write-only on the executors (used for counters/sums); executors cannot read their value, only the driver can read the final result."
+    },
+    {
+        "type": "multi",
+        "question": "What is 'Checkpointing' in Spark Streaming utilized for?",
+        "options": [
+            "Reducing the latency of the stream.",
+            "Fault tolerance: saving metadata and state to reliable storage.",
+            "Visualizing the DAG execution.",
+            "Truncating the lineage graph to prevent stack overflow."
+        ],
+        "answer": [
+            1,
+            3
+        ],
+        "explanation": "Checkpointing saves the application state (metadata and data in stateful transformations) to HDFS. This is crucial for recovering the driver on failure and for truncating the lineage of RDDs in long-running stateful streams to avoid infinite dependency chains."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are true about the 'Complete' output mode?",
+        "options": [
+            "It is feasible for all types of queries.",
+            "It outputs the entire result table every time a trigger runs.",
+            "It is typically used with aggregation queries.",
+            "It assumes the result table is append-only."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Complete mode writes the *entire* updated result table to the sink. This is only feasible for aggregation queries where the result table is relatively small (e.g., word counts). It is not feasible for raw data streams as the table would grow indefinitely."
+    },
+    {
+        "type": "multi",
+        "question": "In the Lambda Architecture, how is a query answered?",
+        "options": [
+            "By querying the Batch Layer only.",
+            "By querying the Speed Layer only.",
+            "By merging results from the Batch View and the Real-time View.",
+            "By running a MapReduce job on the fly."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The core concept of the Lambda Architecture is that a query function combines the results from the precomputed Batch Views (historical accuracy) and the Real-time Views (recent data) to provide a complete answer."
+    },
+    {
+        "type": "multi",
+        "question": "Which technologies are commonly associated with the Speed Layer?",
+        "options": [
+            "Apache Hadoop MapReduce",
+            "Apache Storm",
+            "Apache Spark Streaming",
+            "Apache Flink"
+        ],
+        "answer": [
+            1,
+            2,
+            3
+        ],
+        "explanation": "The Speed Layer requires low-latency stream processing. Technologies like Storm, Spark Streaming, and Flink are designed for this. Hadoop MapReduce is a batch processing technology and belongs to the Batch Layer."
+    },
+    {
+        "type": "multi",
+        "question": "What is a 'Region' in HBase?",
+        "options": [
+            "A specific geographical location of the server.",
+            "A sorted range of rows from a table.",
+            "The basic unit of availability and distribution.",
+            "A single column family stored on disk."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "In HBase, a Table is horizontally partitioned into Regions. A Region contains a sorted range of rows (StartKey to EndKey). It is the unit of distribution; regions are assigned to RegionServers."
+    },
+    {
+        "type": "multi",
+        "question": "Which statements accurately reflect HBase's consistency model?",
+        "options": [
+            "It provides eventual consistency across all replicas.",
+            "It provides strong consistency for row operations.",
+            "A specific row is served by exactly one RegionServer at a time.",
+            "Reads can be served from stale replicas."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "HBase is strongly consistent. A row key maps to exactly one active Region, which is served by exactly one RegionServer. All reads and writes go to that server, ensuring strong consistency. It does not typically use eventual consistency or read-from-stale-replica models (though some read-replica features exist in newer versions, the core model is strong consistency)."
+    },
+    {
+        "type": "multi",
+        "question": "What happens when a region in HBase becomes too large?",
+        "options": [
+            "It stops accepting writes.",
+            "It splits into two approximately equal-sized regions.",
+            "It triggers a major compaction.",
+            "The HMaster moves it to a larger server."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "HBase handles auto-sharding. When a region grows beyond a configurable limit, it automatically splits into two daughter regions. These can then be distributed to different RegionServers for load balancing."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are examples of Stateless transformations in Spark Streaming?",
+        "options": [
+            "map",
+            "filter",
+            "reduceByKey",
+            "updateStateByKey"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "`map`, `filter`, and `reduceByKey` are stateless (or local to the batch). `reduceByKey` aggregates within the batch. `updateStateByKey` is explicitly stateful as it maintains state across batches."
+    },
+    {
+        "type": "multi",
+        "question": "What is the role of the 'Driver' in a Spark Streaming application?",
+        "options": [
+            "It executes the tasks on the worker nodes.",
+            "It starts the StreamingContext.",
+            "It defines the logical flow of the application.",
+            "It stores all the data streams in its memory."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "The Driver process runs the main function, starts the StreamingContext, defines the DAG (logical flow) of transformations, and coordinates execution. The Executors (on worker nodes) run the actual tasks. The driver does not store the stream data."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following correctly describes 'Tumbling Windows'?",
+        "options": [
+            "They are a special case of sliding windows where the slide duration equals the window duration.",
+            "They overlap significantly.",
+            "They partition the stream into non-overlapping segments.",
+            "Events can belong to multiple tumbling windows."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "Tumbling windows are fixed-sized, non-overlapping windows. They can be thought of as a sliding window where the slide equals the size (e.g., every 5 minutes, look at the last 5 minutes)."
+    },
+    {
+        "type": "multi",
+        "question": "In the context of Big Data Architecture, what does 'Kappa Architecture' propose?",
+        "options": [
+            "Using three layers: Batch, Speed, and Serving.",
+            "Removing the Batch Layer and doing everything with a Stream Processing system.",
+            "Treating all data processing as stream processing.",
+            "Using HBase for all storage needs."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Kappa Architecture is a simplification of Lambda. It proposes removing the Batch Layer and handling both real-time and historical data reprocessing using a single stream processing engine (treating history as a stream of stored events)."
+    },
+    {
+        "type": "multi",
+        "question": "Which statement best describes the 'HFile' in HBase?",
+        "options": [
+            "It is the underlying physical storage format for HBase data on HDFS.",
+            "It is a log file used for recovery.",
+            "It is an in-memory structure for fast reads.",
+            "It is an immutable file format."
+        ],
+        "answer": [
+            0,
+            3
+        ],
+        "explanation": "HFiles are the physical files stored in HDFS that contain the actual HBase data. They are created by flushing MemStores or by compaction. Once written, HFiles are immutable (they are not modified, only deleted/merged during compaction)."
+    }
+]
