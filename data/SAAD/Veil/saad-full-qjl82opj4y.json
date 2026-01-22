@@ -206,7 +206,7 @@
         "type": "multi",
         "question": "Select all components that are part of the 'Model' in an MVC architecture:",
         "options": ["Entity classes", "Business logic", "Input forms", "Routing logic"],
-        "answer": [1],
+        "answer": [0, 1],
         "explanation": "The Model represents the data (Entity classes) and the business logic/rules. Input forms are part of the View, and Routing is typically handled by the Controller or a Router."
     },
     {
