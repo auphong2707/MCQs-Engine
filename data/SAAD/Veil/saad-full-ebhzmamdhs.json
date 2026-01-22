@@ -1,0 +1,578 @@
+[
+    {
+        "type": "single",
+        "question": "According to General System Theory, how is a system defined?",
+        "options": [
+            "A set of independent elements that do not interact with the environment",
+            "A complex of interacting elements that are open to and interact with their environments",
+            "A rigid structure of software components that processes data sequentially",
+            "A collection of hardware tools used to execute business processes"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A system is defined as a complex of interacting elements that are open to and interact with their environments, characterized by an orderly arrangement of elements and relationships between them."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are recognized phases in the Rational Unified Process (RUP)?",
+        "options": [
+            "Inception",
+            "Analysis",
+            "Elaboration",
+            "Transition",
+            "Maintenance"
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "RUP is organized into four specific phases: Inception, Elaboration, Construction, and Transition. Analysis and Maintenance are disciplines or activities that occur within these phases, not the phases themselves."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Feasibility Analysis, which type of feasibility assesses the familiarity with the application and technology?",
+        "options": [
+            "Economic Feasibility",
+            "Organizational Feasibility",
+            "Technical Feasibility",
+            "Operational Feasibility"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Technical feasibility assesses the technical practicality of a project, including familiarity with the application, familiarity with the technology, project size, and compatibility."
+    },
+    {
+        "type": "single",
+        "question": "How is Return on Investment (ROI) calculated?",
+        "options": [
+            "(Total Costs - Total Benefits) / Total Benefits",
+            "(Total Benefits - Total Costs) / Total Costs",
+            "Total Benefits / Total Costs",
+            "Total Costs / Total Benefits"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "ROI measures the efficiency of an investment and is calculated by subtracting total costs from total benefits, then dividing by total costs."
+    },
+    {
+        "type": "multi",
+        "question": "Select the correct statements regarding the 'Agile' development approach compared to 'Iterative' development:",
+        "options": [
+            "Agile emphasizes gradual refinement after a complete iteration cycle",
+            "Agile is highly flexible and customer-centric",
+            "Agile typically avoids distinct phases, working concurrently in small chunks",
+            "Agile restricts customer involvement to the beginning and end of the project"
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Agile is characterized by high flexibility, customer-centricity, and adaptability to change. It avoids distinct phases by working in small iterative chunks. Gradual refinement after a complete iteration is more characteristic of standard Iterative development."
+    },
+    {
+        "type": "single",
+        "question": "Which type of requirement describes the high-level goals, objectives, and outcomes of an enterprise?",
+        "options": [
+            "Stakeholder Requirement",
+            "Solution Requirement",
+            "Business Requirement",
+            "Transition Requirement"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Business requirements are statements of goals, objectives, and outcomes that describe why a change has been initiated, applying to the enterprise as a whole."
+    },
+    {
+        "type": "single",
+        "question": "In a Use Case diagram, what does an 'Extend' relationship imply?",
+        "options": [
+            "The event sequence of the base use case always includes the extension use case",
+            "The extension use case is mandatory for the base use case to function",
+            "The event sequence of the base use case contains the extension use case only under certain conditions",
+            "The base use case inherits attributes from the extension use case"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "An 'Extend' relationship means the event sequence of the extension use case is incorporated into the base use case only if specific criteria or conditions are met, unlike 'Include' which is mandatory."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following elements are found in an Activity Diagram?",
+        "options": [
+            "Lifelines",
+            "Decision Nodes",
+            "Fork/Join Nodes",
+            "Actors"
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Activity diagrams use Decision Nodes for branching and Fork/Join Nodes for synchronization of parallel activities. Lifelines are found in Sequence Diagrams, and Actors are primarily in Use Case Diagrams."
+    },
+    {
+        "type": "single",
+        "question": "In UML class diagrams, what does the visibility symbol '#' denote?",
+        "options": [
+            "Public",
+            "Private",
+            "Protected",
+            "Package"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The '#' symbol denotes Protected visibility, meaning the attribute or operation is accessible only to the class itself and its subclasses."
+    },
+    {
+        "type": "single",
+        "question": "What distinguishes 'Composition' from 'Aggregation' in class relationships?",
+        "options": [
+            "In Composition, the part can exist independently of the whole",
+            "In Composition, the whole is responsible for the creation and destruction of the part",
+            "Aggregation implies a stronger ownership relationship than Composition",
+            "Composition is represented by a hollow diamond, while Aggregation is a solid diamond"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Composition is a strong form of ownership where the part cannot exist without the whole, and the whole manages the lifecycle of the part. Aggregation is a weaker 'has-a' relationship where parts can exist independently."
+    },
+    {
+        "type": "multi",
+        "question": "Select the correct classifications of Analysis Classes in Use Case Analysis:",
+        "options": [
+            "Boundary Class",
+            "Abstract Class",
+            "Control Class",
+            "Entity Class"
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Structural analysis divides classes into three specific stereotypes: Boundary (interface), Control (coordination/logic), and Entity (persistent information)."
+    },
+    {
+        "type": "single",
+        "question": "In a Sequence Diagram, how is a synchronous message represented?",
+        "options": [
+            "A solid arrow with a triangular arrowhead",
+            "A dashed arrow with a stick arrowhead",
+            "A solid arrow with a stick (open) arrowhead",
+            "A dashed line with no arrowhead"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "A synchronous message, representing a nested control transfer where the caller waits for a response, is depicted as a solid arrow with a filled triangular arrowhead."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary role of a 'Boundary' class in structural analysis?",
+        "options": [
+            "To store persistent data",
+            "To coordinate the flow of events in a use case",
+            "To handle communication between the system and external actors",
+            "To define the database schema"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Boundary classes are responsible for communication between the system and its actors (users or external systems), often manifesting as user interfaces or protocol interfaces."
+    },
+    {
+        "type": "single",
+        "question": "Which architectural pattern divides the system into three main components: Model, View, and Controller?",
+        "options": [
+            "Layered Architecture",
+            "Microservices Architecture",
+            "MVC Architecture",
+            "Event-bus Architecture"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The MVC (Model-View-Controller) architecture separates the system into the Model (data/business logic), View (presentation), and Controller (input processing)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are perspectives included in the '4+1 View Model' of software architecture?",
+        "options": [
+            "Logical View",
+            "Deployment View",
+            "Database View",
+            "Process View"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "The 4+1 View Model includes Logical, Implementation (Component), Process, and Deployment views, all centered around the Use Case view. Database view is not a standard top-level perspective in this model."
+    },
+    {
+        "type": "single",
+        "question": "What is the main characteristic of a 'Microservices' architecture?",
+        "options": [
+            "The system is built as a single monolithic unit",
+            "Services are designed, built, and deployed independently",
+            "Layers depend strictly on the layer immediately below them",
+            "It relies on a central database for all services"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Microservices architecture divides the system into small, autonomous units that are developed, deployed, and scaled independently, interacting via gateways."
+    },
+    {
+        "type": "single",
+        "question": "In the SOLID design principles, what does the 'L' stand for?",
+        "options": [
+            "Layered Responsibility",
+            "Least Privilege",
+            "Liskov Substitution",
+            "Loose Coupling"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The 'L' in SOLID stands for Liskov Substitution Principle, which states that instances of a parent class should be replaceable by instances of a child class without affecting correctness."
+    },
+    {
+        "type": "single",
+        "question": "What is a 'Subsystem' in the context of system design?",
+        "options": [
+            "A small class used only for utility functions",
+            "A closed package that hides internal details and exposes functionality via interfaces",
+            "A database table that stores temporary data",
+            "A specific type of user interface element"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A subsystem is defined as a closed package that encapsulates a part of the system, hiding its internal structure and communicating only through defined interfaces."
+    },
+    {
+        "type": "single",
+        "question": "Which level of UI prototyping is described as a 'skeleton' that clearly shows user flow and information structure without detailed design?",
+        "options": [
+            "Sketch",
+            "Wireframe",
+            "Mockup",
+            "High-fidelity Prototype"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A Wireframe is a skeletal blueprint of the interface, focusing on layout, structure, and user flow, usually created before adding visual details like colors or fonts."
+    },
+    {
+        "type": "single",
+        "question": "In database design, how is a many-to-many relationship between two classes usually implemented in a relational database?",
+        "options": [
+            "By adding a foreign key to one of the tables",
+            "By merging the two classes into a single table",
+            "By creating a distinct intersection (connection) table containing foreign keys from both sides",
+            "It cannot be implemented in a relational database"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Many-to-many relationships require an intersection (or join) table. This new table contains foreign keys referencing the primary keys of the two related tables."
+    },
+    {
+        "type": "multi",
+        "question": "Select the valid visibility types for attributes in a UML Class Diagram:",
+        "options": [
+            "Global",
+            "Public",
+            "Private",
+            "Protected"
+        ],
+        "answer": [
+            1,
+            2,
+            3
+        ],
+        "explanation": "UML defines Public (+), Private (-), Protected (#), and Package (~) as standard visibility types. Global is not a standard UML visibility modifier for class attributes."
+    },
+    {
+        "type": "single",
+        "question": "Which design pattern is classified as a 'Behavioral' pattern?",
+        "options": [
+            "Factory Pattern",
+            "Adapter Pattern",
+            "Command Pattern",
+            "Singleton Pattern"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Command Pattern is a behavioral pattern. Factory and Singleton are Creational, while Adapter is a Structural pattern."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Single Responsibility Principle'?",
+        "options": [
+            "A class should only have one instance",
+            "A class should serve only one purpose or responsibility",
+            "A module should be open for extension but closed for modification",
+            "High-level modules should not depend on low-level modules"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Single Responsibility Principle states that a class should have one, and only one, reason to change, meaning it should focus on a single purpose."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Interface Design, what is a 'Mockup'?",
+        "options": [
+            "A quick hand-drawn sketch on paper",
+            "A detailed visual design that includes color, fonts, and exact positioning",
+            "A fully functional software version",
+            "A skeletal layout with no graphical elements"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A Mockup adds detail to a wireframe, incorporating colors, specific fonts, images, and precise positioning to look like the final product, though it may lack full interactivity."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are benefits of using a Layered Architecture?",
+        "options": [
+            "Separation of concerns",
+            "Encapsulating changes",
+            "Eliminating the need for interfaces",
+            "Allowing lower layers to depend on upper layers"
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Layered architecture promotes separation of concerns and encapsulates changes within layers. It relies heavily on interfaces and strictly forbids lower layers from depending on upper layers."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary function of a 'Control' class in Use Case Analysis?",
+        "options": [
+            "To represent the physical hardware of the system",
+            "To coordinate the activities and logic of a use case",
+            "To serve as a persistent data store",
+            "To provide the graphical user interface"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Control classes are responsible for the business logic, flow of events, and coordination of the use case, acting as a bridge between Boundary and Entity classes."
+    },
+    {
+        "type": "single",
+        "question": "When mapping a Class Diagram to a Relational Database, what does a class instance (object) typically correspond to?",
+        "options": [
+            "A Table",
+            "A Column",
+            "A Row (Tuple)",
+            "A Primary Key"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "In the object-relational mapping, a Class maps to a Table, an Attribute maps to a Column, and an Object (instance) maps to a Row (Tuple) within that table."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Net Present Value' (NPV) used for?",
+        "options": [
+            "To calculate the total number of lines of code",
+            "To measure the efficiency of code execution",
+            "To determine the financial value of future cash flows in today's terms",
+            "To estimate the time required to break even"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "NPV is an economic feasibility metric that compares the present value of total benefits to the present value of total costs, accounting for the time value of money."
+    },
+    {
+        "type": "single",
+        "question": "In a Communication Diagram, what does a 'Multi-object' represent?",
+        "options": [
+            "A set of objects of different classes",
+            "Multiple objects of the same class",
+            "A single object with multiple threads",
+            "An object that has been destroyed"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A Multi-object in a Communication Diagram is drawn as stacked rectangles and represents a collection or set of multiple objects belonging to the same class."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are components of the 'Waterfall Model'?",
+        "options": [
+            "Feasibility Analysis",
+            "Requirements Analysis",
+            "Sprint Planning",
+            "Coding and Testing"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "The Waterfall Model includes sequential phases like Feasibility Analysis, Requirements Analysis, Design, Coding/Testing, and Maintenance. Sprint Planning is a concept from Agile/Scrum."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of a 'Deployment Diagram'?",
+        "options": [
+            "To show the logical structure of classes",
+            "To illustrate the sequence of messages between objects",
+            "To visualize the arrangement of executable software on hardware nodes",
+            "To describe the user's flow through the interface"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Deployment Diagrams map software components (artifacts) to the physical hardware (nodes) and execution environments where they run."
+    },
+    {
+        "type": "single",
+        "question": "What does the 'Open/Closed' principle suggest regarding software entities?",
+        "options": [
+            "They should be open for modification but closed for extension",
+            "They should be open for extension but closed for modification",
+            "They should be open for both extension and modification",
+            "They should be closed for both extension and modification"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Open/Closed principle states that software entities (classes, modules, functions) should be open for extension (adding new behavior) but closed for modification (changing existing code)."
+    },
+    {
+        "type": "single",
+        "question": "In Use Case Analysis, what is a 'Proxy Class' used for?",
+        "options": [
+            "To replace the database",
+            "To act as a placeholder or interface for a subsystem or remote object",
+            "To visualize the user interface",
+            "To handle all error logging"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A Proxy Class is used to represent a subsystem or an interface to an external/remote system, handling communication so that the client object doesn't need to know the details of the subsystem."
+    },
+    {
+        "type": "single",
+        "question": "What is the definition of 'Intangible Value' in project identification?",
+        "options": [
+            "Benefits that can be easily quantified and measured in currency",
+            "Costs related to hardware and software purchasing",
+            "Benefits that are difficult to quantify, such as improved customer service",
+            "The total budget allocated for the project"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Intangible value refers to benefits that are real but hard to measure directly in financial terms, such as brand recognition or improved customer satisfaction, as opposed to tangible values like cost reduction."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following best describes an 'Abstract Class'?",
+        "options": [
+            "A class that cannot be instantiated and is used to define common features for subclasses",
+            "A class that has no methods or attributes",
+            "A class that is automatically generated by the compiler",
+            "A class that creates objects from other classes"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "An abstract class serves as a template for other classes. It defines common attributes and abstract methods but cannot create instances (objects) of itself."
+    },
+    {
+        "type": "multi",
+        "question": "Select the activities involved in 'Requirements Engineering':",
+        "options": [
+            "Requirements Elicitation",
+            "Requirements Specification",
+            "System Coding",
+            "Requirements Validation"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Requirements Engineering involves Elicitation (gathering), Analysis, Specification (documenting), and Validation. System Coding is part of the Implementation phase, not Requirements Engineering."
+    },
+    {
+        "type": "single",
+        "question": "What is a 'Swimlane' used for in an Activity Diagram?",
+        "options": [
+            "To indicate the time duration of an activity",
+            "To group activities based on who (which actor or system) is responsible for them",
+            "To show the flow of data between objects",
+            "To represent a decision point"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Swimlanes (or partitions) in an Activity Diagram divide activities into parallel lanes to visually group them by the actor, organization, or system responsible for performing them."
+    },
+    {
+        "type": "single",
+        "question": "In the 'Event-bus' architectural pattern, what are the main components?",
+        "options": [
+            "Model, View, Controller",
+            "Client, Server, Database",
+            "Sources, Channels, Listeners",
+            "Layer 1, Layer 2, Layer 3"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Event-bus architecture decouples components using Sources (event generators), Channels (transmission paths), and Listeners (event handlers)."
+    },
+    {
+        "type": "single",
+        "question": "What does the attribute property '{frozen}' imply in a detailed design?",
+        "options": [
+            "The attribute is read-only and cannot be changed after initialization",
+            "The attribute is temporarily locked by another thread",
+            "The attribute can be accessed by any class",
+            "The attribute is derived from other attributes"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The {frozen} constraint indicates that the attribute's value is immutable; it is set upon object initialization and cannot be modified thereafter."
+    },
+    {
+        "type": "single",
+        "question": "Which diagram is best suited for modeling the 'physical' structure of source code and executable files?",
+        "options": [
+            "Use Case Diagram",
+            "Component Diagram",
+            "Activity Diagram",
+            "State Machine Diagram"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Component Diagrams model the physical aspects of the system, such as source code files, libraries, executables, and the dependencies between them."
+    }
+]
