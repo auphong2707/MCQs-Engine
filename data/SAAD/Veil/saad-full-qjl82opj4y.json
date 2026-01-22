@@ -1,0 +1,282 @@
+[
+    {
+        "type": "single",
+        "question": "In the context of the Rational Unified Process (RUP), which phase focuses primarily on a detailed analysis of the system and proposing a system architecture (prototype)?",
+        "options": ["Inception", "Elaboration", "Construction", "Transition"],
+        "answer": [1],
+        "explanation": "The Elaboration phase involves a more detailed analysis of the system functionality and static structure, as well as proposing a system architecture or prototype. Inception is for overview/feasibility, Construction is for building, and Transition is for deployment."
+    },
+    {
+        "type": "single",
+        "question": "Which software development model is characterized by breaking a project into small, repeatable cycles where each cycle results in an improved version of the software, but does not inherently emphasize customer feedback during the cycle?",
+        "options": ["Waterfall Model", "Iterative and Incremental Model", "Agile Model", "V Model"],
+        "answer": [1],
+        "explanation": "Iterative and Incremental development focuses on breaking a project into repeatable cycles (iterations) for gradual refinement. Unlike Agile, it does not inherently prioritize customer feedback or adaptability mid-cycle (feedback usually comes at the end)."
+    },
+    {
+        "type": "multi",
+        "question": "Select all diagrams that are classified as Behavioral Diagrams in UML 2.0:",
+        "options": ["Class Diagram", "Use Case Diagram", "Sequence Diagram", "Component Diagram"],
+        "answer": [1, 2],
+        "explanation": "Use Case Diagrams and Sequence Diagrams are Behavioral Diagrams because they describe the dynamic behavior of the system. Class and Component Diagrams are Structural Diagrams."
+    },
+    {
+        "type": "single",
+        "question": "In a feasibility analysis, which type of feasibility assesses the familiarity with the application and technology, as well as the project size and compatibility?",
+        "options": ["Economic feasibility", "Organizational feasibility", "Technical feasibility", "Operational feasibility"],
+        "answer": [2],
+        "explanation": "Technical feasibility examines the project's technical aspects, including familiarity with the application domain, familiarity with the specific technologies to be used, project size, and system compatibility."
+    },
+    {
+        "type": "single",
+        "question": "When calculating Economic Feasibility, what does the Return on Investment (ROI) formula represent?",
+        "options": ["The time it takes to recover the initial investment", "The ratio of net benefits (Total Benefits - Total Costs) to Total Costs", "The present value of future cash flows discounted by a specific rate", "The total profit generated after the break-even point"],
+        "answer": [1],
+        "explanation": "ROI measures the efficiency of an investment and is calculated as (Total Benefits - Total Costs) divided by Total Costs. The time to recover investment is the Break-Even Point (BEP)."
+    },
+    {
+        "type": "single",
+        "question": "According to BABOK 3.0, which type of requirement describes the capabilities the solution must have to facilitate the change from the current state to the future state (e.g., training, data conversion)?",
+        "options": ["Business Requirement", "Stakeholder Requirement", "Solution Requirement", "Transition Requirement"],
+        "answer": [3],
+        "explanation": "Transition requirements describe capabilities and conditions needed to move from the current state to the future state, such as training or data conversion, which are not needed once the change is complete."
+    },
+    {
+        "type": "multi",
+        "question": "Select all characteristics that are considered attributes of a 'good' software requirement specification:",
+        "options": ["Ambiguous", "Verifiable", "Complete", "Subjective"],
+        "answer": [1, 2],
+        "explanation": "Good requirements must be Complete (covering all necessary aspects) and Verifiable (testable). They should be Unambiguous and Objective (not Subjective)."
+    },
+    {
+        "type": "single",
+        "question": "In an Activity Diagram, what symbol is used to represent the splitting of a single flow into multiple parallel active branches?",
+        "options": ["Decision Node (Diamond)", "Merge Node (Diamond)", "Fork Node (Bar)", "Join Node (Bar)"],
+        "answer": [2],
+        "explanation": "A Fork Node (represented by a synchronization bar) is used to open parallel branches (split a flow). A Join Node closes parallel branches. A Decision Node is for mutually exclusive branching."
+    },
+    {
+        "type": "single",
+        "question": "Which relationship in a Use Case diagram indicates that the event sequence of Use Case A contains the event sequence of Use Case B at a specific point (mandatory inclusion)?",
+        "options": ["Extend", "Include", "Generalization", "Association"],
+        "answer": [1],
+        "explanation": "The 'Include' relationship means that the base use case explicitly incorporates the behavior of another use case. 'Extend' implies optional or conditional behavior."
+    },
+    {
+        "type": "single",
+        "question": "In Object-Oriented Design, which visibility modifier is denoted by the '#' symbol, allowing access only to the class itself and its subclasses?",
+        "options": ["Public", "Private", "Protected", "Package"],
+        "answer": [2],
+        "explanation": "The '#' symbol denotes Protected visibility, which restricts access to the class itself and classes that inherit from it (subclasses). Public is '+', Private is '-', and Package is '~'."
+    },
+    {
+        "type": "single",
+        "question": "What is the key difference between Aggregation and Composition relationships in UML?",
+        "options": ["Aggregation implies strong ownership where the part cannot exist without the whole; Composition is loose.", "Composition implies strong ownership where the part cannot exist without the whole; Aggregation is loose.", "Aggregation uses a solid diamond; Composition uses a hollow diamond.", "Composition allows parts to be shared among multiple wholes; Aggregation does not."],
+        "answer": [1],
+        "explanation": "Composition is a strong ownership relationship where the part belongs to only one whole and is destroyed when the whole is destroyed. Aggregation is a looser 'whole/part' relationship where parts can exist independently."
+    },
+    {
+        "type": "single",
+        "question": "In Use Case Analysis, which type of analysis class is responsible for coordinating the activities of a use case and representing business logic?",
+        "options": ["Boundary Class", "Entity Class", "Control Class", "Interface Class"],
+        "answer": [2],
+        "explanation": "Control classes are responsible for coordinating the flow of events in a use case, representing business logic and rules. Boundary classes handle interaction, and Entity classes handle data."
+    },
+    {
+        "type": "multi",
+        "question": "Select all statements that correctly describe the 4+1 View Model of software architecture:",
+        "options": ["The Logical View focuses on functional requirements and class structures.", "The Process View focuses on source code organization and compilation.", "The Deployment View maps software components to hardware nodes.", "The Implementation View focuses on system performance and scalability."],
+        "answer": [2],
+        "explanation": "The Logical View focuses on structure and functionality (classes). The Deployment View maps components to hardware. The Process View focuses on concurrency/performance, and the Implementation View focuses on source code/components."
+    },
+    {
+        "type": "single",
+        "question": "Which architectural pattern divides the system into three main parts: Model (data), View (interface), and Controller (logic), to separate concerns?",
+        "options": ["Layered Architecture", "Microservices Architecture", "MVC Architecture", "Event-bus Architecture"],
+        "answer": [2],
+        "explanation": "The MVC (Model-View-Controller) architecture separates the system into Model (data/logic), View (user interface), and Controller (input processing), facilitating separation of concerns."
+    },
+    {
+        "type": "single",
+        "question": "In a Sequence Diagram, what does a solid arrow with a closed (filled) triangular arrowhead represent?",
+        "options": ["Asynchronous message", "Synchronous message", "Return message", "Lost message"],
+        "answer": [1],
+        "explanation": "A solid arrow with a filled triangular arrowhead represents a synchronous message (nested control transfer), where the sender waits for the receiver to finish."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary purpose of a Deployment Diagram?",
+        "options": ["To show the sequence of messages between objects.", "To describe the physical configuration of hardware nodes and the software components deployed on them.", "To model the internal state changes of a complex object.", "To organize source code files into packages."],
+        "answer": [1],
+        "explanation": "Deployment diagrams represent the physical deployment perspective, showing hardware nodes (devices) and the software components (artifacts) installed on them."
+    },
+    {
+        "type": "single",
+        "question": "According to the SOLID principles, what does the 'L' (Liskov Substitution Principle) state?",
+        "options": ["A class should have only one reason to change.", "Software entities should be open for extension but closed for modification.", "Instances of a parent class should be replaceable by instances of a child class without affecting correctness.", "Clients should not be forced to depend on interfaces they do not use."],
+        "answer": [2],
+        "explanation": "The Liskov Substitution Principle states that objects of a superclass should be replaceable with objects of its subclasses without breaking the application."
+    },
+    {
+        "type": "single",
+        "question": "When designing subsystems, what is the purpose of a 'Proxy' class?",
+        "options": ["To store persistent data for the subsystem.", "To represent the user interface of the subsystem.", "To act as an intermediary for accessing the subsystem's services when an interface alone is insufficient.", "To replace the database connection string."],
+        "answer": [2],
+        "explanation": "A Proxy class is used when analysis classes need to transfer responsibility to a subsystem, especially if the interaction is complex or requires an intermediary beyond a simple interface definition."
+    },
+    {
+        "type": "multi",
+        "question": "Select all Golden Rules of User Interface Design:",
+        "options": ["Promote consistency.", "Design for closed dialogs (beginning, middle, end).", "Maximize the load on short-term memory.", "Provide informative feedback."],
+        "answer": [1, 3],
+        "explanation": "Golden rules include promoting consistency, designing closed dialogs, and providing feedback. The rule is to *reduce* (not maximize) the load on short-term memory."
+    },
+    {
+        "type": "single",
+        "question": "In detailed design, if a Many-to-Many relationship exists between two classes (e.g., Student and Course), how should it be mapped to a relational database?",
+        "options": ["Add a foreign key to the Student table pointing to the Course.", "Add a foreign key to the Course table pointing to the Student.", "Create a new intersection (join) table containing foreign keys from both Student and Course.", "Merge both classes into a single table."],
+        "answer": [2],
+        "explanation": "A Many-to-Many relationship in a relational database requires a separate intersection table (or join table) that contains foreign keys referencing the primary keys of both participating tables."
+    },
+    {
+        "type": "single",
+        "question": "What is a 'Boundary Class' in the context of structural analysis?",
+        "options": ["A class that stores persistent data.", "A class that coordinates the flow of events.", "A class responsible for communication between system actors and the system.", "A class that defines the physical hardware boundaries."],
+        "answer": [2],
+        "explanation": "Boundary classes handle the interaction between the system and external actors (users or other systems), such as forms, dialogs, or interfaces."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a standard phase in the Rational Unified Process (RUP)?",
+        "options": ["Inception", "Analysis", "Construction", "Transition"],
+        "answer": [1],
+        "explanation": "The four phases of RUP are Inception, Elaboration, Construction, and Transition. 'Analysis' is a discipline or activity within these phases, not a phase itself."
+    },
+    {
+        "type": "multi",
+        "question": "Select all items that are considered 'Intangible Values' in a project identification analysis:",
+        "options": ["Increased sales by 5%", "Improved customer service", "Enhanced brand reputation", "Reduced operating costs by $10,000"],
+        "answer": [1, 2],
+        "explanation": "Intangible values are benefits that are difficult to quantify monetarily, such as improved service or brand reputation. Sales and cost reductions are tangible."
+    },
+    {
+        "type": "single",
+        "question": "In a Communication Diagram, what does the sequence expression '1.1' indicate?",
+        "options": ["It is the first message in the entire diagram.", "It is a message nested within the activation caused by message 1.", "It is a message sent in parallel with message 1.", "It is a return value for message 1."],
+        "answer": [1],
+        "explanation": "Dot notation (e.g., 1.1) in Communication Diagrams indicates nesting. Message 1.1 is sent during the processing of message 1."
+    },
+    {
+        "type": "single",
+        "question": "Which design pattern is useful for encapsulating a request as an object, thereby allowing for parameterization of clients with different requests (e.g., for menu items)?",
+        "options": ["Singleton Pattern", "Command Pattern", "Factory Pattern", "Observer Pattern"],
+        "answer": [1],
+        "explanation": "The Command Pattern encapsulates a request as an object, allowing you to parameterize clients with different requests, queue or log requests, and support undoable operations."
+    },
+    {
+        "type": "single",
+        "question": "When mapping a Class Diagram to a Relational Database, how are One-to-Many relationships typically implemented?",
+        "options": ["By creating a separate link table.", "By placing the primary key of the 'One' side as a foreign key in the 'Many' side table.", "By placing the primary key of the 'Many' side as a foreign key in the 'One' side table.", "By merging the two tables."],
+        "answer": [1],
+        "explanation": "One-to-Many relationships are mapped by taking the primary key of the parent (One side) and adding it as a foreign key column in the child (Many side) table."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary purpose of a 'Wireframe' in UI design?",
+        "options": ["To provide a high-fidelity, interactive simulation of the final software.", "To define the color palette and typography details.", "To show the user flow, information structure, and layout without detailed graphics.", "To test the system's backend performance."],
+        "answer": [2],
+        "explanation": "Wireframes are skeletons or layouts that clearly show user flow and information structure. They are low-fidelity and do not focus on colors or detailed graphics (which are for Mockups)."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Interface Design, what does 'UI Consistency' refer to?",
+        "options": ["Using the same color for every element.", "Ensuring naming, icon shapes, and action sequences are uniform across the system.", "Limiting the interface to a single window.", " preventing the user from customizing any settings."],
+        "answer": [1],
+        "explanation": "Consistency involves maintaining uniformity in naming conventions, visual elements (icons, layout), and interaction patterns across the entire application."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Break-Even Point' (BEP)?",
+        "options": ["The point where the project is finished.", "The time it takes for the cumulative cash flow to equal the initial investment.", "The total profit at the end of the project.", "The discount rate used for NPV."],
+        "answer": [1],
+        "explanation": "BEP is the point in time (number of years) it takes for the organization to recover its initial investment (where cumulative cash flow becomes positive)."
+    },
+    {
+        "type": "multi",
+        "question": "Select all components that are part of the 'Model' in an MVC architecture:",
+        "options": ["Entity classes", "Business logic", "Input forms", "Routing logic"],
+        "answer": [1],
+        "explanation": "The Model represents the data (Entity classes) and the business logic/rules. Input forms are part of the View, and Routing is typically handled by the Controller or a Router."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a 'Structural Diagram' in UML?",
+        "options": ["Activity Diagram", "State Machine Diagram", "Class Diagram", "Sequence Diagram"],
+        "answer": [2],
+        "explanation": "Class Diagrams describe the static structure of the system (classes, attributes, relationships). The others are Behavioral diagrams."
+    },
+    {
+        "type": "single",
+        "question": "What does the 'Single Responsibility Principle' (S in SOLID) dictate?",
+        "options": ["A class should have only one instance.", "A class should perform only one function or serve one purpose.", "A class should not depend on other classes.", "A class should be open for extension."],
+        "answer": [1],
+        "explanation": "Single Responsibility states that a class should have one, and only one, reason to change, meaning it should serve only one purpose or responsibility."
+    },
+    {
+        "type": "single",
+        "question": "In a layered architecture, what is the strict rule regarding dependencies?",
+        "options": ["Layers can depend on any other layer.", "Lower layers depend on upper layers.", "Upper layers depend on lower layers, but reverse dependencies are not allowed.", "Layers can only depend on the database."],
+        "answer": [2],
+        "explanation": "In a strict layered architecture, upper layers depend on lower layers. Lower layers should not depend on upper layers (reverse dependencies are not allowed)."
+    },
+    {
+        "type": "single",
+        "question": "Which data storage method is typically best suited for complex data queries and large-scale transaction management?",
+        "options": ["Flat File Systems", "Relational Database Management Systems (RDBMS)", "Spreadsheets", "Serialized Objects in text files"],
+        "answer": [1],
+        "explanation": "RDBMS is the most common and suitable method for managing relational data, supporting complex queries, and transaction management."
+    },
+    {
+        "type": "single",
+        "question": "What is a 'derived attribute' in a Class Diagram?",
+        "options": ["An attribute that is imported from another package.", "An attribute whose value is calculated from other attributes.", "An attribute that serves as a primary key.", "An attribute that is private."],
+        "answer": [1],
+        "explanation": "A derived attribute (denoted by a '/') is one whose value is not stored directly but is calculated or derived from other attributes in the class."
+    },
+    {
+        "type": "single",
+        "question": "In Activity Diagrams, what is the function of a 'Swimlane'?",
+        "options": ["To represent the flow of time.", "To group activities based on the actor or organization responsible for them.", "To indicate a decision point.", "To show the object lifecycle."],
+        "answer": [1],
+        "explanation": "Swimlanes (or partitions) group activities to show who (which actor, department, or system) is responsible for performing those specific activities."
+    },
+    {
+        "type": "single",
+        "question": "Which diagram is best suited for modeling the life cycle of a single object and the events that cause it to change status?",
+        "options": ["Class Diagram", "State Machine Diagram", "Component Diagram", "Use Case Diagram"],
+        "answer": [1],
+        "explanation": "State Machine Diagrams describe the states an object goes through during its lifetime and the events that trigger transitions between those states."
+    },
+    {
+        "type": "single",
+        "question": "In the context of RUP, what is the main goal of the 'Inception' phase?",
+        "options": ["To write the majority of the code.", "To deploy the system to users.", "To define the project scope, goals, and feasibility.", "To refine the system architecture."],
+        "answer": [2],
+        "explanation": "The Inception phase focuses on establishing the business case, project scope, and feasibility (Go/No-Go decision)."
+    },
+    {
+        "type": "multi",
+        "question": "Select all techniques that are used for Requirements Elicitation (Gathering):",
+        "options": ["Brainstorming", "Interviews", "Coding", "Prototyping"],
+        "answer": [1, 3],
+        "explanation": "Brainstorming, Interviews, and Prototyping are standard techniques for gathering requirements. Coding is an implementation activity."
+    },
+    {
+        "type": "single",
+        "question": "When designing the Presentation Layer using MVC, what is the responsibility of the 'View'?",
+        "options": ["To handle business logic.", "To manage database connections.", "To display information to the user and manage graphical elements.", "To decide which response to send based on user input."],
+        "answer": [2],
+        "explanation": "The View is responsible for the presentation (display) of information to the user. The Controller handles input decisions, and the Model handles logic/data."
+    }
+]

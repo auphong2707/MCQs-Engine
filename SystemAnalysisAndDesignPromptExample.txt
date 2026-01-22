@@ -1,0 +1,29 @@
+Generate 40 multiple-choice questions (MCQs) System Analysis and Design from these slides.
+
+Requirements:
+- Match the style and vibe of the sample questions below
+- Wrong options must be plausible but definitively incorrect (avoid obviously wrong distractors)
+- Provide detailed explanations without citation
+- Make sure options is 0-indexed
+
+JSON Format:
+```json
+[
+    {
+        "type": "single",
+        "question": "What is the capital of France?",
+        "options": ["London", "Berlin", "Paris", "Madrid"],
+        "answer": [2],
+        "explanation": "Paris is the capital and largest city of France."
+    },
+    {
+        "type": "multi",
+        "question": "Select all programming languages that are object-oriented:",
+        "options": ["C", "Java", "Python", "Assembly"],
+        "answer": [1, 2],
+        "explanation": "Java and Python are object-oriented languages. C is procedural, and Assembly is a low-level language."
+    }
+]
+```
+
+Output format: JSON array with identical structure to samples above.
