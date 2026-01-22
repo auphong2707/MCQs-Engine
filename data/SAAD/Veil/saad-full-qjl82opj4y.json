@@ -87,7 +87,7 @@
         "type": "multi",
         "question": "Select all statements that correctly describe the 4+1 View Model of software architecture:",
         "options": ["The Logical View focuses on functional requirements and class structures.", "The Process View focuses on source code organization and compilation.", "The Deployment View maps software components to hardware nodes.", "The Implementation View focuses on system performance and scalability."],
-        "answer": [2],
+        "answer": [0, 2],
         "explanation": "The Logical View focuses on structure and functionality (classes). The Deployment View maps components to hardware. The Process View focuses on concurrency/performance, and the Implementation View focuses on source code/components."
     },
     {
