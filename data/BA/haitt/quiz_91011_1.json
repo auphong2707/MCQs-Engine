@@ -1,0 +1,482 @@
+[
+    {
+        "type": "single",
+        "question": "According to the 'Long Tail Effect' in recommender systems, what is the primary goal regarding niche items?",
+        "options": [
+            "To remove them from the catalog to save storage space.",
+            "To focus marketing efforts solely on the 'Short Head' of popular items.",
+            "To help users discover these items to increase catalog utilization.",
+            "To reclassify them as blockbusters through aggressive pricing."
+        ],
+        "answer": [2],
+        "explanation": "The slides state that the goal of RecSys in the context of the Long Tail is to help users discover items in the 'Tail' (niche items) and increase catalog utilization, as aggregate volume in the tail is massive despite low individual demand."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are characteristics of Implicit Feedback in recommender systems?",
+        "options": [
+            "It is highly precise but sparse.",
+            "It includes data points like purchase history, clicks, and watch time.",
+            "It suffers from the 'No Negatives' problem where missing data does not equal dislike.",
+            "It requires users to actively rate items on a scale (e.g., 1-5 stars)."
+        ],
+        "answer": [1, 2],
+        "explanation": "Implicit feedback is described as indirect (purchase history, clicks), massive in scale, and unbiased, but noisy and lacking a negative signal (missing data is ambiguous). Explicit feedback involves direct ratings."
+    },
+    {
+        "type": "single",
+        "question": "In Content-Based Filtering, how is the similarity between a user profile and an item usually calculated?",
+        "options": [
+            "By multiplying the latent factors of the user and item matrices.",
+            "By calculating the Cosine Similarity between the user vector and the item vector.",
+            "By finding other users who rated the item similarly.",
+            "By using Alternating Least Squares (ALS) to minimize error."
+        ],
+        "answer": [1],
+        "explanation": "Content-Based Filtering measures if Item X is 'close' to User Profile Y using the Cosine Similarity formula, which looks at the angle between the user vector and item vector."
+    },
+    {
+        "type": "single",
+        "question": "What is a major disadvantage of Content-Based Filtering known as the 'Filter Bubble'?",
+        "options": [
+            "It requires a large community of users to work effectively.",
+            "It cannot recommend items to a user with no history.",
+            "It tends to overspecialize, showing users only more of what they have already seen, leading to low serendipity.",
+            "It is computationally expensive to calculate the dot product of feature vectors."
+        ],
+        "answer": [2],
+        "explanation": "The slides list 'Overspecialization' or the 'Filter Bubble' effect as a con of Content-Based systems, where the user never discovers new genres, resulting in low serendipity."
+    },
+    {
+        "type": "single",
+        "question": "In Collaborative Filtering, why might a system prefer Item-Based filtering (Amazon style) over User-Based filtering?",
+        "options": [
+            "Users are more stable than items.",
+            "Item-Based filtering allows for better serendipity.",
+            "Items are more stable than users, requiring fewer real-time calculations.",
+            "Item-Based filtering does not require a user-item interaction matrix."
+        ],
+        "answer": [2],
+        "explanation": "The slides highlight that Item-Based CF is preferred for stability and efficiency because items are more stable than users, meaning fewer real-time calculations are needed."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Matrix Factorization, what does the dot product of a user's latent factor vector and an item's latent factor vector predict?",
+        "options": [
+            "The probability that the user is a bot.",
+            "The similarity between two different items.",
+            "The missing rating or interaction score in the User-Item matrix.",
+            "The exact genre classification of the item."
+        ],
+        "answer": [2],
+        "explanation": "Matrix Factorization decomposes the interaction matrix R into U and V. The dot product of a user's vector and an item's vector predicts the missing rating (y_hat) in R."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements accurately describe the 'Cold-Start Problem' in recommender systems?",
+        "options": [
+            "Content-based filtering solves the New User cold-start problem perfectly.",
+            "New Item cold-start occurs when no one has interacted with an item, leaving its vector undefined in CF.",
+            "New User cold-start occurs when a user has no history, making it impossible to find neighbors in CF.",
+            "Matrix Factorization is immune to the cold-start problem."
+        ],
+        "answer": [1, 2],
+        "explanation": "Collaborative Filtering suffers from cold-start issues for both new items (no interaction data) and new users (no history). Content-based filtering handles new items well but still struggles with new users."
+    },
+    {
+        "type": "single",
+        "question": "Why is RMSE (Root Mean Squared Error) often considered a limited metric for evaluating recommender systems?",
+        "options": [
+            "It cannot be calculated for explicit ratings.",
+            "It focuses on the exact decimal rating accuracy rather than the ranking order, which is what users actually care about.",
+            "It requires A/B testing, which is expensive.",
+            "It penalizes large errors less than small errors."
+        ],
+        "answer": [1],
+        "explanation": "The slides state that a good RMSE does not necessarily mean a good experience because users care about the Ranking Order (Top-N), not the exact decimal rating prediction."
+    },
+    {
+        "type": "single",
+        "question": "In Top-N evaluation, what does the 'Recall@K' metric measure?",
+        "options": [
+            "The percentage of recommendations that are relevant (Usefulness).",
+            "The percentage of relevant items found by the system (Coverage).",
+            "The average position of the relevant items in the list.",
+            "The statistical significance of the recommendation algorithm."
+        ],
+        "answer": [1],
+        "explanation": "Recall@K represents Coverage, defined as the percentage of relevant items (from the user's test set) that were found by the system's top K recommendations."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary advantage of using Normalized Discounted Cumulative Gain (NDCG) over Precision@K?",
+        "options": [
+            "It is easier to calculate.",
+            "It accounts for the position of hits, valuing a relevant item at Rank 1 much higher than at Rank 10.",
+            "It does not require a ground truth test set.",
+            "It works better for explicit ratings than implicit feedback."
+        ],
+        "answer": [1],
+        "explanation": "NDCG is described as the 'Gold Standard for Ranking' because it uses a discount factor (log(Rank)) to value hits at the top of the list much more than hits lower down."
+    },
+    {
+        "type": "single",
+        "question": "In the Data Storytelling Triangle, what is the result of combining Data, Visuals, and Narrative?",
+        "options": [
+            "Enlighten",
+            "Explain",
+            "Engage",
+            "Change (Actionable Insight)"
+        ],
+        "answer": [3],
+        "explanation": "The slides define the intersection of Data, Visuals, and Narrative as 'CHANGE (Actionable Insight)'. The other options represent intersections of only two elements."
+    },
+    {
+        "type": "multi",
+        "question": "According to the 'Signal vs. Noise' principle, which elements are considered 'Noise' that should be removed?",
+        "options": [
+            "3D effects",
+            "Excessive gridlines",
+            "Data labels that support the story",
+            "Essential axis titles"
+        ],
+        "answer": [0, 1],
+        "explanation": "The slides list distractions, 3D effects, excessive gridlines, and decorative elements as 'Noise' that reduces the Data-Ink Ratio."
+    },
+    {
+        "type": "single",
+        "question": "Which dashboard type and focus are most appropriate for a C-Level Executive (CEO/CFO)?",
+        "options": [
+            "Operational Dashboard focusing on real-time monitoring.",
+            "Exploratory Reports focusing on root cause analysis.",
+            "Executive Summary Dashboard focusing on Strategy, ROI, and Trends.",
+            "Drill-down Dashboard focusing on granular data."
+        ],
+        "answer": [2],
+        "explanation": "C-Level executives focus on Strategy, ROI, and Trends, and their primary tool is the Executive Summary Dashboard."
+    },
+    {
+        "type": "single",
+        "question": "What is the key difference between a Metric and a KPI?",
+        "options": [
+            "A Metric is qualitative, while a KPI is quantitative.",
+            "A Metric is strictly tied to strategic objectives, while a KPI is just a measurement.",
+            "A KPI is strictly tied to strategic objectives, while a Metric is anything measurable.",
+            "There is no difference; the terms are interchangeable."
+        ],
+        "answer": [2],
+        "explanation": "A Metric is defined as anything measurable (e.g., Page views), while a KPI is strictly tied to strategic objectives (e.g., Net Profit) and should be limited to 3-5 per dashboard."
+    },
+    {
+        "type": "single",
+        "question": "In a KPI Driver Tree, how are 'Revenue' drivers typically decomposed using multiplicative logic?",
+        "options": [
+            "Revenue = Fixed Costs + Variable Costs",
+            "Revenue = Traffic x Conversion x Price",
+            "Revenue = New Users + Retained Users",
+            "Revenue = Marketing Budget / CAC"
+        ],
+        "answer": [1],
+        "explanation": "The slides use the example: Revenue = Traffic x Conversion x Price as a multiplicative logic decomposition in a Driver Tree."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary purpose of Funnel Analysis?",
+        "options": [
+            "To measure the lifetime value of a customer cohort.",
+            "To identify bottlenecks or drop-off points in the customer journey.",
+            "To predict the stock price of the company.",
+            "To visualize the hierarchy of employees in an organization."
+        ],
+        "answer": [1],
+        "explanation": "Funnel Analysis maps the customer journey to identify bottlenecks (drop-off points), often referred to as the 'Leaky Bucket' theory."
+    },
+    {
+        "type": "single",
+        "question": "When interpreting a Cohort Analysis Heatmap, what does reading vertically allow you to compare?",
+        "options": [
+            "Current performance across different lifecycle stages.",
+            "The retention rate of a single cohort over time.",
+            "Lifecycle comparison (how different cohorts performed at the same lifecycle stage).",
+            "The total revenue for a specific calendar month."
+        ],
+        "answer": [2],
+        "explanation": "The slides state that vertical reading of a cohort heatmap allows for 'Lifecycle comparison' (e.g., comparing Month 1 retention across Jan, Feb, and Mar cohorts)."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an example of a Leading Indicator?",
+        "options": [
+            "Revenue",
+            "Churn Rate",
+            "Net Profit",
+            "Demo Bookings"
+        ],
+        "answer": [3],
+        "explanation": "Leading indicators are inputs that predict future outcomes and are actionable. The slides list 'Demo bookings' and 'NPS' as leading indicators, while Revenue and Churn are lagging (outputs)."
+    },
+    {
+        "type": "single",
+        "question": "According to the '5-Second Rule' for dashboard design, what should a user be able to determine immediately?",
+        "options": [
+            "The exact mathematical formula used for every KPI.",
+            "Whether the business is doing well or badly and where the problem is.",
+            "The name of the database administrator.",
+            "The detailed historical data for the last 10 years."
+        ],
+        "answer": [1],
+        "explanation": "The 5-Second Rule states a user should answer 'Is the business doing well or badly?' and 'Where is the problem?' within 5 seconds."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary function of the 'Metric Layer' in the modern data stack?",
+        "options": [
+            "To store raw data extracted from sources.",
+            "To visualize data in charts and graphs.",
+            "To serve as a Single Source of Truth by defining metrics once in code.",
+            "To perform ETL processes before data warehousing."
+        ],
+        "answer": [2],
+        "explanation": "The Metric Layer acts as a Single Source of Truth where metrics (like 'Gross Profit') are defined once in code, ensuring consistency across all BI tools."
+    },
+    {
+        "type": "single",
+        "question": "In Time Series Analysis, what is the fundamental difference compared to Standard Statistics?",
+        "options": [
+            "Standard statistics assumes temporal dependence, while time series assumes independence.",
+            "Time series data assumes correlation between points over time (Temporal Dependence), whereas standard statistics assumes independence.",
+            "Time series analysis cannot handle multivariate data.",
+            "Standard statistics requires higher data granularity."
+        ],
+        "answer": [1],
+        "explanation": "The slides explicitly state the core shift: Standard Statistics assumes independence (y_i independent of y_j), while Time Series relies on Temporal Dependence (Covariance between y_t and y_t-1 is not 0)."
+    },
+    {
+        "type": "single",
+        "question": "Which decomposition model assumes that the magnitude of seasonal fluctuations remains constant regardless of the trend level?",
+        "options": [
+            "Multiplicative Model",
+            "Additive Model",
+            "Exponential Model",
+            "Log-Linear Model"
+        ],
+        "answer": [1],
+        "explanation": "The Additive Model (y_t = T_t + S_t + R_t) assumes the magnitude of seasonal fluctuations is constant. The Multiplicative model assumes they scale with the trend."
+    },
+    {
+        "type": "single",
+        "question": "What is a key advantage of STL Decomposition over Classical Decomposition?",
+        "options": [
+            "STL is simpler to calculate by hand.",
+            "STL assumes seasonality is constant forever.",
+            "STL allows the seasonal component to change over time.",
+            "STL cannot handle outliers."
+        ],
+        "answer": [2],
+        "explanation": "The slides note that Classical Decomposition assumes S_t is fixed, whereas STL (Seasonal-Trend with Loess) allows S_t to vary over time."
+    },
+    {
+        "type": "single",
+        "question": "In Simple Exponential Smoothing (SES), how does the weighting of observations behave?",
+        "options": [
+            "All past observations are given equal weight.",
+            "Weights decay exponentially as data gets older, making recent data more relevant.",
+            "Older data is given higher weight to capture long-term history.",
+            "Weights are assigned randomly."
+        ],
+        "answer": [1],
+        "explanation": "Exponential Smoothing is defined by weights that decay exponentially as data gets older (Weight = alpha * (1-alpha)^j), prioritizing recent data."
+    },
+    {
+        "type": "single",
+        "question": "When is the 'Damped Trend' method (ETS(A,Ad,N)) most useful in business forecasting?",
+        "options": [
+            "When the data has no trend and no seasonality.",
+            "When trends are expected to continue linearly forever.",
+            "When trends are expected to flatten out due to market saturation or competition.",
+            "When the data exhibits strong multiplicative seasonality."
+        ],
+        "answer": [2],
+        "explanation": "The slides state the Damped Trend method is often the most accurate for long-term business forecasting because real-world trends rarely continue linearly; they flatten out."
+    },
+    {
+        "type": "multi",
+        "question": "What are the conditions for a time series to be considered 'Stationary'?",
+        "options": [
+            "Constant Mean over time.",
+            "Constant Variance over time.",
+            "Linearly increasing trend.",
+            "Autocovariance depends only on lag k, not time t."
+        ],
+        "answer": [0, 1, 3],
+        "explanation": "Stationarity is defined by a constant mean, constant variance, and autocovariance that depends only on lag, not time. It must not have a trend."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of 'Differencing' (the 'I' in ARIMA)?",
+        "options": [
+            "To estimate the moving average parameters.",
+            "To remove trends and seasonality to achieve stationarity.",
+            "To calculate the correlation between lags.",
+            "To forecast the residuals."
+        ],
+        "answer": [1],
+        "explanation": "Differencing (Integration order d) is used to stabilize the mean and remove trends/seasonality to make the series stationary, which is a prerequisite for ARIMA."
+    },
+    {
+        "type": "single",
+        "question": "In an ACF plot, what pattern typically indicates an AR(p) model?",
+        "options": [
+            "The ACF cuts off abruptly after lag p.",
+            "The ACF decays exponentially.",
+            "The ACF shows a constant sine wave.",
+            "The ACF is zero for all lags."
+        ],
+        "answer": [1],
+        "explanation": "For an AR(p) model, the ACF decays exponentially (or in a damped sine wave), while the PACF cuts off after lag p."
+    },
+    {
+        "type": "single",
+        "question": "Why is standard K-Fold Cross-Validation considered 'illegal' for time series data?",
+        "options": [
+            "It is too computationally expensive.",
+            "Shuffling the data destroys temporal dependence and allows 'peeking into the future'.",
+            "It requires a minimum of 1 million data points.",
+            "It cannot handle missing values."
+        ],
+        "answer": [1],
+        "explanation": "Standard CV involves shuffling, which destroys the temporal order. Training on future data (e.g., 2024) to predict past data (e.g., 2023) is invalid 'peeking'."
+    },
+    {
+        "type": "single",
+        "question": "What is a major flaw of the MAPE (Mean Absolute Percentage Error) metric?",
+        "options": [
+            "It is undefined (infinite) if the actual value (y_t) is zero.",
+            "It is scale-dependent.",
+            "It cannot be used for percentage data.",
+            "It is always negative."
+        ],
+        "answer": [0],
+        "explanation": "The slides list two flaws for MAPE: it is undefined at zero (division by zero) and it is asymmetric (penalizes positive errors more)."
+    },
+    {
+        "type": "single",
+        "question": "How is MASE (Mean Absolute Scaled Error) interpreted?",
+        "options": [
+            "If MASE > 1, the model is better than the Naive forecast.",
+            "If MASE < 1, the model is better than the Naive forecast.",
+            "MASE measures the percentage error of the forecast.",
+            "MASE is only useful for stationary data."
+        ],
+        "answer": [1],
+        "explanation": "MASE compares the model's MAE to the Seasonal Naive MAE. A value < 1 means the model outperforms the Naive benchmark."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary advantage of Dynamic Regression (ARIMAX) over standard ARIMA?",
+        "options": [
+            "It does not require stationarity.",
+            "It can include exogenous variables like holidays and promotions.",
+            "It is purely an autoregressive model.",
+            "It is faster to compute."
+        ],
+        "answer": [1],
+        "explanation": "Dynamic Regression (ARIMAX) combines linear regression for external factors (exogenous variables like holidays) with ARIMA for the residual structure."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Prophet vs. ARIMA, what is a key advantage of Facebook Prophet?",
+        "options": [
+            "It has more rigorous statistical grounding.",
+            "It handles outliers better and makes integrating holiday effects easy.",
+            "It focuses solely on autocorrelations.",
+            "It requires the data to be stationary before fitting."
+        ],
+        "answer": [1],
+        "explanation": "Prophet is described as having pros such as handling outliers better and allowing for easy holiday integration (user-supplied lists), though it has less statistical rigor than ARIMA."
+    },
+    {
+        "type": "single",
+        "question": "Which ETS component combination fits the 'Holt-Winters Seasonal Method (Additive)'?",
+        "options": [
+            "ETS(A,N,N)",
+            "ETS(A,A,N)",
+            "ETS(A,A,A)",
+            "ETS(M,A,M)"
+        ],
+        "answer": [2],
+        "explanation": "Holt-Winters Seasonal Method (Additive) corresponds to ETS(A,A,A): Additive Error, Additive Trend, and Additive Seasonality."
+    },
+    {
+        "type": "single",
+        "question": "What does the 'I' in ARIMA stand for, and what does it represent?",
+        "options": [
+            "Integrated; representing the differencing step.",
+            "Independent; representing the lack of correlation.",
+            "Iterative; representing the estimation process.",
+            "Inverse; representing the backshift operator."
+        ],
+        "answer": [0],
+        "explanation": "I stands for 'Integrated', which refers to the Differencing (d) required to achieve stationarity."
+    },
+    {
+        "type": "single",
+        "question": "In a dashboard, which area is considered the 'Most Valuable Space' according to the F-Pattern layout?",
+        "options": [
+            "Bottom Right",
+            "Center",
+            "Top Left",
+            "Top Right"
+        ],
+        "answer": [2],
+        "explanation": "The slides identify the Top Left as the most valuable space, typically reserved for Key KPIs (BANs), following the F-Pattern scanning behavior."
+    },
+    {
+        "type": "single",
+        "question": "What implies a 'Leaky Bucket' in the context of Funnel Analysis?",
+        "options": [
+            "High acquisition costs.",
+            "A drop-off point where a significant percentage of users are lost.",
+            "A funnel with too many steps.",
+            "Users moving through the funnel too quickly."
+        ],
+        "answer": [1],
+        "explanation": "The 'Leaky Bucket' theory refers to pouring marketing budget into a funnel that has significant drop-off points (leaks), wasting resources."
+    },
+    {
+        "type": "single",
+        "question": "For a 'New Item' Cold-Start problem, which recommendation approach is generally more effective?",
+        "options": [
+            "Collaborative Filtering",
+            "Content-Based Filtering",
+            "Matrix Factorization",
+            "User-Based CF"
+        ],
+        "answer": [1],
+        "explanation": "Content-Based Filtering is listed as having 'No Item Cold-Start' because it can recommend a new item immediately based on its metadata/attributes, unlike CF which needs interaction history."
+    },
+    {
+        "type": "single",
+        "question": "What is the formula for Cosine Similarity?",
+        "options": [
+            "u dot i / (||u|| * ||i||)",
+            "u dot i",
+            "||u|| - ||i||",
+            "(u - i)^2"
+        ],
+        "answer": [0],
+        "explanation": "The formula provided in the slides for similarity(u, i) is the dot product of u and i divided by the product of their magnitudes (norms)."
+    },
+    {
+        "type": "single",
+        "question": "In the context of dashboard color semantics, what is the recommended use of the color Red?",
+        "options": [
+            "For primary data visualization.",
+            "For neutral context.",
+            "For 'Bad' or 'Alert' status.",
+            "For decoration."
+        ],
+        "answer": [2],
+        "explanation": "The slides suggest using Red for 'Bad / Alert' and using color sparingly to highlight anomalies, not for decoration."
+    }
+]

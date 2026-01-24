@@ -1,0 +1,482 @@
+[
+    {
+        "type": "single",
+        "question": "According to the 'Executive's Dilemma,' what is the primary challenge facing modern executives despite having access to vast amounts of data?",
+        "options": [
+            "They lack the financial budget to purchase advanced analytics tools.",
+            "They are 'Data Rich' but 'Insight Poor,' suffering from analysis paralysis.",
+            "They cannot access real-time data streams due to legacy infrastructure.",
+            "They rely too heavily on qualitative storytelling rather than quantitative metrics."
+        ],
+        "answer": [1],
+        "explanation": "The slides explicitly state the reality for executives is being 'Data Rich' but 'Insight Poor.' Pain points include information overload and analysis paralysis, where they have data without direction."
+    },
+    {
+        "type": "single",
+        "question": "In the Data Storytelling Arc, which component represents the 'Aha Moment'?",
+        "options": [
+            "The background information on the current situation and characters.",
+            "The supporting information that reveals details into the problem.",
+            "The major finding or central insight that changes the audience's understanding.",
+            "The final recommendations and next steps for the business."
+        ],
+        "answer": [2],
+        "explanation": "The Data Storytelling Arc identifies the 'Aha Moment' as the peak of the arc, defined as the major finding or central insight."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following elements are considered 'Noise' that should be minimized according to the Signal vs. Noise principle?",
+        "options": [
+            "Data labels that support the story.",
+            "3D effects on charts.",
+            "Excessive gridlines.",
+            "Trend lines showing key directions."
+        ],
+        "answer": [1, 2],
+        "explanation": "The slides categorize 'Noise' as clutter that distracts, specifically listing 3D effects and excessive gridlines as elements to remove to maximize the Data-Ink Ratio."
+    },
+    {
+        "type": "single",
+        "question": "What is the key difference between a Metric and a KPI?",
+        "options": [
+            "A Metric is strictly tied to strategic objectives, while a KPI is just a measurement.",
+            "A KPI is strictly tied to strategic objectives, while a Metric is anything measurable.",
+            "KPIs are always financial, while Metrics are always operational.",
+            "Metrics are used for executives, while KPIs are used for analysts."
+        ],
+        "answer": [1],
+        "explanation": "The slides define a Metric as 'anything measurable' (e.g., Page views), while a KPI is 'strictly tied to strategic objectives' (e.g., Net Profit)."
+    },
+    {
+        "type": "single",
+        "question": "In a KPI Driver Tree, how is the relationship for 'Revenue' typically modeled?",
+        "options": [
+            "Additive: Revenue = Traffic + Conversion + Price",
+            "Subtractive: Revenue = Total Sales - Costs",
+            "Multiplicative: Revenue = Traffic x Conversion x Price",
+            "Exponential: Revenue = Traffic ^ Conversion"
+        ],
+        "answer": [2],
+        "explanation": "The slides illustrate the logic for KPI Driver Trees, noting that Revenue is calculated using a multiplicative relationship: Revenue = Traffic x Conversion x Price."
+    },
+    {
+        "type": "single",
+        "question": "When analyzing a Cohort Heatmap, what does reading 'Vertically' down a column reveal?",
+        "options": [
+            "The retention rate of a specific user group over time.",
+            "The current performance across different cohorts for the same relative month.",
+            "A lifecycle comparison, showing how newer cohorts perform compared to older ones at the same stage.",
+            "The cumulative lifetime value of a single cohort."
+        ],
+        "answer": [2],
+        "explanation": "The slides state that reading a Cohort Heatmap vertically allows for a 'Lifecycle Comparison,' comparing different cohorts at the same stage in their lifecycle (e.g., Month 1 retention for Jan vs. Feb vs. Mar)."
+    },
+    {
+        "type": "multi",
+        "question": "Select the correct examples of Lagging Indicators.",
+        "options": [
+            "Revenue",
+            "Net Promoter Score (NPS)",
+            "Churn Rate",
+            "Daily Active Users"
+        ],
+        "answer": [0, 2],
+        "explanation": "Lagging indicators are outputs that reflect past performance and are hard to change. The slides list Revenue and Churn as examples. NPS and Daily Active Users are listed as Leading indicators."
+    },
+    {
+        "type": "single",
+        "question": "What is the '5-Second Rule' regarding dashboard design?",
+        "options": [
+            "A dashboard should load in under 5 seconds to prevent user drop-off.",
+            "A user should be able to answer 'Is the business doing well?' and 'Where is the problem?' within 5 seconds.",
+            "An analyst should spend no more than 5 seconds updating the data manually.",
+            "The dashboard should contain no more than 5 charts."
+        ],
+        "answer": [1],
+        "explanation": "The 5-Second Rule states that a user must be able to answer key questions like 'Is the business doing well or badly?' and 'Where is the problem?' within 5 seconds of looking at the dashboard."
+    },
+    {
+        "type": "single",
+        "question": "Which dashboard layout pattern is recommended for scanning key KPIs?",
+        "options": [
+            "The Spiral Pattern",
+            "The F-Pattern",
+            "The Scatter Pattern",
+            "The Grid Pattern"
+        ],
+        "answer": [1],
+        "explanation": "The slides recommend following the F-Pattern (or Z-Pattern) for dashboard layout, placing key KPIs (BANs) in the top left where the eye naturally scans first."
+    },
+    {
+        "type": "single",
+        "question": "What problem does the 'Metric Layer' in the Modern Data Stack solve?",
+        "options": [
+            "It replaces the need for a data warehouse.",
+            "It solves 'Metric Chaos' by defining metrics once in code as a single source of truth.",
+            "It visualizes data directly without any transformation tools.",
+            "It automates the collection of raw data from sources like Salesforce."
+        ],
+        "answer": [1],
+        "explanation": "The Metric Layer addresses 'Metric Chaos' (different logic in different departments) by providing a centralized definition of metrics in code, ensuring consistency across tools like PowerBI, Tableau, and Excel."
+    },
+    {
+        "type": "single",
+        "question": "What is the fundamental difference between standard statistics and time series analysis?",
+        "options": [
+            "Standard statistics assumes data points are correlated, while time series assumes independence.",
+            "Standard statistics focuses on future predictions, while time series focuses on past descriptions.",
+            "Standard statistics assumes independence between observations, while time series relies on temporal dependence.",
+            "There is no fundamental difference; they use the same formulas."
+        ],
+        "answer": [2],
+        "explanation": "Standard statistics assumes random samples where observations are independent ($y_i \\perp y_j$). Time series analysis relies on the fact that points are correlated over time (Covariance between $y_t$ and $y_{t-1}$ is not 0)."
+    },
+    {
+        "type": "single",
+        "question": "In Time Series Decomposition, which model assumes that the magnitude of seasonal fluctuations remains constant regardless of the trend level?",
+        "options": [
+            "Multiplicative Model",
+            "Additive Model",
+            "Exponential Model",
+            "Dynamic Model"
+        ],
+        "answer": [1],
+        "explanation": "The Additive Model ($y_t = T_t + S_t + R_t$) assumes the magnitude of seasonal fluctuations is constant. The Multiplicative model assumes seasonality scales proportionally with the trend."
+    },
+    {
+        "type": "single",
+        "question": "Why is STL Decomposition often preferred over Classical Decomposition?",
+        "options": [
+            "It is computationally faster for small datasets.",
+            "It assumes seasonality is fixed forever, which simplifies the math.",
+            "It allows the seasonal component to change over time (e.g., evolving shopping habits).",
+            "It requires no parameters to be set by the user."
+        ],
+        "answer": [2],
+        "explanation": "The slides state that STL (Seasonal-Trend with Loess) is preferred because, unlike Classical Decomposition which assumes fixed seasonality, STL allows the seasonal component ($S_t$) to change over time."
+    },
+    {
+        "type": "single",
+        "question": "Which Exponential Smoothing method is best suited for data with a trend but no seasonality?",
+        "options": [
+            "Simple Exponential Smoothing (SES)",
+            "Holt's Linear Trend Method",
+            "Holt-Winters Seasonal Method",
+            "Naive Method"
+        ],
+        "answer": [1],
+        "explanation": "Simple Exponential Smoothing assumes no trend/seasonality. Holt-Winters handles trend and seasonality. Holt's Linear Trend Method is specifically for data with a trend but no seasonality."
+    },
+    {
+        "type": "single",
+        "question": "What is the behavior of the 'Damped Trend' method for long-term forecasting?",
+        "options": [
+            "The trend continues linearly forever, often overestimating outcomes.",
+            "The forecast trend flattens out into a horizontal line as the horizon increases.",
+            "The trend oscillates wildly to capture volatility.",
+            "The trend reverses direction after a set number of periods."
+        ],
+        "answer": [1],
+        "explanation": "The Damped Trend method introduces a damping parameter so that the forecast trend flattens out into a horizontal line over time, providing a more realistic long-term forecast than a linear trend."
+    },
+    {
+        "type": "multi",
+        "question": "Select the conditions required for a time series to be considered 'Stationary'.",
+        "options": [
+            "Constant Mean over time.",
+            "Constant Variance over time.",
+            "Clear upward linear trend.",
+            "Autocovariance depends only on lag k, not time t."
+        ],
+        "answer": [0, 1, 3],
+        "explanation": "Stationarity requires a constant mean, constant variance, and autocovariance that depends only on the lag, not the specific point in time. A series with a trend (option 2) is non-stationary."
+    },
+    {
+        "type": "single",
+        "question": "In ARIMA modeling, what does the 'd' parameter represent?",
+        "options": [
+            "The number of autoregressive lags.",
+            "The number of moving average lags.",
+            "The number of differencing steps required to achieve stationarity.",
+            "The seasonal period length."
+        ],
+        "answer": [2],
+        "explanation": "In ARIMA (p, d, q), 'd' stands for Integrated, which represents the number of differencing steps applied to the data to make it stationary."
+    },
+    {
+        "type": "single",
+        "question": "Which plot is primarily used to identify the 'q' parameter (Moving Average) in an ARIMA model?",
+        "options": [
+            "The ACF (Autocorrelation Function) plot.",
+            "The PACF (Partial Autocorrelation Function) plot.",
+            "The Time Series line chart.",
+            "The Histogram of residuals."
+        ],
+        "answer": [0],
+        "explanation": "The slides state that for an MA(q) model, the ACF plot cuts off after lag q, while the PACF decays exponentially. Thus, ACF is used to identify q."
+    },
+    {
+        "type": "single",
+        "question": "Why is standard K-Fold Cross-Validation considered 'illegal' for time series data?",
+        "options": [
+            "It requires too much processing power.",
+            "Shuffling the data destroys temporal dependence and allows 'peeking into the future'.",
+            "It cannot handle categorical variables.",
+            "It results in negative R-squared values."
+        ],
+        "answer": [1],
+        "explanation": "Standard shuffling destroys the temporal order of data. Using future data to train a model that predicts the past ('peeking') invalidates the test. Time Series Cross-Validation (Walk-Forward) must be used instead."
+    },
+    {
+        "type": "single",
+        "question": "Why is MASE (Mean Absolute Scaled Error) preferred over MAPE (Mean Absolute Percentage Error)?",
+        "options": [
+            "MASE is easier to calculate in Excel.",
+            "MAPE becomes undefined if the actual value is zero and penalizes positive errors more heavily.",
+            "MASE is always a percentage, making it easier to explain to executives.",
+            "MAPE ignores seasonality, while MASE captures it automatically."
+        ],
+        "answer": [1],
+        "explanation": "MAPE has two major flaws: it is undefined at zero (division by zero) and is asymmetric. MASE solves this by scaling the error against a naive benchmark."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary goal of Recommender Systems in the context of the 'Long Tail' effect?",
+        "options": [
+            "To sell more of the most popular 'Blockbuster' items.",
+            "To help users discover niche items in the 'Tail' and increase catalog utilization.",
+            "To reduce the total number of items offered to customers.",
+            "To strictly enforce the Paradox of Choice."
+        ],
+        "answer": [1],
+        "explanation": "The goal of Recommender Systems regarding the Long Tail is to help users discover niche items (the Tail) that they wouldn't find through active search, thereby increasing catalog utilization."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an example of 'Explicit Feedback'?",
+        "options": [
+            "Purchase history.",
+            "Time spent watching a video.",
+            "A 5-star rating given by a user.",
+            "Number of page clicks."
+        ],
+        "answer": [2],
+        "explanation": "Explicit feedback is direct, such as ratings or likes. Purchase history, watch time, and clicks are examples of Implicit feedback (indirect)."
+    },
+    {
+        "type": "single",
+        "question": "What is the core logic behind Content-Based Filtering?",
+        "options": [
+            "Show me what people like me liked.",
+            "Show me items that are frequently bought together with this item.",
+            "Show me more items similar to the ones I liked based on item attributes.",
+            "Show me items that are currently trending globally."
+        ],
+        "answer": [2],
+        "explanation": "Content-Based Filtering focuses on item attributes and recommends items with similar features to those the user has liked in the past (e.g., 'You watched Iron Man, so here is The Avengers')."
+    },
+    {
+        "type": "single",
+        "question": "How is a User Profile typically constructed in Content-Based Filtering?",
+        "options": [
+            "By finding the nearest neighbors in the user database.",
+            "By calculating a weighted average of the feature vectors of items the user consumed.",
+            "By using demographic data purchased from third parties.",
+            "By assigning a random vector and updating it via gradient descent."
+        ],
+        "answer": [1],
+        "explanation": "A User Profile in Content-Based Filtering is an aggregation (often a weighted average) of the vectors of the items the user has previously consumed."
+    },
+    {
+        "type": "single",
+        "question": "What does a Cosine Similarity of 1.0 between a user vector and an item vector indicate?",
+        "options": [
+            "The vectors are orthogonal, meaning no correlation.",
+            "The vectors point in opposite directions, meaning strong dislike.",
+            "The vectors align perfectly, indicating a strong match.",
+            "The user has already purchased the item."
+        ],
+        "answer": [2],
+        "explanation": "Cosine similarity measures the angle between vectors. A value of 1.0 means the angle is 0 degrees (vectors align), indicating a perfect match or high similarity."
+    },
+    {
+        "type": "single",
+        "question": "What is a major disadvantage of Content-Based Filtering known as 'Overspecialization'?",
+        "options": [
+            "The system cannot recommend new items.",
+            "The user gets trapped in a 'Filter Bubble,' never discovering new genres.",
+            "The system requires a massive community of users to work.",
+            "The system is computationally expensive to update."
+        ],
+        "answer": [1],
+        "explanation": "Overspecialization (or the Filter Bubble) occurs when a user is only recommended more of what they have already seen, leading to low serendipity and no discovery of new genres."
+    },
+    {
+        "type": "single",
+        "question": "Which statement best describes User-Based Collaborative Filtering?",
+        "options": [
+            "Find items that are statistically similar to items I bought.",
+            "Find users with similar tastes to me and recommend what they liked.",
+            "Decompose the interaction matrix into latent factors.",
+            "Use deep learning to analyze product images."
+        ],
+        "answer": [1],
+        "explanation": "User-Based Collaborative Filtering follows the logic: 'Find people like me' and recommends items that those similar users liked."
+    },
+    {
+        "type": "single",
+        "question": "Why is Item-Based Collaborative Filtering often preferred over User-Based CF in large systems like Amazon?",
+        "options": [
+            "Items are more stable than users, and it requires fewer real-time calculations.",
+            "It is better at handling the Cold-Start problem for new users.",
+            "It provides more serendipitous recommendations.",
+            "It requires less storage space for the interaction matrix."
+        ],
+        "answer": [0],
+        "explanation": "Item-Based CF is preferred because items are more stable than users (item characteristics don't change, user tastes do), and pre-calculating item similarities reduces the need for real-time calculation."
+    },
+    {
+        "type": "single",
+        "question": "In Matrix Factorization, what are 'Latent Factors'?",
+        "options": [
+            "Explicit tags provided by users (e.g., 'Action', 'Comedy').",
+            "Hidden features learned by the machine that represent dimensions in a shared space.",
+            "The error terms remaining after decomposition.",
+            "The demographic attributes of the user base."
+        ],
+        "answer": [1],
+        "explanation": "Latent Factors are hidden features (dimensions) learned by the algorithm (e.g., 'Serious vs. Funny') that map both users and items into a shared space."
+    },
+    {
+        "type": "single",
+        "question": "How does Matrix Factorization predict the score for a user-item pair?",
+        "options": [
+            "By calculating the Euclidean distance between them.",
+            "By taking the dot product of the User Latent Vector and the Item Latent Vector.",
+            "By averaging the ratings of the nearest 10 neighbors.",
+            "By looking up the value in a hash table."
+        ],
+        "answer": [1],
+        "explanation": "In Matrix Factorization, the predicted score $\\hat{y}_{ui}$ is calculated as the dot product of the user's latent vector and the item's latent vector."
+    },
+    {
+        "type": "single",
+        "question": "When modeling Implicit Feedback, how are 'Confidence' and 'Preference' handled?",
+        "options": [
+            "They are treated as the same variable.",
+            "Preference is binary (interacted or not), while Confidence is a weight based on interaction intensity.",
+            "Preference is a weight, while Confidence is binary.",
+            "Implicit feedback is ignored; only explicit feedback is used."
+        ],
+        "answer": [1],
+        "explanation": "For implicit data, the model separates Preference (binary: did they interact?) and Confidence (weight: how much did they interact/watch?). Higher interaction implies higher confidence."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Cold-Start Problem' in Collaborative Filtering?",
+        "options": [
+            "The system takes too long to boot up.",
+            "The system cannot recommend items to a new user with no history, or recommend a new item with no interactions.",
+            "The system overheats when processing large matrices.",
+            "The algorithm fails when the temperature is low."
+        ],
+        "answer": [1],
+        "explanation": "The Cold-Start problem refers to the inability of Collaborative Filtering to make recommendations for new users (no history to find neighbors) or for new items (no interactions to establish similarity)."
+    },
+    {
+        "type": "single",
+        "question": "Why is RMSE (Root Mean Squared Error) often insufficient for evaluating Recommender Systems?",
+        "options": [
+            "It is too difficult to calculate.",
+            "It focuses on predicting the exact rating, whereas users care more about the correct Ranking order.",
+            "It cannot handle negative numbers.",
+            "It is only applicable to Content-Based filtering."
+        ],
+        "answer": [1],
+        "explanation": "RMSE measures error in predicting specific ratings (e.g., 3.5 vs 4.0). However, users primarily care about the Ranking (Top-N)—whether the relevant items appear at the top of the list."
+    },
+    {
+        "type": "single",
+        "question": "In Top-N evaluation, what does 'Recall' measure?",
+        "options": [
+            "The percentage of recommendations that are relevant (Usefulness).",
+            "The percentage of relevant items found by the system (Coverage).",
+            "The average rating of the recommended items.",
+            "The speed at which the recommendation was generated."
+        ],
+        "answer": [1],
+        "explanation": "Recall@K measures Coverage: out of all the items the user actually liked (wanted), how many did the system successfully find and recommend?"
+    },
+    {
+        "type": "single",
+        "question": "What is the advantage of NDCG (Normalized Discounted Cumulative Gain) over Precision?",
+        "options": [
+            "It is easier to calculate.",
+            "It accounts for the position of the hit, rewarding systems that place relevant items at the very top.",
+            "It does not require a test set.",
+            "It works better with small datasets."
+        ],
+        "answer": [1],
+        "explanation": "NDCG is considered the gold standard for ranking because it applies a discount based on rank. A relevant item at Rank 1 contributes more to the score than a relevant item at Rank 10, unlike Precision which treats them equally."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Filter Bubble' effect primarily associated with?",
+        "options": [
+            "Collaborative Filtering",
+            "Content-Based Filtering",
+            "Matrix Factorization",
+            "Randomized Recommendations"
+        ],
+        "answer": [1],
+        "explanation": "The slides associate the 'Filter Bubble' effect (Overspecialization) with Content-Based Filtering, as it only recommends items similar to what the user has already seen, limiting discovery."
+    },
+    {
+        "type": "single",
+        "question": "Which algorithm is typically used to train Matrix Factorization models on Implicit Data?",
+        "options": [
+            "Standard Gradient Descent",
+            "Alternating Least Squares (ALS)",
+            "K-Means Clustering",
+            "Decision Trees"
+        ],
+        "answer": [1],
+        "explanation": "The slides state that ALS (Alternating Least Squares) is used because standard Gradient Descent is difficult with Implicit Data due to the massive number of zeros (sparsity). ALS is also highly parallelizable."
+    },
+    {
+        "type": "single",
+        "question": "In the context of 'Holiday Effects' in forecasting, why might standard SARIMA fail?",
+        "options": [
+            "It cannot handle large datasets.",
+            "It assumes seasonality is fixed to the calendar month (e.g., March), failing to account for moving holidays like Easter.",
+            "It requires data to be stationary.",
+            "It cannot use differencing."
+        ],
+        "answer": [1],
+        "explanation": "Standard SARIMA looks for fixed seasonal patterns (e.g., a spike every March). It fails with Moving Holidays like Easter or Ramadan, which shift dates each year. Dynamic Regression or Prophet is needed."
+    },
+    {
+        "type": "single",
+        "question": "What distinguishes the 'Modern Data Stack' architecture from traditional setups?",
+        "options": [
+            "It removes the transformation layer completely.",
+            "It uses a Metric Layer between the data warehouse and visualization tools to ensure governance.",
+            "It relies solely on Excel for storage and analysis.",
+            "It performs all transformations before loading data into storage (ETL instead of ELT)."
+        ],
+        "answer": [1],
+        "explanation": "The Modern Data Stack architecture described includes a Metric Layer (e.g., Looker, dbt Semantic) between the Transformation (dbt) and Visualization layers to ensure a single source of truth and governance."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following describes the 'Multiplicative' seasonality assumption in forecasting?",
+        "options": [
+            "Seasonal fluctuations are constant (e.g., +/- 100 units) regardless of the trend.",
+            "Seasonal fluctuations scale proportionally with the trend (e.g., +/- 20%).",
+            "Seasonal fluctuations are random and unpredictable.",
+            "Seasonal fluctuations disappear over time."
+        ],
+        "answer": [1],
+        "explanation": "Multiplicative seasonality assumes that as the trend increases, the magnitude of the seasonal swings also increases (scaling proportionally), whereas Additive assumes constant magnitude."
+    }
+]
