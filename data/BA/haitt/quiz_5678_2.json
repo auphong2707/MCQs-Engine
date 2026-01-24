@@ -1,0 +1,482 @@
+[
+    {
+        "type": "single",
+        "question": "According to the slides on Experimentation, what is the primary purpose of randomization in A/B testing?",
+        "options": [
+            "To increase the sample size automatically.",
+            "To ensure the treatment and control groups are exactly equal in size.",
+            "To balance both observed and unobserved factors between groups, allowing for causal inference.",
+            "To eliminate Type I errors completely."
+        ],
+        "answer": [2],
+        "explanation": "Randomization breaks confounding by balancing observed and unobserved factors between treatment and control groups, which allows the test to measure causal impact rather than just correlation."
+    },
+    {
+        "type": "single",
+        "question": "What does a p-value actually measure according to the provided definition?",
+        "options": [
+            "The probability that the alternative hypothesis (H1) is true.",
+            "The probability of the null hypothesis (H0) being true.",
+            "The extremeness of the observed data assuming the null hypothesis (H0) is true.",
+            "The probability that the observed effect is due to random chance."
+        ],
+        "answer": [2],
+        "explanation": "The slides define the p-value as the data extremeness under H0, specifically noting it is NOT the probability of the effect or the probability of H0 itself."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are components of the 'Experiment Lifecycle' outlined in the slides?",
+        "options": [
+            "Define: Hypotheses and Metrics",
+            "Design: Randomization and Sample Size",
+            "Guess: Estimate the outcome before running",
+            "Run: Sanity checks and SRM detection"
+        ],
+        "answer": [0, 1, 3],
+        "explanation": "The Experiment Lifecycle steps listed are Define (hypotheses, metrics), Design (randomization, sample size), Run (sanity checks, SRM), Analyze, and Learn. 'Guess' is not a step."
+    },
+    {
+        "type": "single",
+        "question": "In the context of hypothesis testing, what is 'Power'?",
+        "options": [
+            "The probability of rejecting the null hypothesis when it is true (Type I error).",
+            "The probability of correctly rejecting the null hypothesis when there is a true effect (1 - Beta).",
+            "The magnitude of the minimum detectable effect.",
+            "The probability of accepting the null hypothesis when it is false."
+        ],
+        "answer": [1],
+        "explanation": "Power is defined as 1 - Beta, which represents the probability of correctly detecting an effect when one actually exists (avoiding a Type II error)."
+    },
+    {
+        "type": "single",
+        "question": "What is Sample Ratio Mismatch (SRM) and why is it critical?",
+        "options": [
+            "It is when the sample size is too small to detect an effect.",
+            "It occurs when the observed assignment ratio deviates from the designed ratio, indicating potential tracking bugs or randomization failure.",
+            "It is the ratio between the mean of the control group and the treatment group.",
+            "It is a metric used to measure the variance reduction in CUPED."
+        ],
+        "answer": [1],
+        "explanation": "SRM happens when the observed assignment ratio deviates from the design (e.g., 50/50). It suggests issues like tracking bugs or bot traffic, meaning the results should not be trusted."
+    },
+    {
+        "type": "single",
+        "question": "How does CUPED reduce variance in A/B tests?",
+        "options": [
+            "By removing outliers from the post-experiment data.",
+            "By increasing the sample size of the experiment.",
+            "By using a pre-experiment covariate highly correlated with the outcome to adjust the metric.",
+            "By running the experiment for a longer duration."
+        ],
+        "answer": [2],
+        "explanation": "CUPED uses a pre-experiment covariate X that is highly correlated with the outcome Y to remove explainable variance, creating an adjusted metric Y* with lower variance."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary risk of 'Peeking' (checking results repeatedly) during an experiment?",
+        "options": [
+            "It inflates the Type I error rate (false positives).",
+            "It reduces the power of the test significantly.",
+            "It causes Sample Ratio Mismatch (SRM).",
+            "It increases the variance of the metric."
+        ],
+        "answer": [0],
+        "explanation": "Naïve peeking (checking for significance repeatedly) inflates the Type I error rate, making it more likely to find a 'significant' result by chance when none exists."
+    },
+    {
+        "type": "single",
+        "question": "The objective function of Ordinary Least Squares (OLS) regression is to:",
+        "options": [
+            "Minimize the sum of absolute errors.",
+            "Maximize the likelihood of the coefficients.",
+            "Minimize the sum of squared differences between observed and predicted values.",
+            "Minimize the number of non-zero coefficients."
+        ],
+        "answer": [2],
+        "explanation": "The slides state the OLS goal is to minimize ||y - X*beta||^2, which is the sum of squared errors between the actual y and predicted X*beta."
+    },
+    {
+        "type": "multi",
+        "question": "Select all valid assumptions of OLS regression mentioned in the slides.",
+        "options": [
+            "Linearity between predictors and target.",
+            "Errors are homoscedastic (constant variance).",
+            "Perfect multicollinearity between predictors.",
+            "Exogeneity (errors are uncorrelated with predictors)."
+        ],
+        "answer": [0, 1, 3],
+        "explanation": "OLS assumptions include Linearity, Exogeneity, and Homoscedasticity. The slides explicitly state there should be *no* perfect multicollinearity."
+    },
+    {
+        "type": "single",
+        "question": "How does Lasso (L1) regularization differ from Ridge (L2) regularization regarding coefficients?",
+        "options": [
+            "Lasso shrinks coefficients smoothly but never to zero, while Ridge can set them to exactly zero.",
+            "Lasso induces sparsity by forcing some coefficients to exactly zero, performing feature selection.",
+            "Ridge penalizes the absolute value of coefficients, while Lasso penalizes the square.",
+            "There is no difference; they both perform identical shrinkage."
+        ],
+        "answer": [1],
+        "explanation": "Lasso uses an L1 penalty (sum of absolute values) which induces sparsity, effectively setting some coefficients to zero (feature selection). Ridge uses L2 and shrinks coefficients smoothly but never to zero."
+    },
+    {
+        "type": "single",
+        "question": "Why is feature scaling/standardization critical before applying Regularization (Ridge/Lasso)?",
+        "options": [
+            "It ensures the target variable is normally distributed.",
+            "It prevents features with large numeric scales from dominating the penalty term.",
+            "It is required to calculate the OLS closed-form solution.",
+            "It converts all categorical variables into dummy variables."
+        ],
+        "answer": [1],
+        "explanation": "Regularization penalties are sensitive to the magnitude of coefficients. Without standardization, features with large scales would be penalized differently solely due to their units, not their importance."
+    },
+    {
+        "type": "single",
+        "question": "What does Permutation Importance measure?",
+        "options": [
+            "The magnitude of the standardized regression coefficient.",
+            "The increase in prediction error (e.g., RMSE) when a feature's values are randomly shuffled.",
+            "The correlation between a feature and the target variable.",
+            "The number of times a feature is used in a decision tree."
+        ],
+        "answer": [1],
+        "explanation": "Permutation importance is calculated by shuffling a feature (breaking its relationship with the target) and measuring how much the model's error (AMSE) increases. A large increase implies high importance."
+    },
+    {
+        "type": "single",
+        "question": "For a linear model, how is the SHAP contribution of a feature roughly interpreted?",
+        "options": [
+            "It is the coefficient times the feature value deviation from the mean (beta * (x - E[x])).",
+            "It is simply the raw coefficient value.",
+            "It is the probability of the feature being non-zero.",
+            "It is the permutation importance value."
+        ],
+        "answer": [0],
+        "explanation": "The slides state that for linear models with a mean reference, the SHAP-like contribution is approximately the coefficient multiplied by the centered feature value: beta * (x - E[x])."
+    },
+    {
+        "type": "single",
+        "question": "In the context of classification, what is 'Recall' (Sensitivity)?",
+        "options": [
+            "The proportion of predicted positives that are actually positive (TP / (TP + FP)).",
+            "The proportion of actual positives that are correctly identified (TP / (TP + FN)).",
+            "The proportion of actual negatives that are correctly identified (TN / (TN + FP)).",
+            "The overall percentage of correct predictions."
+        ],
+        "answer": [1],
+        "explanation": "Recall (or Sensitivity) is defined as TP / (TP + FN), measuring the model's ability to find all the positive samples."
+    },
+    {
+        "type": "single",
+        "question": "Why might Accuracy be a misleading metric for imbalanced datasets?",
+        "options": [
+            "It cannot be calculated if the dataset is too large.",
+            "It gives equal weight to all classes, so a model predicting only the majority class can have high accuracy but zero predictive power for the minority class.",
+            "It is only applicable to regression problems.",
+            "It is always lower than Precision and Recall."
+        ],
+        "answer": [1],
+        "explanation": "The slides provide an example where a 'lazy model' predicting all negatives on a 990:10 imbalanced dataset gets 99% accuracy but misses all sick patients, showing raw accuracy is misleading."
+    },
+    {
+        "type": "single",
+        "question": "Which metric is described as the harmonic mean of Precision and Recall?",
+        "options": [
+            "Accuracy",
+            "Matthews Correlation Coefficient (MCC)",
+            "F1-Score",
+            "AUC-ROC"
+        ],
+        "answer": [2],
+        "explanation": "The F1-Score is explicitly defined as the harmonic mean of Precision and Recall, balancing the two metrics."
+    },
+    {
+        "type": "single",
+        "question": "What is the probabilistic interpretation of the AUC (Area Under the ROC Curve)?",
+        "options": [
+            "The probability that the model classifies a sample correctly.",
+            "The probability that a randomly selected positive sample is ranked higher than a randomly selected negative sample.",
+            "The probability that the positive class is more frequent than the negative class.",
+            "The area under the Precision-Recall curve."
+        ],
+        "answer": [1],
+        "explanation": "AUC is defined as P(score+ > score-), representing the probability that a random positive sample will be ranked higher than a random negative sample."
+    },
+    {
+        "type": "single",
+        "question": "When should you prefer a Precision-Recall (PR) curve over an ROC curve?",
+        "options": [
+            "When the classes are perfectly balanced.",
+            "When the cost of False Positives is low.",
+            "When the data is highly imbalanced and the 'Positive' class is rare and important.",
+            "When you only care about ranking and not calibration."
+        ],
+        "answer": [2],
+        "explanation": "The slides state that ROC can be misleading for highly imbalanced data because FPR is insensitive to the large number of negatives. PR curves are preferred when positives are rare and False Positive costs matter."
+    },
+    {
+        "type": "single",
+        "question": "What does a Reliability Diagram (Calibration Curve) visualize?",
+        "options": [
+            "The trade-off between True Positive Rate and False Positive Rate.",
+            "The relationship between predicted probabilities and observed frequencies of the positive class.",
+            "The distribution of feature values across clusters.",
+            "The cumulative gain of targeting the top k% of users."
+        ],
+        "answer": [1],
+        "explanation": "A Reliability Curve plots predicted probabilities against observed positive rates (in bins). A perfectly calibrated model lies on the diagonal y=x."
+    },
+    {
+        "type": "single",
+        "question": "According to the slides, how can an optimal threshold be chosen using a cost matrix?",
+        "options": [
+            "Always choose 0.5 as the threshold.",
+            "Choose the threshold where Sensitivity equals Specificity.",
+            "Minimize the Total Expected Cost based on the confusion matrix and defined costs for FP and FN.",
+            "Choose the threshold that maximizes the AUC."
+        ],
+        "answer": [2],
+        "explanation": "Optimal threshold selection involves defining a cost matrix (values for TP, FP, TN, FN) and finding the threshold 'tau' that minimizes the Total Expected Cost."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary goal of K-means clustering?",
+        "options": [
+            "To maximize the distance between clusters.",
+            "To minimize the Within-Cluster Sum of Squares (WCSS) or Inertia.",
+            "To fit a Gaussian distribution to every cluster.",
+            "To project data into a lower-dimensional space."
+        ],
+        "answer": [1],
+        "explanation": "The primary goal of K-means is to find centroids that minimize the WCSS (Inertia), which makes clusters as compact as possible."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a limitation (failure mode) of K-means clustering?",
+        "options": [
+            "It is computationally too slow for any dataset.",
+            "It assumes clusters are spherical and struggles with non-convex shapes or varying densities.",
+            "It can only handle categorical data.",
+            "It requires the number of clusters to be unknown."
+        ],
+        "answer": [1],
+        "explanation": "K-means assumes spherical clusters due to Euclidean distance and struggles with complex geometries (like rings) or clusters with varying densities."
+    },
+    {
+        "type": "single",
+        "question": "How does the 'Elbow Method' help in selecting the number of clusters (k)?",
+        "options": [
+            "It identifies the k where the Silhouette Score is maximized.",
+            "It looks for the point where the rate of decrease in Inertia slows down significantly (diminishing returns).",
+            "It calculates the BIC for every possible k.",
+            "It selects the k that forces all clusters to be the same size."
+        ],
+        "answer": [1],
+        "explanation": "The Elbow Method plots Inertia against k and looks for the 'elbow' point where adding more clusters yields minimal improvement (diminishing returns)."
+    },
+    {
+        "type": "single",
+        "question": "What does a Silhouette Score close to +1 indicate?",
+        "options": [
+            "The point is likely in the wrong cluster.",
+            "The point is on the boundary between clusters.",
+            "The point is well-clustered (dense and clearly separated from other clusters).",
+            "The clustering model has failed to converge."
+        ],
+        "answer": [2],
+        "explanation": "A Silhouette Score close to +1 indicates the point is similar to its own cluster (cohesion) and different from others (separation), implying it is well-clustered."
+    },
+    {
+        "type": "multi",
+        "question": "Select all characteristics that distinguish Gaussian Mixture Models (GMM) from K-means.",
+        "options": [
+            "GMM provides soft (probabilistic) assignments, whereas K-means gives hard assignments.",
+            "GMM can model elliptical clusters using covariance, whereas K-means assumes spheres.",
+            "GMM uses the EM algorithm, whereas K-means uses iterative centroid updates.",
+            "GMM is always faster than K-means."
+        ],
+        "answer": [0, 1, 2],
+        "explanation": "GMM offers soft assignments (probabilities) and handles elliptical shapes via covariance (K-means is spherical/hard). It uses the EM algorithm. K-means is generally faster/simpler."
+    },
+    {
+        "type": "single",
+        "question": "What criteria are suggested for selecting the number of components in GMM to avoid overfitting?",
+        "options": [
+            "Maximize the Inertia.",
+            "Use AIC (Akaike Information Criterion) or BIC (Bayesian Information Criterion).",
+            "Choose the k with the highest Log-Likelihood regardless of complexity.",
+            "Always use the same k as found in K-means."
+        ],
+        "answer": [1],
+        "explanation": "Because Log-Likelihood increases with complexity, AIC and BIC are used to penalize the number of parameters. The rule is to choose the model with the lower AIC/BIC."
+    },
+    {
+        "type": "single",
+        "question": "What is the main objective of Principal Component Analysis (PCA)?",
+        "options": [
+            "To classify data into distinct groups.",
+            "To find the axes (principal components) that capture the maximum variance in the data.",
+            "To increase the dimensionality of the data for better separation.",
+            "To normalize the data distribution to a Gaussian."
+        ],
+        "answer": [1],
+        "explanation": "PCA's goal is to identify orthogonal directions (Principal Components) along which the data varies the most, allowing for dimensionality reduction while preserving information."
+    },
+    {
+        "type": "single",
+        "question": "Why is 'Centering' (subtracting the mean) a necessary step in PCA?",
+        "options": [
+            "It ensures all values are positive.",
+            "It is required to perform SVD or Eigendecomposition correctly on the covariance structure.",
+            "It removes outliers from the dataset.",
+            "It converts the data into categorical bins."
+        ],
+        "answer": [1],
+        "explanation": "The slides list 'Center the data' ($X - \\mu$) as the first step in PCA formulas. This ensures the principal components pass through the origin of the data cloud."
+    },
+    {
+        "type": "single",
+        "question": "In a PCA Biplot, what does the angle between two feature vectors represent?",
+        "options": [
+            "The difference in their means.",
+            "The correlation between the features (0 degrees = positive, 90 = orthogonal, 180 = negative).",
+            "The ratio of their standard deviations.",
+            "The distance between their cluster centroids."
+        ],
+        "answer": [1],
+        "explanation": "In a Biplot, the angle between loading vectors indicates correlation: 0° implies positive correlation, 90° implies no correlation (orthogonal), and 180° implies negative correlation."
+    },
+    {
+        "type": "single",
+        "question": "What does the RFM framework stand for in customer segmentation?",
+        "options": [
+            "Revenue, Frequency, Marketing",
+            "Recency, Frequency, Monetary",
+            "Retention, Feedback, Management",
+            "Reach, Frequency, Margin"
+        ],
+        "answer": [1],
+        "explanation": "RFM stands for Recency (days since last purchase), Frequency (count of transactions), and Monetary (total revenue)."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Dummy Variable Trap' mentioned in the Regression slides?",
+        "options": [
+            "Using too many categorical variables resulting in overfitting.",
+            "Perfect multicollinearity caused by including a dummy variable for every category level along with an intercept.",
+            "Assigning arbitrary numbers to categorical categories.",
+            "Failing to remove missing values before encoding."
+        ],
+        "answer": [1],
+        "explanation": "The slides mention 'Beware of the dummy variable trap' under categorical encoding, which refers to the perfect multicollinearity introduced if one dummy column isn't dropped (n categories vs n-1 dummies)."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Classification, what is the Brier Score used for?",
+        "options": [
+            "To measure the ranking ability of the model (like AUC).",
+            "To measure the calibration of probabilities, effectively the Mean Squared Error of predictions.",
+            "To calculate the optimal threshold for classification.",
+            "To visualize the trade-off between Precision and Recall."
+        ],
+        "answer": [1],
+        "explanation": "The Brier score is described as a 'proper scoring rule' that measures both discrimination and calibration. It is essentially the MSE applied to probability predictions."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Whitening' in the context of PCA?",
+        "options": [
+            "Removing all color information from image data.",
+            "Rescaling the Principal Components to have unit variance (variance = 1), transforming the distribution from an ellipse to a sphere.",
+            "Setting all negative values in the dataset to zero.",
+            "Selecting only the top 3 components for visualization."
+        ],
+        "answer": [1],
+        "explanation": "Whitening is an optional step that rescales variance, normalizing PCs so each dimension has unit variance. It transforms an oriented ellipse into an isotropic sphere."
+    },
+    {
+        "type": "single",
+        "question": "Which initialization method for K-means is designed to speed up convergence and avoid bad local minima?",
+        "options": [
+            "Random initialization",
+            "K-means++",
+            "Zero initialization",
+            "Hierarchical initialization"
+        ],
+        "answer": [1],
+        "explanation": "K-means++ is described as the 'Smart Default' that picks centroids probabilistically to get a better spread, improving clustering quality and speed compared to pure random initialization."
+    },
+    {
+        "type": "single",
+        "question": "What does 'Exogeneity' assume in OLS regression?",
+        "options": [
+            "The target variable is normally distributed.",
+            "The error terms are uncorrelated with the predictors (independent variables).",
+            "The variance of the errors is constant.",
+            "The predictors are perfectly correlated with each other."
+        ],
+        "answer": [1],
+        "explanation": "Exogeneity is listed as an OLS assumption, defined as 'errors uncorrelated with predictors'."
+    },
+    {
+        "type": "single",
+        "question": "In a Cumulative Gain Chart, what does the 'Baseline' (diagonal line) represent?",
+        "options": [
+            "The performance of the perfect model.",
+            "The performance of a random selection model.",
+            "The threshold where Precision equals Recall.",
+            "The total number of positive cases in the dataset."
+        ],
+        "answer": [1],
+        "explanation": "In Lift and Gain charts, the 45-degree diagonal line represents the random baseline (e.g., targeting 20% of the population gets 20% of responders)."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of 'Quantile Binning' in RFM analysis?",
+        "options": [
+            "To remove outliers from the dataset.",
+            "To divide customers into equal-sized groups (e.g., quintiles) to normalize the 1-5 scoring scale.",
+            "To convert continuous variables into a normal distribution.",
+            "To combine Recency, Frequency, and Monetary into a single continuous number."
+        ],
+        "answer": [1],
+        "explanation": "The slides suggest Quantile Binning to divide customers into 5 equal groups for each metric, normalizing the data into a 1-5 scale, which handles skewed distributions better than equal-width bins."
+    },
+    {
+        "type": "single",
+        "question": "Which metric would be most appropriate for evaluating a regression model with heavy-tailed outliers?",
+        "options": [
+            "RMSE (Root Mean Squared Error)",
+            "MAE (Mean Absolute Error) or Robust Regression techniques",
+            "R-squared",
+            "Accuracy"
+        ],
+        "answer": [1],
+        "explanation": "While RMSE is standard, the slides mention using Robust Regression (Huber/Quantile) or transforming targets for heavy tails. Conceptually, squared errors (RMSE) are sensitive to outliers, whereas absolute errors or robust methods are less so."
+    },
+    {
+        "type": "single",
+        "question": "What does the 'Scree Plot' help visualize in PCA?",
+        "options": [
+            "The correlation between original features.",
+            "The eigenvalues (variance explained) against the number of principal components.",
+            "The reconstruction error of the model.",
+            "The projection of data points in 2D space."
+        ],
+        "answer": [1],
+        "explanation": "A Scree Plot visualizes the eigenvalues (variance explained) for each component, helping to identify the 'elbow' or number of components to keep."
+    },
+    {
+        "type": "single",
+        "question": "When interpreting a K-means result, what does a 'micro-cluster' (e.g., containing <1% of data) usually indicate?",
+        "options": [
+            "A highly valuable niche market segment.",
+            "The algorithm has converged perfectly.",
+            "Outliers or noise rather than a valid market segment.",
+            "The need to increase the number of clusters (k)."
+        ],
+        "answer": [2],
+        "explanation": "The slides warn to watch out for 'micro-clusters' as they usually capture outliers or noise rather than a valid market segment."
+    }
+]

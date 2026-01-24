@@ -1,0 +1,571 @@
+[
+    {
+        "type": "single",
+        "question": "According to CRISP-DM, which phase involves creating the 'Project Charter' and defining 'SMART' goals?",
+        "options": [
+            "Data Preparation",
+            "Business Understanding",
+            "Deployment",
+            "Evaluation"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Business Understanding is the first phase where business objectives are clarified, SMART goals are defined, and the project charter is created to align stakeholders. Data Preparation focuses on cleaning, while Evaluation and Deployment occur later in the cycle."
+    },
+    {
+        "type": "single",
+        "question": "In a KPI Tree, what is the role of a 'Guardrail' metric?",
+        "options": [
+            "To serve as the primary North Star metric for the entire organization.",
+            "To measure the direct financial output of a specific campaign.",
+            "To ensure that optimizing for one driver does not negatively impact other critical business health areas.",
+            "To decompose the North Star metric into its mathematical components."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Guardrails are health metrics (e.g., latency, cancellation rate) monitored to prevent negative side effects while optimizing a primary driver. They act as constraints rather than the primary goal."
+    },
+    {
+        "type": "multi",
+        "question": "Select all statements that correctly distinguish Business Intelligence (BI) from Data Science (DS).",
+        "options": [
+            "BI focuses on reporting and monitoring past or present performance (e.g., dashboards).",
+            "DS focuses on predictive modeling, forecasting, and root-cause analysis.",
+            "BI is exclusively for unstructured data, while DS handles structured SQL data.",
+            "DS aims to automate decisions and prescriptive actions, whereas BI often stops at descriptive insights."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "BI typically handles descriptive analytics (what happened), providing reports and dashboards. DS moves into diagnostic, predictive, and prescriptive realms (why it happened, what will happen). Both fields handle structured data, making the third option incorrect."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an example of an 'Actionable Lever' in an E-commerce KPI Tree?",
+        "options": [
+            "Total Revenue",
+            "Macroeconomic inflation rate",
+            "Free-shipping threshold",
+            "Competitor's market share"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "A lever must be something the business can directly influence or control to drive a metric. Changing the free-shipping threshold is a direct action. Revenue is an outcome (lagging), and inflation/competitor share are external factors beyond direct control."
+    },
+    {
+        "type": "single",
+        "question": "In the 'Problem Framing' canvas, what does the 'D' in the 'DOC' framework stand for?",
+        "options": [
+            "Data",
+            "Decision",
+            "Deployment",
+            "Dashboard"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The DOC framework stands for Decision-Options-Criteria. It helps frame analytics problems by focusing on the specific choice (Decision) the analysis needs to support, rather than starting with Data or Dashboards."
+    },
+    {
+        "type": "single",
+        "question": "Why is 'Data Leakage' a critical risk during the Data Preparation phase?",
+        "options": [
+            "It increases the storage cost of the data warehouse.",
+            "It occurs when the model is trained on information that would not be available at the time of prediction, leading to over-optimistic results.",
+            "It refers to data being stolen by external hackers.",
+            "It causes the model to underfit by removing too many features."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Data leakage involves using future information (like a 'refund' flag for a churn prediction) during training that won't be available in production. This creates a false sense of high accuracy that fails in reality."
+    },
+    {
+        "type": "single",
+        "question": "What is the correct calculation for 'Conversion Rate' (CR) in the context of an E-commerce revenue driver tree?",
+        "options": [
+            "Total Sessions / Total Orders",
+            "Total Revenue / Total Sessions",
+            "Probability(View Cart) × Probability(Cart to Checkout) × Probability(Checkout to Purchase)",
+            "(Price × Quantity) / Number of Orders"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "In a driver tree decomposition, Conversion Rate is the probability of a user moving through the funnel stages (View -> Cart -> Checkout -> Purchase). Total Revenue / Sessions is Revenue Per Session, not CR."
+    },
+    {
+        "type": "single",
+        "question": "When defining 'Success Criteria' for an analytics project, what is the distinction between Primary KPIs and Technical Metrics?",
+        "options": [
+            "Primary KPIs are technical error rates; Technical Metrics are business revenue.",
+            "Primary KPIs measure business impact (e.g., Revenue lift), while Technical Metrics measure model performance (e.g., AUC, RMSE).",
+            "Primary KPIs are always qualitative; Technical Metrics are quantitative.",
+            "There is no distinction; they are used interchangeably."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Primary KPIs (Business) evaluate the project's value to the company (e.g., +15% revenue). Technical metrics (e.g., AUC, RMSE) measure the statistical quality of the model used to achieve that goal."
+    },
+    {
+        "type": "multi",
+        "question": "Select all correct characteristics of a Star Schema in dimensional modeling.",
+        "options": [
+            "It consists of a central Fact table connected to multiple Dimension tables.",
+            "Dimension tables are heavily normalized to reduce redundancy.",
+            "It is generally optimized for BI query performance and simplicity.",
+            "It is the preferred schema for write-heavy OLTP transactions."
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "A Star Schema features a central fact table with denormalized dimension tables, optimizing for read performance in BI (OLAP). Snowflake schemas are the ones that normalize dimensions. OLTP systems prefer highly normalized schemas, not Star schemas."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary function of SCD Type 2 (Slowly Changing Dimensions)?",
+        "options": [
+            "To overwrite old data with new data to save space.",
+            "To maintain a full history of changes by creating new rows with validity time ranges (valid_from, valid_to).",
+            "To delete dimension records that are no longer active.",
+            "To separate numeric facts from text attributes."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "SCD Type 2 preserves history by inserting a new row for every change, using validity dates to define the time window for which a specific attribute value was true. This allows for accurate historical reporting."
+    },
+    {
+        "type": "single",
+        "question": "In a Lakehouse 'Medallion' architecture, what type of data is found in the 'Silver' layer?",
+        "options": [
+            "Raw, immutable data ingested directly from sources.",
+            "Cleaned, deduplicated, and conformed data that is ready for joining.",
+            "Aggregated, business-level data marts optimized for dashboards.",
+            "Unstructured media files like images and video."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Silver layer holds cleaned and conformed data (e.g., standardized schemas, removed duplicates) serving as the bridge between raw (Bronze) data and curated business aggregates (Gold)."
+    },
+    {
+        "type": "single",
+        "question": "Which SQL JOIN type would you use to find all customers who have placed an order but have absolutely NO payment record?",
+        "options": [
+            "INNER JOIN",
+            "LEFT JOIN where the right side key IS NULL (Anti-Join)",
+            "CROSS JOIN",
+            "RIGHT JOIN"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "An Anti-Join pattern (Left Join with a check for NULL on the right side) is used to identify records in the left table (Customers/Orders) that do not have a corresponding match in the right table (Payments)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid use cases for Window Functions (e.g., `SUM() OVER (...)`)?",
+        "options": [
+            "Calculating a 7-day rolling average of revenue.",
+            "Ranking products by sales within each category without collapsing rows.",
+            "Deleting duplicate rows permanently from the database.",
+            "Calculating the cumulative lifetime value (LTV) for a customer."
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Window functions allow for calculations across a set of table rows related to the current row (frames) without grouping/collapsing the result set. They are ideal for rolling averages, rankings, and running totals (cumulative sums)."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Time Travel' feature in modern data warehouses (e.g., Snowflake, BigQuery) used for?",
+        "options": [
+            "Predicting future sales using machine learning.",
+            "Querying historical versions of data at a specific past timestamp for recovery or auditing.",
+            "Converting timezones from UTC to local time.",
+            "Accelerating query performance by skipping historical partitions."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Time Travel allows users to query data as it existed at a previous point in time (e.g., `AT (TIMESTAMP => ...)`), which is essential for recovering from accidental deletions or auditing past states."
+    },
+    {
+        "type": "single",
+        "question": "In the context of SQL performance, why might a 'Broadcast Join' be preferred over a 'Shuffle Join'?",
+        "options": [
+            "It works best when both tables are massive.",
+            "It sends a copy of a small table to every node, avoiding the costly network shuffle of a large table.",
+            "It automatically sorts the data before joining.",
+            "It is the only join type that supports FULL OUTER JOINS."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Broadcast joins are an optimization strategy where a small table is replicated to all worker nodes, allowing the join to happen locally without reshuffling the massive table across the network."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of a Recursive CTE (Common Table Expression)?",
+        "options": [
+            "To perform simple aggregations like SUM and COUNT.",
+            "To traverse hierarchical data structures like organizational charts or product category trees.",
+            "To create a temporary table that persists after the query finishes.",
+            "To import data from a CSV file."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Recursive CTEs are designed to reference themselves, making them the standard tool for walking through graph or tree structures, such as finding all subordinates of a manager or all subcategories of a product."
+    },
+    {
+        "type": "single",
+        "question": "In a SQL Window Frame definition, what is the difference between `ROWS` and `RANGE`?",
+        "options": [
+            "ROWS counts physical rows; RANGE looks at the logical value difference in the ORDER BY column.",
+            "ROWS is used for text; RANGE is used for numbers.",
+            "ROWS includes the current row; RANGE excludes it.",
+            "There is no difference; they are synonyms."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "`ROWS BETWEEN` operates on the physical count of rows (e.g., 2 rows back). `RANGE BETWEEN` operates on the value of the sort key (e.g., records within the last 2 days), handling ties and gaps differently."
+    },
+    {
+        "type": "single",
+        "question": "What implies that data is 'Missing Not At Random' (MNAR)?",
+        "options": [
+            "The missingness is purely accidental and unrelated to any data.",
+            "The probability of missingness depends on the value of the missing variable itself (e.g., high income earners hiding income).",
+            "The missingness depends on other observed variables but not the missing value itself.",
+            "The data was lost due to a file corruption error."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "MNAR means the missing mechanism is related to the unobserved data itself (e.g., people with specific sensitive traits refusing to answer). This is the hardest type of missingness to correct."
+    },
+    {
+        "type": "single",
+        "question": "Why is 'Target Leakage' a problem when using Target Encoding?",
+        "options": [
+            "It increases the cardinality of the categorical feature.",
+            "It encodes the category using the target mean calculated from the full dataset (including validation data), artificially inflating training scores.",
+            "It makes the model unable to handle new categories.",
+            "It converts numerical variables into categorical ones."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Target encoding replaces a category with the mean of the target variable. If this is done on the whole dataset before splitting, the training data 'sees' the test label info, causing leakage. It must be done inside cross-validation loops."
+    },
+    {
+        "type": "multi",
+        "question": "Select valid strategies for handling High Cardinality categorical features.",
+        "options": [
+            "Grouping rare levels into an 'Other' category.",
+            "Using One-Hot Encoding for all 10,000 distinct values.",
+            "Applying the Hashing Trick to map categories to a fixed-size space.",
+            "Frequency or Count Encoding."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Grouping rare levels, Hashing, and Frequency encoding are effective for high cardinality. One-Hot Encoding is incorrect because it causes dimensionality explosion (too many columns) when cardinality is high."
+    },
+    {
+        "type": "single",
+        "question": "Which scaling technique is robust to outliers?",
+        "options": [
+            "MinMaxScaler (0-1 scaling)",
+            "StandardScaler (Z-score)",
+            "RobustScaler (using Median and IQR)",
+            "MaxAbsScaler"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "RobustScaler scales data using statistics that are not influenced by outliers (Median and Interquartile Range), whereas Mean and Variance (StandardScaler) or Min/Max are heavily distorted by extreme values."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Temporal Leakage' in a churn prediction model?",
+        "options": [
+            "Using features derived from data that occurred AFTER the prediction point (e.g., a refund request made after the churn event).",
+            "Using too many historical years of data.",
+            "Failing to convert timestamps to a standard timezone.",
+            "Predicting churn for customers who have already left."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Temporal leakage occurs when the model uses information from the future (relative to the decision point) to predict the past/present. Features must be frozen at the time of prediction (pre-time-zero)."
+    },
+    {
+        "type": "single",
+        "question": "Which imputation method preserves the correlation structure between features best?",
+        "options": [
+            "Global Mean Imputation",
+            "MICE (Multiple Imputation by Chained Equations)",
+            "Zero Imputation",
+            "Dropping all rows with missing values"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "MICE models each missing variable as a function of other variables iteratively, preserving the multivariate relationships (correlations) in the data better than simple univariate imputation (mean/mode)."
+    },
+    {
+        "type": "single",
+        "question": "What is the main risk of using One-Hot Encoding on a high-cardinality variable (e.g., Zip Code)?",
+        "options": [
+            "It assumes an ordinal relationship between zip codes.",
+            "It creates a sparse matrix with massive dimensionality, leading to memory issues and the 'curse of dimensionality'.",
+            "It cannot handle missing values.",
+            "It reduces the predictive power of tree-based models."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "One-Hot Encoding creates a new column for every unique category. For high cardinality (like thousands of zip codes), this results in a massive, sparse dataset that is computationally expensive and difficult to model."
+    },
+    {
+        "type": "single",
+        "question": "When performing Feature Selection, what is a characteristic of 'Wrapper Methods' (e.g., Recursive Feature Elimination)?",
+        "options": [
+            "They rely solely on statistical tests like Chi-Square without using a model.",
+            "They select features by iteratively training a model and evaluating performance, which is computationally expensive.",
+            "They are built into the model training process itself (like Lasso).",
+            "They always select the features with the highest variance."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Wrapper methods 'wrap' the model training process, adding or removing features and re-training to see which subset yields the best performance. This is accurate but slower than Filter methods."
+    },
+    {
+        "type": "single",
+        "question": "Which distribution shape indicates that a Log Transformation might be useful?",
+        "options": [
+            "A perfectly normal (Gaussian) distribution.",
+            "A right-skewed (heavy-tailed) distribution.",
+            "A uniform distribution.",
+            "A bimodal distribution."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Log transformations compress the scale of large values, making right-skewed (long tail) distributions closer to a normal distribution, which benefits many statistical models."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary goal of Exploratory Data Analysis (EDA)?",
+        "options": [
+            "To build the final production machine learning model immediately.",
+            "To systematically explore data to form hypotheses, check quality, and understand patterns.",
+            "To generate a static report for regulatory compliance.",
+            "To apply the most complex visualization techniques available."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "EDA is the phase of understanding the data's shape, quality, and relationships before modeling. It bridges business questions and modeling choices by generating and validating hypotheses."
+    },
+    {
+        "type": "single",
+        "question": "Which visualization is best suited for comparing the distribution of a numeric variable across multiple categories?",
+        "options": [
+            "Scatter plot",
+            "Boxplot (or Violin plot)",
+            "Pie chart",
+            "Line chart"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Boxplots (and violin plots) compactly display the distribution (median, spread, outliers) of a numeric variable, making them ideal for side-by-side comparison across different categorical groups."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Simpson's Paradox'?",
+        "options": [
+            "A phenomenon where a trend appears in different groups of data but disappears or reverses when these groups are combined.",
+            "The idea that correlation implies causation if the sample size is large enough.",
+            "The observation that adding more features eventually decreases model performance.",
+            "The rule that 80% of consequences come from 20% of the causes."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Simpson's Paradox highlights the danger of aggregated data. A trend seen in subgroups (e.g., conversion rate by device) can be masked or reversed when the groups are pooled together due to confounding factors."
+    },
+    {
+        "type": "multi",
+        "question": "Select all correct ways to handle 'Overplotting' in a scatter plot with thousands of points.",
+        "options": [
+            "Reducing the opacity (alpha) of the points.",
+            "Using a 3D scatter plot.",
+            "Jittering (adding slight random noise) to the points.",
+            "Sampling the data."
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "Overplotting obscures density. Alpha blending, jittering, and sampling help reveal the underlying structure. 3D plots generally add confusion and occlusion, making them a poor choice for precision."
+    },
+    {
+        "type": "single",
+        "question": "Why is a dual y-axis chart often considered a visualization anti-pattern?",
+        "options": [
+            "It cannot be created in standard BI tools.",
+            "It can mislead the viewer regarding the relationship between two series by manipulating the relative scales.",
+            "It uses too much ink.",
+            "It is only suitable for time-series data."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Dual y-axes can imply correlations where none exist or exaggerate small changes in one series relative to another simply by changing the scale ranges, leading to misinterpretation."
+    },
+    {
+        "type": "single",
+        "question": "When analyzing the correlation between two variables, what is a 'Confounder'?",
+        "options": [
+            "A variable that has missing values.",
+            "A third variable that influences both the independent and dependent variables, potentially creating a spurious correlation.",
+            "An outlier that skews the regression line.",
+            "A variable that is perfectly correlated with the target."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A confounder is an external variable affecting both observed variables (e.g., 'Summer' causing both 'Ice Cream Sales' and 'Shark Attacks'), creating a false impression of a direct causal link between them."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of 'Small Multiples' (Faceting) in visualization?",
+        "options": [
+            "To show only a small subset of the data.",
+            "To repeat the same chart layout across different slices of data (e.g., per segment) to facilitate direct comparison.",
+            "To reduce the file size of the report.",
+            "To combine multiple different chart types (bar, line, pie) into one view."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Small multiples split a chart into several smaller panels based on a categorical variable. This allows the viewer to compare patterns across groups (like 'Plan Type') without the clutter of a single overplotted chart."
+    },
+    {
+        "type": "single",
+        "question": "In a histogram, how does the choice of 'bin width' affect the visualization?",
+        "options": [
+            "It has no effect; the distribution shape remains the same.",
+            "Too wide bins over-smooth the data hiding details; too narrow bins introduce noise.",
+            "It changes the mean of the data.",
+            "It converts the numeric data into categorical data."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Bin width is a bias-variance tradeoff. Large bins obscure features (underfitting/smoothing), while tiny bins show random noise (overfitting). Choosing the right width is crucial for accurately seeing the distribution shape."
+    },
+    {
+        "type": "single",
+        "question": "What is the definition of a 'Leading Indicator'?",
+        "options": [
+            "A metric that confirms a pattern has occurred (e.g., Total Revenue).",
+            "A predictive metric that signals future outcomes and can be directly influenced (e.g., Cart Add Rate).",
+            "A metric used exclusively by the CEO.",
+            "A metric that always has a value of 1."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Leading indicators (drivers) are input metrics that predict future results and are actionable (e.g., improving cart adds likely improves future revenue). Lagging indicators reflect the final output."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an example of 'Target Leakage'?",
+        "options": [
+            "Using 'Customer Age' to predict 'Churn'.",
+            "Using 'Total Minutes Called' to predict 'Churn'.",
+            "Using 'Account Closed Date' to predict 'Churn'.",
+            "Using 'Plan Type' to predict 'Churn'."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The 'Account Closed Date' only exists if the customer has *already* churned. Using this variable to predict churn is leakage because the model is given the answer it is supposed to predict."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary benefit of using a Common Table Expression (CTE) over a subquery?",
+        "options": [
+            "It improves query readability and allows the logic to be reused multiple times within the same query.",
+            "It is always faster to execute.",
+            "It stores the data permanently on disk.",
+            "It allows for cross-database joins."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "CTEs (`WITH name AS ...`) break complex queries into readable, named logical blocks. They can also be referenced multiple times in the main query, preventing code duplication."
+    },
+    {
+        "type": "single",
+        "question": "Which feature engineering technique involves transforming a cyclic feature (like 'Hour of Day') into two coordinates?",
+        "options": [
+            "One-Hot Encoding",
+            "Sine-Cosine Transformation",
+            "Log Transformation",
+            "Binning"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Cyclic features like time (0-23 hours) have a continuity (23 is close to 0) that linear numbers don't capture. Transforming them into Sine and Cosine components preserves this cyclic relationship for the model."
+    },
+    {
+        "type": "single",
+        "question": "When diagnosing missing data, what does a 'Missingness Map' visualize?",
+        "options": [
+            "The geographic location where data was lost.",
+            "The pattern of missing values across rows and columns to detect structural issues or correlations.",
+            "The projected value of the missing data.",
+            "The database schema."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A missingness map (often a heatmap) shows which specific cells are missing. It helps diagnose if missingness is random or if there are systematic blocks of missing data (e.g., specific time periods or segments)."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Data Value Chain' progression?",
+        "options": [
+            "Clean -> Store -> Model -> Deploy",
+            "Collect -> Store -> Clean/Transform -> Analyze/Model -> Deploy -> Monitor",
+            "Deploy -> Monitor -> Collect -> Clean",
+            "Model -> Clean -> Collect -> Store"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The value chain starts with Collection, followed by Storage, Cleaning/Transformation, Analysis/Modeling, Deployment, and finally Monitoring. This sequence ensures data is usable and reliable before value is extracted."
+    }
+]

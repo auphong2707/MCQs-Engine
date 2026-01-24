@@ -1,0 +1,482 @@
+[
+    {
+        "type": "single",
+        "question": "According to the CRISP-DM methodology, which phase immediately follows 'Data Understanding'?",
+        "options": [
+            "Modeling",
+            "Data Preparation",
+            "Evaluation",
+            "Deployment"
+        ],
+        "answer": [1],
+        "explanation": "The CRISP-DM process flow is defined as: Business Understanding → Data Understanding → Data Preparation → Modeling → Evaluation → Deployment."
+    },
+    {
+        "type": "single",
+        "question": "In a KPI Tree, what role do 'Levers' play?",
+        "options": [
+            "They represent the ultimate financial goal (North Star).",
+            "They serve as guardrails to prevent negative business impacts.",
+            "They are actionable factors attached to branches that can influence drivers.",
+            "They are lagging indicators used solely for reporting historical performance."
+        ],
+        "answer": [2],
+        "explanation": "According to the KPI Tree process, after decomposing the North Star into drivers, one must attach levers (and owners) to each branch, which represent the actionable changes that can influence those drivers."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are components of the 'Problem Statement Template' (DOC)?",
+        "options": [
+            "Decision",
+            "Options",
+            "Criteria",
+            "Deployment"
+        ],
+        "answer": [0, 1, 2],
+        "explanation": "The Problem Statement Template is described using the framework: Context, Decision (the choice), Options (candidate options), and Criteria (the set of KPIs to compare options)."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary function of 'Guardrails' in the context of problem framing?",
+        "options": [
+            "To measure the primary success of an experiment.",
+            "To define the sample size required for A/B testing.",
+            "To ensure secondary metrics or constraints (e.g., latency, ethics) are not violated while optimizing the primary goal.",
+            "To identify the North Star metric for the organization."
+        ],
+        "answer": [2],
+        "explanation": "Guardrails are defined alongside success KPIs to monitor trade-offs, such as ensuring that optimizing for revenue does not negatively impact conversion rates, latency, or ethical standards."
+    },
+    {
+        "type": "single",
+        "question": "Based on the rule of thumb provided for A/B testing, what is the approximate formula for sample size $n$ per group involving conversion rates?",
+        "options": [
+            "$n \\approx 16 \\times \\frac{p(1-p)}{\\Delta^2}$",
+            "$n \\approx 4 \\times \\frac{p}{\\Delta}$",
+            "$n \\approx 1.96 \\times \\sigma / \\sqrt{n}$",
+            "$n \\approx \\frac{1}{\\Delta^2}$"
+        ],
+        "answer": [0],
+        "explanation": "The lecture slides provide a specific rule of thumb for sample size in A/B testing for conversion rates: $n \\approx 16 \\times p(1-p)/\\Delta^2$."
+    },
+    {
+        "type": "single",
+        "question": "Which layer of the 'Medallion' data architecture is characterized as 'cleaned & conformed' and ready for joins?",
+        "options": [
+            "Bronze",
+            "Silver",
+            "Gold",
+            "Platinum"
+        ],
+        "answer": [1],
+        "explanation": "In the Lakehouse/Medallion architecture, the Silver layer contains cleaned and conformed data (deduplicated, schema-enforced) that is ready for joins, whereas Bronze is raw and Gold is curated for BI."
+    },
+    {
+        "type": "multi",
+        "question": "Select the characteristics that correctly distinguish OLAP (Online Analytical Processing) from OLTP (Online Transaction Processing).",
+        "options": [
+            "OLAP schemas are typically denormalized.",
+            "OLAP systems are optimized for many small write transactions.",
+            "OLAP systems utilize columnar storage.",
+            "OLAP workloads consist of fewer but larger read operations."
+        ],
+        "answer": [0, 2, 3],
+        "explanation": "OLAP is characterized by fewer large reads, denormalized schemas, and columnar storage. OLTP, conversely, is characterized by many small writes and normalized schemas."
+    },
+    {
+        "type": "single",
+        "question": "In a Slowly Changing Dimension (SCD) Type 2 table, which columns are typically required to maintain history?",
+        "options": [
+            "created_at, updated_at",
+            "id, name, description",
+            "valid_from, valid_to, is_current",
+            "partition_key, cluster_key"
+        ],
+        "answer": [2],
+        "explanation": "SCD Type 2 maintains history via versioned rows using validity ranges, typically requiring `valid_from`, `valid_to`, and `is_current` columns."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of an 'ANTI JOIN'?",
+        "options": [
+            "To return rows from table A that have at least one match in table B.",
+            "To return rows from table A that have NO matches in table B.",
+            "To return a Cartesian product of both tables.",
+            "To replace NULL values with a default string during a join."
+        ],
+        "answer": [1],
+        "explanation": "An ANTI JOIN (often implemented with `NOT EXISTS` or `LEFT JOIN ... WHERE IS NULL`) selects rows from the first table that do not have a corresponding match in the second table."
+    },
+    {
+        "type": "single",
+        "question": "Which SQL construct is best suited for traversing hierarchical data structures like organizational trees or graphs?",
+        "options": [
+            "Window Functions",
+            "Recursive CTEs",
+            "Lateral Joins",
+            "Group By Rollup"
+        ],
+        "answer": [1],
+        "explanation": "Recursive CTEs are specifically cited as the tool for handling trees, graphs, hierarchies, and sequences."
+    },
+    {
+        "type": "single",
+        "question": "In window functions, what is the difference between `ROWS` and `RANGE` in frame specifications?",
+        "options": [
+            "`ROWS` counts physical rows, while `RANGE` looks at logical value differences.",
+            "`ROWS` is deprecated, while `RANGE` is the modern standard.",
+            "`ROWS` includes ties in the ordering, while `RANGE` strictly separates them.",
+            "`ROWS` is used for text data, while `RANGE` is used for numeric data."
+        ],
+        "answer": [0],
+        "explanation": "The extra examples clarify that `ROWS` deals with physical row counts (e.g., 2 preceding rows), while `RANGE` deals with logical intervals (e.g., 2 days preceding) based on the order key."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Time Travel' in the context of modern data warehouses like Snowflake, BigQuery, and Delta Lake?",
+        "options": [
+            "The ability to speed up query execution time by caching results.",
+            "The ability to query historical versions of data tables to audit or recover states.",
+            "The ability to predict future data trends using machine learning.",
+            "The ability to automatically handle timezone conversions in timestamps."
+        ],
+        "answer": [1],
+        "explanation": "Time Travel allows users to query historical table versions to audit changes or recover previous states using syntax like `AT` or `AS OF`."
+    },
+    {
+        "type": "single",
+        "question": "What defines data that is 'Missing Not At Random' (MNAR)?",
+        "options": [
+            "The missingness is completely unrelated to any data.",
+            "The missingness depends on observed variables.",
+            "The missingness depends on the value of the missing variable itself.",
+            "The missingness is caused by a random system error."
+        ],
+        "answer": [2],
+        "explanation": "MNAR (Missing Not At Random) is defined as missingness that depends on the missing variable itself (e.g., high-income earners not disclosing their income)."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a common method for detecting outliers mentioned in the data profiling materials?",
+        "options": [
+            "The Hashing Trick",
+            "Interquartile Range (IQR) method",
+            "K-Fold Cross Validation",
+            "One-Hot Encoding"
+        ],
+        "answer": [1],
+        "explanation": "Outlier detection methods listed include Z-scores and the IQR method (specifically capping at Q1 - 1.5*IQR and Q3 + 1.5*IQR)."
+    },
+    {
+        "type": "single",
+        "question": "What is a major risk of using 'Target Encoding' for categorical variables?",
+        "options": [
+            "It increases the dimensionality of the dataset significantly.",
+            "It cannot handle ordinal data.",
+            "It creates data leakage if computed on the full dataset without cross-validation.",
+            "It treats all categories as having equal distance."
+        ],
+        "answer": [2],
+        "explanation": "The slides explicitly state that Target Encoding issues include leakage if not handled correctly, and recommend computing it inside CV loops or adding noise/smoothing to prevent this."
+    },
+    {
+        "type": "single",
+        "question": "Which scaling technique uses the median and IQR to be robust against outliers?",
+        "options": [
+            "StandardScaler",
+            "MinMaxScaler",
+            "RobustScaler",
+            "Log Transformation"
+        ],
+        "answer": [2],
+        "explanation": "RobustScaler is defined as using the median and IQR for scaling, making it robust to outliers compared to standard mean/variance scaling."
+    },
+    {
+        "type": "single",
+        "question": "Which feature selection category includes methods like L1 (Lasso) regularization and tree-based importance?",
+        "options": [
+            "Filter Methods",
+            "Wrapper Methods",
+            "Embedded Methods",
+            "Hybrid Methods"
+        ],
+        "answer": [2],
+        "explanation": "Embedded methods include regularization techniques like Lasso (L1) and Ridge (L2), as well as tree-based importance measures."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Target Leakage' in a machine learning pipeline?",
+        "options": [
+            "When the target variable is missing from the training data.",
+            "When features contain information about the label that would not be available at prediction time.",
+            "When the model overfits the training data.",
+            "When the test set size is too small."
+        ],
+        "answer": [1],
+        "explanation": "Target leakage is defined as occurring when features contain the label or its consequences (e.g., using 'refund_in_30d' to predict churn), creeping in from the future."
+    },
+    {
+        "type": "single",
+        "question": "What is the recommended strategy for handling a high-cardinality categorical variable like `plan_id`?",
+        "options": [
+            "Always use One-Hot Encoding.",
+            "Drop the column immediately.",
+            "Collapse rare levels, use frequency encoding, or hashing.",
+            "Convert it to a continuous numeric variable directly."
+        ],
+        "answer": [2],
+        "explanation": "High-cardinality tactics listed include collapsing rare levels to 'Other', frequency/count encoding, target encoding, or hashing."
+    },
+    {
+        "type": "single",
+        "question": "According to the 'Golden Rules for Pipelines', where should preprocessing (like imputation and scaling) be fit?",
+        "options": [
+            "On the full dataset before splitting.",
+            "On the test set only.",
+            "Only on the training folds/data.",
+            "On the validation set only."
+        ],
+        "answer": [2],
+        "explanation": "The golden rule states to 'Never fit preprocessing on the full dataset' and to 'Fit preprocessing only on training folds' to avoid leakage."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary goal of Exploratory Data Analysis (EDA)?",
+        "options": [
+            "To deploy the final model to production.",
+            "To systematically explore data to form and test hypotheses.",
+            "To clean the data for storage optimization.",
+            "To generate automated reports for external stakeholders."
+        ],
+        "answer": [1],
+        "explanation": "EDA is defined as the 'systematic exploration of data to form/test hypotheses', summarize distributions, and bridge business questions with modeling choices."
+    },
+    {
+        "type": "single",
+        "question": "Which visualization is most appropriate for examining the distribution of a single numeric variable?",
+        "options": [
+            "Scatter plot",
+            "Stacked bar chart",
+            "Histogram or Boxplot",
+            "Correlation heatmap"
+        ],
+        "answer": [2],
+        "explanation": "Histograms and boxplots are identified as the primary tools for visualizing distributions of numeric data (showing shape, center, spread, outliers)."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Simpson's Paradox'?",
+        "options": [
+            "When a correlation is actually causation.",
+            "When a trend appears in different groups of data but disappears or reverses when these groups are combined.",
+            "When adding more data decreases model accuracy.",
+            "When outliers skew the mean but not the median."
+        ],
+        "answer": [1],
+        "explanation": "Simpson's Paradox is described as a phenomenon where a pooled trend differs from (or contradicts) the within-group trends, necessitating stratified views."
+    },
+    {
+        "type": "single",
+        "question": "Why should dual y-axes be avoided in visualizations unless necessary?",
+        "options": [
+            "They consume too much ink.",
+            "They can be misleading regarding the relationship between the two series.",
+            "They are not supported by most Python libraries.",
+            "They require 3D rendering."
+        ],
+        "answer": [1],
+        "explanation": "The section on Scales & Axes explicitly advises to 'Avoid dual y-axes unless necessary', implying they can be misleading or confusing to the viewer."
+    },
+    {
+        "type": "single",
+        "question": "What does the 'position/length' channel offer in visualization principles?",
+        "options": [
+            "The most precise perception for quantitative comparisons.",
+            "The best way to represent categorical differences.",
+            "A misleading representation of area or volume.",
+            "A method strictly for time-series data."
+        ],
+        "answer": [0],
+        "explanation": "In Visualization Principles (Marks & Channels), position and length are noted as being the most precise channels for human perception, unlike area/volume which can be misleading."
+    },
+    {
+        "type": "single",
+        "question": "When is a log scale recommended?",
+        "options": [
+            "When the data has negative values.",
+            "When the data follows a normal distribution.",
+            "When the data has heavy tails or covers several orders of magnitude.",
+            "When visualizing categorical counts."
+        ],
+        "answer": [2],
+        "explanation": "Log scales are recommended for heavy-tailed distributions or data that spans multiple orders of magnitude to better visualize the spread."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are listed as common anti-patterns in EDA?",
+        "options": [
+            "Cherry-picking data.",
+            "Using small multiples.",
+            "Overplotting.",
+            "Inferring causal claims from pure correlation."
+        ],
+        "answer": [0, 2, 3],
+        "explanation": "Common anti-patterns include cherry-picking, overplotting, and making causal claims from correlation. Small multiples are listed as a recommended technique (not an anti-pattern)."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of 'Small Multiples' or 'Faceting'?",
+        "options": [
+            "To create a single complex chart with many variables.",
+            "To compare patterns across groups or time using repeated layouts.",
+            "To reduce the data size before plotting.",
+            "To hide outliers in the data."
+        ],
+        "answer": [1],
+        "explanation": "Small multiples (faceting) are used to compare patterns across different groups or time segments by repeating the same chart layout for each segment."
+    },
+    {
+        "type": "single",
+        "question": "Which correlation coefficient captures monotonic but non-linear relationships?",
+        "options": [
+            "Pearson",
+            "Spearman",
+            "R-squared",
+            "Mean Absolute Error"
+        ],
+        "answer": [1],
+        "explanation": "The slides contrast Pearson (linear) with Spearman correlations, noting that Spearman is used for rank-based (monotonic) relationships."
+    },
+    {
+        "type": "single",
+        "question": "In the 'Data Value Chain', what immediately follows the 'Clean/Transform' step?",
+        "options": [
+            "Collect",
+            "Store",
+            "Analyze/Model",
+            "Deploy"
+        ],
+        "answer": [2],
+        "explanation": "The Data Value Chain order is: Collect → Store → Clean/Transform → Analyze/Model → Deploy → Monitor."
+    },
+    {
+        "type": "single",
+        "question": "What distinguishes 'Leading' indicators from 'Lagging' indicators?",
+        "options": [
+            "Leading indicators are easier to measure.",
+            "Leading indicators are input metrics that predict future outcomes, while lagging indicators reflect past performance.",
+            "Leading indicators are always financial, lagging are operational.",
+            "Leading indicators are used in OLTP, lagging in OLAP."
+        ],
+        "answer": [1],
+        "explanation": "Leading indicators are input metrics that drivers can influence to predict future outcomes, whereas lagging indicators (outputs) confirm what has already happened."
+    },
+    {
+        "type": "single",
+        "question": "What is a 'Feature Store' used for?",
+        "options": [
+            "To archive old data logs.",
+            "To reuse features across models and ensure consistency between training and inference.",
+            "To visualize feature distributions.",
+            "To store the results of A/B tests."
+        ],
+        "answer": [1],
+        "explanation": "A Feature Store is described as a tool to 'reuse features' and maintain 'lineage and versioning', ensuring consistency (feature-model consistency)."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a 'Wrapper Method' for feature selection?",
+        "options": [
+            "Lasso (L1) regularization",
+            "Recursive Feature Elimination (RFE)",
+            "Chi-square test",
+            "Variance Threshold"
+        ],
+        "answer": [1],
+        "explanation": "Wrapper methods are described as using an estimator to select features, with Recursive Feature Elimination (RFE) explicitly listed as an example."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary benefit of a 'Snowflake Schema' over a 'Star Schema'?",
+        "options": [
+            "Simpler joins.",
+            "Reduced data redundancy due to normalized dimensions.",
+            "Faster query performance for all aggregations.",
+            "Better support for unstructured data."
+        ],
+        "answer": [1],
+        "explanation": "The Snowflake schema normalizes dimensions (e.g., product -> category), which reduces redundancy, although it increases complexity with more joins."
+    },
+    {
+        "type": "single",
+        "question": "In the context of 'Time Travel' in Snowflake, what keyword is used to query data from a specific point in the past?",
+        "options": [
+            "ROLLBACK TO",
+            "AT or BEFORE",
+            "VERSION AS OF",
+            "FOR SYSTEM_TIME"
+        ],
+        "answer": [1],
+        "explanation": "Snowflake syntax for time travel is explicitly listed as using the `AT` or `BEFORE` clause (e.g., `AT(TIMESTAMP => ...)`)."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Sessionization' in SQL typically achieved with?",
+        "options": [
+            "A simple GROUP BY user_id.",
+            "Using LAG() to detect time gaps larger than a threshold.",
+            "A self-join on the orders table.",
+            "The RANK() window function."
+        ],
+        "answer": [1],
+        "explanation": "Sessionization is demonstrated using `LAG()` to detect if the gap between the current and previous event timestamp exceeds a threshold (e.g., 30 minutes)."
+    },
+    {
+        "type": "single",
+        "question": "What does 'MCAR' stand for in the context of missing data?",
+        "options": [
+            "Missing Cases Are Rare",
+            "Missing Completely At Random",
+            "Missing Conditional At Random",
+            "Most Cases Are Redundant"
+        ],
+        "answer": [1],
+        "explanation": "MCAR stands for 'Missing Completely At Random', meaning the missingness mechanism is unrelated to any data."
+    },
+    {
+        "type": "single",
+        "question": "Which strategy is suggested to handle 'Temporal Leakage'?",
+        "options": [
+            "Random K-Fold cross-validation.",
+            "Time-based splits or freezing feature windows to pre-cutoff data.",
+            "Oversampling the minority class.",
+            "Removing all date columns."
+        ],
+        "answer": [1],
+        "explanation": "To avoid temporal leakage, the slides recommend 'Time-based splits (TimeSeriesSplit)' and freezing feature windows to data available prior to the prediction point (pre-TO)."
+    },
+    {
+        "type": "single",
+        "question": "Which visualization is advised to avoid for composition analysis?",
+        "options": [
+            "Stacked bar chart",
+            "3D Pie chart",
+            "Treemap",
+            "100% Stacked bar"
+        ],
+        "answer": [1],
+        "explanation": "The slides explicitly advise to 'avoid 3D pies' when choosing the right chart for composition."
+    },
+    {
+        "type": "single",
+        "question": "What is the definition of 'Validity' in Data Quality?",
+        "options": [
+            "The data represents the real world correctly.",
+            "The data conforms to defined schema contracts (types, ranges, constraints).",
+            "The data is available when needed.",
+            "The data has no missing values."
+        ],
+        "answer": [1],
+        "explanation": "Validity is listed under data quality dimensions and is associated with conforming to rules, ranges, and schema constraints (e.g., age in [0, 120])."
+    }
+]
