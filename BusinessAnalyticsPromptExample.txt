@@ -1,0 +1,47 @@
+Generate 40 multiple-choice questions (MCQs) Business Analytics from these slides.
+
+Requirements:
+- Match the style and vibe of the sample questions below
+- Wrong options must be plausible but definitively incorrect (avoid obviously wrong distractors)
+- Provide detailed explanations without citation
+- Make sure options is 0-indexed
+- Do NOT introduce external theories, tools, formulas, or terminology that are not present in the slides
+- Provide a clear, concise, and logically structured explanation
+
+Explanations must:
+Refer only to concepts present in the PDF/slides
+Explain why the correct option(s) are correct
+Briefly clarify why the distractors are incorrect
+Do not cite external sources or textbooks
+
+JSON Format:
+```json
+[
+    {
+        "type": "single",
+        "question": "In a KPI Tree, what is the primary distinction between a Leading Indicator and a Lagging Indicator?",
+        "options": [
+            "Leading indicators are financial metrics, while lagging indicators are operational.",
+            "Leading indicators predict future outcomes and can be influenced directly, while lagging indicators confirm past performance.",
+            "Leading indicators are always qualitative, while lagging indicators are quantitative.",
+            "Leading indicators are used for external reporting, while lagging indicators are for internal dashboards."
+        ],
+        "answer": [1],
+        "explanation": "Leading indicators (drivers) signal future outcomes and are often actionable input metrics, whereas lagging indicators (outputs) reflect what has already happened, such as revenue or churn rate."
+    },
+    {
+       "type": "multi",
+        "question": "Select all characteristics that correctly describe OLAP (Online Analytical Processing) systems.",
+        "options": [
+            "They are optimized for high-volume, small-write transactions.",
+            "They typically use denormalized schemas.",
+            "They are designed for fewer large reads and complex aggregation.",
+            "They focus on row-based storage for fast individual record retrieval."
+        ],
+        "answer": [1, 2],
+        "explanation": "OLAP systems are designed for analytics, favoring denormalized schemas and columnar storage for heavy reads and aggregation. OLTP systems focus on small writes and row-based storage."
+    }
+]
+```
+
+Output format: JSON array with identical structure to samples above.
