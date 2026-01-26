@@ -54,6 +54,53 @@ function escapeHtml(text) {
 }
 
 /**
+ * Render markdown text to HTML
+ */
+function renderMarkdown(text) {
+    if (!text) return '';
+    
+    // Check if marked library is available
+    if (typeof marked !== 'undefined') {
+        // Configure marked for safe rendering
+        marked.setOptions({
+            breaks: true,
+            gfm: true,
+            headerIds: false,
+            mangle: false
+        });
+        
+        // First render markdown
+        let html = marked.parse(text);
+        
+        // Then render LaTeX math if KaTeX is available
+        if (typeof katex !== 'undefined') {
+            // Render inline math: $...$
+            html = html.replace(/\$([^$]+)\$/g, (match, math) => {
+                try {
+                    return katex.renderToString(math, { throwOnError: false });
+                } catch (e) {
+                    return match;
+                }
+            });
+            
+            // Render display math: $$...$$
+            html = html.replace(/\$\$([^$]+)\$\$/g, (match, math) => {
+                try {
+                    return katex.renderToString(math, { displayMode: true, throwOnError: false });
+                } catch (e) {
+                    return match;
+                }
+            });
+        }
+        
+        return html;
+    }
+    
+    // Fallback to escaped HTML if marked is not available
+    return escapeHtml(text);
+}
+
+/**
  * Load available question files from backend
  */
 async function loadAvailableFiles() {
@@ -557,7 +604,7 @@ function createQuestionElement(question, index) {
             <span class="question-number">Question ${index + 1}</span>
             <span class="question-type">${typeLabel}</span>
         </div>
-        <div class="question-text">${escapeHtml(question.question)}</div>
+        <div class="question-text">${renderMarkdown(question.question)}</div>
         <ul class="options-list">
     `;
 
@@ -575,7 +622,7 @@ function createQuestionElement(question, index) {
                         value="${optionIndex}"
                         ${isQuestionSubmitted || isSubmitted ? 'disabled' : ''}
                     >
-                    <span>${escapeHtml(option)}</span>
+                    <span>${renderMarkdown(option)}</span>
                 </label>
             </li>
         `;
@@ -668,7 +715,7 @@ function checkSingleQuestion(questionIndex) {
     if (question.explanation) {
         const explanationDiv = questionBlock.querySelector('.question-explanation');
         if (explanationDiv) {
-            explanationDiv.innerHTML = `<strong>Explanation:</strong> ${escapeHtml(question.explanation)}`;
+            explanationDiv.innerHTML = `<strong>Explanation:</strong> ${renderMarkdown(question.explanation)}`;
             explanationDiv.style.display = 'block';
         }
     }
@@ -711,7 +758,7 @@ function highlightSingleQuestion(questionIndex) {
     if (question.explanation) {
         const explanationDiv = questionBlock.querySelector('.question-explanation');
         if (explanationDiv) {
-            explanationDiv.innerHTML = `<strong>Explanation:</strong> ${escapeHtml(question.explanation)}`;
+            explanationDiv.innerHTML = `<strong>Explanation:</strong> ${renderMarkdown(question.explanation)}`;
             explanationDiv.style.display = 'block';
         }
     }

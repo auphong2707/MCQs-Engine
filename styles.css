@@ -370,6 +370,77 @@ h2 {
     color: #222;
 }
 
+/* Markdown styling in questions and options */
+.question-text p {
+    margin: 8px 0;
+}
+
+.question-text code,
+.option-item code {
+    background-color: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: #c7254e;
+}
+
+.question-text pre,
+.option-item pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 10px 0;
+}
+
+.question-text pre code,
+.option-item pre code {
+    background-color: transparent;
+    padding: 0;
+    color: #333;
+}
+
+.question-text strong,
+.option-item strong {
+    font-weight: 600;
+    color: #000;
+}
+
+.question-text em,
+.option-item em {
+    font-style: italic;
+}
+
+.question-text ul,
+.question-text ol {
+    margin: 8px 0;
+    padding-left: 30px;
+}
+
+.question-text li {
+    margin: 4px 0;
+}
+
+.question-text blockquote {
+    border-left: 4px solid #ddd;
+    margin: 10px 0;
+    padding-left: 15px;
+    color: #666;
+    font-style: italic;
+}
+
+.question-text a,
+.option-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.question-text a:hover,
+.option-item a:hover {
+    text-decoration: underline;
+}
+
 .options-list {
     list-style: none;
     margin-top: 15px;
@@ -473,6 +544,61 @@ h2 {
     color: #007bff;
     display: block;
     margin-bottom: 5px;
+}
+
+/* Markdown styling in explanations */
+.question-explanation p {
+    margin: 8px 0;
+}
+
+.question-explanation code {
+    background-color: #e9ecef;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    color: #c7254e;
+}
+
+.question-explanation pre {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 10px 0;
+}
+
+.question-explanation pre code {
+    background-color: transparent;
+    padding: 0;
+    color: #333;
+}
+
+.question-explanation ul,
+.question-explanation ol {
+    margin: 8px 0;
+    padding-left: 30px;
+}
+
+.question-explanation li {
+    margin: 4px 0;
+}
+
+.question-explanation blockquote {
+    border-left: 4px solid #ccc;
+    margin: 10px 0;
+    padding-left: 15px;
+    color: #666;
+    font-style: italic;
+}
+
+.question-explanation a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.question-explanation a:hover {
+    text-decoration: underline;
 }
 
 .control-panel {
