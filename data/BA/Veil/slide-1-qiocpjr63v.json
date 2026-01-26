@@ -1,0 +1,482 @@
+[
+  {
+    "type": "single",
+    "question": "What is the primary objective of Business Data Analytics as defined in the end-to-end workflow?",
+    "options": [
+      "To collect as much data as possible for future use",
+      "A process to turn data into insight and action",
+      "To replace human decision-making with automated scripts",
+      "The storage of unstructured data in cloud repositories"
+    ],
+    "answer": [1],
+    "explanation": "Business Data Analytics is specifically defined as a process that transforms raw data into meaningful insights and actionable business decisions."
+  },
+  {
+    "type": "multi",
+    "question": "Which of the following are considered layers of business analytics?",
+    "options": [
+      "Descriptive analytics",
+      "Diagnostic analytics",
+      "Prescriptive analytics",
+      "Reactive analytics"
+    ],
+    "answer": [0, 1, 2],
+    "explanation": "The standard layers of analytics include descriptive (what happened), diagnostic (why it happened), predictive (what will happen), and prescriptive (how to make it happen)."
+  },
+  {
+    "type": "single",
+    "question": "How does Business Intelligence (BI) primarily differ from Data Science/Data Analytics (DA/DS)?",
+    "options": [
+      "BI uses only SQL, while DS uses only Python",
+      "BI focuses on past and present KPI monitoring, whereas DA/DS focuses on root-cause and forecasting",
+      "BI is for executive leadership, while DS is only for engineering teams",
+      "There is no difference; the terms are interchangeable in modern enterprise"
+    ],
+    "answer": [1],
+    "explanation": "BI is traditionally centered on reporting, dashboards, and monitoring the past or present. DA/DS goes further into root-cause analysis, forecasting, and optimization."
+  },
+  {
+    "type": "multi",
+    "question": "According to the Data Value Chain, which steps occur after the 'Clean/Transform' phase?",
+    "options": [
+      "Collect",
+      "Analyze/Model",
+      "Deploy",
+      "Monitor"
+    ],
+    "answer": [1, 2, 3],
+    "explanation": "The Data Value Chain flows from Collection to Storage, then Cleaning/Transformation, followed by Analysis/Modeling, Deployment, and finally Monitoring."
+  },
+  {
+    "type": "single",
+    "question": "What is the core principle of 'Product Thinking' in the context of data projects?",
+    "options": [
+      "Start from the decision to be supported",
+      "Focus on the complexity of the algorithm",
+      "Maximize the number of features in the dashboard",
+      "Prioritize data volume over data quality"
+    ],
+    "answer": [0],
+    "explanation": "Product thinking in data involves treating the data output as a product with a lifecycle, where the starting point is always the specific business decision that needs support."
+  },
+  {
+    "type": "multi",
+    "question": "Which of these are core skills required for a data analytics team?",
+    "options": [
+      "SQL and Statistics",
+      "Data Storytelling",
+      "Exploratory Data Analysis (EDA)",
+      "Hardware manufacturing"
+    ],
+    "answer": [0, 1, 2],
+    "explanation": "Core skills include technical abilities like SQL, stats, and EDA, along with the soft skill of data storytelling to communicate insights."
+  },
+  {
+    "type": "single",
+    "question": "In a Trustworthy AI mindset, what does 'explainability' refer to?",
+    "options": [
+      "The ability of a model to run on any operating system",
+      "The speed at which a model returns a prediction",
+      "The capacity to understand and describe why a model made a specific prediction",
+      "The process of documenting the code for other developers"
+    ],
+    "answer": [2],
+    "explanation": "Explainability is a pillar of ethics and governance, ensuring that AI decisions are transparent and can be audited or understood by humans."
+  },
+  {
+    "type": "multi",
+    "question": "What are the six phases of the CRISP-DM process?",
+    "options": [
+      "Business Understanding and Data Understanding",
+      "Data Preparation and Modeling",
+      "Evaluation and Deployment",
+      "Budgeting and Marketing"
+    ],
+    "answer": [0, 1, 2],
+    "explanation": "CRISP-DM consists of Business Understanding, Data Understanding, Data Preparation, Modeling, Evaluation, and Deployment."
+  },
+  {
+    "type": "single",
+    "question": "In CRISP-DM, what should you do if the 'Evaluation' phase reveals the model does not meet business goals?",
+    "options": [
+      "Deploy it anyway and fix it later",
+      "Loop back to Business Understanding to redefine goals or insights",
+      "Delete the data and start over",
+      "Force the model to fit the success criteria"
+    ],
+    "answer": [1],
+    "explanation": "CRISP-DM is iterative. If the evaluation shows failure to meet objectives, the process loops back to earlier phases (often Business Understanding) to adjust."
+  },
+  {
+    "type": "multi",
+    "question": "Which items are typically found in a CRISP-DM 'handover package'?",
+    "options": [
+      "Data dictionary and EDA report",
+      "Model card and evaluation report",
+      "Operations runbook",
+      "Company payroll list"
+    ],
+    "answer": [0, 1, 2],
+    "explanation": "A complete handover package includes documentation of the data, the model's logic, its performance evaluation, and instructions for operation (runbook)."
+  },
+  {
+    "type": "single",
+    "question": "When clarifying business objectives in the BU phase, what framework is recommended?",
+    "options": [
+      "SWOT",
+      "SMART",
+      "Porters Five Forces",
+      "Agile"
+    ],
+    "answer": [1],
+    "explanation": "Objectives and constraints should be SMART: Specific, Measurable, Achievable, Relevant, and Time-bound."
+  },
+  {
+    "type": "multi",
+    "question": "What activities are part of the 'Data Understanding' phase?",
+    "options": [
+      "Inventorying sources (schema, size, access)",
+      "Exploratory Data Analysis (EDA) for outliers and missingness",
+      "Building a final production neural network",
+      "Reconciling KPI definitions with actual data"
+    ],
+    "answer": [0, 1, 3],
+    "explanation": "Data Understanding focuses on exploring the data and validating its quality/relevance before any heavy modeling begins."
+  },
+  {
+    "type": "single",
+    "question": "What is 'data leakage' in the context of modeling?",
+    "options": [
+      "A security breach where data is stolen",
+      "The use of information in the training phase that would not be available at the time of the actual decision",
+      "Slow data transfer speeds between servers",
+      "Deleting important features by accident"
+    ],
+    "answer": [1],
+    "explanation": "Data leakage occurs when a model is trained using variables that are only known after the target event has happened, leading to unrealistically high performance that fails in production."
+  },
+  {
+    "type": "multi",
+    "question": "Which of these are valid feature engineering techniques mentioned in the Data Preparation phase?",
+    "options": [
+      "Handling missing values and outliers",
+      "Creating Recency, Frequency, Monetary (RFM) features",
+      "Normalizing units and timezones",
+      "Only using raw data without modification"
+    ],
+    "answer": [0, 1, 2],
+    "explanation": "Data Preparation involves cleaning (missing/outliers), normalization, and engineering new features like RFM to better represent business logic."
+  },
+  {
+    "type": "single",
+    "question": "What is the purpose of a 'Baseline' in the Modeling phase?",
+    "options": [
+      "To set the maximum complexity of the code",
+      "To provide a simple model or rule-set to compare more complex models against",
+      "To define the data storage limits",
+      "To establish the salary range for the data scientists"
+    ],
+    "answer": [1],
+    "explanation": "A baseline (like a simple rule or linear model) is essential to determine if a complex machine learning model provides enough 'lift' or improvement to justify its cost."
+  },
+  {
+    "type": "multi",
+    "question": "In the Modeling phase, how can you control overfitting and ensure explainability?",
+    "options": [
+      "Regularization and feature selection",
+      "Using SHAP values to explain predictions",
+      "Removing all data splits",
+      "Bias checks"
+    ],
+    "answer": [0, 1, 3],
+    "explanation": "Overfitting is managed via regularization/selection, while tools like SHAP and bias checks ensure the model is understandable and fair."
+  },
+  {
+    "type": "single",
+    "question": "What is the difference between 'Technical Evaluation' and 'Business Evaluation'?",
+    "options": [
+      "Technical is for IT; Business is for Marketing",
+      "Technical uses metrics like AUC/RMSE; Business uses metrics like profit uplift or KPI impact",
+      "Technical evaluation is mandatory, while Business is optional",
+      "There is no difference"
+    ],
+    "answer": [1],
+    "explanation": "Technical evaluation measures the mathematical accuracy of the model, while business evaluation measures its actual impact on the organization's bottom line or goals."
+  },
+  {
+    "type": "multi",
+    "question": "Which deployment strategies are commonly used in MLOps?",
+    "options": [
+      "Canary release",
+      "Blue-Green deployment",
+      "A/B switching",
+      "Manual copy-paste"
+    ],
+    "answer": [0, 1, 2],
+    "explanation": "Canary, Blue-Green, and A/B switching are professional deployment methods that allow for safe rollouts and monitoring."
+  },
+  {
+    "type": "single",
+    "question": "What is the 'North Star' in a KPI Tree?",
+    "options": [
+      "A metric used for marketing only",
+      "The top-level business goal that all other metrics should support",
+      "The name of the data warehouse",
+      "A lagging indicator that cannot be measured"
+    ],
+    "answer": [1],
+    "explanation": "The North Star is the primary, high-level objective (e.g., Monthly Revenue or GMV) that the entire KPI tree aims to decompose and influence."
+  },
+  {
+    "type": "multi",
+    "question": "Identify the characteristics of a good KPI according to the provided principles.",
+    "options": [
+      "Measurable and Available",
+      "Actionable",
+      "As numerous as possible (the more, the better)",
+      "Fewer but better"
+    ],
+    "answer": [0, 1, 3],
+    "explanation": "Effective KPIs should be few, measurable, available, and actionable. Having too many metrics (vanity metrics) leads to confusion and lack of focus."
+  },
+  {
+    "type": "single",
+    "question": "What is the difference between a Leading and a Lagging indicator?",
+    "options": [
+      "Leading indicators are past-oriented; Lagging are future-oriented",
+      "Leading indicators predict future success; Lagging indicators measure results after the fact",
+      "Leading indicators are always financial; Lagging are always operational",
+      "Leading indicators are only for CEOs"
+    ],
+    "answer": [1],
+    "explanation": "Leading indicators (e.g., website traffic) give an early signal of what might happen, whereas lagging indicators (e.g., quarterly revenue) confirm what has already occurred."
+  },
+  {
+    "type": "multi",
+    "question": "In a 5-step KPI Tree process, what happens after choosing the North Star?",
+    "options": [
+      "Decompose it into drivers you can influence",
+      "Attach levers and owners to each branch",
+      "Define guardrails and trade-offs",
+      "Immediately fire the team if the metric is low"
+    ],
+    "answer": [0, 1, 2],
+    "explanation": "After the North Star, you decompose drivers, assign owners/levers, define guardrails, and eventually connect everything to dashboards."
+  },
+  {
+    "type": "single",
+    "question": "What are 'Guardrails' in the context of KPI design?",
+    "options": [
+      "Physical barriers in the office",
+      "Secondary metrics to ensure that optimizing one driver doesn't harm another part of the business",
+      "The limits of the SQL database storage",
+      "The security permissions of the data team"
+    ],
+    "answer": [1],
+    "explanation": "Guardrails are metrics (like NPS or Error Rate) used to ensure that efforts to improve a primary goal (like Revenue) don't have unintended negative consequences."
+  },
+  {
+    "type": "multi",
+    "question": "What are common pitfalls when building a KPI Tree?",
+    "options": [
+      "Overlapping branches and double counting",
+      "No clear owners or actionable levers",
+      "Using causal validation",
+      "Metrics that lag behind decisions too much"
+    ],
+    "answer": [0, 1, 3],
+    "explanation": "Pitfalls include double counting (which skews results), lack of ownership (so no one acts), and slow refresh rates that make metrics irrelevant for current decisions."
+  },
+  {
+    "type": "single",
+    "question": "According to the slides, what percentage of analytics failures stem from misframed problems or KPIs?",
+    "options": [
+      "10%",
+      "50%",
+      "Up to 80%",
+      "Almost 100%"
+    ],
+    "answer": [2],
+    "explanation": "The materials state that up to 80% of failures are due to poor problem framing or incorrect KPI selection, rather than technical model failure."
+  },
+  {
+    "type": "multi",
+    "question": "What components make up the 'Problem Statement Template'?",
+    "options": [
+      "Context (Current situation and goal)",
+      "Decision (Choice and candidate options)",
+      "Criteria (KPIs to compare options)",
+      "The names of all developers"
+    ],
+    "answer": [0, 1, 2],
+    "explanation": "The DOC (Decision-Options-Criteria) framework combined with Context forms the standard template for framing a problem."
+  },
+  {
+    "type": "single",
+    "question": "What is the primary goal of 'Problem Framing'?",
+    "options": [
+      "To write long reports for stakeholders",
+      "To center analytics on decisions and avoid wasted effort",
+      "To prove that the data team is busy",
+      "To find the most complex algorithm possible"
+    ],
+    "answer": [1],
+    "explanation": "Problem framing ensures that the analysis is directly tied to a business choice, ensuring that the work is useful and impactful."
+  },
+  {
+    "type": "multi",
+    "question": "When converting a business question to an analytics task, what are the two common types of tasks mentioned?",
+    "options": [
+      "Diagnostic (finding bottlenecks)",
+      "Prescriptive (prioritizing improvements with ROI)",
+      "Sarcastic (mocking the data)",
+      "Random (picking tasks by chance)"
+    ],
+    "answer": [0, 1],
+    "explanation": "Analytics tasks typically fall into diagnostic (understanding the problem) or prescriptive (determining the best action based on ROI)."
+  },
+  {
+    "type": "single",
+    "question": "In an Impact/Effort matrix, which items should you prioritize first?",
+    "options": [
+      "Big bets (High impact, High effort)",
+      "Quick wins (High impact, Low effort)",
+      "Fillers (Low impact, Low effort)",
+      "Avoid (Low impact, High effort)"
+    ],
+    "answer": [1],
+    "explanation": "Quick wins provide the highest value for the least amount of work and should typically be prioritized first."
+  },
+  {
+    "type": "multi",
+    "question": "Which of these are ethical considerations for success criteria in analytics?",
+    "options": [
+      "Transparent pricing",
+      "Not worsening experience for vulnerable groups",
+      "Maximizing profit regardless of bias",
+      "Explainability of model decisions"
+    ],
+    "answer": [0, 1, 3],
+    "explanation": "Ethics in analytics involves ensuring fairness, transparency, and safety, especially for vulnerable populations."
+  },
+  {
+    "type": "single",
+    "question": "What is the 'randomization unit' in A/B testing?",
+    "options": [
+      "The computer used to run the test",
+      "The level at which you split your audience (e.g., user or session)",
+      "A random number generator",
+      "The time of day the test starts"
+    ],
+    "answer": [1],
+    "explanation": "The randomization unit defines who or what gets assigned to different versions of the test (Version A vs. Version B)."
+  },
+  {
+    "type": "multi",
+    "question": "To avoid 'peeking' in A/B testing, what should you estimate beforehand?",
+    "options": [
+      "Minimum detectable effect",
+      "Test duration based on traffic",
+      "The exact outcome of the test",
+      "Sample size"
+    ],
+    "answer": [0, 1, 3],
+    "explanation": "Proper A/B testing requires pre-calculating sample size and duration based on the expected effect size to ensure statistical significance."
+  },
+  {
+    "type": "single",
+    "question": "What is an 'anti-pattern' in business analytics?",
+    "options": [
+      "A beautiful design pattern in a dashboard",
+      "A common practice that seems helpful but is actually counterproductive (e.g., work not tied to a decision)",
+      "A specific type of database schema",
+      "A coding error that prevents execution"
+    ],
+    "answer": [1],
+    "explanation": "Anti-patterns are 'traps' like doing technical work that has no business impact or using vague, unmeasurable KPIs."
+  },
+  {
+    "type": "multi",
+    "question": "What are the components of the 'RACI' matrix mentioned in the team roles?",
+    "options": [
+      "Responsible and Accountable",
+      "Consulted and Informed",
+      "Reliable and Accurate",
+      "Random and Independent"
+    ],
+    "answer": [0, 1],
+    "explanation": "RACI stands for Responsible, Accountable, Consulted, and Informed. It is used to define roles and responsibilities."
+  },
+  {
+    "type": "single",
+    "question": "Which role is primarily responsible for data/model drift monitoring and feature-model consistency?",
+    "options": [
+      "Marketing Manager",
+      "MLOps/Platform Engineer",
+      "Sales Representative",
+      "UX Designer"
+    ],
+    "answer": [1],
+    "explanation": "MLOps and Platform Engineers focus on the operational health of models, including monitoring for drift and maintaining the infrastructure."
+  },
+  {
+    "type": "multi",
+    "question": "What are the key takeaways regarding KPI Trees?",
+    "options": [
+      "They connect the North Star to actionable levers",
+      "They are only useful for e-commerce",
+      "They help avoid vanity metrics",
+      "They require causal validation for strength"
+    ],
+    "answer": [0, 2, 3],
+    "explanation": "KPI Trees are versatile (not just for e-commerce) and serve to link high-level goals to concrete actions while filtering out useless metrics."
+  },
+  {
+    "type": "single",
+    "question": "In the context of data quality, what does 'freshness' refer to?",
+    "options": [
+      "How new the data scientists are to the team",
+      "The age or latency of the data relative to the current time",
+      "The cleanliness of the server room",
+      "The use of modern programming languages"
+    ],
+    "answer": [1],
+    "explanation": "Data freshness is a quality metric indicating how up-to-date the information is. Stale data can lead to incorrect decisions."
+  },
+  {
+    "type": "multi",
+    "question": "Which of these are common industry applications for Business Analytics?",
+    "options": [
+      "Credit scoring in Finance",
+      "Demand forecasting in Retail",
+      "Churn prediction in Telecom",
+      "Operating heavy machinery"
+    ],
+    "answer": [0, 1, 2],
+    "explanation": "Analytics is widely used for risk assessment (Finance), supply chain/pricing (Retail), and customer retention (Telecom)."
+  },
+  {
+    "type": "single",
+    "question": "What does 'prescriptive analytics' aim to provide?",
+    "options": [
+      "A summary of last year's sales",
+      "Recommendations on what actions to take to achieve a goal",
+      "A list of missing data points",
+      "An automated backup of the database"
+    ],
+    "answer": [1],
+    "explanation": "Prescriptive analytics goes beyond predicting what will happen to suggest the specific actions or optimizations needed to reach a desired outcome."
+  },
+  {
+    "type": "multi",
+    "question": "What are valid 'Success Criteria' categories for a data project?",
+    "options": [
+      "Primary (e.g., Revenue growth)",
+      "Secondary/Guardrails (e.g., Stable AOV)",
+      "Technical (e.g., Latency < 200ms)",
+      "Subjective (e.g., How much the CEO likes the color blue)"
+    ],
+    "answer": [0, 1, 2],
+    "explanation": "Success should be measured via primary goals, guardrails to prevent side effects, and technical performance requirements."
+  }
+]

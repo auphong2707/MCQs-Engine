@@ -1,0 +1,566 @@
+[
+    {
+        "type": "single",
+        "question": "According to the experiment lifecycle described in the slides, which phase involves defining hypotheses, metrics (primary & guardrails), and success criteria?",
+        "options": [
+            "Analyze",
+            "Design",
+            "Define",
+            "Run"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The 'Define' phase explicitly encompasses setting hypotheses, selecting metrics (primary and guardrails), and establishing success criteria. The 'Design' phase follows and focuses on randomization and sample size."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary purpose of conducting A/A tests before shipping an experiment?",
+        "options": [
+            "To reduce the variance of the primary metric.",
+            "To detect instrumentation issues and Sample Ratio Mismatch (SRM).",
+            "To calculate the Minimum Detectable Effect (MDE).",
+            "To increase the statistical power of the subsequent A/B test."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A/A tests are used as sanity checks to detect instrumentation issues and Sample Ratio Mismatch (SRM) before the actual experiment begins. They check event counts and unit balance."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are listed as potential causes for Sample Ratio Mismatch (SRM)?",
+        "options": [
+            "Tracking bugs",
+            "Bot traffic",
+            "Low statistical power",
+            "Randomization drift"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "The slides explicitly list tracking bugs, bot traffic, and randomization drift as causes for SRM. Low statistical power is related to Type II errors, not the assignment ratio."
+    },
+    {
+        "type": "single",
+        "question": "In the context of hypothesis testing, what does a p-value measure?",
+        "options": [
+            "The probability that the alternative hypothesis (H1) is true.",
+            "The probability of the observed effect given that the null hypothesis (H0) is true.",
+            "The probability that the null hypothesis (H0) is false.",
+            "The magnitude of the treatment effect."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The p-value represents the 'data extremeness under H0,' not the probability of the effect itself. It measures how likely the observed data (or more extreme data) is if the null hypothesis were true."
+    },
+    {
+        "type": "single",
+        "question": "How is statistical Power defined in relation to Type II error (beta)?",
+        "options": [
+            "Power = beta",
+            "Power = 1 + beta",
+            "Power = 1 - beta",
+            "Power = 1 / beta"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Power is defined as $1 - \beta$. It represents the probability of correctly rejecting the null hypothesis when an effect is present."
+    },
+    {
+        "type": "single",
+        "question": "Which statistical test is recommended for comparing Means (e.g., revenue) when variances are unequal?",
+        "options": [
+            "Two-proportion z-test",
+            "Mann-Whitney test",
+            "Welch's t-test",
+            "Chi-square test"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Welch's t-test is specified for Means (revenue) because it is robust to unequal variances. The z-test is for proportions, and Mann-Whitney is for non-parametric distributions."
+    },
+    {
+        "type": "single",
+        "question": "When designing metrics, what is the primary function of a 'Guardrail' metric?",
+        "options": [
+            "To serve as the Key Performance Indicator (KPI) linked to the decision.",
+            "To monitor negative impacts on user experience, such as latency or error rates.",
+            "To act as a proxy when the primary metric is too noisy.",
+            "To increase the sensitivity of the experiment."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Guardrails are designed to monitor constraints like latency and error rates to prevent negative side effects, whereas Primary metrics are KPIs linked to the decision."
+    },
+    {
+        "type": "single",
+        "question": "What is the relationship between Minimum Detectable Effect (MDE) and Sample Size (n)?",
+        "options": [
+            "Smaller MDE requires a larger sample size.",
+            "Smaller MDE requires a smaller sample size.",
+            "MDE has no impact on sample size.",
+            "Larger MDE requires a larger sample size."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "There is a trade-off: detecting a smaller effect (smaller MDE) requires more sensitivity, which necessitates a larger sample size (n)."
+    },
+    {
+        "type": "single",
+        "question": "What is the consequence of 'Naïve peeking' (checking results repeatedly) during an experiment?",
+        "options": [
+            "It inflates the Type I error rate.",
+            "It inflates the Type II error rate.",
+            "It decreases the variance of the metric.",
+            "It reduces the required sample size."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Naïve peeking inflates the Type I error (false positive) rate because it increases the chance of finding a significant result by chance alone over multiple looks."
+    },
+    {
+        "type": "multi",
+        "question": "Which methods are suggested to handle the issue of sequential testing or interim looks?",
+        "options": [
+            "Group-sequential methods",
+            "Alpha-spending methods",
+            "Bayesian monitoring with pre-specified rules",
+            "Increasing the MDE mid-experiment"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "The slides recommend Group-sequential, alpha-spending methods, or Bayesian monitoring to handle interim looks. Changing the MDE mid-experiment is not a valid statistical solution for peeking."
+    },
+    {
+        "type": "single",
+        "question": "For ratio metrics like ARPU, which statistical method is recommended to handle distributional issues?",
+        "options": [
+            "Winsorization",
+            "Delta method or Fieller's theorem",
+            "Mann-Whitney U test",
+            "CUPED"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The slides explicitly state that for ratio metrics (e.g., ARPU), one should use the delta method or Fieller's theorem. Winsorization is for heavy tails, not specifically ratios."
+    },
+    {
+        "type": "single",
+        "question": "In the CUPED variance reduction technique, what is the formula for the adjusted metric $Y^*$?",
+        "options": [
+            "$Y^* = Y - \\Theta(X - E[X])$",
+            "$Y^* = Y + \\Theta(X - E[X])$",
+            "$Y^* = Y / \\Theta(X)$",
+            "$Y^* = \\Theta(Y - X)$"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The formula for the adjusted metric is $Y^* = Y - \\Theta(X - E[X])$, where $X$ is the covariate and $\\Theta$ is the coefficient."
+    },
+    {
+        "type": "single",
+        "question": "How is the coefficient $\\Theta$ calculated in the CUPED method?",
+        "options": [
+            "$Cov(Y, X) / Var(Y)$",
+            "$Cov(Y, X) / Var(X)$",
+            "$Var(X) / Cov(Y, X)$",
+            "$Mean(Y) / Mean(X)$"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The coefficient $\\Theta$ is calculated as $Cov(Y, X) / Var(X)$, which corresponds to the OLS coefficient of regressing Y on X."
+    },
+    {
+        "type": "single",
+        "question": "What is a key requirement for the covariate $X$ used in CUPED?",
+        "options": [
+            "It must be affected by the treatment.",
+            "It must be measured after the experiment starts.",
+            "It must be uncorrelated with the outcome $Y$.",
+            "It must be from the pre-period or otherwise unaffected by treatment."
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "To ensure the effect estimate remains unbiased, the covariate X must be a pre-experiment metric or a variable that is not affected by the treatment."
+    },
+    {
+        "type": "single",
+        "question": "Under the Null Hypothesis (H0), what is the expected distribution of p-values?",
+        "options": [
+            "Normal distribution centered at 0.5",
+            "Skewed toward 0",
+            "Uniform (0,1)",
+            "Skewed toward 1"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Under the Null Hypothesis (H0), p-values follow a Uniform (0,1) distribution. If there is an effect (H1), they are skewed toward 0."
+    },
+    {
+        "type": "single",
+        "question": "Which randomization technique is best suited when interference within groups is likely?",
+        "options": [
+            "Simple randomization",
+            "Stratified randomization",
+            "Cluster randomization",
+            "Block randomization"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Cluster randomization is recommended when interference within clusters is likely, as it assigns entire groups (clusters) to treatment or control to contain spillover effects."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Multiple Testing, which method is suggested to control the Family-Wise Error Rate (FWER)?",
+        "options": [
+            "Benjamini-Hochberg",
+            "Bonferroni",
+            "Delta method",
+            "CUPED"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Bonferroni correction is cited as a method to control FWER. Benjamini-Hochberg is used for False Discovery Rate (FDR)."
+    },
+    {
+        "type": "single",
+        "question": "What is the recommended solution for handling heavy tails in metrics like revenue or time-on-site?",
+        "options": [
+            "Winsorize or use robust stats",
+            "Use the Delta method",
+            "Increase sample size",
+            "Use stratified randomization"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Distributional issues like heavy tails should be handled by Winsorizing (capping extreme values) or using robust statistics."
+    },
+    {
+        "type": "single",
+        "question": "When calculating the test statistic $z$ for a two-proportion test, which variance is used in the denominator?",
+        "options": [
+            "Unpooled variance",
+            "Pooled variance under H0",
+            "Variance of the control group only",
+            "Variance of the treatment group only"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The test statistic $z$ uses the Standard Error (SE) derived from the pooled variance under the Null Hypothesis (H0). Confidence intervals use unpooled SE."
+    },
+    {
+        "type": "single",
+        "question": "What is the approximate effective sample size gain provided by CUPED if the correlation $\\rho$ is known?",
+        "options": [
+            "$1 - \\rho^2$",
+            "$1 / (1 - \\rho^2)$",
+            "$\\rho^2$",
+            "$1 / \\rho$"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The effective sample size gain is approximately $1 / (1 - \rho^2)$. The variance is reduced by a factor of $(1 - \rho^2)$."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following best describes the 'Average Treatment Effect' (ATE)?",
+        "options": [
+            "$E[Y(1) - Y(0)]$",
+            "$E[Y(1)] / E[Y(0)]$",
+            "$E[Y(1) + Y(0)]$",
+            "$Var(Y(1)) - Var(Y(0))$"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "ATE is defined as the expected difference between potential outcomes: $E[Y(1) - Y(0)]$, where Y(1) is the treated outcome and Y(0) is the control outcome."
+    },
+    {
+        "type": "single",
+        "question": "What does a Confidence Interval (CI) represent at the $1-\\alpha$ level?",
+        "options": [
+            "The range where the true effect lies with 100% certainty.",
+            "The range of plausible effects consistent with the data.",
+            "The probability that the null hypothesis is true.",
+            "The probability that the result is practically significant."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A Confidence Interval represents the range of plausible effects at the $1-\\alpha$ level. It should not be interpreted as the probability of the effect itself."
+    },
+    {
+        "type": "single",
+        "question": "Why is randomization critical in experiments?",
+        "options": [
+            "It ensures that the sample size is large enough.",
+            "It guarantees that the treatment will have a positive effect.",
+            "It balances observed and unobserved factors between groups.",
+            "It eliminates Type I errors."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Random assignment balances both observed and unobserved factors, which allows for the estimation of causal impact by breaking confounding."
+    },
+    {
+        "type": "single",
+        "question": "If you observe a Sample Ratio Mismatch (SRM), what is the recommended course of action?",
+        "options": [
+            "Continue the experiment and adjust the p-value later.",
+            "Stop and investigate; do not trust the results.",
+            "Resample the data until the ratio matches the design.",
+            "Ignore it if the sample size is large enough."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The slides explicitly state: 'Stop and investigate; don't trust results' when SRM is observed, as it indicates a fundamental issue with the experiment setup."
+    },
+    {
+        "type": "single",
+        "question": "What defines the 'Primary' metric in an experiment?",
+        "options": [
+            "It is a diagnostic metric used to debug issues.",
+            "It is a KPI directly linked to the decision.",
+            "It is a constraint metric like latency.",
+            "It is always a financial metric like revenue."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Primary metrics are KPIs linked to the decision. Secondary metrics are diagnostics, and Guardrails are constraints."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a phase in the Experiment Lifecycle mentioned?",
+        "options": [
+            "Define",
+            "Design",
+            "Forecast",
+            "Learn"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The lifecycle phases listed are Define, Design, Run, Analyze, and Learn. 'Forecast' is not listed as a distinct phase in this lifecycle."
+    },
+    {
+        "type": "single",
+        "question": "In the context of power analysis, what trade-off occurs when you desire higher power?",
+        "options": [
+            "Higher power requires a smaller sample size.",
+            "Higher power requires a larger sample size.",
+            "Higher power increases the MDE.",
+            "Higher power decreases the Type I error rate."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Increasing the desired power (probability of detecting an effect) requires a larger sample size ($n$). Ideally, you want high power, which costs more samples."
+    },
+    {
+        "type": "single",
+        "question": "Which metric type is most appropriate for 'latency' or 'error rate'?",
+        "options": [
+            "Primary Metric",
+            "Secondary Metric",
+            "Guardrail Metric",
+            "North Star Metric"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Latency and error rates are cited as examples of Guardrail metrics, which are used to ensure the experiment doesn't degrade user experience."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of 'stratified randomization'?",
+        "options": [
+            "To handle interference between clusters.",
+            "To improve precision by balancing specific segments.",
+            "To reduce the duration of the test.",
+            "To fix Sample Ratio Mismatch."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Stratified (or block) randomization is used to improve precision by ensuring balance across specific segments or strata."
+    },
+    {
+        "type": "single",
+        "question": "What does Cohen's $h$ or $d$ measure?",
+        "options": [
+            "The probability of the null hypothesis.",
+            "The standardized effect size.",
+            "The variance of the population.",
+            "The sample ratio."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Cohen's $h$ and $d$ are mentioned as measures of standardized effect size, distinct from absolute or relative lift."
+    },
+    {
+        "type": "single",
+        "question": "When implementing the two-proportion z-test in code, how is the two-sided p-value calculated from the z-score?",
+        "options": [
+            "1 - norm.cdf(z)",
+            "norm.cdf(z)",
+            "2 * (1 - norm.cdf(abs(z)))",
+            "2 * norm.cdf(abs(z))"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The code appendix shows the calculation for a two-sided p-value as `2*(1-norm.cdf(abs(z)))`."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an assumption required for causal inference in experiments?",
+        "options": [
+            "SUTVA (Stable Unit Treatment Value Assumption)",
+            "Normal distribution of all data",
+            "Equal sample sizes in all groups",
+            "Zero variance in the control group"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "SUTVA and Ignorability (via random assignment) are listed as the key assumptions for causal inference."
+    },
+    {
+        "type": "single",
+        "question": "What happens to the distribution of p-values under the Alternative Hypothesis (H1)?",
+        "options": [
+            "It becomes uniform.",
+            "It becomes skewed toward 1.",
+            "It becomes skewed toward 0.",
+            "It becomes bimodal."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Under H1 (when an effect is present), the p-value distribution is skewed toward 0, indicating a higher frequency of significant results."
+    },
+    {
+        "type": "single",
+        "question": "When reporting experiment results, what should be included besides the effect estimate?",
+        "options": [
+            "Only the p-value.",
+            "Confidence intervals, power achieved, and assumptions.",
+            "The raw data for every user.",
+            "The code used to run the test."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Reporting should include the effect with Confidence Intervals (CIs), power achieved, and assumptions. Diagnostics like SRM checks should also be included."
+    },
+    {
+        "type": "single",
+        "question": "To avoid 'garden-of-forking-paths' in multiple testing, what practice is recommended?",
+        "options": [
+            "Pre-register primary endpoints.",
+            "Test as many metrics as possible.",
+            "Select the primary metric after analyzing the data.",
+            "Ignore the multiple comparisons problem."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Pre-registering primary endpoints helps limit the 'garden-of-forking-paths' and prevents p-hacking by fixing the analysis plan beforehand."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'delta method' used for in the context of experimental analysis?",
+        "options": [
+            "Analyzing ratio metrics.",
+            "Detecting SRM.",
+            "Calculating sample size.",
+            "Adjusting for covariates."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The delta method (or Fieller's theorem) is used to handle distributional issues specifically for ratio metrics."
+    },
+    {
+        "type": "single",
+        "question": "In the CUPED Python implementation provided, what `ddof` parameter is used for variance and covariance calculations?",
+        "options": [
+            "0",
+            "1",
+            "2",
+            "None"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The code sample explicitly uses `ddof=1` for both `np.cov` and `np.var` to obtain unbiased estimates."
+    },
+    {
+        "type": "single",
+        "question": "When analyzing 'Time-on-site' or 'Revenue', which often have heavy tails, what is a common pitfall?",
+        "options": [
+            "These metrics are always normally distributed.",
+            "These metrics often contain outliers that increase variance.",
+            "These metrics cannot be used in A/B testing.",
+            "These metrics require smaller sample sizes."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Heavy tails (outliers) in revenue/time-on-site data increase noise. The slides recommend winsorizing or robust stats to handle this."
+    },
+    {
+        "type": "single",
+        "question": "What is the definition of Type I error ($\\alpha$)?",
+        "options": [
+            "False Negative",
+            "False Positive",
+            "True Positive",
+            "True Negative"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Type I error ($\\alpha$) is defined as a False Positive (rejecting H0 when H0 is actually true)."
+    },
+    {
+        "type": "single",
+        "question": "Why might you use a non-parametric test like Mann-Whitney?",
+        "options": [
+            "When the data distributions are 'odd' or non-normal.",
+            "When you have unequal variances in a means test.",
+            "When you are testing proportions.",
+            "When you need to calculate the MDE."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The slides list non-parametric options like Mann-Whitney for cases where distributions are 'odd' (non-normal)."
+    }
+]

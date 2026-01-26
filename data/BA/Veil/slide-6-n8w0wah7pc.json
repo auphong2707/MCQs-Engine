@@ -1,0 +1,482 @@
+[
+    {
+        "type": "single",
+        "question": "What is the primary mathematical goal of Ordinary Least Squares (OLS) regression as defined in the slides?",
+        "options": [
+            "To maximize the likelihood of the coefficients given the data.",
+            "To minimize the sum of squared errors between observed and predicted values.",
+            "To minimize the absolute difference between the intercept and the slope.",
+            "To maximize the correlation between the independent and dependent variables."
+        ],
+        "answer": [1],
+        "explanation": "According to the slides, the goal of OLS is to find coefficients (beta) that minimize the squared errors, represented as ||y - X*beta||^2."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a key assumption of the OLS model mentioned in the lecture?",
+        "options": [
+            "The errors must be perfectly correlated with the predictors.",
+            "The dependent variable must be categorical.",
+            "There must be Exogeneity, meaning errors are uncorrelated with predictors.",
+            "The model must strictly avoid any interaction terms."
+        ],
+        "answer": [2],
+        "explanation": "The slides list the key assumptions for OLS as: Linearity, no perfect multicollinearity, Homoscedasticity & i.d. errors, and Exogeneity (errors uncorrelated with predictors)."
+    },
+    {
+        "type": "single",
+        "question": "How is the coefficient vector (beta) estimated in OLS using the closed-form solution?",
+        "options": [
+            "beta = (X^T X)^-1 X^T y",
+            "beta = (X X^T)^-1 y",
+            "beta = X^T (X X^T)^-1 y",
+            "beta = (X^T y)^-1 X"
+        ],
+        "answer": [0],
+        "explanation": "The slides provide the closed-form estimation for OLS coefficients as beta = (X^T X)^-1 X^T y (or using the pseudo-inverse)."
+    },
+    {
+        "type": "multi",
+        "question": "Select all consequences of having strongly correlated predictors (multicollinearity) in a regression model.",
+        "options": [
+            "It inflates the variance of the coefficient estimates.",
+            "It leads to unstable coefficients.",
+            "It automatically biases the intercept to zero.",
+            "It results in wider confidence intervals."
+        ],
+        "answer": [0, 1, 3],
+        "explanation": "The slides state that strongly correlated predictors inflate variance, lead to unstable coefficients, and result in wide intervals."
+    },
+    {
+        "type": "single",
+        "question": "Which visualization tool is suggested in the slides to check for collinearity among predictors?",
+        "options": [
+            "Residual histogram",
+            "Correlation heatmap",
+            "Q-Q plot",
+            "Box-Cox plot"
+        ],
+        "answer": [1],
+        "explanation": "The slides explicitly show and mention a 'Correlation heatmap' as a method for checking collinearity."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary purpose of applying regularization (Ridge or Lasso) in regression?",
+        "options": [
+            "To eliminate the need for an intercept term.",
+            "To shrink coefficients to reduce variance and handle noise/collinearity.",
+            "To convert a linear regression problem into a classification problem.",
+            "To ensure the residuals strictly follow a uniform distribution."
+        ],
+        "answer": [1],
+        "explanation": "Regularization helps manage the bias-variance trade-off by shrinking coefficients to reduce variance, which leads to better generalization and handles noisy or collinear features."
+    },
+    {
+        "type": "single",
+        "question": "Which penalty term defines Ridge Regression (L2)?",
+        "options": [
+            "Lambda * sum(|beta_j|)",
+            "Lambda * sum(beta_j^2)",
+            "Lambda * sum(beta_j^3)",
+            "Lambda * max(beta_j)"
+        ],
+        "answer": [1],
+        "explanation": "Ridge regression uses an L2 penalty, which is represented as Lambda * Sigma(beta_j^2)."
+    },
+    {
+        "type": "single",
+        "question": "How does Lasso Regression (L1) differ from Ridge Regression regarding coefficient shrinkage?",
+        "options": [
+            "Lasso never sets coefficients to exactly zero, whereas Ridge does.",
+            "Lasso induces sparsity by forcing some coefficients to exactly zero.",
+            "Lasso squares the coefficients, while Ridge takes the absolute value.",
+            "Lasso is only used for categorical variables."
+        ],
+        "answer": [1],
+        "explanation": "The slides state that Lasso uses an L1 penalty which induces sparsity, meaning it can drive many coefficients to zero (performing feature selection), whereas Ridge provides a smooth shrinkage path and never zeros coefficients."
+    },
+    {
+        "type": "single",
+        "question": "What is the specific characteristic of Elastic Net regularization?",
+        "options": [
+            "It uses only the L1 penalty but with a squared lambda.",
+            "It combines L1 (selection) and L2 (stability) penalties.",
+            "It removes the penalty term entirely to act like OLS.",
+            "It is used exclusively for time-series forecasting."
+        ],
+        "answer": [1],
+        "explanation": "Elastic Net is described as a combination of alpha * L1 + (1 - alpha) * L2, combining the selection properties of Lasso and the stability of Ridge."
+    },
+    {
+        "type": "single",
+        "question": "When choosing the regularization strength (Lambda), what method is recommended in the slides?",
+        "options": [
+            "Setting Lambda to 1.0 by default.",
+            "Using Cross-validation (CV) over a grid of Lambda values.",
+            "Minimizing the training set error directly.",
+            "Selecting the Lambda that yields the highest R-squared on the training data."
+        ],
+        "answer": [1],
+        "explanation": "The slides recommend choosing Lambda (regularization strength) by performing cross-validation over a grid of Lambda values."
+    },
+    {
+        "type": "single",
+        "question": "Why is it important to standardize features before applying regularization?",
+        "options": [
+            "To ensure all features are categorical.",
+            "Because the penalty term is sensitive to the scale of the coefficients.",
+            "To remove all negative values from the dataset.",
+            "To ensure the intercept is exactly zero."
+        ],
+        "answer": [1],
+        "explanation": "The slides mention 'standardize features' in the context of choosing Lambda. This is standard practice because regularization penalties (like L1 and L2) are scale-sensitive."
+    },
+    {
+        "type": "single",
+        "question": "What does a 'Residuals vs Fitted' plot help diagnose?",
+        "options": [
+            "The distribution of the target variable.",
+            "Patterns indicating misspecification or heteroscedasticity.",
+            "The precise value of the regularization parameter.",
+            "The correlation between two independent variables."
+        ],
+        "answer": [1],
+        "explanation": "The slides indicate that for a Residuals vs Fitted plot, one should look for patterns which may indicate misspecification or heteroscedasticity."
+    },
+    {
+        "type": "single",
+        "question": "In the context of OLS diagnostics, what does a histogram of residuals check for?",
+        "options": [
+            "Multicollinearity among predictors.",
+            "Normality of errors.",
+            "Linearity between X and y.",
+            "The presence of interaction effects."
+        ],
+        "answer": [1],
+        "explanation": "The slides display a Residuals Histogram and associate the OLS assumption of 'normality for inference' with the distribution of errors."
+    },
+    {
+        "type": "single",
+        "question": "How are Prediction Intervals different from Confidence Intervals in the context of the slides?",
+        "options": [
+            "Prediction Intervals communicate uncertainty around point forecasts, while Confidence Intervals concern the mean.",
+            "Prediction Intervals are always narrower than Confidence Intervals.",
+            "Prediction Intervals are used only for classification, not regression.",
+            "There is no difference; the terms are interchangeable."
+        ],
+        "answer": [0],
+        "explanation": "The slides distinguish Prediction Intervals as communicating uncertainty around point forecasts (using residual distribution), whereas Confidence Intervals generally relate to the mean estimate."
+    },
+    {
+        "type": "single",
+        "question": "Which method is described as a 'model-agnostic' way to estimate feature importance?",
+        "options": [
+            "Standardized Coefficients.",
+            "Permutation Importance.",
+            "Ridge Path analysis.",
+            "Residual analysis."
+        ],
+        "answer": [1],
+        "explanation": "Permutation importance is described as model-agnostic. It involves shuffling a feature and measuring the change in error (AMSE)."
+    },
+    {
+        "type": "single",
+        "question": "How is Permutation Importance calculated for a specific feature?",
+        "options": [
+            "By setting the feature's coefficients to zero.",
+            "By measuring the AMSE (Average Mean Squared Error) after shuffling that feature.",
+            "By squaring the standardized coefficient of that feature.",
+            "By removing the feature and retraining the model from scratch."
+        ],
+        "answer": [1],
+        "explanation": "The slides define Permutation Importance as calculating the AMSE (change in error) after shuffling a feature, while holding others fixed."
+    },
+    {
+        "type": "single",
+        "question": "What does a high 'AMSE' value indicate in Permutation Importance?",
+        "options": [
+            "The feature is less important.",
+            "The feature is more important.",
+            "The model is overfitting.",
+            "The feature has high multicollinearity."
+        ],
+        "answer": [1],
+        "explanation": "The slides explicitly state 'AMSE (higher = more important)', meaning a larger increase in error after shuffling indicates the feature was crucial for prediction."
+    },
+    {
+        "type": "single",
+        "question": "What is the core concept behind SHAP values?",
+        "options": [
+            "They attribute prediction to features based on Shapley values.",
+            "They strictly measure the p-value of each coefficient.",
+            "They are used to select the best Lambda for Lasso.",
+            "They replace the need for a test set."
+        ],
+        "answer": [0],
+        "explanation": "The slides define SHAP concepts as using Shapley values to attribute the prediction to specific features."
+    },
+    {
+        "type": "single",
+        "question": "For linear models, how is the SHAP-like local contribution of a feature roughly calculated?",
+        "options": [
+            "Coefficient * (Feature Value)^2",
+            "Coefficient * (Feature Value - Mean Feature Value)",
+            "Coefficient / Standard Deviation",
+            "Absolute Value of the Coefficient"
+        ],
+        "answer": [1],
+        "explanation": "For linear models with a mean reference, the slides state the contribution is approximately beta * (x - E[x])."
+    },
+    {
+        "type": "single",
+        "question": "What is a 'Dummy Variable Trap' mentioned in the slides?",
+        "options": [
+            "A situation where categorical variables have too many levels.",
+            "A risk when performing categorical encoding (like dummy coding) if one level isn't dropped.",
+            "The use of wrong regularization parameters for categorical data.",
+            "When the target variable is binary."
+        ],
+        "answer": [1],
+        "explanation": "The slides mention 'Beware of the dummy variable trap' in the context of categorical encoding, specifically referencing dummy coding (drop one) versus effects coding."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are recommended steps in the Model Diagnostics Checklist provided in the slides?",
+        "options": [
+            "Check residuals.",
+            "Check for collinearity.",
+            "Check for stability over time.",
+            "Check for zero variance in the target variable."
+        ],
+        "answer": [0, 1, 2],
+        "explanation": "The diagnostics checklist includes: Spec, residuals, influence, collinearity, and stability over time."
+    },
+    {
+        "type": "single",
+        "question": "In the context of the running case study, what is the 'Target' variable?",
+        "options": [
+            "Customer Churn",
+            "Monthly Revenue",
+            "Number of Complaints",
+            "Plan Type"
+        ],
+        "answer": [1],
+        "explanation": "The running case description identifies the 'Target' as Monthly Revenue."
+    },
+    {
+        "type": "single",
+        "question": "What does the 'Validation Curve' typically plot?",
+        "options": [
+            "Training and Validation scores against the training set size.",
+            "Training and Validation MSE against different values of Lambda (log10(alpha)).",
+            "Residuals against fitted values.",
+            "The coefficients against the feature names."
+        ],
+        "answer": [1],
+        "explanation": "The visual example of the Validation Curve in the slides plots the MSE on the Y-axis against log10(lambda) on the X-axis."
+    },
+    {
+        "type": "single",
+        "question": "When interpreting Ridge Coefficient Paths, what happens as Lambda increases?",
+        "options": [
+            "Coefficients grow exponentially.",
+            "Coefficients shrink smoothly.",
+            "Coefficients randomly fluctuate.",
+            "Coefficients all become exactly zero immediately."
+        ],
+        "answer": [1],
+        "explanation": "The slides state that in Ridge Paths, coefficients shrink smoothly as lambda increases."
+    },
+    {
+        "type": "single",
+        "question": "Which encoding method is contrasted with 'Dummy coding' in the slides?",
+        "options": [
+            "One-hot encoding",
+            "Effects coding",
+            "Target encoding",
+            "Binary encoding"
+        ],
+        "answer": [1],
+        "explanation": "The slides mention 'Dummy coding (drop one) vs effects coding' under Categorical Encoding for Regression."
+    },
+    {
+        "type": "single",
+        "question": "What is a recommended strategy for handling heavy-tailed predictors?",
+        "options": [
+            "Applying transformations like log, Box-Cox, or Yeo-Johnson.",
+            "Dropping the feature entirely.",
+            "Using them as the target variable instead.",
+            "Multiplying them by the intercept."
+        ],
+        "answer": [0],
+        "explanation": "The slides suggest 'Heavy-tailed predictors -> log/Box-Cox/Yeo-Johnson' under Transformations & Binning."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Data Drift' and why does it matter?",
+        "options": [
+            "The loss of data during transfer; it requires better storage.",
+            "Changes in data distribution over time; it requires periodic retraining.",
+            "The tendency of the model to memorize training data; it requires regularization.",
+            "The use of incorrect data types; it requires cleaning."
+        ],
+        "answer": [1],
+        "explanation": "The slides mention 'Retrain and revalidate periodically (data drift)' under Model Diagnostics, implying it relates to changes over time that necessitate model updates."
+    },
+    {
+        "type": "single",
+        "question": "According to the slides, what is the 'Bias-variance trade-off' in the context of Regularization?",
+        "options": [
+            "Shrinking coefficients to reduce variance at the cost of some bias.",
+            "Increasing coefficients to eliminate bias completely.",
+            "Balancing the number of training and testing samples.",
+            "Trading off calculation speed for model accuracy."
+        ],
+        "answer": [0],
+        "explanation": "The slides explain the Big Picture of Regularization as the 'Bias-variance trade-off: shrink coefficients to reduce variance,' which leads to better generalization."
+    },
+    {
+        "type": "single",
+        "question": "Which NumPy function is used in the provided code snippet to calculate the closed-form OLS solution?",
+        "options": [
+            "np.linalg.solve",
+            "np.linalg.pinv",
+            "np.linalg.eig",
+            "np.linalg.cholesky"
+        ],
+        "answer": [1],
+        "explanation": "The code snippets for both OLS and Ridge explicitly use `np.linalg.pinv` (pseudo-inverse)."
+    },
+    {
+        "type": "single",
+        "question": "What is the recommended approach for interactions and nonlinearity?",
+        "options": [
+            "Add every possible interaction term automatically.",
+            "Use business logic to pre-specify hypotheses (e.g., Postpaid * Usage).",
+            "Avoid interactions entirely to maintain linearity.",
+            "Use a neural network for all regression problems."
+        ],
+        "answer": [1],
+        "explanation": "The slides advise 'Interactions & Nonlinearity (business logic first)' and 'Avoid fishing - pre-specify hypotheses where possible.'"
+    },
+    {
+        "type": "single",
+        "question": "In the Ridge Regression code snippet, what is added to the matrix `Xc_train.T @ Xc_train` before inversion?",
+        "options": [
+            "The intercept vector.",
+            "A matrix of zeros.",
+            "alpha * I (Identity Matrix).",
+            "The square root of the coefficients."
+        ],
+        "answer": [2],
+        "explanation": "The code shows the calculation `np.linalg.pinv(Xc_train.T @ Xc_train + a*I)`, where `a` is alpha (lambda) and `I` is the identity matrix."
+    },
+    {
+        "type": "single",
+        "question": "What does the 'Hat matrix' H define in the appendix?",
+        "options": [
+            "The relationship between residuals and true values: e = H y",
+            "The projection of observed values onto predicted values: H = X(X^T X)^-1 X^T",
+            "The inverse of the feature matrix.",
+            "The regularization penalty matrix."
+        ],
+        "answer": [1],
+        "explanation": "The Appendix - Matrix Notes defines the Hat matrix as H = X(X^T X)^-1 X^T."
+    },
+    {
+        "type": "single",
+        "question": "According to the Appendix, what geometric property explains why Lasso induces sparsity?",
+        "options": [
+            "The L1 ball has corners.",
+            "The L2 ball is spherical.",
+            "The solution space is infinite.",
+            "The intercept is unbounded."
+        ],
+        "answer": [0],
+        "explanation": "The Appendix - Lasso Geometry mentions 'L1 ball corners -> sparse solutions'."
+    },
+    {
+        "type": "single",
+        "question": "If a feature has a Permutation Importance (AMSE) of 0, what does this imply?",
+        "options": [
+            "The feature is highly correlated with the target.",
+            "Shuffling the feature had no impact on the model's error.",
+            "The feature is the most important driver.",
+            "The model failed to converge."
+        ],
+        "answer": [1],
+        "explanation": "Permutation Importance measures the change in error after shuffling. If the AMSE (delta) is 0 (or very low), it means shuffling the feature didn't change the error, implying the feature has no impact."
+    },
+    {
+        "type": "single",
+        "question": "What is a characteristic of Robust Regression mentioned in the slides?",
+        "options": [
+            "It is faster than OLS.",
+            "It uses Huber or quantile regression to handle heavy tails or outliers.",
+            "It strictly requires normal distributions.",
+            "It is identical to Lasso regression."
+        ],
+        "answer": [1],
+        "explanation": "The slides mention Robust Regression (concept) using Huber/quantile regression for heavy tails or outliers."
+    },
+    {
+        "type": "single",
+        "question": "What happens to the OLS solution if there is perfect multicollinearity?",
+        "options": [
+            "The coefficients become zero.",
+            "The matrix (X^T X) is not invertible (no unique solution).",
+            "The model becomes a Lasso model.",
+            "The residuals become zero."
+        ],
+        "answer": [1],
+        "explanation": "The slides list 'no perfect multicollinearity' as an assumption. While not explicitly defining the math of failure in the main bullets, the closed form requires inverting X^T X, which fails (singular) under perfect multicollinearity. The slides mention 'Unstable coefficients' for strong correlation."
+    },
+    {
+        "type": "single",
+        "question": "Which evaluation metric is suggested to ensure comparability when selecting models?",
+        "options": [
+            "Raw Sum of Squared Errors (SSE)",
+            "Adjusted R-squared",
+            "P-value of the F-statistic",
+            "The condition number"
+        ],
+        "answer": [1],
+        "explanation": "Under Model Selection & Evaluation, the slides list 'Metrics: RMSE/MAE; adjusted R^2 for comparability'."
+    },
+    {
+        "type": "single",
+        "question": "In the case study, what business question is the regression model trying to answer?",
+        "options": [
+            "Which employees should be promoted?",
+            "Which levers (usage, plan) drive revenue most?",
+            "What is the stock price prediction for next year?",
+            "How to route network traffic efficiently?"
+        ],
+        "answer": [1],
+        "explanation": "The Case Setup - Questions section explicitly asks: 'Which levers (usage, plan) drive revenue most?'"
+    },
+    {
+        "type": "single",
+        "question": "What does the 'Learning Curve' typically display to help diagnose model performance?",
+        "options": [
+            "Training and Validation error vs Training set size.",
+            "Feature importance vs Coefficient magnitude.",
+            "Residuals vs Predicted values.",
+            "Lambda vs R-squared."
+        ],
+        "answer": [0],
+        "explanation": "The Learning Curve plot in the slides shows MSE (y-axis) against Training set size (x-axis) for both Train and Validation sets."
+    },
+    {
+        "type": "single",
+        "question": "Why is Elastic Net useful when there are correlated groups of features?",
+        "options": [
+            "It randomly selects one feature and drops the rest.",
+            "It combines selection (L1) and stability (L2) to handle group correlations better than Lasso alone.",
+            "It ignores the correlation entirely.",
+            "It forces all correlated features to have equal coefficients."
+        ],
+        "answer": [1],
+        "explanation": "The slides state Elastic Net 'Combines selection (L1) and stability (L2)' and is 'Useful with correlated groups of features' because Lasso alone might be unstable with correlated groups."
+    }
+]

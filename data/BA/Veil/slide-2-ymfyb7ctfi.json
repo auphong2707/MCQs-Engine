@@ -1,0 +1,482 @@
+[
+    {
+        "type": "single",
+        "question": "Which characteristic best describes an OLTP workload compared to an OLAP workload?",
+        "options": [
+            "Heavy use of columnar storage for optimized aggregation",
+            "Frequent large-scale reads on denormalized schemas",
+            "Many small write operations and point lookups on normalized schemas",
+            "Primarily used for complex analytical queries and BI dashboards"
+        ],
+        "answer": [2],
+        "explanation": "OLTP (Online Transactional Processing) is designed for operational efficiency, featuring many small writes and point lookups. In contrast, OLAP is optimized for fewer, larger reads and analytical processing."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are benefits of using a Star Schema in dimensional modeling?",
+        "options": [
+            "Predictable and simple JOIN patterns",
+            "Maximum reduction of data redundancy through full normalization",
+            "High performance for Business Intelligence (BI) tools",
+            "Ease of understanding for end-users and analysts"
+        ],
+        "answer": [0, 2, 3],
+        "explanation": "Star schemas offer simplicity, predictable JOINs, and are well-suited for BI. Snowflake schemas, not Star schemas, focus on reducing redundancy through further normalization."
+    },
+    {
+        "type": "single",
+        "question": "When implementing a Snowflake Schema, what is the primary trade-off compared to a Star Schema?",
+        "options": [
+            "Reduced disk space usage versus increased query complexity and JOINs",
+            "Improved query performance versus increased data redundancy",
+            "Simpler metadata management versus slower write operations",
+            "Better support for unstructured data versus rigid table structures"
+        ],
+        "answer": [0],
+        "explanation": "The Snowflake Schema normalizes dimension tables (e.g., product to category). This reduces redundancy but increases the number of JOINs required, making queries more complex."
+    },
+    {
+        "type": "single",
+        "question": "In a Medallion Architecture, which layer is typically responsible for holding 'cleaned and conformed' data ready for joining?",
+        "options": [
+            "Bronze layer",
+            "Silver layer",
+            "Gold layer",
+            "Platinum layer"
+        ],
+        "answer": [1],
+        "explanation": "The Silver layer contains cleaned, deduplicated, and conformed data. The Bronze layer is for raw ingestion, and the Gold layer is for curated business marts and aggregates."
+    },
+    {
+        "type": "multi",
+        "question": "What are the core components used to maintain history in a Slowly Changing Dimension (SCD) Type 2 table?",
+        "options": [
+            "A flag like 'is_current'",
+            "An 'amount' column to track value changes",
+            "Validity ranges such as 'valid_from' and 'valid_to'",
+            "Versioned rows for the same natural key"
+        ],
+        "answer": [0, 2, 3],
+        "explanation": "SCD Type 2 tracks history by creating new rows for changes, utilizing versioning, validity date ranges, and a boolean flag to identify the current record."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary purpose of Change Data Capture (CDC) in modern data pipelines?",
+        "options": [
+            "To schedule batch jobs at midnight every day",
+            "To capture inserts, updates, and deletes from OLTP systems in real-time",
+            "To compress historical data in the Gold layer",
+            "To perform complex window functions during data ingestion"
+        ],
+        "answer": [1],
+        "explanation": "CDC is used to observe and capture changes (DML operations) from a source database so they can be processed and moved into a data lakehouse or warehouse."
+    },
+    {
+        "type": "single",
+        "question": "Which SQL JOIN type returns only the rows that have matching keys in both tables?",
+        "options": [
+            "LEFT JOIN",
+            "FULL OUTER JOIN",
+            "INNER JOIN",
+            "CROSS JOIN"
+        ],
+        "answer": [2],
+        "explanation": "An INNER JOIN filters out any rows that do not have a match in both the left and right tables."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following scenarios would likely require a 'Non-Equi Join' (a join using operators other than '=')?",
+        "options": [
+            "Joining a Fact table to a Customer dimension on Customer_ID",
+            "Finding records where a timestamp falls between a 'valid_from' and 'valid_to' range",
+            "Calculating a cross-product of two independent lists",
+            "Joining a table to itself to find overlapping time intervals"
+        ],
+        "answer": [1, 3],
+        "explanation": "Non-equi joins use operators like >=, <, or BETWEEN. These are essential for range-based joins (like SCD2) or identifying overlaps in intervals."
+    },
+    {
+        "type": "single",
+        "question": "How does a SEMI JOIN (often implemented via EXISTS) differ from a standard INNER JOIN?",
+        "options": [
+            "It returns columns from both tables, but only for matches",
+            "It returns rows from the left table as soon as a match is found in the right, without duplicating rows if multiple matches exist",
+            "It returns only the rows from the left table that have NO match in the right table",
+            "It is used specifically for joining more than three tables"
+        ],
+        "answer": [1],
+        "explanation": "A SEMI JOIN checks for the existence of a match. Unlike an INNER JOIN, it won't 'explode' the row count if the right table has multiple matches for a single left row."
+    },
+    {
+        "type": "single",
+        "question": "What is the result of evaluating 'NULL = NULL' in a standard SQL equality join?",
+        "options": [
+            "TRUE",
+            "FALSE",
+            "UNKNOWN / NULL (Match fails)",
+            "0"
+        ],
+        "answer": [2],
+        "explanation": "In SQL, NULL is not equal to anything, including another NULL. Standard equality joins will exclude rows where the join keys are NULL on both sides unless handled with IFNULL/COALESCE."
+    },
+    {
+        "type": "multi",
+        "question": "Common Table Expressions (CTEs) are primarily used to:",
+        "options": [
+            "Improve query readability by breaking complex logic into named steps",
+            "Persistently store data on disk for later use",
+            "Allow the reuse of a subquery logic within the same statement",
+            "Increase the physical storage speed of the database"
+        ],
+        "answer": [0, 2],
+        "explanation": "CTEs provide a way to name subqueries, making code easier to read and maintain. They are temporary and exist only for the duration of the query execution."
+    },
+    {
+        "type": "single",
+        "question": "In which scenario is a RECURSIVE CTE most likely necessary?",
+        "options": [
+            "Calculating a 7-day rolling average of sales",
+            "Joining a fact table to three different dimension tables",
+            "Traversing a hierarchical organizational chart (Parent-Child relations)",
+            "Deduplicating rows in a Bronze layer table"
+        ],
+        "answer": [2],
+        "explanation": "Recursive CTEs are designed to handle graph or tree-structured data, such as department hierarchies or bill-of-materials, where a row references another row in the same table."
+    },
+    {
+        "type": "multi",
+        "question": "Which of these are valid components of a Window Function syntax?",
+        "options": [
+            "PARTITION BY",
+            "ORDER BY",
+            "GROUP BY",
+            "ROWS BETWEEN ... AND ..."
+        ],
+        "answer": [0, 1, 3],
+        "explanation": "Window functions use the OVER() clause, which can contain PARTITION BY (to group rows), ORDER BY (to sequence them), and a frame clause (like ROWS BETWEEN) to define the window size. GROUP BY is used for aggregate queries that collapse rows."
+    },
+    {
+        "type": "single",
+        "question": "What is the key difference between RANK() and DENSE_RANK() window functions?",
+        "options": [
+            "RANK() skips numbers in the sequence after a tie; DENSE_RANK() does not",
+            "DENSE_RANK() skips numbers after a tie; RANK() does not",
+            "RANK() can only be used with numeric data",
+            "DENSE_RANK() requires a PARTITION BY clause while RANK() does not"
+        ],
+        "answer": [0],
+        "explanation": "RANK() would result in 1, 2, 2, 4 for a tie at second place. DENSE_RANK() would result in 1, 2, 2, 3."
+    },
+    {
+        "type": "single",
+        "question": "A 'Time Travel' feature in platforms like Snowflake or BigQuery allows an analyst to:",
+        "options": [
+            "Predict future sales based on historical trends",
+            "Query the state of a table as it existed at a specific point in the past",
+            "Automatically update old records to match current formats",
+            "Move data between different geographic regions instantly"
+        ],
+        "answer": [1],
+        "explanation": "Time Travel allows users to access historical data that has since been updated or deleted, usually within a specific retention window (e.g., 7 or 90 days)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are common tasks performed when moving data from a Bronze to a Silver layer?",
+        "options": [
+            "Deduplication of raw event records",
+            "Casting string timestamps into proper DATETIME types",
+            "Creating high-level summary dashboards for executives",
+            "Normalizing status values (e.g., converting 'Succ' and 'Success' to 'succeeded')"
+        ],
+        "answer": [0, 1, 3],
+        "explanation": "The transition to Silver involves data cleaning, standardizing types, and deduplication. Summaries for executives usually happen in the Gold layer."
+    },
+    {
+        "type": "single",
+        "question": "To detect a 'session gap' in event data (e.g., a user is inactive for 30 minutes), which window function is most useful?",
+        "options": [
+            "LEAD()",
+            "LAG()",
+            "RANK()",
+            "COUNT(*)"
+        ],
+        "answer": [1],
+        "explanation": "LAG() allows you to look at the previous event's timestamp for that user to calculate the time difference between the current and prior event."
+    },
+    {
+        "type": "single",
+        "question": "In a Delta Lake environment, which command would you use to see the various versions of a table available for Time Travel?",
+        "options": [
+            "SHOW VERSIONS",
+            "DESCRIBE HISTORY",
+            "LIST SNAPSHOTS",
+            "SELECT * FROM versions"
+        ],
+        "answer": [1],
+        "explanation": "DESCRIBE HISTORY provides a log of all changes and version numbers for a Delta Lake table."
+    },
+    {
+        "type": "multi",
+        "question": "When defining a Window Frame, what is the difference between 'ROWS' and 'RANGE'?",
+        "options": [
+            "ROWS counts a physical number of rows preceding/following",
+            "RANGE bases the window on the values of the order key (e.g., an interval of days)",
+            "ROWS is only used for ranking functions",
+            "RANGE is generally safer when dealing with duplicate timestamps in an ORDER BY clause"
+        ],
+        "answer": [0, 1, 3],
+        "explanation": "ROWS is physical; RANGE is logical. RANGE is particularly useful for time-based windows where multiple events might have the exact same timestamp."
+    },
+    {
+        "type": "single",
+        "question": "What is a 'Z-score' used for in the context of SQL-based anomaly detection?",
+        "options": [
+            "To count the number of unique users in a cohort",
+            "To measure how many standard deviations a data point is from the mean",
+            "To calculate the total lifetime value of a customer",
+            "To determine the join order for performance optimization"
+        ],
+        "answer": [1],
+        "explanation": "A Z-score helps identify outliers by quantifying how far a specific value deviates from the average (mu) in terms of standard deviations (sigma)."
+    },
+    {
+        "type": "single",
+        "question": "In the context of 'Lakehouse' architecture, what does a 'Gold' table typically contain?",
+        "options": [
+            "Raw JSON dumps from an API",
+            "Deduplicated and cleaned transaction records",
+            "Aggregated metrics and curated marts designed for BI/ML",
+            "Temporary data used for intermediate processing"
+        ],
+        "answer": [2],
+        "explanation": "Gold tables are the final, consumption-ready layer, often containing business-level aggregates or specialized star schemas for reporting."
+    },
+    {
+        "type": "multi",
+        "question": "Which join strategies are commonly used by query engines to handle large-scale data processing?",
+        "options": [
+            "Broadcast Join (sending a small table to all nodes)",
+            "Shuffle Join (redistributing both tables by key)",
+            "Random Join (joining rows based on available memory)",
+            "Hash Join"
+        ],
+        "answer": [0, 1, 3],
+        "explanation": "Broadcast and Shuffle joins are common in distributed systems like Spark. Hash joins and Sort-Merge joins are standard execution algorithms for matching keys."
+    },
+    {
+        "type": "single",
+        "question": "What happens if you perform a join on a key that is duplicated in both the left and right tables?",
+        "options": [
+            "The query will return an error",
+            "A 'row explosion' (Cartesian product of the matching keys)",
+            "The database automatically selects the first match found",
+            "The duplicates are automatically removed before joining"
+        ],
+        "answer": [1],
+        "explanation": "Joining on non-unique keys results in every matching pair being returned, which can exponentially increase the number of rows in the result set."
+    },
+    {
+        "type": "multi",
+        "question": "What are the primary advantages of Streaming over Batch processing?",
+        "options": [
+            "Lower latency for data availability",
+            "Simpler orchestration and error handling",
+            "Better support for real-time alerting and reaction",
+            "Significant reduction in architectural complexity"
+        ],
+        "answer": [0, 2],
+        "explanation": "Streaming provides low latency and real-time capabilities but typically involves higher complexity (handling upserts, exactly-once semantics) compared to batch."
+    },
+    {
+        "type": "single",
+        "question": "In dimensional modeling, what is a 'Fact' table?",
+        "options": [
+            "A table containing descriptive attributes like Product Name or Color",
+            "A table recording quantitative measurements or events (e.g., sales, temperature)",
+            "A metadata table describing the schema of the database",
+            "A table that contains only unique keys with no metrics"
+        ],
+        "answer": [1],
+        "explanation": "Fact tables store quantitative data (measures) and foreign keys to dimension tables. They represent the 'verb' or the event in a business process."
+    },
+    {
+        "type": "single",
+        "question": "Which keyword is used to start a recursive CTE in dialects like PostgreSQL?",
+        "options": [
+            "WITH ITERATION",
+            "WITH RECURSIVE",
+            "WITH LOOP",
+            "REPEAT WITH"
+        ],
+        "answer": [1],
+        "explanation": "Standard SQL (and PostgreSQL) uses 'WITH RECURSIVE' to signal that a CTE will refer to its own output."
+    },
+    {
+        "type": "multi",
+        "question": "A cohort analysis query usually groups users by which two primary dimensions?",
+        "options": [
+            "The month/week of their first activity (the cohort)",
+            "The total amount of money they spent",
+            "The time offset (e.g., months since signup)",
+            "Their geographic location"
+        ],
+        "answer": [0, 2],
+        "explanation": "Cohort analysis tracks a group over time. You group them by a shared starting event (cohort) and then measure behavior across subsequent time intervals (offsets)."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of the 'PARTITION BY' clause in a window function?",
+        "options": [
+            "To sort the entire result set",
+            "To physically divide the table into different storage disks",
+            "To define the boundaries within which the function is calculated",
+            "To remove duplicate rows from the output"
+        ],
+        "answer": [2],
+        "explanation": "PARTITION BY tells the engine to reset the window function's calculation for each distinct group of values in the partition columns."
+    },
+    {
+        "type": "single",
+        "question": "Which SQL function is best suited to handle missing values in a join by providing a default value?",
+        "options": [
+            "NULLIF",
+            "COALESCE",
+            "STRPOS",
+            "LEAST"
+        ],
+        "answer": [1],
+        "explanation": "COALESCE returns the first non-null value in its list, making it ideal for replacing NULLs with defaults (e.g., COALESCE(amount, 0))."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are examples of Non-Equi Joins mentioned in the architecture slides?",
+        "options": [
+            "Standard Primary Key to Foreign Key joins",
+            "Joins using BETWEEN for validity ranges in SCD Type 2",
+            "Joins using inequality operators like < or >",
+            "Joins using the = operator"
+        ],
+        "answer": [1, 2],
+        "explanation": "Non-equi joins are defined as joins that do not use the equality (=) operator, often seen in time-series or range-based logic."
+    },
+    {
+        "type": "single",
+        "question": "In 'Sessionization' logic, what does the first step of the CTE usually identify?",
+        "options": [
+            "The total revenue per user",
+            "Whether the current event starts a new session based on the time gap from the previous event",
+            "The user's most frequent acquisition channel",
+            "The number of rows to be deleted in the Silver layer"
+        ],
+        "answer": [1],
+        "explanation": "Sessionization begins by comparing timestamps between consecutive events to flag whether a 'new session' has started (e.g., gap > 30 mins)."
+    },
+    {
+        "type": "single",
+        "question": "Why is 'Time Travel' useful for auditing data pipelines?",
+        "options": [
+            "It automatically fixes bugs in the SQL code",
+            "It allows you to compare the current state of a table to its state 24 hours ago to detect retroactive data changes",
+            "It allows the database to run faster by deleting old data",
+            "It converts all timezones to UTC automatically"
+        ],
+        "answer": [1],
+        "explanation": "Comparing snapshots from different points in time helps identify if source data was changed retroactively or if a pipeline update caused unexpected shifts."
+    },
+    {
+        "type": "multi",
+        "question": "What are common pitfalls/gotchas when performing JOINs in SQL?",
+        "options": [
+            "Handling NULL keys resulting in lost data",
+            "Accidentally creating a many-to-many relationship leading to row explosion",
+            "Using CTEs too frequently",
+            "Mismatched data types between join keys"
+        ],
+        "answer": [0, 1, 3],
+        "explanation": "NULLs don't match, many-to-many joins explode result sets, and mismatched types (e.g., String to Int) can cause failures or performance issues."
+    },
+    {
+        "type": "single",
+        "question": "Which window function frame specification would you use for a cumulative sum from the start of the partition to the current row?",
+        "options": [
+            "ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING",
+            "ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING",
+            "ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW",
+            "ROWS 6 PRECEDING"
+        ],
+        "answer": [2],
+        "explanation": "To calculate a running/cumulative total, the window must start at the very first row (UNBOUNDED PRECEDING) and end at the CURRENT ROW."
+    },
+    {
+        "type": "single",
+        "question": "In an Anti-Join scenario (finding rows in A not in B), which operator is commonly used in the WHERE clause?",
+        "options": [
+            "EXISTS",
+            "NOT EXISTS",
+            "IN",
+            "UNION"
+        ],
+        "answer": [1],
+        "explanation": "An ANTI JOIN identifies rows with no match, and NOT EXISTS is the standard semantic for this check."
+    },
+    {
+        "type": "multi",
+        "question": "What is the primary motivation for 'Normalization' in OLTP systems?",
+        "options": [
+            "Ensuring data integrity and reducing data redundancy",
+            "Speeding up large analytical aggregate queries",
+            "Making the schema easier for humans to read in a single view",
+            "Minimizing the impact of update anomalies"
+        ],
+        "answer": [0, 3],
+        "explanation": "Normalization organizes data to prevent duplicates and ensure that updates only need to happen in one place, protecting data integrity."
+    },
+    {
+        "type": "single",
+        "question": "Which window function would you use to find the first acquisition channel for every user?",
+        "options": [
+            "LAST_VALUE()",
+            "FIRST_VALUE() or MIN() OVER()",
+            "COUNT(DISTINCT channel)",
+            "SUM(channel)"
+        ],
+        "answer": [1],
+        "explanation": "FIRST_VALUE() (with proper ordering) or a MIN(timestamp) OVER() can be used to isolate the initial event in a sequence."
+    },
+    {
+        "type": "single",
+        "question": "Which characteristic is typical of 'Bronze' tables in a Medallion architecture?",
+        "options": [
+            "They are heavily indexed and aggregated",
+            "They are often append-only and contain raw, 'as-is' data from the source",
+            "They contain the final results for BI dashboards",
+            "They are restricted to only three columns"
+        ],
+        "answer": [1],
+        "explanation": "Bronze tables are for landing raw data. They preserve the original state of the source data before any transformations occur."
+    },
+    {
+        "type": "multi",
+        "question": "Recursive CTEs must contain which of the following components?",
+        "options": [
+            "An anchor member (the base case query)",
+            "A UNION or UNION ALL operator",
+            "A recursive member that references the CTE name",
+            "A mandatory LIMIT 10 clause"
+        ],
+        "answer": [0, 1, 2],
+        "explanation": "A recursive CTE consists of a base query (anchor), a union to combine results, and a query that calls itself (recursive member) until a termination condition is met."
+    },
+    {
+        "type": "single",
+        "question": "If a query engine supports 'Shuffle Joins', what is it physically doing with the data?",
+        "options": [
+            "Copying the entire table to every machine in the cluster",
+            "Re-partitioning rows across the network so that rows with the same join key end up on the same machine",
+            "Randomly sampling rows to estimate the join size",
+            "Writing the join results to a temporary CSV file"
+        ],
+        "answer": [1],
+        "explanation": "Shuffle joins are used for large tables; the engine 'shuffles' data across the network by hashing the join keys to ensure matches can be computed locally on worker nodes."
+    }
+]

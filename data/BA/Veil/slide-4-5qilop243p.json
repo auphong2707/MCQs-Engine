@@ -1,0 +1,574 @@
+[
+  {
+    "type": "single",
+    "question": "What is the primary goal of Exploratory Data Analysis (EDA) as described in the slides?",
+    "options": [
+      "To immediately build predictive models with high accuracy.",
+      "To systematically explore data to form and test hypotheses.",
+      "To produce aesthetically pleasing visualizations for marketing.",
+      "To reduce the dataset size by removing all outliers."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides define EDA as a systematic exploration of data to form and test hypotheses, summarize distributions, relationships, and anomalies, effectively bridging business questions and modeling choices."
+  },
+  {
+    "type": "multi",
+    "question": "Which of the following are key components of the 'EDA Mindset'?",
+    "options": [
+      "Starting with questions and context to avoid aimless fishing.",
+      "Relying on a single visualization to prove a hypothesis.",
+      "Iterating through profiling, exploring, hypothesizing, and validating.",
+      "Triangulating with multiple views to reduce bias."
+    ],
+    "answer": [
+      0,
+      2,
+      3
+    ],
+    "explanation": "The EDA mindset involves starting with questions/context, iterating through the exploration loop (profile-explore-hypothesize-validate), and triangulating with multiple views. Relying on a single view is discouraged as it may introduce bias."
+  },
+  {
+    "type": "single",
+    "question": "When analyzing univariate numeric data, what are the main goals?",
+    "options": [
+      "To calculate the correlation coefficient between two variables.",
+      "To understand shape, center, and spread, and spot outliers or missingness.",
+      "To visualize the relationship between a numeric and a categorical variable.",
+      "To determine the causal impact of one variable on another."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "For univariate numeric analysis, the stated goals are to understand the shape, center, and spread of the distribution, as well as to spot outliers and missingness."
+  },
+  {
+    "type": "single",
+    "question": "Which visualization is most appropriate for assessing the distribution of a single numeric variable?",
+    "options": [
+      "Scatter plot",
+      "Stacked bar chart",
+      "Histogram",
+      "Correlation heatmap"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "Histograms are explicitly listed under univariate numeric visualizations for understanding distributions and binning. Scatter plots are for bivariate numeric-numeric relationships, and stacked bars are for categorical composition."
+  },
+  {
+    "type": "multi",
+    "question": "Select all correct statements regarding histograms and binning.",
+    "options": [
+      "Bin width selection can be guided by rules like the Freedman-Diaconis (FD) rule.",
+      "Log transformations are recommended for distributions with heavy tails or skewness.",
+      "Bin width is irrelevant and does not affect the interpretation of the distribution.",
+      "Histograms are primarily used for categorical data."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "explanation": "The slides mention bin width selection (FD rule, sqrt rule) and using Log/Box-Cox/Yeo-Johnson transformations for skewed distributions. Bin width is crucial, and histograms are for numeric data."
+  },
+  {
+    "type": "single",
+    "question": "In a boxplot, what does the box itself represent?",
+    "options": [
+      "The entire range of the data from minimum to maximum.",
+      "The Interquartile Range (IQR) between the lower (Q1) and upper (Q3) quartiles.",
+      "The confidence interval of the mean.",
+      "The variance of the dataset."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The boxplot diagram illustrates that the box spans from the Lower Quartile (Q1) to the Upper Quartile (Q3), representing the Interquartile Range (IQR)."
+  },
+  {
+    "type": "single",
+    "question": "What is the specific purpose of using periodic encodings for date-time data?",
+    "options": [
+      "To convert dates into a linear timestamp for regression.",
+      "To capture cyclical patterns in the data.",
+      "To remove seasonality from the dataset.",
+      "To format dates for display on the x-axis."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides list periodic encodings under date-time data types, implying their use to capture the cyclical nature of time (e.g., seasonality) rather than just linear progression."
+  },
+  {
+    "type": "multi",
+    "question": "Which of the following are valid goals for bivariate analysis?",
+    "options": [
+      "Quantifying pairwise relationships.",
+      "Comparing distributions across categories.",
+      "Guiding transformations and interaction terms.",
+      "Calculating the total variance of the entire dataset."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Bivariate goals listed include quantifying pairwise relationships, comparing distributions across categories, and guiding transformations and interaction terms."
+  },
+  {
+    "type": "single",
+    "question": "Which visualization method is recommended for analyzing the relationship between two numeric variables?",
+    "options": [
+      "Grouped boxplots",
+      "Scatter plots",
+      "Stacked bar charts",
+      "Histograms"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "For Numeric-Numeric relationships, the slides explicitly recommend scatter plots and calculating correlations (Pearson vs. Spearman)."
+  },
+  {
+    "type": "single",
+    "question": "When analyzing a Numeric-Categorical relationship, which visual approach is suggested?",
+    "options": [
+      "Scatter plot matrix",
+      "Contingency tables",
+      "Grouped boxplots",
+      "Correlation heatmap"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "For Numeric-Categorical relationships, the slides suggest grouped boxplots or strip/dot plots, along with aggregate summaries."
+  },
+  {
+    "type": "single",
+    "question": "What issue might a scatter plot reveal that suggests the need for data transformation?",
+    "options": [
+      "Perfect linear correlation.",
+      "Heteroscedasticity (non-constant variance).",
+      "Homoscedasticity.",
+      "Equal distribution of points."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides note that when using scatter plots for numeric-numeric analysis, one should look for nonlinearity and heteroscedasticity."
+  },
+  {
+    "type": "multi",
+    "question": "Which tools are recommended for analyzing Categorical-Categorical relationships?",
+    "options": [
+      "Contingency tables.",
+      "Stacked or grouped bar charts.",
+      "Chi-square tests.",
+      "Scatter plots."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "For Categorical-Categorical data, the slides list contingency tables, stacked/grouped bars, and Chi-square tests (expected vs. observed) as appropriate tools."
+  },
+  {
+    "type": "single",
+    "question": "What does a correlation heatmap primarily visualize?",
+    "options": [
+      "The distribution of a single variable.",
+      "The causal link between variables.",
+      "Pairwise correlations between numeric features.",
+      "The difference in means between groups."
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "The correlation heatmap example shows pairwise Pearson correlations between numeric features like tenure, income, and monthly charges."
+  },
+  {
+    "type": "single",
+    "question": "Why must one be careful when interpreting correlation heatmaps?",
+    "options": [
+      "They can only show negative relationships.",
+      "They automatically imply causation.",
+      "Spurious correlations are common and do not imply causality.",
+      "They cannot handle numeric data."
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "The section on Correlation vs. Causation explicitly warns that spurious correlations are common and that EDA suggests hypotheses while tests confirm them; correlation does not equal causation."
+  },
+  {
+    "type": "single",
+    "question": "What is the purpose of 'Small Multiples' or 'Faceting' in multivariate analysis?",
+    "options": [
+      "To combine all data into one dense chart.",
+      "To compare patterns across groups or time using repeated layouts.",
+      "To reduce the dimensionality of the data using PCA.",
+      "To hide outliers in specific segments."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "Small multiples and faceting are used to split data (e.g., by plan_type) and use repeated layouts to compare segments and conditional patterns."
+  },
+  {
+    "type": "single",
+    "question": "Which technique is described as a 'sanity check before modeling' involving a grid of plots?",
+    "options": [
+      "Dimensionality Reduction",
+      "Scatter Matrix",
+      "Boxplot",
+      "Bar Chart"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The Scatter Matrix is described as a pairwise scatter grid used for a sanity check before modeling."
+  },
+  {
+    "type": "single",
+    "question": "How should dimensionality reduction techniques like t-SNE or UMAP be used according to the slides?",
+    "options": [
+      "Strictly for linear structure analysis.",
+      "Primarily for visualization purposes.",
+      "To replace all original features in the final model.",
+      "To calculate the mean and variance of the dataset."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides state: 'PCA for linear structure; t-SNE/UMAP for visualization only' under the Dimensionality Reduction (EDA lens) section."
+  },
+  {
+    "type": "multi",
+    "question": "Which of the following are examples of feature interactions or derived features mentioned?",
+    "options": [
+      "Ratios (e.g., ARPU per hour).",
+      "Differences (e.g., Overage distribution).",
+      "Domain-informed composites (e.g., ValueScore).",
+      "Raw timestamps."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "The slides list ratios, differences, and domain-informed composites as examples of feature interactions to explore during EDA."
+  },
+  {
+    "type": "single",
+    "question": "What is Simpson's Paradox?",
+    "options": [
+      "A phenomenon where the pooled trend differs from or reverses the within-group trends.",
+      "A rule stating that more data always leads to better models.",
+      "The idea that correlation implies causation in large datasets.",
+      "A technique for handling missing values."
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "Simpson's Paradox is defined as a situation where the pooled trend differs from within-group trends, necessitating stratified views to avoid misleading conclusions."
+  },
+  {
+    "type": "single",
+    "question": "What is a 'confounder' in the context of causal reasoning?",
+    "options": [
+      "A variable that affects both the independent variable (X) and the dependent variable (Y).",
+      "A variable that is affected by both X and Y.",
+      "An outlier that skews the mean.",
+      "A missing value in the dataset."
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "The slides define a confounder as a variable that affects both X and Y, which can distort the apparent relationship between them if not controlled for."
+  },
+  {
+    "type": "single",
+    "question": "What is a 'collider' and why is it problematic?",
+    "options": [
+      "It is a variable that affects both X and Y.",
+      "It distorts the relationship when conditioned upon (controlled for).",
+      "It is a variable used to merge two datasets.",
+      "It represents the interaction term in a regression."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides state that a collider distorts the relationship when conditioned, distinguishing it from a confounder which needs to be controlled."
+  },
+  {
+    "type": "multi",
+    "question": "Which methods are mentioned for distinguishing observational findings from causal effects?",
+    "options": [
+      "Randomized experiments (A/B testing).",
+      "Quasi-experiments (e.g., DID, IV, RDD).",
+      "Calculating the Pearson correlation coefficient.",
+      "Simply collecting more data."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "explanation": "The slides list randomized experiments and quasi-experiments (DID, IV, RDD) as methods to identify causal effects, contrasting them with purely observational correlations."
+  },
+  {
+    "type": "single",
+    "question": "In the context of A/B testing, what are 'guardrails'?",
+    "options": [
+      "The primary metrics used to determine the winner.",
+      "Metrics monitored to ensure no negative impact on other business areas.",
+      "The physical barriers in a data center.",
+      "The statistical software used for analysis."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "While 'guardrails' isn't explicitly defined in detail, the context 'Define metrics (primary & guardrails)' implies secondary metrics to protect against adverse effects, distinct from the primary success metric."
+  },
+  {
+    "type": "single",
+    "question": "Which visualization principle regarding 'Marks & Channels' is highlighted as most precise?",
+    "options": [
+      "Area and volume.",
+      "Color hue.",
+      "Position and length.",
+      "Texture."
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "The Visualization Principles section states that 'Position/length are most precise' and warns to avoid misleading area/volume."
+  },
+  {
+    "type": "single",
+    "question": "What is a recommended practice for handling axis scales?",
+    "options": [
+      "Always use dual y-axes to show more data.",
+      "Use a zero baseline for bar charts.",
+      "Avoid log scales even for heavy-tailed distributions.",
+      "Truncate the y-axis to exaggerate differences."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides explicitly state 'Zero baseline for bars' and advise avoiding dual y-axes unless necessary."
+  },
+  {
+    "type": "single",
+    "question": "When should a log scale be used?",
+    "options": [
+      "For all bar charts.",
+      "When the data has heavy tails or covers multiple orders of magnitude.",
+      "When the data is categorical.",
+      "When you want to hide outliers."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides recommend 'log scales for heavy tails', which implies dealing with skewed data or large ranges."
+  },
+  {
+    "type": "single",
+    "question": "What does the term 'Chartjunk' refer to?",
+    "options": [
+      "Data that is incorrect or corrupt.",
+      "Non-data ink that distracts from the information.",
+      "Charts that are too small to read.",
+      "Datasets with too many missing values."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides advise avoiding Chartjunk by removing 'non-data ink' and limiting encodings, ensuring the focus remains on the data."
+  },
+  {
+    "type": "single",
+    "question": "What is the recommended tradeoff when binning or smoothing data?",
+    "options": [
+      "Maximize noise to show all details.",
+      "Maximize smoothing to hide all variability.",
+      "Balance the tradeoff between noise and detail.",
+      "Use inconsistent bins to highlight specific areas."
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "The section on Binning & Smoothing highlights the 'Tradeoff between noise and detail' and advises keeping bins consistent."
+  },
+  {
+    "type": "multi",
+    "question": "Which practices are encouraged for reproducible EDA workflows?",
+    "options": [
+      "Using notebook scripts.",
+      "Using versioned data.",
+      "Saving figures and tables.",
+      "Manually editing data in spreadsheets without a record."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "The slides list notebook scripts, versioned data, and saved figures/tables as key elements of a reproducible EDA workflow."
+  },
+  {
+    "type": "single",
+    "question": "What is a 'Missingness Map' used for?",
+    "options": [
+      "To map the geographic location of customers.",
+      "To visualize patterns of missing data across features and records.",
+      "To show where the model makes incorrect predictions.",
+      "To outline the project roadmap."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The Missingness Map visualizes missing values (1=missing) across features and records to help diagnose mechanisms before imputation."
+  },
+  {
+    "type": "single",
+    "question": "Which of the following is considered a common 'Anti-Pattern' in EDA?",
+    "options": [
+      "Stratifying data by key segments.",
+      "Cherry-picking specific data points to support a narrative.",
+      "Checking for duplicates.",
+      "Using log scales for skewed data."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "Cherry-picking is explicitly listed as a common anti-pattern, along with overplotting and making causal claims from pure correlation."
+  },
+  {
+    "type": "single",
+    "question": "What is the primary visual cue for a 'violin plot' (conceptually mentioned)?",
+    "options": [
+      "It shows the cumulative sum of a variable.",
+      "It shows the density of the distribution along with spread.",
+      "It shows the relationship between two categorical variables.",
+      "It shows the timeline of events."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides mention 'violin (concept) shows density' in the context of boxplots and distribution views."
+  },
+  {
+    "type": "single",
+    "question": "When visualizing composition, which chart type is suggested over 3D pie charts?",
+    "options": [
+      "Scatter plots",
+      "Stacked bar charts",
+      "Boxplots",
+      "Dual-axis line charts"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides suggest 'Composition: stacked bars; avoid 3D pies' in the section on choosing the right chart."
+  },
+  {
+    "type": "single",
+    "question": "What is the 'FD rule' used for?",
+    "options": [
+      "Calculating the correlation coefficient.",
+      "Selecting the bin width for histograms.",
+      "Determining the sample size for A/B testing.",
+      "Detecting outliers in a boxplot."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The FD rule (Freedman-Diaconis rule) is listed as a method for 'Bin width selection' in the Histograms & Binning section."
+  },
+  {
+    "type": "single",
+    "question": "What does 'alpha' or 'jitter' help with in scatter plots?",
+    "options": [
+      "Increasing the correlation coefficient.",
+      "Reducing overplotting to see density or overlapping points.",
+      "Changing the color palette.",
+      "Fitting a regression line."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides suggest using 'alpha/jitter to reduce overplotting' in scatter plots and scatter matrices."
+  },
+  {
+    "type": "single",
+    "question": "In the context of EDA, what is the role of 'Derived Features'?",
+    "options": [
+      "They are features removed from the dataset.",
+      "They are new variables created from existing ones (e.g., date-time components).",
+      "They are the target variables to be predicted.",
+      "They are errors in data collection."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "Derived features are mentioned alongside date-time and periodic encodings, implying they are new features extracted or created from existing data to enhance analysis."
+  },
+  {
+    "type": "single",
+    "question": "What is the key takeaway regarding causal claims in EDA?",
+    "options": [
+      "EDA is sufficient to prove causality.",
+      "Correlation implies causation if the sample size is large.",
+      "Don't infer causality blindly; use EDA to suggest hypotheses and tests to confirm.",
+      "Causality is irrelevant for decision making."
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "The Key Takeaways section explicitly states: 'Stratify and consider confounding; don't infer causality blindly.' EDA suggests, tests confirm."
+  },
+  {
+    "type": "single",
+    "question": "Which plot is useful for inspecting the residuals or spread of data points?",
+    "options": [
+      "Pie chart",
+      "Strip/dot plot",
+      "Stacked area chart",
+      "Donut chart"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "Strip/dot plots are mentioned for showing 'raw observations' and are useful for seeing the spread or residuals, unlike aggregate charts like bars."
+  },
+  {
+    "type": "single",
+    "question": "What information does a boxplot's 'whisker' typically convey?",
+    "options": [
+      "The exact mean of the data.",
+      "The range of data outside the IQR, often up to 1.5x IQR.",
+      "The standard deviation.",
+      "The mode of the distribution."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The boxplot diagram labels whiskers extending from the quartiles, typically representing the range of non-outlier data (often 1.5x IQR), reaching toward the Minimum/Maximum."
+  },
+  {
+    "type": "single",
+    "question": "Why is 'Zero baseline for bars' a critical visualization principle?",
+    "options": [
+      "It looks more professional.",
+      "It prevents the visual distortion of the relative sizes of the bars.",
+      "It saves ink.",
+      "It allows for negative values."
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "Starting bars at zero is essential for accurate comparison of length; truncating the axis distorts the ratio between bar lengths (Visual Principles section)."
+  }
+]

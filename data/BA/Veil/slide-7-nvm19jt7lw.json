@@ -1,0 +1,482 @@
+[
+    {
+        "type": "single",
+        "question": "When dealing with highly imbalanced data (e.g., 990 healthy vs. 10 sick), why is raw accuracy considered a misleading metric?",
+        "options": [
+            "Because it is mathematically impossible to achieve 100% accuracy with rare classes.",
+            "Because a 'lazy model' can achieve high accuracy by simply predicting the majority class for all samples without actually finding any positive cases.",
+            "Because accuracy only considers False Positives and ignores False Negatives.",
+            "Because accuracy requires a balanced cost matrix to be calculated correctly."
+        ],
+        "answer": [1],
+        "explanation": "In imbalanced datasets, accuracy can be very high even if the model fails to detect any members of the rare (positive) class. A model that predicts all 1,000 samples as Negative would have 99% accuracy but 0% recall for the sick patients."
+    },
+    {
+        "type": "single",
+        "question": "Which metric is defined as the harmonic mean of Precision and Recall?",
+        "options": [
+            "Matthews Correlation Coefficient (MCC)",
+            "G-Mean",
+            "F1-Score",
+            "Balanced Accuracy"
+        ],
+        "answer": [2],
+        "explanation": "The F1-score is the harmonic mean of precision and recall, used to provide a single balance between the two. MCC is a correlation coefficient, G-Mean is a geometric mean, and Balanced Accuracy is an arithmetic mean."
+    },
+    {
+        "type": "single",
+        "question": "If a business stakeholder says, 'I would rather flag 10 healthy patients for follow-up than miss one person who has the disease,' which F-beta parameter should be used?",
+        "options": [
+            "Beta = 1, because precision and recall are equal.",
+            "Beta < 1, to put more weight on precision.",
+            "Beta > 1, to put more weight on recall.",
+            "Beta = 0, to ignore false positives entirely."
+        ],
+        "answer": [2],
+        "explanation": "An F-beta score where Beta > 1 allows the user to adjust the weight to favor Recall (catching all positives), which is suitable for high-risk detection tasks like medical diagnosis where missing a case is costly."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following metrics are specifically designed to remain robust or informative even under severe class imbalance? (Select all that apply)",
+        "options": [
+            "Raw Accuracy",
+            "Matthews Correlation Coefficient (MCC)",
+            "Precision-Recall (PR) Curve",
+            "G-Mean"
+        ],
+        "answer": [1, 2, 3],
+        "explanation": "MCC, PR Curves, and G-Mean are all highlighted as robust metrics for imbalanced data. Raw accuracy is specifically noted as a 'pitfall' because it is dominated by the majority class."
+    },
+    {
+        "type": "single",
+        "question": "How is the Receiver Operating Characteristic (ROC) curve specifically constructed?",
+        "options": [
+            "By plotting Precision against Recall at a single fixed threshold.",
+            "By plotting True Positive Rate (TPR) against False Positive Rate (FPR) across all possible decision thresholds from 0.0 to 1.0.",
+            "By calculating the area under the Precision-Recall curve.",
+            "By plotting the total cost of mistakes against different threshold values."
+        ],
+        "answer": [1],
+        "explanation": "The ROC curve is created by sweeping a threshold from 0 to 1 across the score distributions and plotting the resulting TPR and FPR at each point."
+    },
+    {
+        "type": "single",
+        "question": "What is the probabilistic interpretation of the Area Under the Curve (AUC) in an ROC plot?",
+        "options": [
+            "It is the probability that the model is 100% accurate.",
+            "It is the probability that a randomly selected positive sample will be ranked higher than a randomly selected negative sample.",
+            "It is the probability that the model's predictions are well-calibrated.",
+            "It is the probability that the False Positive Rate will be zero."
+        ],
+        "answer": [1],
+        "explanation": "AUC measures ranking ability; it represents the probability that the score assigned to a random positive instance is higher than the score assigned to a random negative instance."
+    },
+    {
+        "type": "single",
+        "question": "What does an 'Iso-Cost' line represent on an ROC plot?",
+        "options": [
+            "All thresholds that result in the same True Positive Rate.",
+            "A line where the cost of False Positives is always equal to the cost of False Negatives.",
+            "All combinations of TPR and FPR that result in the same total financial cost or 'mistake bill'.",
+            "The perfect model path where cost is always zero."
+        ],
+        "answer": [2],
+        "explanation": "An Iso-Cost line represents the different trade-offs between errors (FPR and TPR) that result in the same total expected cost for the business."
+    },
+    {
+        "type": "single",
+        "question": "According to Youden's J Index, how do you identify the 'optimal' cut-off point on an ROC curve?",
+        "options": [
+            "The point closest to the bottom-left (0,0) coordinate.",
+            "The point with the largest vertical distance from the 45-degree random guess diagonal.",
+            "The point where the curve intersects the 45-degree diagonal.",
+            "The point where Precision equals Recall."
+        ],
+        "answer": [1],
+        "explanation": "Youden's J Index (TPR - FPR) is maximized at the point on the ROC curve that has the greatest vertical distance from the diagonal line."
+    },
+    {
+        "type": "single",
+        "question": "In a medical diagnosis scenario where a False Negative (missing a sick person) costs $10,000 and a False Positive (unnecessary test) costs $50, where would the optimal operating point likely be on the ROC curve?",
+        "options": [
+            "Toward the bottom-left, to minimize False Positives.",
+            "Toward the top-right, to maximize Sensitivity (Recall).",
+            "Exactly at the center (0.5, 0.5).",
+            "At the point where TPR equals FPR."
+        ],
+        "answer": [1],
+        "explanation": "When the cost of a False Negative is significantly higher than a False Positive, the business objective shifts toward high Recall (Sensitivity) to avoid missing cases, which moves the optimal point toward the top-right of the ROC curve."
+    },
+    {
+        "type": "single",
+        "question": "Why is the PR (Precision-Recall) curve often preferred over the ROC curve for highly imbalanced datasets?",
+        "options": [
+            "The ROC curve's FPR can be insensitive to changes in False Positives when the number of actual negatives is very large.",
+            "PR curves are easier to calculate than ROC curves.",
+            "ROC curves require well-calibrated probabilities, while PR curves do not.",
+            "PR curves ignore False Negatives entirely."
+        ],
+        "answer": [0],
+        "explanation": "In cases of severe imbalance, the large number of True Negatives can make the FPR (False Positive Rate) look very small, leading to an 'overly optimistic' ROC AUC. The PR curve focuses on the positive class and is more sensitive to False Positives."
+    },
+    {
+        "type": "single",
+        "question": "What does 'Average Precision' (AP) represent in the context of classification evaluation?",
+        "options": [
+            "The arithmetic average of Precision and Recall.",
+            "The weighted mean of precisions achieved at each increase in recall, used to summarize the PR curve.",
+            "The precision of the model when the threshold is set to 0.5.",
+            "The percentage of times the model's precision is above 80%."
+        ],
+        "answer": [1],
+        "explanation": "AP is a precise way to calculate the area under the PR curve (PR-AUC), emphasizing early retrieval quality by summing precision values at recall steps."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following scenarios would necessitate using the Precision-Recall curve instead of ROC? (Select all that apply)",
+        "options": [
+            "A ranking contest where only the order of predictions matters.",
+            "A fraud detection system where positives are very rare (e.g., 0.1%).",
+            "A case where the cost of False Positives is a primary concern in a sparse environment.",
+            "A balanced dataset where classes are 50/50."
+        ],
+        "answer": [1, 2],
+        "explanation": "PR curves are specifically recommended for highly imbalanced data and when False Positive costs matter in the context of rare positives. ROC is often sufficient or preferred for balanced data."
+    },
+    {
+        "type": "single",
+        "question": "If a model gives a score of 0.75 and your decision threshold is set to 0.8, what is the final classification decision?",
+        "options": [
+            "Positive (Class 1)",
+            "Negative (Class 0)",
+            "Undefined",
+            "75% Positive"
+        ],
+        "answer": [1],
+        "explanation": "A classification decision is made by comparing the score to the threshold (τ). Since 0.75 < 0.8, the decision is 'Negative'."
+    },
+    {
+        "type": "single",
+        "question": "When would a 'Top-k' or quota-based thresholding approach be most appropriate?",
+        "options": [
+            "When the business has a fixed budget or capacity, such as a mailing campaign that can only afford 5,000 flyers.",
+            "When the model is perfectly calibrated and probabilities are reliable.",
+            "When the goal is to maximize the F1-score regardless of resources.",
+            "When there are no regulatory constraints on the number of positives."
+        ],
+        "answer": [0],
+        "explanation": "Top-k thresholding is used when the specific score doesn't matter as much as the fixed capacity or quota of the operation (e.g., how many items can be reviewed or sent)."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary purpose of Probability Calibration?",
+        "options": [
+            "To increase the AUC of the model.",
+            "To ensure that a predicted probability of 0.7 actually corresponds to a 70% real-world frequency of the event.",
+            "To change the ranking of the predictions to make them more accurate.",
+            "To eliminate all False Positives from the model."
+        ],
+        "answer": [1],
+        "explanation": "Calibration ensures that the confidence scores output by the model are reliable 'real-world' probabilities, which is essential for ROI calculations and risk-based decision making."
+    },
+    {
+        "type": "single",
+        "question": "In a 'Value-Cost' matrix for business analytics, what is the typical value assigned to a True Negative (TN)?",
+        "options": [
+            "A high financial gain.",
+            "A cost equal to the False Positive cost.",
+            "Usually $0, representing the correct 'do nothing' outcome.",
+            "The same value as a True Positive (TP)."
+        ],
+        "answer": [2],
+        "explanation": "In many business contexts, a True Negative represents correctly identifying that no action is needed, resulting in a value of $0 (no gain, but no wasted cost)."
+    },
+    {
+        "type": "single",
+        "question": "How do you find the 'Optimal Threshold' using an empirical Cost Curve?",
+        "options": [
+            "By finding the highest point on the curve to maximize profit.",
+            "By finding the lowest point on the curve to minimize the Total Expected Cost.",
+            "By finding where the curve crosses the x-axis.",
+            "By finding the point where the threshold is exactly 0.5."
+        ],
+        "answer": [1],
+        "explanation": "A Cost Curve visualizes total expected cost across all thresholds; the 'Minimum Cost' point identifies the optimal threshold for deployment."
+    },
+    {
+        "type": "single",
+        "question": "Given the formula for the Bayes-optimal threshold τ = C_FP / (C_FN + C_FP), what happens to the threshold as the cost of a False Negative (C_FN) increases?",
+        "options": [
+            "The threshold increases, making the model more 'conservative'.",
+            "The threshold decreases, making the model more 'aggressive' in predicting positives.",
+            "The threshold remains unchanged.",
+            "The threshold becomes undefined."
+        ],
+        "answer": [1],
+        "explanation": "Mathematically, as C_FN (the denominator) increases, the threshold τ decreases. A lower threshold means the model is more willing to label cases as Positive to avoid the high cost of missing them."
+    },
+    {
+        "type": "single",
+        "question": "Which chart directly answers the question: 'How many times better is our model than random selection?'",
+        "options": [
+            "Cumulative Gain Chart",
+            "ROC Curve",
+            "Lift Chart",
+            "Reliability Diagram"
+        ],
+        "answer": [2],
+        "explanation": "A Lift Chart plots a factor (e.g., 2x, 5x) showing the targeting efficiency of the model compared to a random baseline (Y=1)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following scenarios strictly require a calibrated model? (Select all that apply)",
+        "options": [
+            "A Kaggle-style ranking contest.",
+            "Calculating ROI/Profit for a business case.",
+            "Setting insurance premiums based on predicted risk probabilities.",
+            "Determining staffing and server capacity based on expected event counts."
+        ],
+        "answer": [1, 2, 3],
+        "explanation": "ROI calculation, insurance premiums, and operational planning all rely on the actual probability value being accurate. Ranking tasks only care about the relative order and do not require calibration."
+    },
+    {
+        "type": "single",
+        "question": "A model's reliability curve shows an 'S-shape' where predicted probabilities are more extreme than observed rates. What does this indicate?",
+        "options": [
+            "The model is perfectly calibrated.",
+            "The model is over-confident.",
+            "The model is under-confident.",
+            "The model has a high AUC."
+        ],
+        "answer": [1],
+        "explanation": "An 'S-shape' in a reliability diagram typically indicates over-confidence, meaning the model predicts probabilities closer to 0 or 1 than the actual observed frequency."
+    },
+    {
+        "type": "single",
+        "question": "What metric is defined as the Mean Squared Error (MSE) applied to probability predictions?",
+        "options": [
+            "Log Loss",
+            "Brier Score",
+            "Expected Calibration Error (ECE)",
+            "Matthews Correlation Coefficient (MCC)"
+        ],
+        "answer": [1],
+        "explanation": "The Brier score is a proper scoring rule that measures both calibration and discrimination by calculating the MSE between predicted probabilities and actual outcomes."
+    },
+    {
+        "type": "single",
+        "question": "What is a 'proper' way to train a calibration model (calibrator)?",
+        "options": [
+            "Train it on the same training data used to train the main model.",
+            "Train it on a hold-out set or using out-of-fold predictions so it can learn the main model's biases on unseen data.",
+            "Train it only on the positive class samples.",
+            "Calibration models do not need training; they are fixed formulas."
+        ],
+        "answer": [1],
+        "explanation": "To avoid leakage and correctly learn the model's behavior, a calibrator must see the main model's predictions on data that was not used during the main model's training phase."
+    },
+    {
+        "type": "single",
+        "question": "Does probability calibration typically change the AUC of a model?",
+        "options": [
+            "Yes, it significantly increases the AUC.",
+            "Yes, it usually decreases the AUC slightly.",
+            "No, it almost never changes the AUC because it does not change the ranking of the predictions.",
+            "Yes, but only if you use Isotonic Regression."
+        ],
+        "answer": [2],
+        "explanation": "Calibration transforms the scores into probabilities but generally maintains the relative order (monotonic transformation). Since AUC is based on ranking, calibration does not change the AUC value."
+    },
+    {
+        "type": "single",
+        "question": "When communicating to stakeholders, which of the following is recommended to demonstrate the impact of different decision thresholds?",
+        "options": [
+            "Only show the AUC-ROC score to keep it simple.",
+            "Show a cost table and capacity impact for 2-3 different threshold scenarios.",
+            "Provide the raw Python code used for sklearn.roc_curve.",
+            "Present only the Brier score as a single-number summary."
+        ],
+        "answer": [1],
+        "explanation": "The slides suggest showing cost tables, capacity impacts, and 'what-if' analyses for different operating points to help stakeholders understand the business trade-offs."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are common pitfalls in classification evaluation? (Select all that apply)",
+        "options": [
+            "Reporting AUC only and ignoring specific operating points.",
+            "Choosing the decision threshold on the test set (leakage).",
+            "Ignoring capacity constraints when selecting a threshold.",
+            "Reporting both ROC and PR curves."
+        ],
+        "answer": [0, 1, 2],
+        "explanation": "Reporting AUC only, leakage (choosing thresholds on test data), and ignoring capacity are listed as 'Common Pitfalls'. Reporting both ROC and PR curves is a recommended best practice for completeness."
+    },
+    {
+        "type": "single",
+        "question": "In a Cumulative Gain Chart, what does the 45-degree diagonal line represent?",
+        "options": [
+            "A perfect predictive model.",
+            "The baseline for a random guess (random model).",
+            "The point of maximum possible profit.",
+            "The threshold where sensitivity equals specificity."
+        ],
+        "answer": [1],
+        "explanation": "In a gain chart, the diagonal line represents a random model where targeting X% of the population results in capturing X% of the responders."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary difference between ECE (Expected Calibration Error) and MCE (Maximum Calibration Error)?",
+        "options": [
+            "ECE measures ranking, while MCE measures cost.",
+            "ECE is the average calibration error across all bins, while MCE is the worst-case calibration error in a single bin.",
+            "ECE is for balanced data, and MCE is for imbalanced data.",
+            "There is no difference; they are used interchangeably."
+        ],
+        "answer": [1],
+        "explanation": "ECE provides a summary of the average deviation from the diagonal, whereas MCE identifies the single bin with the largest deviation (the worst-case miscalibration)."
+    },
+    {
+        "type": "single",
+        "question": "Which metric is the geometric mean of Sensitivity and Specificity?",
+        "options": [
+            "Balanced Accuracy",
+            "F1-Score",
+            "G-Mean",
+            "Precision"
+        ],
+        "answer": [2],
+        "explanation": "G-Mean is defined as the square root of (TPR * TNR), which is the geometric mean of sensitivity (TPR) and specificity (TNR)."
+    },
+    {
+        "type": "multi",
+        "question": "What components are needed to calculate the Expected Cost at a specific threshold? (Select all that apply)",
+        "options": [
+            "A cost matrix defining the cost/value of TP, FP, TN, and FN.",
+            "The confusion matrix (counts) generated at that specific threshold.",
+            "The Brier score of the model.",
+            "The AUC of the ROC curve."
+        ],
+        "answer": [0, 1],
+        "explanation": "To calculate total expected cost, you need the financial weights (cost matrix) and the resulting error/success counts (confusion matrix) at that threshold. Brier scores and AUC are overall performance metrics."
+    },
+    {
+        "type": "single",
+        "question": "In a spam filtering example, a False Positive (real email to spam) is very costly, while a False Negative (spam to inbox) is a minor annoyance. This implies:",
+        "options": [
+            "C_FP is much lower than C_FN.",
+            "C_FP is much higher than C_FN.",
+            "The threshold should be set very low (e.g., 0.01).",
+            "The model should be evaluated using only accuracy."
+        ],
+        "answer": [1],
+        "explanation": "As stated in the spam example, the risk of a False Positive (missing an interview invitation) is high, meaning C_FP is the dominant cost, requiring a higher threshold to avoid errors."
+    },
+    {
+        "type": "single",
+        "question": "What is the range of values for the Matthews Correlation Coefficient (MCC)?",
+        "options": [
+            "0 to 1",
+            "-1 to 1",
+            "0 to 100",
+            "Undefined"
+        ],
+        "answer": [1],
+        "explanation": "MCC ranges from -1 to 1, where 1 is a perfect prediction, 0 is no better than random, and -1 indicates total disagreement between prediction and observation."
+    },
+    {
+        "type": "single",
+        "question": "Balanced Accuracy is calculated as:",
+        "options": [
+            "(TP + TN) / Total",
+            "The arithmetic mean of Sensitivity and Specificity.",
+            "The harmonic mean of Precision and Recall.",
+            "The area under the ROC curve."
+        ],
+        "answer": [1],
+        "explanation": "Balanced Accuracy is the arithmetic mean of Sensitivity (TPR) and Specificity (TNR), providing a fairer view of performance on imbalanced data."
+    },
+    {
+        "type": "single",
+        "question": "Which Python library is explicitly mentioned in the slides for implementing ROC curves and calibration?",
+        "options": [
+            "Pandas",
+            "TensorFlow",
+            "Scikit-learn (sklearn)",
+            "PyTorch"
+        ],
+        "answer": [2],
+        "explanation": "The 'Implementation Hints' slide specifically lists sklearn and its functions like roc_curve and CalibratedClassifierCV."
+    },
+    {
+        "type": "single",
+        "question": "What does a horizontal line at Y=1 represent on a Lift Chart?",
+        "options": [
+            "A perfect model.",
+            "The baseline of a random model.",
+            "The maximum possible lift.",
+            "The threshold where the model stops being useful."
+        ],
+        "answer": [1],
+        "explanation": "On a Lift Chart, a random baseline is represented by a horizontal line at Y=1, indicating no improvement over selecting samples at random."
+    },
+    {
+        "type": "multi",
+        "question": "According to the 'Evaluation Checklist', which of the following should be included in a complete model assessment? (Select all that apply)",
+        "options": [
+            "Stratified splits with no leakage.",
+            "ROC and PR curves.",
+            "Calibration diagnostics (Brier, ECE).",
+            "Custom utility/cost model validation."
+        ],
+        "answer": [0, 1, 2, 3],
+        "explanation": "The checklist on slide 50 includes all these items: stratified splits, ROC/PR, calibration diagnostics, and cost/benefit validation."
+    },
+    {
+        "type": "single",
+        "question": "In threshold selection, what is meant by 'Method 1: Closest to the Perfect Point'?",
+        "options": [
+            "Finding the threshold closest to (0.5, 0.5) on the ROC plot.",
+            "Minimizing the Euclidean distance to the top-left corner (0, 1) of the ROC plot.",
+            "Finding the threshold where accuracy is 100%.",
+            "Selecting a threshold of 0.0."
+        ],
+        "answer": [1],
+        "explanation": "This method finds a point on the ROC curve that minimizes the distance to the 'Perfect Point' (0 FPR and 1 TPR), balancing both metrics simultaneously."
+    },
+    {
+        "type": "single",
+        "question": "Which metric is described as the 'surprise level' that heavily penalizes confident errors?",
+        "options": [
+            "Brier Score",
+            "Log Loss",
+            "G-Mean",
+            "Precision@k"
+        ],
+        "answer": [1],
+        "explanation": "Log Loss (Cross-Entropy Loss) measures the 'surprise' of predictions and applies heavy penalties when a model is very confident about an incorrect prediction."
+    },
+    {
+        "type": "single",
+        "question": "In the context of 'Business Framing,' what should the threshold τ ideally reflect?",
+        "options": [
+            "The default software setting (usually 0.5).",
+            "Specific business objectives such as profit, F1-score, or regulatory constraints.",
+            "The mean of the predicted scores.",
+            "The ratio of the training data classes."
+        ],
+        "answer": [1],
+        "explanation": "The slides emphasize that τ should not be arbitrary; it should reflect specific operational goals, SLAs, or financial costs."
+    },
+    {
+        "type": "single",
+        "question": "Why is it important to track 'drift' and recalibrate periodically?",
+        "options": [
+            "To increase the complexity of the model pipeline.",
+            "Because the relationship between scores and real-world probabilities can change over time as data distributions shift.",
+            "To ensure the AUC remains exactly 0.85.",
+            "To change the model's ranking of customers every month."
+        ],
+        "answer": [1],
+        "explanation": "Recalibration is necessary because models can go out of sync with reality if the underlying data or environment changes, making their probability scores unreliable."
+    }
+]
