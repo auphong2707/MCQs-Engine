@@ -1,7 +1,7 @@
 [
     {
         "type": "single",
-        "question": "In the CRISP-DM methodology, which phase involves creating the 'Data Dictionary' and performing 'Exploratory Data Analysis' (EDA) to validate schema and content?",
+        "question": "In the CRISP-DM methodology, which phase is explicitly responsible for creating the 'Data Dictionary' and performing 'Exploratory Data Analysis' (EDA)?",
         "options": [
             "Business Understanding",
             "Data Understanding",
@@ -11,40 +11,39 @@
         "answer": [
             1
         ],
-        "explanation": "According to the CRISP-DM overview, the Data Understanding phase is where one takes inventory of sources, checks schemas, and performs EDA (distributions, outliers, etc.) to reconcile definitions with real data."
-    },
-    {
-        "type": "multi",
-        "question": "Which of the following statements correctly distinguish OLTP from OLAP workloads?",
-        "options": [
-            "OLTP systems are optimized for many small write transactions.",
-            "OLAP systems typically use row-oriented storage for fast point lookups.",
-            "OLAP systems are designed for fewer, large read operations and aggregations.",
-            "OLTP systems typically employ highly denormalized schemas to avoid joins."
-        ],
-        "answer": [
-            0,
-            2
-        ],
-        "explanation": "OLTP (Online Transaction Processing) is characterized by many small writes, normalized schemas, and point lookups. OLAP (Online Analytical Processing) focuses on fewer large reads, denormalized schemas (like Star/Snowflake), and often uses columnar storage, not row-oriented storage."
+        "explanation": "According to the CRISP-DM overview, the Data Understanding phase is where one takes inventory of sources, checks schemas, and performs EDA to reconcile definitions with real data[cite: 1164, 1184]."
     },
     {
         "type": "single",
-        "question": "You are designing a KPI Tree for a SaaS company. If 'Monthly Recurring Revenue' (MRR) is the North Star, which of the following is a direct component driver in the calculation: MRR = #Customers × ARPA × (1 - Churn)?",
+        "question": "What is the primary characteristic difference between OLTP and OLAP workloads regarding data modification?",
+        "options": [
+            "OLTP involves fewer, large read operations.",
+            "OLAP is designed for many small, atomic write transactions.",
+            "OLTP systems are optimized for many small write transactions and point lookups.",
+            "OLAP systems typically use row-oriented storage for fast updates."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "OLTP (Online Transaction Processing) is characterized by many small writes and normalized schemas. [cite_start]OLAP (Online Analytical Processing) focuses on fewer large reads and aggregations[cite: 46, 47]."
+    },
+    {
+        "type": "single",
+        "question": "In a SaaS KPI Tree where 'Monthly Recurring Revenue' (MRR) is the North Star, which variable acts as a direct mathematical driver in the formula: MRR = #Customers × ARPA × (1 - Churn)?",
         "options": [
             "Net Promoter Score (NPS)",
             "Average Revenue Per Account (ARPA)",
-            "Server Uptime",
+            "Server Latency",
             "Employee Satisfaction"
         ],
         "answer": [
             1
         ],
-        "explanation": "In the provided SaaS KPI Tree example, MRR is explicitly decomposed into #Customers, ARPA, and Churn. ARPA (Average Revenue Per Account) is a direct mathematical driver of the North Star metric."
+        "explanation": "In the standard SaaS KPI Tree, MRR is explicitly decomposed into #Customers, ARPA, and Churn. [cite_start]ARPA is a direct component of the equation[cite: 1285]."
     },
     {
         "type": "single",
-        "question": "A dataset contains a 'Plan_Type' column with values 'Basic', 'Standard', and 'Premium'. Which encoding strategy is most appropriate for a linear regression model, assuming there is a clear increasing value proposition between plans?",
+        "question": "Which encoding strategy is most appropriate for a categorical feature 'T-Shirt Size' with values 'Small', 'Medium', and 'Large' when using a linear model?",
         "options": [
             "One-Hot Encoding",
             "Ordinal Encoding",
@@ -54,26 +53,25 @@
         "answer": [
             1
         ],
-        "explanation": "Ordinal Encoding is best suited for categorical variables with a true ordering (e.g., S < M < L or Basic < Standard < Premium). It maps categories to integers that preserve this relationship, which linear models can utilize."
-    },
-    {
-        "type": "multi",
-        "question": "Which of the following scenarios indicate 'Target Leakage' in a machine learning pipeline?",
-        "options": [
-            "Using 'Account_Cancellation_Date' to predict if a customer will churn next month.",
-            "Using 'Customer_Age' derived from their Date of Birth.",
-            "Using 'Total_Refunds_Next_30_Days' to predict customer value at time T0.",
-            "Using 'Average_Session_Duration' calculated from the past 7 days of activity."
-        ],
-        "answer": [
-            0,
-            2
-        ],
-        "explanation": "Target leakage occurs when predictors include information available only after the prediction event or are direct proxies for the label. 'Account_Cancellation_Date' implies churn has already happened. 'Total_Refunds_Next_30_Days' materializes after the prediction point T0."
+        "explanation": "Ordinal Encoding is best suited for categorical variables with a true ordering (S < M < L). [cite_start]It maps categories to integers that preserve this relationship[cite: 753, 754]."
     },
     {
         "type": "single",
-        "question": "Given tables A (3 rows) and B (3 rows). If you perform a CROSS JOIN between them, what is the resulting number of rows?",
+        "question": "Which of the following scenarios represents 'Target Leakage' in a churn prediction model?",
+        "options": [
+            "Using 'Account_Cancellation_Date' as a feature.",
+            "Using 'Customer_Age' derived from Date of Birth.",
+            "Using 'Average_Monthly_Bill' from the past 6 months.",
+            "Using 'Gender' as a demographic feature."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Target leakage occurs when predictors include information available only after the outcome. [cite_start]'Account_Cancellation_Date' implies the churn event has already happened[cite: 718, 724]."
+    },
+    {
+        "type": "single",
+        "question": "If Table A has 3 rows and Table B has 3 rows, how many rows will result from a CROSS JOIN?",
         "options": [
             "3",
             "6",
@@ -83,81 +81,77 @@
         "answer": [
             2
         ],
-        "explanation": "A CROSS JOIN produces the Cartesian product of the two tables. If Table A has N rows and Table B has M rows, the result is N x M rows. Here, 3 x 3 = 9."
-    },
-    {
-        "type": "multi",
-        "question": "In the Medallion Architecture (Lakehouse), which characteristics describe the 'Bronze' layer?",
-        "options": [
-            "It contains raw data ingested from source systems.",
-            "It holds aggregated star schemas ready for BI dashboards.",
-            "Data is typically append-only with minimal transformations.",
-            "Timestamps are strictly type-cast and duplicates are removed."
-        ],
-        "answer": [
-            0,
-            2
-        ],
-        "explanation": "The Bronze layer is for raw ingestion. It is characterized by append-only patterns and minimal transformations (keeping data as close to the source as possible). Deduplication and type-casting usually occur in the Silver layer, while aggregates reside in Gold."
+        "explanation": "A CROSS JOIN produces the Cartesian product of the two tables (N x M). [cite_start]3 x 3 = 9 rows[cite: 109]."
     },
     {
         "type": "single",
-        "question": "You have a table of 10,000 users. The 'Phone_Number' column has 200 null values and 50 values that do not match the required regex format. What is the 'Validity' percentage of this column?",
+        "question": "In the Medallion Architecture, what is the primary role of the 'Silver' layer?",
         "options": [
-            "98.0%",
+            "To store raw data exactly as ingested.",
+            "To serve aggregated star schemas for BI dashboards.",
+            "To hold cleaned, conformed, and deduplicated data ready for joins.",
+            "To archive historical data that is no longer accessed."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Silver layer is for cleaned and conformed data, including deduplication and schema enforcement, making it ready for joins[cite: 85, 381]."
+    },
+    {
+        "type": "single",
+        "question": "A table has 10,000 rows. The 'Phone' column has 200 nulls and 50 invalid formats. What is the 'Validity' percentage?",
+        "options": [
             "97.5%",
+            "98.0%",
             "99.5%",
             "100%"
         ],
         "answer": [
-            1
+            0
         ],
-        "explanation": "Validity measures the percentage of values that conform to the defined format/domain among the total rows (or non-nulls depending on strict definition, but usually total). Here, 10,000 total rows. Invalid rows = 200 (nulls are often excluded from validity or counted as invalid depending on context, but strictly invalid format = 50). Based on the sample exercise logic: (Total - Invalid) / Total. However, the sample calculates validity on the *dataset size*. 200 are null, 50 are regex mismatches. Total valid = 10,000 - 200 - 50 = 9,750. Validity = 9,750 / 10,000 = 97.5%."
-    },
-    {
-        "type": "multi",
-        "question": "Which of the following are valid methods to handle Missing Not At Random (MNAR) data?",
-        "options": [
-            "Imputing with the global mean of the column.",
-            "Adding a binary 'is_missing' indicator flag.",
-            "Collecting the missing data through domain investigation.",
-            "Dropping the rows with missing values."
-        ],
-        "answer": [
-            1,
-            2
-        ],
-        "explanation": "For MNAR, the missingness depends on the value itself. Simple imputation (mean) introduces bias. Dropping rows loses signal. The best approaches are adding an 'is_missing' flag to capture the pattern or investigating the domain to retrieve the actual data."
+        "explanation": "Validity = (Total Rows - Invalid Rows) / Total Rows. 10,000 - (200 + 50) = 9,750 valid rows. [cite_start]9,750 / 10,000 = 97.5%[cite: 618, 620]."
     },
     {
         "type": "single",
-        "question": "In an SCD Type 2 dimension `dim_customer`, a customer moves from 'Bronze' to 'Silver' tier on 2025-09-10. How is this handled?",
+        "question": "Which method is best for handling 'Missing Not At Random' (MNAR) data where the missingness contains business signal?",
         "options": [
-            "Overwrite the existing 'Bronze' record with 'Silver'.",
-            "Add a new column 'Previous_Tier' to store 'Bronze'.",
-            "Expire the 'Bronze' row (set valid_to = 2025-09-10) and insert a new 'Silver' row (valid_from = 2025-09-10).",
-            "Delete the customer record and create a fresh entry."
+            "Imputing with the global mean.",
+            "Adding a binary 'is_missing' indicator flag.",
+            "Dropping the rows entirely.",
+            "Forward filling the previous value."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "For MNAR, the missingness depends on the value itself. Simple imputation biases the data. [cite_start]Adding an 'is_missing' flag captures the signal explicitly[cite: 681, 709]."
+    },
+    {
+        "type": "single",
+        "question": "In an SCD Type 2 dimension, what happens when a customer moves from 'Bronze' to 'Silver' tier?",
+        "options": [
+            "The existing row is overwritten with 'Silver'.",
+            "A new column is added to the table.",
+            "The old row is expired (valid_to set) and a new row is inserted (valid_from set).",
+            "The customer ID is changed to a new unique value."
         ],
         "answer": [
             2
         ],
-        "explanation": "SCD Type 2 maintains history by versioning rows. The old record is 'closed' by updating its `valid_to` date, and a new record is created with the new attribute value and a `valid_from` date starting at the change time."
+        "explanation": "SCD Type 2 maintains history by versioning rows. [cite_start]The old record is closed by updating `valid_to`, and a new record is created with the new value[cite: 67, 68]."
     },
     {
-        "type": "multi",
-        "question": "Which of the following SQL window function frame specifications are valid?",
+        "type": "single",
+        "question": "Which SQL window frame specification includes the current row and the two rows immediately preceding it?",
         "options": [
             "ROWS BETWEEN 2 PRECEDING AND CURRENT ROW",
-            "RANGE BETWEEN INTERVAL '2 days' PRECEDING AND CURRENT ROW",
-            "ROWS UNBOUNDED FOLLOWING",
-            "GROUPS BETWEEN 1 PRECEDING AND 1 FOLLOWING"
+            "RANGE BETWEEN 2 PRECEDING AND CURRENT ROW",
+            "ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING",
+            "ROWS UNBOUNDED PRECEDING"
         ],
         "answer": [
-            0,
-            1,
-            3
+            0
         ],
-        "explanation": "Standard window frames include ROWS (physical rows), RANGE (logical value range/interval), and GROUPS (peer groups). 'ROWS UNBOUNDED FOLLOWING' is syntactically incomplete as a full frame definition usually requires a start and end, though `ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING` is valid. However, options 0, 1, and 3 are complete standard frame specifications."
+        "explanation": "`ROWS BETWEEN 2 PRECEDING AND CURRENT ROW` explicitly selects the physical rows: the current one and the two before it[cite: 571]."
     },
     {
         "type": "single",
@@ -171,86 +165,81 @@
         "answer": [
             1
         ],
-        "explanation": "A 3-day moving average at the last element includes the current element and the two preceding ones: (20 + 30 + 40) / 3 = 90 / 3 = 30."
+        "explanation": "The last 3 elements are 20, 30, 40. Average = (20 + 30 + 40) / 3 = 90 / 3 = 30[cite: 221]."
     },
     {
-        "type": "multi",
-        "question": "Identify the 'Lagging' indicators from the list below.",
+        "type": "single",
+        "question": "Which of the following is considered a 'Lagging' indicator?",
         "options": [
+            "Website Sessions",
+            "Cart Additions",
             "Quarterly Revenue",
-            "Website Traffic (Sessions)",
-            "Customer Churn Rate",
-            "Cart Abandonment Rate"
-        ],
-        "answer": [
-            0,
-            2
-        ],
-        "explanation": "Lagging indicators reflect outcomes of past actions. Revenue and Churn Rate are results that happen after the user journey is complete. Website Traffic and Cart Abandonment are leading indicators that predict future revenue or churn."
-    },
-    {
-        "type": "single",
-        "question": "What is the primary risk of applying 'One-Hot Encoding' to a categorical feature with high cardinality (e.g., Zip Code)?",
-        "options": [
-            "It implies an artificial ordering of categories.",
-            "It creates leakage by using target information.",
-            "It causes dimensionality explosion, leading to sparse data and slow training.",
-            "It cannot handle missing values."
+            "Customer Satisfaction Survey (Pre-churn)"
         ],
         "answer": [
             2
         ],
-        "explanation": "One-Hot Encoding creates a new binary column for every unique category. High cardinality (many unique values) leads to a massive increase in features (dimensionality explosion), causing sparsity and computational inefficiency."
-    },
-    {
-        "type": "multi",
-        "question": "Which actions are appropriate for handling Outliers in a dataset?",
-        "options": [
-            "Capping/Winsorization (setting values to the 1st/99th percentile limits).",
-            "Applying a Log transform to reduce skew.",
-            "Always deleting them without investigation.",
-            "Using robust scalers (like RobustScaler using IQR)."
-        ],
-        "answer": [
-            0,
-            1,
-            3
-        ],
-        "explanation": "Outliers can be handled by capping (limiting extreme values), transforming (log scale compresses large values), or using robust scalers. Deleting them without investigation is an anti-pattern as they may contain valuable business signals."
+        "explanation": "Lagging indicators reflect the final outcomes of past actions. [cite_start]Revenue is a result that is measured after the business cycle is complete[cite: 1259, 1461]."
     },
     {
         "type": "single",
-        "question": "You need to select orders that have *never* been paid. Which SQL Join strategy is most efficient and semantically correct?",
+        "question": "What is the primary risk of using 'One-Hot Encoding' on a high-cardinality feature like 'Zip_Code'?",
         "options": [
-            "INNER JOIN orders and payments",
-            "LEFT JOIN orders and payments WHERE payments.id IS NULL (or Anti Join)",
-            "CROSS JOIN orders and payments",
-            "RIGHT JOIN orders and payments"
+            "It assumes an incorrect order of values.",
+            "It causes dimensionality explosion and data sparsity.",
+            "It cannot handle numeric data.",
+            "It requires the data to be normally distributed."
         ],
         "answer": [
             1
         ],
-        "explanation": "An Anti Join (implemented as LEFT JOIN with a WHERE NULL check or NOT EXISTS) is designed to find rows in the left table (orders) that do not have matching rows in the right table (payments)."
-    },
-    {
-        "type": "multi",
-        "question": "When defining a problem statement using the DOC framework, what do the components stand for?",
-        "options": [
-            "Decision",
-            "Options",
-            "Criteria",
-            "Data"
-        ],
-        "answer": [
-            0,
-            1,
-            2
-        ],
-        "explanation": "The DOC framework for problem framing stands for Decision (the choice to be made), Options (the candidates to choose from), and Criteria (the metrics used to evaluate the options)."
+        "explanation": "One-Hot Encoding creates a new column for every unique value. [cite_start]For high cardinality features, this leads to a massive number of columns (dimensionality explosion)[cite: 747]."
     },
     {
         "type": "single",
-        "question": "Given a table `raw_sessions` with `session_start` and `session_end`. You want to filter out invalid rows where the session ends before it starts. Which layer of the Medallion architecture is this check typically enforced?",
+        "question": "Which technique handles outliers by capping them at specific percentiles (e.g., 1st and 99th)?",
+        "options": [
+            "Standardization (Z-score)",
+            "Log Transformation",
+            "Winsorization",
+            "Min-Max Scaling"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Winsorization (or capping) involves setting extreme outliers to a specified percentile value rather than removing them[cite: 830]."
+    },
+    {
+        "type": "single",
+        "question": "Which SQL Join strategy is used to find rows in the left table that have NO match in the right table?",
+        "options": [
+            "INNER JOIN",
+            "ANTI JOIN (or LEFT JOIN with WHERE NULL)",
+            "SEMI JOIN",
+            "CROSS JOIN"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "An Anti Join returns rows from the left table where no match is found in the right table. [cite_start]It is often implemented as `LEFT JOIN ... WHERE right.key IS NULL`[cite: 138]."
+    },
+    {
+        "type": "single",
+        "question": "In the 'DOC' problem framing framework, what does 'C' stand for?",
+        "options": [
+            "Context",
+            "Constraints",
+            "Criteria",
+            "Cost"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "DOC stands for Decision, Options, and Criteria. [cite_start]Criteria are the metrics used to evaluate the options[cite: 1334]."
+    },
+    {
+        "type": "single",
+        "question": "In which Medallion layer is it most appropriate to enforce logic like `session_start <= session_end`?",
         "options": [
             "Bronze",
             "Silver",
@@ -260,11 +249,11 @@
         "answer": [
             1
         ],
-        "explanation": "The Silver layer is responsible for cleaning and conforming data. Enforcing logic like `session_start <= session_end` removes invalid data to ensure the Silver tables are 'joinable' and trustworthy."
+        "explanation": "The Silver layer is responsible for cleaning and conforming data. [cite_start]Logic checks to remove invalid data happen here to ensure joinability[cite: 85, 389]."
     },
     {
         "type": "single",
-        "question": "Using the 'Interquartile Range' (IQR) method, at what value would you cap the upper bound for outliers if Q1=20 and Q3=50?",
+        "question": "Using the IQR method (Q3 + 1.5*IQR), what is the upper outlier threshold if Q1=20 and Q3=50?",
         "options": [
             "80",
             "95",
@@ -274,41 +263,39 @@
         "answer": [
             1
         ],
-        "explanation": "The standard IQR outlier threshold is Q3 + 1.5 * IQR. Here, IQR = Q3 - Q1 = 50 - 20 = 30. The upper bound = 50 + (1.5 * 30) = 50 + 45 = 95."
-    },
-    {
-        "type": "multi",
-        "question": "Which of the following are benefits of using Common Table Expressions (CTEs) in SQL?",
-        "options": [
-            "They improve query readability by breaking logic into named steps.",
-            "They allow for recursive queries (e.g., traversing hierarchies).",
-            "They always physically store data on disk for faster performance.",
-            "They avoid repeated subqueries in the code structure."
-        ],
-        "answer": [
-            0,
-            1,
-            3
-        ],
-        "explanation": "CTEs improve readability and modularity, allow recursion, and prevent code repetition. However, they do not necessarily store data physically; their materialization behavior varies by engine (often optimized but not guaranteed storage like a table)."
+        "explanation": "IQR = Q3 - Q1 = 50 - 20 = 30. Threshold = Q3 + 1.5*IQR = 50 + (1.5 * 30) = 50 + 45 = 95[cite: 1008]."
     },
     {
         "type": "single",
-        "question": "A business wants to increase E-commerce Revenue. You propose optimizing the 'Checkout Page'. Which 'Lever' in the KPI Tree does this action primarily influence?",
+        "question": "What is the main benefit of using a Common Table Expression (CTE) over a subquery?",
         "options": [
-            "Traffic (Sessions)",
-            "Conversion Rate (CR)",
-            "Average Order Value (AOV)",
-            "Customer Acquisition Cost (CAC)"
+            "It physically indexes the data.",
+            "It improves code readability and allows reuse within the query.",
+            "It always guarantees faster execution speed.",
+            "It allows exporting data to a CSV file."
         ],
         "answer": [
             1
         ],
-        "explanation": "Optimizing the checkout page reduces friction at the final step of the purchase funnel, directly increasing the percentage of sessions that result in a transaction (Conversion Rate)."
+        "explanation": "CTEs are primarily used to break complex logic into named steps, improving readability and allowing the named result to be reused[cite: 175]."
     },
     {
         "type": "single",
-        "question": "In a Time-Travel query on Delta Lake or Snowflake, what SQL clause is used to query data as it existed 1 hour ago?",
+        "question": "Optimizing the 'Checkout Page' directly influences which Lever in an E-commerce KPI Tree?",
+        "options": [
+            "Traffic Volume",
+            "Conversion Rate (CR)",
+            "Average Order Value (AOV)",
+            "Churn Rate"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Checkout optimization addresses the final step of the funnel, directly converting carts to purchases, thus improving the Conversion Rate[cite: 1145, 1272]."
+    },
+    {
+        "type": "single",
+        "question": "Which SQL syntax correctly queries a Delta/Snowflake table as it existed 1 hour ago?",
         "options": [
             "FROM table AS OF -1 HOUR",
             "FROM table AT (OFFSET => -3600)",
@@ -318,26 +305,25 @@
         "answer": [
             1
         ],
-        "explanation": "The standard syntax shown in the materials for querying historical data by offset is `AT (OFFSET => -seconds)`. 1 hour = 3600 seconds."
-    },
-    {
-        "type": "multi",
-        "question": "Which of the following features would be considered 'Data Leakage' if used to predict whether a loan will default?",
-        "options": [
-            "The applicant's income at the time of application.",
-            "The number of 'Late Payment' flags generated 6 months after the loan was issued.",
-            "The applicant's credit score at the time of application.",
-            "The 'Account Sent to Collections' status."
-        ],
-        "answer": [
-            1,
-            3
-        ],
-        "explanation": "Features generated *after* the decision point (loan issuance) constitute leakage. Late payment flags occurring in the future and 'Collections' status are consequences of the target (default), not predictors available at T0."
+        "explanation": "The standard syntax for time travel by offset is `AT (OFFSET => -seconds)`. [cite_start]1 hour is 3600 seconds[cite: 321]."
     },
     {
         "type": "single",
-        "question": "What is the result of `COUNT(*)` on a table that contains 5 rows, including 1 row where all columns are NULL?",
+        "question": "Which feature represents 'Temporal Leakage' if used to predict loan default?",
+        "options": [
+            "Applicant's income at application time.",
+            "Applicant's credit score at application time.",
+            "Late payment flags generated 6 months post-loan.",
+            "Loan amount requested."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Features generated after the decision point (loan issuance) constitute leakage. [cite_start]Late payment flags are future outcomes[cite: 718]."
+    },
+    {
+        "type": "single",
+        "question": "What is the result of `COUNT(*)` on a table with 5 rows, where one row is entirely NULL?",
         "options": [
             "4",
             "5",
@@ -347,41 +333,39 @@
         "answer": [
             1
         ],
-        "explanation": "`COUNT(*)` counts the number of rows regardless of content, including rows with NULL values. It would result in 5."
-    },
-    {
-        "type": "multi",
-        "question": "Select the correct techniques for Feature Selection.",
-        "options": [
-            "Filter methods (e.g., Chi-square, Correlation).",
-            "Wrapper methods (e.g., Recursive Feature Elimination).",
-            "Embedded methods (e.g., Lasso L1 regularization).",
-            "Duplication methods (e.g., copying features)."
-        ],
-        "answer": [
-            0,
-            1,
-            2
-        ],
-        "explanation": "Feature selection falls into three main categories: Filter (statistical tests), Wrapper (iterative model training like RFE), and Embedded (regularization within the model training like Lasso)."
+        "explanation": "`COUNT(*)` counts all rows in the table, regardless of whether the values are null[cite: 402]."
     },
     {
         "type": "single",
-        "question": "You have an SCD Type 2 table `dim_product`. A query seeks the product category for `product_id = 50` on `2025-01-01`. Which WHERE clause condition is correct?",
+        "question": "Which Feature Selection method involves training a model iteratively (e.g., Recursive Feature Elimination)?",
         "options": [
-            "WHERE product_id = 50 AND valid_from = '2025-01-01'",
-            "WHERE product_id = 50 AND valid_from <= '2025-01-01' AND (valid_to > '2025-01-01' OR valid_to IS NULL)",
-            "WHERE product_id = 50 AND is_current = TRUE",
-            "WHERE product_id = 50 AND valid_from >= '2025-01-01'"
+            "Filter Method",
+            "Wrapper Method",
+            "Embedded Method",
+            "Unsupervised Method"
         ],
         "answer": [
             1
         ],
-        "explanation": "To find the state of a record at a specific point in time, you must ensure the query date falls within the valid range: greater than or equal to `valid_from` and strictly less than `valid_to` (or if `valid_to` is NULL, meaning it's still active)."
+        "explanation": "Wrapper methods, like RFE, wrap the model training process to select the best subset of features[cite: 879, 893]."
     },
     {
         "type": "single",
-        "question": "What is the 'Completeness' rate of a column that has 800 non-null values out of 1,000 total rows?",
+        "question": "To find the valid product category for `product_id=50` on `2025-01-01` in an SCD2 table, which logic is correct?",
+        "options": [
+            "valid_from = '2025-01-01'",
+            "valid_from <= '2025-01-01' AND (valid_to > '2025-01-01' OR valid_to IS NULL)",
+            "is_current = TRUE",
+            "valid_to = '2025-01-01'"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The query date must fall inside the validity window: greater than or equal to start, and strictly less than end (or null)[cite: 77, 78]."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Completeness' rate if a column has 800 non-null values in 1,000 rows?",
         "options": [
             "20%",
             "80%",
@@ -391,57 +375,53 @@
         "answer": [
             1
         ],
-        "explanation": "Completeness is calculated as (Number of Non-Null Values / Total Values) * 100. (800 / 1000) * 100 = 80%."
-    },
-    {
-        "type": "multi",
-        "question": "Which of the following are typical 'Health Metrics' (Guardrails) for an E-commerce platform, distinct from Business KPIs?",
-        "options": [
-            "Page Load Latency",
-            "Payment Gateway Error Rate",
-            "Gross Merchandise Value (GMV)",
-            "Inventory Availability Rate"
-        ],
-        "answer": [
-            0,
-            1,
-            3
-        ],
-        "explanation": "Guardrails or Health Metrics ensure the system functions correctly while optimizing business goals. Latency, error rates, and inventory availability are technical/operational constraints. GMV is a primary Business KPI."
+        "explanation": "Completeness = (Non-null / Total) * 100. (800 / 1000) * 100 = 80%[cite: 618]."
     },
     {
         "type": "single",
-        "question": "In SQL, what is the key difference between `RANK()` and `DENSE_RANK()`?",
+        "question": "Which metric is a 'Guardrail' metric rather than a primary Business KPI?",
         "options": [
-            "RANK() skips numbers after ties (1, 1, 3), while DENSE_RANK() does not (1, 1, 2).",
-            "DENSE_RANK() skips numbers after ties, while RANK() does not.",
-            "RANK() assigns unique numbers to every row regardless of ties.",
+            "Revenue",
+            "Page Load Latency",
+            "Conversion Rate",
+            "New Signups"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Guardrails are health metrics ensuring the system functions correctly. [cite_start]Latency is a technical constraint, whereas Revenue/CR are business goals[cite: 1357]."
+    },
+    {
+        "type": "single",
+        "question": "What is the key difference between `RANK()` and `DENSE_RANK()`?",
+        "options": [
+            "RANK() leaves gaps in numbers after ties; DENSE_RANK() does not.",
+            "DENSE_RANK() leaves gaps; RANK() does not.",
+            "RANK() provides a unique number for every row.",
             "There is no difference."
         ],
         "answer": [
             0
         ],
-        "explanation": "RANK() leaves gaps in the ranking sequence when there are ties (e.g., if two items are tied for 1st, the next is 3rd). DENSE_RANK() provides consecutive ranks (e.g., tied for 1st, the next is 2nd)."
-    },
-    {
-        "type": "multi",
-        "question": "Which of the following are components of the 'Data Value Chain'?",
-        "options": [
-            "Collect",
-            "Store",
-            "Analyze/Model",
-            "Ignore"
-        ],
-        "answer": [
-            0,
-            1,
-            2
-        ],
-        "explanation": "The Data Value Chain steps include Collect, Store, Clean/Transform, Analyze/Model, Deploy, and Monitor. 'Ignore' is not a value-adding step."
+        "explanation": "RANK() skips numbers (e.g., 1, 1, 3) while DENSE_RANK() is consecutive (1, 1, 2)[cite: 220, 238]."
     },
     {
         "type": "single",
-        "question": "You are performing a Left Join between `Orders` (100 rows) and `Customers` (50 rows). If every order has a valid customer ID, how many rows will the result have?",
+        "question": "Which step comes first in the 'Data Value Chain'?",
+        "options": [
+            "Store",
+            "Clean",
+            "Collect",
+            "Analyze"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The chain starts with Collection, followed by Storage, Cleaning, Analysis, etc.[cite: 1126]."
+    },
+    {
+        "type": "single",
+        "question": "If you perform a LEFT JOIN between 'Orders' (100 rows) and 'Customers' (50 rows), and every order has one valid customer, how many rows are returned?",
         "options": [
             "50",
             "100",
@@ -451,98 +431,25 @@
         "answer": [
             1
         ],
-        "explanation": "A Left Join preserves all rows from the left table (`Orders`). Since every order maps to a valid customer (and assuming 1:1 or N:1 relationship where one order doesn't map to multiple customers), the result will have exactly the number of rows in the left table: 100."
+        "explanation": "A Left Join keeps all 100 rows from the left table. [cite_start]Since mapping is 1:1 or N:1 valid, the row count remains 100[cite: 125]."
     },
     {
         "type": "single",
-        "question": "Which imputation method preserves the correlation structure of the data best for 'Missing At Random' (MAR) data?",
+        "question": "Which imputation method preserves multivariate correlations best for 'Missing At Random' (MAR) data?",
         "options": [
-            "Global Mean Imputation",
+            "Global Median Imputation",
             "MICE (Multiple Imputation by Chained Equations)",
-            "Dropping rows",
-            "Zero filling"
+            "Zero Filling",
+            "Dropping Rows"
         ],
         "answer": [
             1
         ],
-        "explanation": "MICE models each feature with missing values as a function of other features, iteratively. This allows it to capture and preserve the multivariate relationships (correlations) in the data, unlike simple mean imputation."
-    },
-    {
-        "type": "multi",
-        "question": "Identify the correct statements regarding 'Sessionization' using SQL.",
-        "options": [
-            "It typically involves defining a timeout threshold (e.g., 30 minutes).",
-            "It can be calculated using `LAG()` to find gaps between event timestamps.",
-            "It requires a `CROSS JOIN` to be efficient.",
-            "It sums a binary 'is_new_session' flag to generate session IDs."
-        ],
-        "answer": [
-            0,
-            1,
-            3
-        ],
-        "explanation": "Sessionization groups events. Standard logic uses `LAG()` to check if `event_ts - prev_event_ts > 30 mins`. If so, a new session flag (1) is generated. A running sum of these flags creates unique session IDs. CROSS JOINs are inefficient and not used here."
+        "explanation": "MICE models each feature iteratively based on others, preserving correlations, unlike global simple imputation[cite: 697, 698]."
     },
     {
         "type": "single",
-        "question": "A 'Z-score' of +3.0 indicates a data point is:",
-        "options": [
-            "Equal to the mean.",
-            "Three standard deviations below the mean.",
-            "Three standard deviations above the mean.",
-            "An invalid null value."
-        ],
-        "answer": [
-            2
-        ],
-        "explanation": "The Z-score formula is `(x - mean) / std_dev`. A positive Z-score indicates the value is above the mean. A value of 3.0 means it is 3 standard deviations above."
-    },
-    {
-        "type": "single",
-        "question": "When defining a 'Data Contract', what is the primary purpose?",
-        "options": [
-            "To negotiate salary with data engineers.",
-            "To establish an agreement on schema, quality, and SLA between data producers and consumers.",
-            "To strictly limit the amount of data stored in the cloud.",
-            "To delete data older than 30 days."
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "Data Contracts are agreements that define the expected structure (schema), quality rules, and Service Level Agreements (SLAs) for data reliability, ensuring stability for downstream consumers."
-    },
-    {
-        "type": "multi",
-        "question": "Which of the following are techniques for 'Dimensionality Reduction'?",
-        "options": [
-            "Principal Component Analysis (PCA)",
-            "t-SNE",
-            "One-Hot Encoding",
-            "StandardScaler"
-        ],
-        "answer": [
-            0,
-            1
-        ],
-        "explanation": "PCA and t-SNE are methods to reduce the number of features (dimensions) while preserving variance or structure. One-Hot Encoding *increases* dimensions. StandardScaler scales data but does not reduce dimensions."
-    },
-    {
-        "type": "single",
-        "question": "What is the formula for 'Row-level Duplicate Rate'?",
-        "options": [
-            "(Number of Null Rows / Total Rows) * 100",
-            "(Number of Fully Duplicated Rows / Total Rows) * 100",
-            "(Total Rows / Unique Rows) * 100",
-            "1 - Uniqueness"
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "The duplicate rate is the proportion of rows that are exact duplicates of other rows in the dataset, calculated as (Duplicate Count / Total Count) * 100."
-    },
-    {
-        "type": "single",
-        "question": "If you need to analyze the 'Change in Revenue' day-over-day, which SQL window function is most useful to retrieve the previous day's revenue in the same row?",
+        "question": "Which SQL function is used to calculate the 'Change in Revenue' from the previous day in the same row?",
         "options": [
             "LEAD()",
             "LAG()",
@@ -552,36 +459,104 @@
         "answer": [
             1
         ],
-        "explanation": "`LAG()` allows you to access data from a preceding row (e.g., yesterday) in the same result set, making it ideal for calculating period-over-period changes."
-    },
-    {
-        "type": "multi",
-        "question": "Which scenarios best describe 'Temporal Leakage'?",
-        "options": [
-            "Training a model on data from 2024 to predict events in 2023.",
-            "Using future promotions to predict past sales.",
-            "Using a random train-test split on time-series data.",
-            "Using 2023 data to train and 2024 data to test."
-        ],
-        "answer": [
-            0,
-            1,
-            2
-        ],
-        "explanation": "Temporal leakage happens when future information is used to predict the past or when time-dependence is ignored. Random splitting time-series data mixes future and past, causing leakage. Options 0 and 1 are explicit examples of using future info."
+        "explanation": "`LAG()` retrieves data from a preceding row (e.g., yesterday) to compare with the current row[cite: 256]."
     },
     {
         "type": "single",
-        "question": "You have a dataset where 'Income' is missing for 10% of users. You observe that 'Income' is missing more frequently for users in the 'Student' occupation. This missingness mechanism is likely:",
+        "question": "A Z-score of +3.0 indicates the data point is:",
         "options": [
-            "MCAR (Missing Completely at Random)",
-            "MAR (Missing at Random)",
-            "MNAR (Missing Not at Random)",
-            "Perfectly Complete"
+            "Equal to the mean.",
+            "3 standard deviations below the mean.",
+            "3 standard deviations above the mean.",
+            "An error."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Z-score measures standard deviations from the mean. [cite_start]Positive 3.0 means 3 SDs above[cite: 795, 820]."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary purpose of a 'Data Contract'?",
+        "options": [
+            "To limit cloud storage costs.",
+            "To agree on schema, quality, and SLAs between producers and consumers.",
+            "To restrict data access to admins only.",
+            "To encrypt data at rest."
         ],
         "answer": [
             1
         ],
-        "explanation": "MAR implies that the missingness depends on *observed* data (in this case, the 'Occupation' variable). If the missingness pattern is explained by another variable in the dataset, it is MAR."
+        "explanation": "Data contracts define fields, definitions, and SLAs between data producers and consumers[cite: 960]."
+    },
+    {
+        "type": "single",
+        "question": "Which technique is used for Dimensionality Reduction while preserving variance?",
+        "options": [
+            "Principal Component Analysis (PCA)",
+            "One-Hot Encoding",
+            "Min-Max Scaling",
+            "Upsampling"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "PCA projects data into orthogonal components to preserve variance while reducing dimensions[cite: 906]."
+    },
+    {
+        "type": "single",
+        "question": "How is 'Row-level Duplicate Rate' calculated?",
+        "options": [
+            "(Null Rows / Total Rows) * 100",
+            "(Duplicate Rows / Total Rows) * 100",
+            "(Total Rows / Unique Rows) * 100",
+            "1 - Validity"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The duplicate rate is the percentage of rows that are duplicates: (Count of duplicates / Total rows) * 100[cite: 623]."
+    },
+    {
+        "type": "single",
+        "question": "In a 'Sessionization' logic, what does `SUM(is_new_session) OVER (...)` calculate?",
+        "options": [
+            "The duration of the session.",
+            "The unique Session ID.",
+            "The total number of events.",
+            "The number of users."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "By summing the 'is_new' flags (which are 1 when a new session starts) cumulatively, you generate a unique incrementing Session ID for each user's event stream[cite: 276]."
+    },
+    {
+        "type": "single",
+        "question": "Which missingness mechanism implies that the missing value depends on *other* observed variables?",
+        "options": [
+            "MCAR (Missing Completely at Random)",
+            "MAR (Missing At Random)",
+            "MNAR (Missing Not At Random)",
+            "Systematic Error"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "MAR means missingness is related to observed data (e.g., income missingness depends on 'Plan Type')[cite: 658]."
+    },
+    {
+        "type": "single",
+        "question": "In the 'Bronze' layer of a Lakehouse, data is typically:",
+        "options": [
+            "Highly aggregated and ready for BI.",
+            "Cleaned, deduped, and schema-enforced.",
+            "Raw, append-only, with minimal transformation.",
+            "Deleted after 24 hours."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Bronze is the raw ingestion layer, keeping data in its original state (append-only)[cite: 84]."
     }
 ]

@@ -1,586 +1,562 @@
 [
     {
         "type": "single",
-        "question": "In the context of the Confusion Matrix (Exercise 7.1), what is the formula for 'Specificity' (TNR) and what does it measure?",
+        "question": "A churn model is tested on a dataset with 950 Non-Churners and 50 Churners. It predicts 'Non-Churn' for every single customer. What are the Accuracy and Recall of this model?",
         "options": [
-            "TP / (TP + FP); Measures the usefulness of positive predictions.",
-            "TN / (TN + FP); Measures the ability to correctly identify negative cases.",
-            "TP / (TP + FN); Measures the coverage of actual positives.",
-            "FP / (FP + TN); Measures the rate of false alarms."
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "Specificity (True Negative Rate) is calculated as TN / (TN + FP). It quantifies the model's ability to correctly identify negative instances (e.g., non-churners)."
-    },
-    {
-        "type": "multi",
-        "question": "Using the data from Exercise 7.1 (TP=75, FP=55, FN=45, TN=825), which of the following metric calculations are correct?",
-        "options": [
-            "Accuracy = 90.0%",
-            "Precision = 75.0%",
-            "Recall = 62.5%",
-            "F1-score = 80.0%"
-        ],
-        "answer": [
-            0,
-            2
-        ],
-        "explanation": "Accuracy = (75+825)/1000 = 90%. Recall = 75/(75+45) = 62.5%. Precision = 75/(75+55) = 57.7% (not 75%). F1-score is ~60% (not 80%)."
-    },
-    {
-        "type": "single",
-        "question": "Why might a high Accuracy score (e.g., 90%) be misleading in a churn classification problem like Exercise 7.1?",
-        "options": [
-            "It indicates the model is overfitting to the training data.",
-            "It fails to account for the computational cost of the model.",
-            "In imbalanced datasets, a model can achieve high accuracy by simply predicting the majority class, masking poor performance on the minority class.",
-            "Accuracy is a regression metric and cannot be used for classification."
-        ],
-        "answer": [
-            2
-        ],
-        "explanation": "Raw accuracy is misleading in imbalanced classes because a trivial model predicting the majority class (non-churn) for everyone would still achieve high accuracy while failing to capture the target class (churn)."
-    },
-    {
-        "type": "single",
-        "question": "In Exercise 7.2, calculating Youden's J Index involves which two metrics?",
-        "options": [
-            "Precision and Recall",
-            "True Positive Rate (TPR) and False Positive Rate (FPR)",
-            "Accuracy and F1-score",
-            "Sensitivity and Specificity (averaged)"
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "Youden’s J Index is defined as J = TPR - FPR. It represents the vertical distance from the ROC curve to the random-guess diagonal."
-    },
-    {
-        "type": "multi",
-        "question": "Given the data in Exercise 7.2 (P=50, N=150) and a threshold τ=0.4 where TP=40 and FP=25, select the correct calculated values.",
-        "options": [
-            "TPR = 0.80",
-            "FPR = 0.167",
-            "Precision = 0.40",
-            "Youden's J = 0.633"
-        ],
-        "answer": [
-            0,
-            1,
-            3
-        ],
-        "explanation": "TPR = 40/50 = 0.80. FPR = 25/150 = 0.167. Youden's J = 0.80 - 0.167 = 0.633. Precision = 40/(40+25) = 0.615 (not 0.40)."
-    },
-    {
-        "type": "single",
-        "question": "According to Exercise 7.3, why is the Precision-Recall (PR) curve preferred over ROC when the positive class is rare?",
-        "options": [
-            "PR curves are computationally faster to generate.",
-            "ROC curves utilize True Negatives in the denominator (FPR), which can make performance look overly optimistic when TN is very large.",
-            "PR curves are standard in medical diagnostics while ROC is for marketing.",
-            "ROC curves cannot handle probability scores."
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "ROC uses FPR (FP / (FP+TN)). If TN is huge (rare positives), FPR remains tiny even if FP is large relative to TP. PR curves focus only on TP and FP (Precision), providing a more honest view of performance on the minority class."
-    },
-    {
-        "type": "multi",
-        "question": "Which of the following are consequences of lowering the classification threshold τ (e.g., moving from 0.8 to 0.3)?",
-        "options": [
-            "True Positive Rate (Recall) generally increases.",
-            "False Positive Rate (FPR) generally decreases.",
-            "The model becomes more 'liberal' in predicting the positive class.",
-            "Precision generally increases."
-        ],
-        "answer": [
-            0,
-            2
-        ],
-        "explanation": "Lowering the threshold captures more positives (increasing TPR/Recall) but also misclassifies more negatives (increasing FPR). This makes the model more aggressive (liberal), typically lowering Precision."
-    },
-    {
-        "type": "single",
-        "question": "In Exercise 7.5 (Cancer Screening), the cost of a False Negative ($10,000) is significantly higher than a False Positive ($50). What does this imply for model tuning?",
-        "options": [
-            "The model should prioritize Specificity to minimize false alarms.",
-            "The threshold should be adjusted to maximize Recall, even if it generates more False Positives.",
-            "The model should aim for balanced accuracy regardless of cost.",
-            "The cost matrix is irrelevant for threshold selection."
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "Because a missed diagnosis (FN) is 200x more expensive than a false alarm (FP), the business/medical priority is to catch every case. This requires high Recall, achieved by accepting a higher number of low-cost False Positives."
-    },
-    {
-        "type": "multi",
-        "question": "Using the data from Exercise 7.5 (TP=80, FP=40, FN=20, TN=900) with Cost(FP)=$50 and Cost(FN)=$10,000, which values correctly contribute to the Total Expected Cost?",
-        "options": [
-            "Cost from False Positives = $2,000",
-            "Cost from False Negatives = $200,000",
-            "Total Expected Cost = $202,000",
-            "Total Expected Cost = $2,050"
-        ],
-        "answer": [
-            0,
-            1,
-            2
-        ],
-        "explanation": "FP Cost = 40 * $50 = $2,000. FN Cost = 20 * $10,000 = $200,000. Total = $202,000."
-    },
-    {
-        "type": "single",
-        "question": "In Exercise 8.1 (K-means), during the 'Assignment Step' for point x=2 with Centroids m1=3 and m2=9, what is the outcome?",
-        "options": [
-            "The point is assigned to Cluster 2 because 2 is even.",
-            "Distance to m1 is 1, Distance to m2 is 7; Assigned to Cluster 1.",
-            "Distance to m1 is 5, Distance to m2 is 11; Assigned to Cluster 1.",
-            "The point is discarded as an outlier."
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "Euclidean distance is |x - m|. |2 - 3| = 1. |2 - 9| = 7. Since 1 < 7, the point is assigned to Cluster 1 (nearest centroid)."
-    },
-    {
-        "type": "multi",
-        "question": "In the 'Update Step' of Exercise 8.1, if Cluster 2 contains points {10, 12}, how is the new centroid m2' calculated?",
-        "options": [
-            "It is the sum of the points: 10 + 12 = 22.",
-            "It is the mean of the points: (10 + 12) / 2 = 11.",
-            "It is the midpoint between the furthest points.",
-            "The new centroid moves from m2=9 to m2'=11."
-        ],
-        "answer": [
-            1,
-            3
-        ],
-        "explanation": "The update step calculates the mean of assigned points. Mean(10, 12) = 11. The previous centroid was 9, so it moves to 11."
-    },
-    {
-        "type": "single",
-        "question": "Based on Exercise 8.2, what does the 'Elbow Rule' suggest about selecting the number of clusters (k)?",
-        "options": [
-            "Choose the k with the highest Inertia.",
-            "Choose the k where the rate of decrease in Inertia slows down significantly (diminishing returns).",
-            "Always choose the highest k possible to capture maximum detail.",
-            "Choose the k where Inertia is exactly zero."
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "The Elbow Rule looks for the 'bend' in the plot of Inertia vs. k. This point represents the trade-off where adding more clusters yields minimal improvement in compactness."
-    },
-    {
-        "type": "multi",
-        "question": "Which statements regarding the Silhouette Score in Exercise 8.2 are correct?",
-        "options": [
-            "It measures how similar a point is to its own cluster compared to other clusters.",
-            "A score closer to +1 indicates well-separated, cohesive clusters.",
-            "A score of k=3 (0.62) is worse than a score of k=5 (0.35).",
-            "It is used to validate the consistency of clusters."
-        ],
-        "answer": [
-            0,
-            1,
-            3
-        ],
-        "explanation": "Silhouette Score ranges from -1 to 1. High values (+1) imply good clustering (high cohesion, high separation). 0.62 is better than 0.35."
-    },
-    {
-        "type": "single",
-        "question": "In Exercise 8.3 (PCA), how is Total Variance calculated from eigenvalues?",
-        "options": [
-            "By averaging the eigenvalues.",
-            "By summing all eigenvalues (4.5 + 3.0 + 1.5 + 1.0).",
-            "By squaring the eigenvalues.",
-            "By taking the largest eigenvalue only."
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "Total Variance in PCA is the sum of the eigenvalues of the principal components. Here, 4.5+3.0+1.5+1.0 = 10.0."
-    },
-    {
-        "type": "multi",
-        "question": "Using the eigenvalues from Exercise 8.3 (Total Variance = 10.0), which Explained Variance Ratios are correct?",
-        "options": [
-            "PC1 explains 45% of the variance.",
-            "PC2 explains 30% of the variance.",
-            "PC3 explains 10% of the variance.",
-            "PC4 explains 1.0% of the variance."
-        ],
-        "answer": [
-            0,
-            1
-        ],
-        "explanation": "PC1 = 4.5/10 = 0.45 (45%). PC2 = 3.0/10 = 0.30 (30%). PC3 = 1.5/10 = 15% (not 10%). PC4 = 1.0/10 = 10% (not 1%)."
-    },
-    {
-        "type": "single",
-        "question": "According to Exercise 8.3, if the goal is to retain at least 70% of the variance, how many components (k) should be selected?",
-        "options": [
-            "1 Component (45%)",
-            "2 Components (75%)",
-            "3 Components (90%)",
-            "4 Components (100%)"
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "Cumulative variance: PC1 (45%) + PC2 (30%) = 75%. This exceeds the 70% threshold, so k=2 is the efficient choice."
-    },
-    {
-        "type": "multi",
-        "question": "What are the primary reasons for using Principal Component Analysis (PCA) in business analytics?",
-        "options": [
-            "To increase the number of features in a dataset.",
-            "To reduce dimensionality while preserving information (variance).",
-            "To visualize complex high-dimensional segments in 2D or 3D.",
-            "To perform supervised classification directly."
-        ],
-        "answer": [
-            1,
-            2
-        ],
-        "explanation": "PCA is an unsupervised technique used for dimensionality reduction (combating the curse of dimensionality) and visualization. It reduces features, not increases them."
-    },
-    {
-        "type": "single",
-        "question": "What does 'Inertia' (WCSS) measure in the context of K-means clustering?",
-        "options": [
-            "The distance between different cluster centroids.",
-            "The sum of squared distances between each point and its assigned centroid.",
-            "The probability of a point belonging to a cluster.",
-            "The ratio of inter-cluster distance to intra-cluster distance."
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "Inertia (Within-Cluster Sum of Squares) quantifies the compactness of clusters. It is calculated as the sum of squared Euclidean distances from every point to its cluster center."
-    },
-    {
-        "type": "multi",
-        "question": "In the Food Delivery KPI Tree (Exercise 9.1), which factors were identified as 'Root Causes' for the profit decline?",
-        "options": [
-            "Active Users remained flat.",
-            "Average Order Value (AOV) dropped significantly.",
-            "Variable Cost per Order increased.",
-            "Order Frequency increased slightly."
-        ],
-        "answer": [
-            1,
-            2
-        ],
-        "explanation": "The prompt identifies a 'double squeeze': AOV dropped (due to promotions) and Variable Cost increased (gasoline prices). These are the negative drivers affecting profit."
-    },
-    {
-        "type": "single",
-        "question": "In the KPI Tree (Exercise 9.1), what is the mathematical relationship between 'Total Orders' and 'Variable Cost per Order' to derive 'Total Variable Costs'?",
-        "options": [
-            "Additive (+)",
-            "Multiplicative (x)",
-            "Subtractive (-)",
-            "Divisive (/)"
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "Total Variable Costs are calculated by multiplying the volume (Total Orders) by the unit cost (Variable Cost per Order)."
-    },
-    {
-        "type": "single",
-        "question": "In Exercise 9.2 (Funnel Optimization), how is the Conversion Rate (CR) calculated between steps?",
-        "options": [
-            "(Users at Step n / Users at Step n+1) * 100",
-            "(Users at Step n+1 / Users at Step n) * 100",
-            "(Users at Step n+1 - Users at Step n) / Total Users",
-            "Users at Step n+1 * Total Marketing Spend"
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "Conversion Rate is the percentage of users who successfully move *to* the next step *from* the current step: (Next Step / Current Step) * 100."
-    },
-    {
-        "type": "single",
-        "question": "Based on Exercise 9.2, Step 3 (Start Checkout) has 1,600 users and Step 4 (Purchase) has 400 users. What is the Conversion Rate, and is it a bottleneck?",
-        "options": [
-            "80%; No, it is high.",
-            "25%; Yes, it is the biggest drop-off point.",
-            "10%; Yes, it is very low.",
-            "50%; No, it matches industry standards."
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "CR = 400 / 1,600 = 0.25 (25%). The exercise identifies this as the 'biggest bottleneck' because 75% of committed users are lost at the payment stage."
-    },
-    {
-        "type": "multi",
-        "question": "In Exercise 9.2, applying 'Prescriptive Analytics' involves which of the following?",
-        "options": [
-            "Describing historical funnel performance.",
-            "Identifying the bottleneck (Step 3 -> 4).",
-            "Simulating the outcome of fixing a UI bug (raising CR to 50%).",
-            "Calculating the new projected purchases (800)."
-        ],
-        "answer": [
-            2,
-            3
-        ],
-        "explanation": "Prescriptive analytics goes beyond description/diagnosis. It recommends actions (fixing the bug) and quantifies the expected impact (simulating the increase to 800 purchases)."
-    },
-    {
-        "type": "single",
-        "question": "What distinguishes Time Series data from standard statistical random samples?",
-        "options": [
-            "Time Series data implies independence between observations ($y_i \\perp y_j$).",
-            "Time Series data exhibits temporal dependence, where $Cov(y_t, y_{t-1}) \\neq 0$.",
-            "Time Series data is always qualitative.",
-            "Standard statistics require the 'Data Cube' paradigm."
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "The core shift in Time Series is that observations are correlated over time (dependence is the signal), whereas standard statistics assume observations are independent random samples."
-    },
-    {
-        "type": "multi",
-        "question": "According to the 'Forecasting Workflow' (Module 9), which steps are essential before modeling?",
-        "options": [
-            "Visualize the data to identify trend and seasonality.",
-            "Calculate the MASE of a Seasonal Naive benchmark.",
-            "Immediately fit a Deep Learning LSTM model.",
-            "Pre-process data (e.g., Log transform, Clean outliers)."
-        ],
-        "answer": [
-            0,
-            1,
-            3
-        ],
-        "explanation": "The workflow specifies: 1. Visualize, 2. Pre-process, 3. Benchmark. Jumping to complex models (LSTM) without baselines is explicitly discouraged ('Complex models often fail against simple robust models')."
-    },
-    {
-        "type": "single",
-        "question": "Why might a Naive or Univariate ARIMA model fail to forecast sales during holidays?",
-        "options": [
-            "They are too complex and overfit the data.",
-            "They cannot 'see' external schedules or exogenous variables like Promo calendars.",
-            "They require the data to be stationary.",
-            "They only work on annual data."
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "Univariate models rely only on past history of the target variable. They lack the 'exogenous' input to know that a specific date is a holiday or has a promotion, unlike Dynamic Regression."
-    },
-    {
-        "type": "multi",
-        "question": "In Time Series Decomposition (STL), observed data is split into which components?",
-        "options": [
-            "Trend",
-            "Seasonality",
-            "Noise (Remainder)",
-            "Probability"
-        ],
-        "answer": [
-            0,
-            1,
-            2
-        ],
-        "explanation": "Standard decomposition breaks a time series into Trend (long-term direction), Seasonality (repeating patterns), and Noise (random variation)."
-    },
-    {
-        "type": "single",
-        "question": "What is the role of 'Time Series Cross-Validation' (Rolling) compared to standard K-Fold?",
-        "options": [
-            "It shuffles data randomly to ensure valid statistics.",
-            "It respects the temporal order, training on past data and testing on future data.",
-            "It uses less data and is faster.",
-            "It is only used for classification problems."
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "Standard random K-Fold breaks temporal dependence (leakage). Time Series CV uses a rolling origin to ensure the model is always tested on 'future' data relative to the training set."
-    },
-    {
-        "type": "single",
-        "question": "In the 'Data Cube Paradigm' for advanced forecasting, what does the 'Multivariate' dimension add?",
-        "options": [
-            "More historical lags of the target variable.",
-            "Exogenous variables (Matrix X) such as price, weather, or holidays.",
-            "3D visualization capabilities.",
-            "Faster processing speeds."
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "The Data Cube paradigm expands from Univariate (vector y) to Multivariate by including a Matrix X of exogenous variables (covariates) that influence the target."
-    },
-    {
-        "type": "multi",
-        "question": "Which of the following are valid reasons to use 'Dynamic Regression' (ARIMAX) over simple ARIMA?",
-        "options": [
-            "It handles structural changes like store closures (zeros).",
-            "It incorporates dummy variables for holidays and promotions.",
-            "It does not require stationarity.",
-            "It interprets coefficients similarly to regression."
-        ],
-        "answer": [
-            0,
-            1,
-            3
-        ],
-        "explanation": "Dynamic Regression allows for exogenous regressors (dummies for events) and provides interpretable coefficients. It typically still requires stationarity for the error term."
-    },
-    {
-        "type": "single",
-        "question": "What is the definition of 'Calibration' in classification evaluation?",
-        "options": [
-            "The accuracy of the binary labels output by the model.",
-            "The agreement between the predicted probabilities and the actual observed frequencies.",
-            "The process of selecting the optimal threshold.",
-            "The speed at which the model converges."
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "Calibration measures if the predicted probability (e.g., 0.8) matches the real-world rate (e.g., 80% of such cases are positive). It is assessed via Reliability Curves."
-    },
-    {
-        "type": "multi",
-        "question": "Select the correct features of the K-means algorithm.",
-        "options": [
-            "It assumes clusters are spherical and of similar density.",
-            "It is sensitive to outliers.",
-            "It automatically determines the optimal number of clusters (k).",
-            "It uses an iterative Assignment-Update process."
-        ],
-        "answer": [
-            0,
-            1,
-            3
-        ],
-        "explanation": "K-means assumes spherical geometry (Euclidean), is sensitive to outliers (mean calculation), and uses the iterative EM-style approach. It does *not* determine k automatically; k is a hyperparameter."
-    },
-    {
-        "type": "single",
-        "question": "What does a 'Back-test' in a marketing segmentation workflow involve?",
-        "options": [
-            "Testing the model on future data in real-time.",
-            "Applying the segmentation logic to historical data to estimate potential lift.",
-            "Re-training the model from scratch.",
-            "Asking stakeholders for feedback."
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "Validation in production starts with Back-testing: running the model on past data to simulate what *would* have happened, estimating lift before going live."
-    },
-    {
-        "type": "single",
-        "question": "In the context of RFM Analysis for segmentation, what do the letters stand for?",
-        "options": [
-            "Retention, Frequency, Margin",
-            "Recency, Frequency, Monetary",
-            "Revenue, Forecasting, Modeling",
-            "Reach, Frequency, Marketing"
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "RFM stands for Recency (how recently they bought), Frequency (how often), and Monetary (how much they spent)."
-    },
-    {
-        "type": "multi",
-        "question": "Which conditions would create a 'Leaky Bucket' in the E-commerce funnel (Exercise 9.2)?",
-        "options": [
-            "High marketing spend driving traffic into a funnel with low conversion rates.",
-            "A drop-off of 75% at the payment stage.",
-            "Optimizing the 'Add to Cart' button color.",
-            "Fixing technical bugs at the bottleneck."
-        ],
-        "answer": [
-            0,
-            1
-        ],
-        "explanation": "The 'Leaky Bucket' theory describes wasting acquisition budget (high spend) on a defective process (low conversion/high drop-off). Fixing bugs is the solution, not the condition."
-    },
-    {
-        "type": "single",
-        "question": "When interpreting PCA results, what does 'Cumulative Explained Variance' help determine?",
-        "options": [
-            "The accuracy of the classification model.",
-            "The number of principal components to retain to preserve a specific percentage of information.",
-            "The correlation between the original variables.",
-            "The cluster centroids."
-        ],
-        "answer": [
-            1
-        ],
-        "explanation": "Cumulative Explained Variance sums the contributions of each PC. It is used to choose the cut-off (k) that retains sufficient data signal (e.g., 90%) while reducing dimensions."
-    },
-    {
-        "type": "single",
-        "question": "In classification, what is 'Balanced Accuracy' and when is it used?",
-        "options": [
-            "The arithmetic mean of Sensitivity and Specificity; used for imbalanced datasets.",
-            "The average of Precision and Recall; used for balanced datasets.",
-            "The total correct predictions divided by total predictions; used for all datasets.",
-            "The difference between TPR and FPR."
+            "Accuracy = 95%; Recall = 0%",
+            "Accuracy = 5%; Recall = 100%",
+            "Accuracy = 95%; Recall = 100%",
+            "Accuracy = 50%; Recall = 50%"
         ],
         "answer": [
             0
         ],
-        "explanation": "Balanced Accuracy = (Sensitivity + Specificity) / 2. It corrects for class imbalance by giving equal weight to the model's performance on both the positive and negative classes."
-    },
-    {
-        "type": "multi",
-        "question": "Which of the following are typically considered 'Exogenous Variables' in a retail sales forecasting model?",
-        "options": [
-            "Past sales data (Lags).",
-            "Holidays and calendar events.",
-            "Price changes and promotions.",
-            "Moving averages of the error term."
-        ],
-        "answer": [
-            1,
-            2
-        ],
-        "explanation": "Exogenous variables are external factors influencing the target. Holidays, price, and weather are external. Past sales and moving averages are endogenous (derived from the series itself)."
+        "explanation": "Accuracy is (TP+TN)/Total. Here, TN=950, TP=0, Total=1000, so Accuracy = 950/1000 = 95%. Recall is TP/(TP+FN). Since the model predicted 0 positives, TP=0, making Recall 0%. This illustrates why accuracy is misleading for imbalanced classes."
     },
     {
         "type": "single",
-        "question": "Why is 'Scaling/Standardization' critical before running K-means clustering?",
+        "question": "Calculate the F1-score for a classifier with the following metrics: Precision = 0.60, Recall = 0.40.",
         "options": [
-            "It converts categorical data to numeric.",
-            "It ensures that features with large magnitudes (e.g., Salary) do not dominate the Euclidean distance calculation.",
-            "It creates a normal distribution for the target variable.",
-            "It removes all outliers."
+            "0.50",
+            "0.48",
+            "0.24",
+            "0.52"
         ],
         "answer": [
             1
         ],
-        "explanation": "Distance-based methods like K-means are sensitive to scale. Without standardization, a feature with range 0-100,000 would overpower a feature with range 0-1, rendering the latter irrelevant."
+        "explanation": "The F1-score is the harmonic mean of Precision and Recall: F1 = 2 * (Precision * Recall) / (Precision + Recall). Calculation: 2 * (0.24) / (1.0) = 0.48."
     },
     {
-        "type": "multi",
-        "question": "In the context of 'Model Monitoring' (Module 8), what triggers a need for re-training?",
+        "type": "single",
+        "question": "In a medical diagnosis scenario where a False Negative (missing a sick patient) costs $10,000 and a False Positive (unnecessary test) costs $100, which threshold adjustment is most logical?",
         "options": [
-            "Drift Alerts indicating significant shifts in data distribution.",
-            "A planned periodic schedule (Batch updates).",
-            "The model achieving 100% accuracy.",
-            "Feedback loops from A/B testing."
+            "Increase the threshold to maximize Precision.",
+            "Decrease the threshold to maximize Recall.",
+            "Set the threshold to 0.5 regardless of cost.",
+            "Increase the threshold to maximize Specificity."
         ],
         "answer": [
-            0,
             1
         ],
-        "explanation": "Monitoring systems look for 'Drift' (input data changing) to trigger re-training. Batch updates are also a standard re-training strategy."
+        "explanation": "Since the cost of a False Negative is significantly higher ($10,000 vs $100), the priority is to catch as many positive cases as possible. Lowering the threshold increases Recall (reducing False Negatives) at the expense of Precision (increasing False Positives), which is the economically correct trade-off here."
+    },
+    {
+        "type": "single",
+        "question": "Given the confusion matrix: TP=40, FP=60, FN=10, TN=890. Calculate the False Positive Rate (FPR).",
+        "options": [
+            "0.063",
+            "0.043",
+            "0.110",
+            "0.011"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "FPR = FP / (FP + TN). Here, FP=60 and TN=890. Total Negatives = 950. FPR = 60 / 950 ≈ 0.063 (6.3%)."
+    },
+    {
+        "type": "single",
+        "question": "You are analyzing a KPI Driver Tree. If 'Total Revenue' is the parent node, and its children are 'Traffic Volume' and 'Conversion Rate', what is the mathematical relationship between these child nodes?",
+        "options": [
+            "Additive (Traffic + Conversion Rate)",
+            "Subtractive (Traffic - Conversion Rate)",
+            "Multiplicative (Traffic × Conversion Rate)",
+            "Divisive (Traffic / Conversion Rate)"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "In a KPI tree, rate metrics and volume metrics typically have a multiplicative relationship to produce the outcome. Revenue is a function of the volume of users multiplied by the rate at which they convert (and usually AOV)."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is the primary reason for normalizing (scaling) data before running K-means clustering?",
+        "options": [
+            "To convert categorical variables into numeric values.",
+            "To ensure that features with larger ranges (e.g., Salary) do not dominate the distance calculation over features with smaller ranges (e.g., Age).",
+            "To reduce the number of dimensions in the dataset.",
+            "To remove outliers from the dataset."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "K-means relies on Euclidean distance. If one feature has a range of 0-100,000 and another 0-100, the distance will be almost entirely determined by the larger feature. Scaling (e.g., Z-score) ensures all features contribute equally."
+    },
+    {
+        "type": "single",
+        "question": "A classifier has the following ROC coordinates (FPR, TPR) for different thresholds: A(0.1, 0.4), B(0.2, 0.7), C(0.4, 0.8). Which point has the highest Youden’s J Index?",
+        "options": [
+            "Point A",
+            "Point B",
+            "Point C",
+            "All points have equal J Index."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Youden’s J = TPR - FPR. Point A: 0.4 - 0.1 = 0.3. Point B: 0.7 - 0.2 = 0.5. Point C: 0.8 - 0.4 = 0.4. Point B has the highest index (0.5)."
+    },
+    {
+        "type": "single",
+        "question": "In Principal Component Analysis (PCA), if the first three eigenvalues are λ1=5.0, λ2=3.0, λ3=2.0, what is the Total Variance of the dataset (assuming these are the only components)?",
+        "options": [
+            "5.0",
+            "3.33",
+            "10.0",
+            "1.0"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Total Variance is the sum of all eigenvalues. 5.0 + 3.0 + 2.0 = 10.0."
+    },
+    {
+        "type": "single",
+        "question": "Using the eigenvalues λ1=5.0, λ2=3.0, λ3=2.0, what is the Explained Variance Ratio of the first component (PC1)?",
+        "options": [
+            "50%",
+            "30%",
+            "20%",
+            "100%"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Explained Variance Ratio = λ1 / Total Variance. From the previous calculation, Total Variance = 10.0. Ratio = 5.0 / 10.0 = 0.5 or 50%."
+    },
+    {
+        "type": "single",
+        "question": "Which evaluation metric is most appropriate for a Fraud Detection model where valid transactions (Negative) vastly outnumber fraud cases (Positive), and we care primarily about the 'usefulness' of our fraud alerts?",
+        "options": [
+            "Accuracy",
+            "Precision-Recall (PR) Curve",
+            "ROC Curve",
+            "Specificity"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "When the negative class is huge (imbalanced), ROC curves can look overly optimistic because the FPR (FP/TN) stays small due to the large TN. The PR curve focuses only on the Positive class (Precision and Recall), giving a more honest view of performance."
+    },
+    {
+        "type": "single",
+        "question": "In a 1D K-means iteration, Cluster 1 has points {2, 4, 9}. What is the new location of the centroid for Cluster 1 during the Update step?",
+        "options": [
+            "4",
+            "5",
+            "7.5",
+            "9"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The update step moves the centroid to the mean (average) of the points assigned to the cluster. Mean = (2 + 4 + 9) / 3 = 15 / 3 = 5."
+    },
+    {
+        "type": "single",
+        "question": "Identify the 'Leading Indicator' in the context of an E-commerce sales dashboard.",
+        "options": [
+            "Monthly Total Revenue",
+            "Customer Churn Rate last quarter",
+            "Cart Abandonment Rate (real-time)",
+            "Net Profit Margin"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Revenue, Churn, and Profit are Lagging Indicators (outputs that have already happened). Cart Abandonment Rate is a Leading Indicator (input/driver) because high abandonment predicts lower future sales and can be acted upon immediately."
+    },
+    {
+        "type": "single",
+        "question": "If you observe a Silhouette Score of -0.8 for a data point, what does this indicate?",
+        "options": [
+            "The point is very close to its cluster center.",
+            "The point is likely assigned to the wrong cluster.",
+            "The point is an outlier that belongs to no cluster.",
+            "The clustering is perfectly separated."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Silhouette Score ranges from -1 to +1. A score near +1 means the point is well-clustered. A negative score indicates the point is closer to a neighboring cluster than to its assigned cluster, implying a misclassification."
+    },
+    {
+        "type": "single",
+        "question": "In Time Series decomposition, what does the 'Seasonality' component represent?",
+        "options": [
+            "The long-term progression of the series (increasing or decreasing).",
+            "Random, irregular noise in the data.",
+            "Regular, repeating patterns at fixed intervals (e.g., weekly, yearly).",
+            "The effect of external variables like holidays."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Seasonality captures repeating patterns with a fixed period, such as higher sales every December or lower traffic every weekend. Trends capture long-term direction, and Remainders capture noise."
+    },
+    {
+        "type": "single",
+        "question": "A model has a Specificity of 90% and a Sensitivity (Recall) of 70%. What is its Balanced Accuracy?",
+        "options": [
+            "80%",
+            "63%",
+            "20%",
+            "90%"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Balanced Accuracy is the arithmetic mean of Sensitivity and Specificity. Calculation: (0.90 + 0.70) / 2 = 1.60 / 2 = 0.80 or 80%."
+    },
+    {
+        "type": "single",
+        "question": "Why is 'Random Sampling' (k-fold cross-validation) generally inappropriate for Time Series data?",
+        "options": [
+            "It requires too much computational power.",
+            "It violates the temporal dependence of the data (using the future to predict the past).",
+            "It cannot handle missing values.",
+            "It only works for regression, not classification."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Time series data is ordered. Standard k-fold CV randomly shuffles data, meaning a model might be trained on data from 2025 to predict data from 2024. This 'leakage' from the future invalidates the test. Time Series Cross-Validation (Rolling Origin) preserves the chronological order."
+    },
+    {
+        "type": "single",
+        "question": "In an 'Elbow Plot' (Inertia vs. k), how do you select the optimal number of clusters?",
+        "options": [
+            "Pick the k with the lowest possible Inertia.",
+            "Pick the k with the highest possible Inertia.",
+            "Pick the k at the point where the rate of decrease in Inertia slows down sharply.",
+            "Pick the k that equals the number of variables in the dataset."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The goal is to balance compactness (low Inertia) with complexity (low k). The 'Elbow' marks the point of diminishing returns, where adding more clusters yields only marginal gains in compactness."
+    },
+    {
+        "type": "single",
+        "question": "A Funnel Analysis shows the following user counts: Step 1 (1000) -> Step 2 (500) -> Step 3 (400) -> Step 4 (100). What is the conversion rate from Step 3 to Step 4?",
+        "options": [
+            "10%",
+            "25%",
+            "40%",
+            "20%"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Conversion Rate = (Users at Next Step / Users at Current Step). CR = 100 / 400 = 0.25 or 25%."
+    },
+    {
+        "type": "single",
+        "question": "Which statement correctly describes the difference between Leading and Lagging indicators?",
+        "options": [
+            "Leading indicators are easier to measure than lagging indicators.",
+            "Lagging indicators predict the future, while leading indicators explain the past.",
+            "Lagging indicators measure output outcomes, while leading indicators measure input activities that influence those outcomes.",
+            "There is no difference; they are synonyms."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Lagging indicators (e.g., Revenue) confirm what has already happened. Leading indicators (e.g., Sales Calls Made) are actionable inputs that drive the future value of the lagging indicators."
+    },
+    {
+        "type": "single",
+        "question": "Calculate the Recall given: True Positives = 80, False Negatives = 20.",
+        "options": [
+            "80%",
+            "20%",
+            "75%",
+            "60%"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Recall = TP / (TP + FN). Recall = 80 / (80 + 20) = 80 / 100 = 80%."
+    },
+    {
+        "type": "single",
+        "question": "Which component of an ARIMA model addresses the 'Trend' in a non-stationary time series?",
+        "options": [
+            "AR (Auto-Regressive)",
+            "I (Integrated / Differencing)",
+            "MA (Moving Average)",
+            "X (Exogenous variables)"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The 'I' in ARIMA stands for Integrated, which refers to the differencing step ($d$). Differencing is used to remove trends and stabilize the mean, making the series stationary."
+    },
+    {
+        "type": "single",
+        "question": "In K-means clustering, what happens during the 'Assignment Step'?",
+        "options": [
+            "Centroids are moved to the center of their clusters.",
+            "The number of clusters (k) is automatically determined.",
+            "Each data point is assigned to the nearest centroid based on Euclidean distance.",
+            "Outliers are removed from the dataset."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The algorithm consists of two repeated steps. In the Assignment step, points are grouped by proximity to the current centroids. In the Update step, the centroids are moved."
+    },
+    {
+        "type": "single",
+        "question": "A business calculates a 'Total Expected Cost' for a model. If TP and TN have zero cost, FP costs $5, and FN costs $50, what is the total cost for a model with 10 FPs and 2 FNs?",
+        "options": [
+            "$150",
+            "$550",
+            "$60",
+            "$100"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Total Cost = (FP count * Cost FP) + (FN count * Cost FN). Cost = (10 * 5) + (2 * 50) = 50 + 100 = $150."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary definition of a 'Stationary' time series?",
+        "options": [
+            "A series that constantly increases over time.",
+            "A series whose statistical properties (mean, variance) do not change over time.",
+            "A series with zero missing values.",
+            "A series that perfectly repeats itself every year."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Stationarity is a core assumption for many forecasting models (like ARIMA). It implies that the data has a constant mean, constant variance, and autocovariance that depends only on the lag, not on the time $t$."
+    },
+    {
+        "type": "single",
+        "question": "In a confusion matrix, which metric represents the 'Precision' (PPV)?",
+        "options": [
+            "TP / (TP + FP)",
+            "TP / (TP + FN)",
+            "TN / (TN + FP)",
+            "FP / (FP + TN)"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Precision measures the accuracy of positive predictions: of all the times the model said 'Yes', how many were actually 'Yes'? The denominator is Predicted Positives (TP + FP)."
+    },
+    {
+        "type": "single",
+        "question": "When interpreting a KPI driver tree, if 'Average Order Value' drops while 'Order Frequency' rises, and 'Revenue' remains flat, what is the most likely diagnosis?",
+        "options": [
+            "The company is losing customers.",
+            "The company is successfully upselling expensive products.",
+            "Customers are buying cheaper items more often, offsetting the volume gain with lower value per unit.",
+            "Marketing spend has increased."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Since Revenue = Frequency * AOV, if Revenue is flat and Frequency is up, AOV must be down. This indicates a shift in behavior where users transact more frequently but spend less per transaction (e.g., shifting from premium to budget items)."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a requirement for K-means clustering?",
+        "options": [
+            "Specifying the number of clusters (k) beforehand.",
+            "Using a distance metric (usually Euclidean).",
+            "The dataset must be labeled (Supervised Learning).",
+            "Scaling/Standardizing variables."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "K-means is an Unsupervised Learning algorithm. It does not require (and does not use) target labels. It finds structure in the data based solely on feature similarity."
+    },
+    {
+        "type": "single",
+        "question": "Calculate the specificity (TNR) if TN=90 and FP=10.",
+        "options": [
+            "90%",
+            "10%",
+            "80%",
+            "100%"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Specificity = TN / (TN + FP). Specificity = 90 / (90 + 10) = 90 / 100 = 90%."
+    },
+    {
+        "type": "single",
+        "question": "In PCA, what does the first Principal Component (PC1) represent?",
+        "options": [
+            "The direction of minimum variance in the data.",
+            "The feature with the highest correlation to the target.",
+            "The direction in the data that captures the maximum possible variance.",
+            "The mean of all features."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "PCA seeks to project data onto orthogonal axes. PC1 is the axis that maximizes the variance of the projected data, effectively capturing the most 'information' or 'spread'."
+    },
+    {
+        "type": "single",
+        "question": "A user moves from Step 2 (500 users) to Step 3 (400 users). If a UI fix improves this conversion rate to 90%, how many users would reach Step 3 (assuming Step 2 stays constant)?",
+        "options": [
+            "400",
+            "450",
+            "500",
+            "360"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "New Users at Step 3 = Users at Step 2 * New Rate. 500 * 0.90 = 450 users."
+    },
+    {
+        "type": "single",
+        "question": "Which metric focuses specifically on the 'cost of false alarms'?",
+        "options": [
+            "Recall",
+            "Precision",
+            "Recall and Specificity",
+            "F1-score"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Precision (TP / (TP+FP)) is the metric that is penalized by False Positives (false alarms). Low precision means many alerts are false, incurring the 'cost of false alarms'."
+    },
+    {
+        "type": "single",
+        "question": "Why might a business prefer a 'Soft Clustering' approach (like GMM) over K-means?",
+        "options": [
+            "It is faster to compute.",
+            "It allows a data point to belong partially to multiple clusters (probabilities) rather than a strict assignment.",
+            "It works without defining the number of clusters.",
+            "It does not require feature scaling."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "K-means is 'hard' clustering (point P is in Cluster A, period). Gaussian Mixture Models (GMM) provide 'soft' clustering, outputting the probability that point P belongs to Cluster A vs B, which is useful for ambiguous cases."
+    },
+    {
+        "type": "single",
+        "question": "In Time Series analysis, what is the 'Naive Forecast' for time t+1?",
+        "options": [
+            "The average of all previous values.",
+            "The value at time t (the most recent observation).",
+            "A linear regression projection.",
+            "Zero."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Naive method simply assumes that the next value will be equal to the last observed value ($y_{t+1} = y_t$). It is a standard benchmark to see if complex models are actually adding value."
+    },
+    {
+        "type": "single",
+        "question": "What happens to the Recall of a model if you lower the decision threshold from 0.5 to 0.3?",
+        "options": [
+            "Recall will likely increase.",
+            "Recall will likely decrease.",
+            "Recall will stay exactly the same.",
+            "Recall will become 0."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Lowering the threshold makes it 'easier' to predict Positive. This captures more actual positives (increasing TP) but also captures more negatives (increasing FP). Higher TP with constant Total Positives results in higher Recall."
+    },
+    {
+        "type": "single",
+        "question": "In a KPI tree, if Revenue = Traffic * Conversion * AOV, and Traffic increases by 10% while others stay flat, what happens to Revenue?",
+        "options": [
+            "Revenue increases by 10%.",
+            "Revenue increases by 30%.",
+            "Revenue stays flat.",
+            "Revenue decreases."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Due to the multiplicative nature, a 10% lift in one factor (1.10) scales the entire equation by 1.10, assuming other factors remain constant (1.0 * 1.0)."
+    },
+    {
+        "type": "single",
+        "question": "You calculate a total Euclidean distance of 0 between two data points. What does this imply?",
+        "options": [
+            "The points are identical.",
+            "The points are very far apart.",
+            "The calculation is an error.",
+            "The points are on opposite sides of the plot."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Euclidean distance is the square root of the sum of squared differences. The only way for the distance to be exactly 0 is if the difference for every single feature is 0, meaning the points occupy the exact same coordinate."
+    },
+    {
+        "type": "single",
+        "question": "Which concept describes the problem where adding more dimensions (features) to a dataset eventually degrades clustering performance?",
+        "options": [
+            "The Elbow Rule",
+            "The Curse of Dimensionality",
+            "Overfitting",
+            "Underfitting"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Curse of Dimensionality refers to phenomena where data becomes sparse in high-dimensional space, making distance metrics (like Euclidean) less meaningful and clustering less effective."
+    },
+    {
+        "type": "single",
+        "question": "If a Time Series model predicts sales of 100, 110, 120 for the next 3 days, but actual sales are 90, 115, 130, what is the Mean Absolute Error (MAE)?",
+        "options": [
+            "10",
+            "8.33",
+            "25",
+            "-5"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Errors are |100-90|=10, |110-115|=5, |120-130|=10. Sum of absolute errors = 10+5+10 = 25. Mean = 25 / 3 ≈ 8.33."
+    },
+    {
+        "type": "single",
+        "question": "Which type of variable is necessary to account for 'Holidays' in a Dynamic Regression time series model?",
+        "options": [
+            "Continuous variable",
+            "Dummy (Binary) variable",
+            "Lagged variable",
+            "Random variable"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Holidays are categorical events (It is Christmas or it is not). They are encoded as Dummy variables (0 or 1) to allow the regression model to assign a specific coefficient (impact) to those days."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Prescriptive Analytics for funnel optimization, what is the 'Leaky Bucket' theory?",
+        "options": [
+            "You should pour more water (marketing spend) into the bucket to keep it full.",
+            "You should fix the holes (conversion drops) before adding more water (traffic), otherwise resources are wasted.",
+            "Buckets with holes are useless and should be discarded.",
+            "The bucket represents the customer lifetime value."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Leaky Bucket analogy argues that increasing traffic (water) is inefficient if the funnel (bucket) has low conversion rates (holes). The prescriptive action is to fix the product experience first."
     }
 ]

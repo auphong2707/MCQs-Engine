@@ -1,0 +1,562 @@
+[
+    {
+        "type": "single",
+        "question": "In the context of Exploratory Data Analysis (EDA), what is the primary risk of relying solely on pooled data trends without examining subgroups?",
+        "options": [
+            "The data might contain too many missing values to be useful",
+            "Simpson's Paradox may obscure opposing trends within subgroups",
+            "The standard deviation will be artificially inflated",
+            "The visualization will inevitably require 3D charts"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Simpson's Paradox occurs when a trend appears in a pooled dataset but reverses or disappears when the data is stratified into groups. EDA emphasizes stratifying data to avoid this confounding issue."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following best defines a Type I error in hypothesis testing?",
+        "options": [
+            "Failing to reject the null hypothesis when there is a true effect",
+            "Rejecting the null hypothesis when there is actually no effect (False Positive)",
+            "The probability that the test correctly detects a true effect",
+            "A systematic error caused by Sample Ratio Mismatch (SRM)"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Type I error (alpha) is the probability of rejecting the null hypothesis (H0) when it is true, effectively declaring a 'false positive' discovery."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary purpose of conducting an A/A test before a standard A/B test?",
+        "options": [
+            "To artificially increase the sample size for the upcoming experiment",
+            "To check for instrumentation issues and ensure the false positive rate is near alpha",
+            "To calculate the exact lift needed for the business case",
+            "To train the machine learning model on control data"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A/A tests involve splitting traffic 50/50 with identical experiences to check for Sample Ratio Mismatch (SRM), verify that the Type I error rate matches the theoretical alpha (e.g., 5%), and ensure instrumentation is working correctly."
+    },
+    {
+        "type": "single",
+        "question": "In OLS regression, what does the assumption of 'Homoscedasticity' imply about the residuals?",
+        "options": [
+            "The residuals should form a perfect normal distribution curve",
+            "The residuals must be strictly positive values",
+            "The variance of the errors should be constant across all levels of the predictors",
+            "The errors must be perfectly correlated with the target variable"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Homoscedasticity requires that the variance of the error term (residuals) remains constant regardless of the value of the predictor variables. If variance changes (e.g., fans out), it is Heteroscedasticity."
+    },
+    {
+        "type": "single",
+        "question": "When interpreting a boxplot, what defines the 'Interquartile Range' (IQR)?",
+        "options": [
+            "The difference between the maximum and minimum values",
+            "The range between the 25th percentile (Q1) and the 75th percentile (Q3)",
+            "The distance from the median to the furthest outlier",
+            "The standard deviation of the dataset"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The IQR is the box component of the boxplot, representing the middle 50% of the data, calculated as Q3 minus Q1."
+    },
+    {
+        "type": "single",
+        "question": "Which regularization technique uses an L1 penalty and is capable of shrinking coefficients exactly to zero, effectively performing feature selection?",
+        "options": [
+            "Ridge Regression",
+            "Ordinary Least Squares (OLS)",
+            "Lasso Regression",
+            "Pearson Correlation"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Lasso (L1 regularization) adds a penalty based on the absolute magnitude of coefficients, which geometrically results in corner solutions where some coefficients become exactly zero, unlike Ridge (L2)."
+    },
+    {
+        "type": "single",
+        "question": "You are analyzing an A/A test with N=20,000 users designed for a 50/50 split. The observed counts are Treatment=10,500 and Control=9,500. Using the Chi-Square formula $(O-E)^2/E$, what is the calculated statistic?",
+        "options": [
+            "25.0",
+            "50.0",
+            "100.0",
+            "10.0"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Expected count (E) is 10,000 for each. Chi-Square = $(10500-10000)^2/10000 + (9500-10000)^2/10000 = 500^2/10000 + (-500)^2/10000 = 25 + 25 = 50.0$."
+    },
+    {
+        "type": "single",
+        "question": "Based on the Chi-Square result of 50.0 calculated in the previous A/A test scenario (where the critical value is 3.84), what is the correct conclusion?",
+        "options": [
+            "There is no Sample Ratio Mismatch; the test is valid",
+            "The result is statistically significant; there is a Sample Ratio Mismatch (SRM)",
+            "The difference is noise; proceed with the A/B test",
+            "We need more data to determine significance"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A Chi-Square value of 50.0 is much larger than the critical threshold of 3.84, indicating a statistically significant deviation from the 50/50 design (SRM). The results should not be trusted."
+    },
+    {
+        "type": "single",
+        "question": "If an experiment has a p-value of 0.65 in an A/A test comparing conversion rates, how should you interpret this?",
+        "options": [
+            "The difference is statistically significant; the setup is flawed",
+            "There is a strong signal that Group A is better than Group A'",
+            "The observed difference is indistinguishable from noise, which is desired in an A/A test",
+            "You have a 65% chance of making a Type I error"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "In an A/A test, we expect no difference. A high p-value (like 0.65) confirms that we fail to reject the null hypothesis, meaning the groups are statistically similar, which is the goal."
+    },
+    {
+        "type": "single",
+        "question": "In a conversion test, Control has a rate of 0.08 (8%) and Treatment has a rate of 0.10 (10%). What is the Point Effect (absolute difference) $\\Delta$?",
+        "options": [
+            "0.02 (2 percentage points)",
+            "0.25 (25 percent)",
+            "0.002 (0.2 percentage points)",
+            "0.18 (18 percent)"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The point effect (absolute lift) is simply $p_T - p_C = 0.10 - 0.08 = 0.02$."
+    },
+    {
+        "type": "single",
+        "question": "You calculate a 95% Confidence Interval for the difference in proportions as [0.005, 0.035]. The Minimum Detectable Effect (MDE) justified by business costs is 0.010. How do you interpret this?",
+        "options": [
+            "The result is statistically significant but not practically significant",
+            "The result is neither statistically nor practically significant",
+            "The result is statistically significant and the effect likely exceeds the practical threshold",
+            "The result is inconclusive because the interval is too wide"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The interval does not contain zero (statistically significant). The lower bound (0.005) is positive, and the point estimate (center ~0.02) is double the MDE (0.01), suggesting the lift is likely practically meaningful."
+    },
+    {
+        "type": "single",
+        "question": "When framing a regression problem for a Telco, which interaction term would logically capture the idea that 'Usage increases revenue more for Postpaid users than Prepaid users'?",
+        "options": [
+            "Usage_Volume + Postpaid_Status",
+            "Usage_Volume / Postpaid_Status",
+            "Usage_Volume * Postpaid_Status",
+            "Usage_Volume - Postpaid_Status"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "An interaction term involves multiplying two features ($X_1 * X_2$). This allows the slope (effect) of Usage to change based on the value of Postpaid_Status (0 or 1)."
+    },
+    {
+        "type": "single",
+        "question": "Given three data points (x, y): (2, 5), (4, 9), (6, 13). What is the slope ($\\beta_1$) of the simple OLS regression line?",
+        "options": [
+            "1.0",
+            "2.0",
+            "4.0",
+            "0.5"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Mean x=4, Mean y=9. Numerator $\\Sigma(x-\\bar{x})(y-\\bar{y}) = (-2)(-4) + (0)(0) + (2)(4) = 16$. Denominator $\\Sigma(x-\\bar{x})^2 = (-2)^2 + 0 + 2^2 = 8$. Slope = 16/8 = 2."
+    },
+    {
+        "type": "single",
+        "question": "Using the slope calculated in the previous question ($\\beta_1 = 2$) and the means ($\\bar{x}=4, \\bar{y}=9$), what is the intercept ($\\beta_0$)?",
+        "options": [
+            "1",
+            "2",
+            "5",
+            "0"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "$\\beta_0 = \\bar{y} - \\beta_1\\bar{x} = 9 - 2(4) = 9 - 8 = 1$."
+    },
+    {
+        "type": "single",
+        "question": "A Residuals vs. Fitted plot shows a distinct 'U-shape' curve where residuals are positive at the extremes and negative in the middle. What assumption is violated?",
+        "options": [
+            "Homoscedasticity",
+            "Linearity",
+            "Independence",
+            "Normality"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A curved pattern in residuals indicates that the linear model failed to capture a non-linear relationship in the data, violating the Linearity assumption."
+    },
+    {
+        "type": "single",
+        "question": "What is the recommended fix if a Residuals vs. Fitted plot shows a 'Fan' or 'Funnel' shape (Heteroscedasticity)?",
+        "options": [
+            "Add a polynomial term like $x^2$",
+            "Apply a Log transformation to the target variable",
+            "Remove the intercept from the model",
+            "Use Lasso instead of Ridge"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Fan shapes indicate variance increases with the mean. A Log transformation stabilizes variance, addressing heteroscedasticity."
+    },
+    {
+        "type": "single",
+        "question": "In the CUPED method for variance reduction, if the correlation ($\\rho$) between the metric $Y$ and the covariate $X$ is 0.5, what is the variance reduction factor ($1-\\rho^2$)?",
+        "options": [
+            "0.25",
+            "0.50",
+            "0.75",
+            "0.90"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The variance reduction factor is $1 - \\rho^2$. Here, $1 - 0.5^2 = 1 - 0.25 = 0.75$. The new variance is 75% of the original."
+    },
+    {
+        "type": "single",
+        "question": "How does increasing the sample size ($n$) generally affect the Minimum Detectable Effect (MDE), holding power constant?",
+        "options": [
+            "It increases the MDE (makes the test less sensitive)",
+            "It decreases the MDE (allows detection of smaller effects)",
+            "It has no impact on MDE",
+            "It forces the MDE to zero immediately"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Larger sample sizes reduce the standard error, which allows the test to distinguish smaller effects from noise with the same level of confidence and power. Thus, MDE decreases."
+    },
+    {
+        "type": "single",
+        "question": "Why is 'Peeking' (checking p-values repeatedly during an experiment and stopping as soon as it is significant) problematic?",
+        "options": [
+            "It inflates the Type I error rate well beyond the set alpha",
+            "It reduces the power of the test to zero",
+            "It causes Sample Ratio Mismatch (SRM)",
+            "It makes the confidence intervals too wide"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Repeatedly checking for significance allows multiple opportunities to find a false positive by chance, significantly inflating the actual Type I error rate."
+    },
+    {
+        "type": "single",
+        "question": "In a Ridge Regression coefficient path plot, what happens to the coefficients as the regularization strength (lambda/alpha) increases significantly?",
+        "options": [
+            "They all snap to exactly zero immediately",
+            "They smoothly shrink toward zero but rarely reach exactly zero",
+            "They explode to positive infinity",
+            "They remain unchanged until a threshold is reached"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Ridge regression (L2) shrinks coefficients asymptotically toward zero to reduce variance, but because the penalty is squared, it rarely forces them to exactly zero (unlike Lasso)."
+    },
+    {
+        "type": "single",
+        "question": "What is the logic behind 'Permutation Importance' for evaluating feature relevance?",
+        "options": [
+            "It calculates the absolute value of the standardized coefficients",
+            "It measures the increase in prediction error (e.g., MSE) when a feature's values are randomly shuffled",
+            "It counts how many times a feature is used in a decision tree",
+            "It calculates the correlation between the feature and the target"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Permutation importance assesses a feature's value by breaking the relationship between the feature and the target (via shuffling) and observing how much the model's performance degrades."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a symptom of Multicollinearity in a regression model?",
+        "options": [
+            "Small confidence intervals for coefficients",
+            "Unstable coefficients that may flip signs or have high standard errors",
+            "Residuals that form a U-shape",
+            "A high R-squared on the test set but low on training"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "When predictors are highly correlated (multicollinearity), the model struggles to isolate individual effects, leading to inflated variance (standard errors) and unstable coefficient estimates."
+    },
+    {
+        "type": "single",
+        "question": "For a linear model, how is a SHAP-like contribution for a feature $x$ calculated (conceptually)?",
+        "options": [
+            "$\\beta / (x - E[x])$",
+            "$\\beta * (x - E[x])$",
+            "$\\beta + x$",
+            "$x - \\beta$"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "For linear models, the contribution of a feature to the prediction (relative to the mean) is the coefficient multiplied by the deviation of the feature value from its mean: $\\beta * (x - E[x])$."
+    },
+    {
+        "type": "single",
+        "question": "What does a 'False Negative' correspond to in the context of hypothesis testing errors?",
+        "options": [
+            "Type I Error",
+            "Type II Error",
+            "Power",
+            "Confidence Level"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Type II error ($\u03b2$) is failing to find an effect when one actually exists, also known as a False Negative."
+    },
+    {
+        "type": "single",
+        "question": "In a 'Missingness Map' visualization, what does a distinct vertical line of missing values across all features for specific rows suggest?",
+        "options": [
+            "A single feature is corrupted",
+            "Systematic missingness for specific records (e.g., failed transactions)",
+            "Random noise in the dataset",
+            "The dataset is perfectly clean"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Vertical lines in a missingness map (where rows are observations) indicate that specific records have missing data across multiple or all columns, hinting at row-level failures (e.g., failed data ingestion for those users)."
+    },
+    {
+        "type": "single",
+        "question": "Why is it recommended to standardize features before applying Regularization (Ridge/Lasso)?",
+        "options": [
+            "To ensure the intercept is zero",
+            "Because the penalty term is sensitive to the scale of coefficients, unfairly penalizing features with smaller scales",
+            "To make the target variable normally distributed",
+            "It is not recommended; raw data is preferred"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Regularization penalizes the magnitude of coefficients. If features are on different scales (e.g., meters vs. kilometers), their coefficients will naturally differ in magnitude, causing the penalty to apply unevenly unless standardized."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary benefit of 'Stratified Randomization' in A/B testing?",
+        "options": [
+            "It ensures the sample size is exactly 20,000",
+            "It ensures key segments (e.g., region) are balanced across treatment and control, improving precision",
+            "It eliminates the need for a control group",
+            "It guarantees a statistically significant result"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Stratification (blocking) ensures that important covariates are evenly distributed between groups, reducing variance and preventing accidental imbalance."
+    },
+    {
+        "type": "single",
+        "question": "What does a p-value actually measure?",
+        "options": [
+            "The probability that the alternative hypothesis is true",
+            "The probability of the null hypothesis being true",
+            "The extremeness of the observed data assuming the null hypothesis is true",
+            "The probability of making a mistake"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The p-value is the probability of observing a result as extreme as (or more extreme than) the actual data, given that the Null Hypothesis (H0) is true."
+    },
+    {
+        "type": "single",
+        "question": "When interpreting a correlation heatmap, what does a value of -0.85 between 'Tenure' and 'Churn' imply?",
+        "options": [
+            "A strong positive relationship; as tenure increases, churn increases",
+            "A strong negative relationship; as tenure increases, churn decreases",
+            "No relationship exists",
+            "The relationship is non-linear"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A correlation coefficient near -1 indicating a strong negative linear relationship. As one variable goes up, the other goes down."
+    },
+    {
+        "type": "single",
+        "question": "When should you prefer using a Log scale for an axis in a visualization?",
+        "options": [
+            "When the data follows a normal distribution",
+            "When the data has heavy tails or spans several orders of magnitude (e.g., revenue)",
+            "When you want to hide outliers",
+            "When plotting percentages"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Log scales compress the axis, making it easier to visualize and compare data that is highly skewed (heavy-tailed) or varies exponentially."
+    },
+    {
+        "type": "single",
+        "question": "In the context of causal inference, what is a 'Confounder'?",
+        "options": [
+            "A variable that is caused by the treatment",
+            "A variable that affects both the treatment assignment and the outcome, creating spurious correlation",
+            "A variable that has no effect on the experiment",
+            "The random noise in the residuals"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A confounder is a third variable that influences both the independent variable (treatment) and the dependent variable (outcome), making them appear associated even if there is no direct causal link."
+    },
+    {
+        "type": "single",
+        "question": "Elastic Net regularization is a combination of which two penalties?",
+        "options": [
+            "L1 (Lasso) and L2 (Ridge)",
+            "L1 (Lasso) and OLS",
+            "L2 (Ridge) and Dropout",
+            "AIC and BIC"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Elastic Net combines the L1 penalty of Lasso (for selection) and the L2 penalty of Ridge (for stability)."
+    },
+    {
+        "type": "single",
+        "question": "If the 95% Confidence Interval for an effect is [0.05, 0.15], what can you infer?",
+        "options": [
+            "There is a 95% chance the true effect is 0.10",
+            "The true effect is zero",
+            "0 is not a plausible value for the effect at the 5% significance level",
+            "The experiment was underpowered"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Because the interval does not contain zero, we can reject the null hypothesis of no effect at the alpha=0.05 level."
+    },
+    {
+        "type": "single",
+        "question": "According to the Freedman-Diaconis (FD) rule, bin width in a histogram is primarily chosen based on:",
+        "options": [
+            "The mean of the data",
+            "The Interquartile Range (IQR) and sample size",
+            "The standard deviation only",
+            "A fixed number of 10 bins"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The FD rule calculates bin width using the IQR and the cube root of the sample size to minimize the integrated mean squared error of the density estimate."
+    },
+    {
+        "type": "single",
+        "question": "If an SRM check (Sample Ratio Mismatch) fails significantly on Day 1 of an experiment, what is the correct next step?",
+        "options": [
+            "Continue the experiment and adjust the p-value later",
+            "Stop the experiment immediately and investigate the root cause (e.g., tracking bug)",
+            "Ignore the mismatch if the sample size is large",
+            "Randomly delete data from the larger group until it matches"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A significant SRM indicates a fundamental flaw in the experiment's execution (randomization, tracking). Results are invalid, so the experiment must be stopped and fixed."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Dummy Variable Trap' in regression encoding?",
+        "options": [
+            "Using categorical variables without encoding them",
+            "Including a dummy variable for every single category level (one-hot) along with an intercept, causing perfect multicollinearity",
+            "Assigning random numbers to categories",
+            "Using text labels in the regression matrix"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "If you have $k$ categories and create $k$ dummies plus an intercept, the sum of dummies equals the intercept column (perfect collinearity). You must drop one category (k-1 dummies)."
+    },
+    {
+        "type": "single",
+        "question": "In experimental design, what is a 'Guardrail Metric'?",
+        "options": [
+            "The primary KPI you want to improve",
+            "A metric that must not degrade significantly (e.g., latency, errors) while optimizing the primary metric",
+            "The p-value threshold",
+            "The covariate used for CUPED"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Guardrail metrics monitor the health of the system and user experience to ensure that optimizing the primary metric doesn't come at the cost of breaking something else (e.g., increasing crashes)."
+    },
+    {
+        "type": "single",
+        "question": "Why is a Violin plot often preferred over a Boxplot for large datasets?",
+        "options": [
+            "It is easier to calculate",
+            "It shows the full density distribution of the data, revealing multimodality that a boxplot hides",
+            "It eliminates outliers automatically",
+            "It uses a log scale by default"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "While boxplots show summary stats (quartiles), violin plots include a Kernel Density Estimation (KDE) to show the actual shape of the distribution, which is useful if data is bimodal."
+    },
+    {
+        "type": "single",
+        "question": "In CUPED, if the correlation $\\rho$ is 0.8, what is the approximate effective sample size gain?",
+        "options": [
+            "No gain",
+            "2.78x",
+            "1.5x",
+            "10x"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Variance reduces by factor $1 - 0.8^2 = 1 - 0.64 = 0.36$. Effective sample size gain is proportional to $1 / (1 - \\rho^2) = 1 / 0.36 \\approx 2.78$."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary function of the 'Hat Matrix' $H$ in OLS regression math?",
+        "options": [
+            "It calculates the standard error",
+            "It maps the observed $y$ values to the predicted $\\hat{y}$ values",
+            "It inverts the X matrix",
+            "It acts as the regularization penalty"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Hat Matrix $H = X(X^TX)^{-1}X^T$ projects the observed target vector $y$ onto the linear space spanned by $X$, producing the fitted values $\\hat{y}$ (it 'puts the hat' on y)."
+    }
+]
