@@ -1,0 +1,1318 @@
+[
+{
+"type": "single",
+"question": "You manage an e-commerce funnel. 10,000 users visit the landing page. 40% click to Product Details. Of those, 20% add to cart. Of those, 10% purchase. How many purchases do you get?",
+"options": [
+"80",
+"800",
+"400",
+"200"
+],
+"answer": [
+0
+],
+"explanation": "10,000 * 0.40 = 4,000 (Product). 4,000 * 0.20 = 800 (Cart). 800 * 0.10 = 80 (Purchase)."
+},
+{
+"type": "single",
+"question": "A KPI Tree shows 'Revenue = Traffic * Conversion * AOV'. If Traffic increases by 10% and Conversion decreases by 10% (assuming AOV is constant), what is the approximate net impact on Revenue?",
+"options": [
+"Revenue remains exactly the same.",
+"Revenue increases by 1%.",
+"Revenue decreases by 1%.",
+"Revenue decreases by 10%."
+],
+"answer": [
+2
+],
+"explanation": "New Revenue = (1.10 * Traffic) * (0.90 * Conversion) * AOV = 0.99 * Old Revenue. This is a 1% decrease."
+},
+{
+"type": "single",
+"question": "Table A has rows {1, 2, 2, 3}. Table B has rows {2, 3, 4}. What is the row count of `SELECT * FROM A LEFT JOIN B ON A.id = B.id`?",
+"options": [
+"3",
+"4",
+"5",
+"6"
+],
+"answer": [
+1
+],
+"explanation": "A LEFT JOIN preserves all rows from the left table (A). Table A has 4 rows. Each row in A matches at most one row in B (or zero). The duplicates in A (2, 2) both match the single 2 in B. The 1 matches nothing (NULL). The 3 matches 3. Total rows = 4."
+},
+{
+"type": "single",
+"question": "You calculate a moving average using `ROWS BETWEEN 2 PRECEDING AND CURRENT ROW`. For the sequence [10, 12, 14, 16], what is the value for the 4th row (16)?",
+"options": [
+"14",
+"13",
+"15",
+"16"
+],
+"answer": [
+0
+],
+"explanation": "Window includes 2 preceding (12, 14) and current (16). Average = (12 + 14 + 16) / 3 = 42 / 3 = 14."
+},
+{
+"type": "single",
+"question": "In a dataset of 1,000 employees, 'Income' ranges from $30k to $500k. If you normalize this feature using Min-Max Scaling to [0, 1], how does the outlier $500k affect the transformed values of the majority (who earn $30k-$50k)?",
+"options": [
+"It has no effect; they will be spread evenly between 0 and 1.",
+"The majority will be squashed into a very small range near 0 (e.g., 0.00 to 0.05).",
+"The majority will be pushed towards 1.",
+"Min-Max scaling automatically removes the outlier."
+],
+"answer": [
+1
+],
+"explanation": "The denominator is (Max - Min) = 470k. A value of 50k becomes (50-30)/470 = 0.04. The vast majority of data is compressed into the bottom 5% of the range."
+},
+{
+"type": "single",
+"question": "You are imputing missing 'Age' values. The mean is 35, the median is 28, and the data is positively skewed (long tail of older people). Which imputation method minimizes the distortion of the central tendency for a 'typical' user?",
+"options": [
+"Mean Imputation (35)",
+"Median Imputation (28)",
+"Zero Imputation (0)",
+"Maximum Imputation"
+],
+"answer": [
+1
+],
+"explanation": "In a skewed distribution, the mean is pulled toward the tail (outliers). The median is a more robust measure of 'typical' centrality and preserves the original distribution shape better."
+},
+{
+"type": "single",
+"question": "A dataset contains a 'DayOfWeek' feature (1=Monday, ..., 7=Sunday). If you train a linear regression model using the raw numbers 1-7, what implicit (and likely incorrect) assumption are you making?",
+"options": [
+"That Sunday (7) is '7 times' more than Monday (1).",
+"That the effect of days is non-linear.",
+"That Monday and Sunday are adjacent.",
+"That the data is stationary."
+],
+"answer": [
+0
+],
+"explanation": "Label encoding forces an ordinal magnitude. The model assumes the difference between Day 6 and Day 7 is the same as Day 1 and Day 2, and that Day 7 > Day 1, which is not true for nominal cyclic categories."
+},
+{
+"type": "single",
+"question": "Calculate the Upper Fence for finding outliers using the IQR method. Q1 = 50, Q3 = 90.",
+"options": [
+"130",
+"140",
+"150",
+"210"
+],
+"answer": [
+2
+],
+"explanation": "IQR = 90 - 50 = 40. Upper Fence = Q3 + 1.5 * IQR = 90 + 1.5 * 40 = 90 + 60 = 150."
+},
+{
+"type": "single",
+"question": "You are A/B testing a new checkout button. Control: 1000 visitors, 50 conversions. Treatment: 1000 visitors, 60 conversions. The standard error of the difference is approximately 0.01 (1%). What is the Z-score (approximate)?",
+"options": [
+"0.1",
+"1.0",
+"10.0",
+"0.5"
+],
+"answer": [
+1
+],
+"explanation": "p_control = 0.05, p_treatment = 0.06. Difference = 0.01. Z = Difference / SE = 0.01 / 0.01 = 1.0."
+},
+{
+"type": "single",
+"question": "An experiment requires 10,000 users per branch to detect a 2% lift with 80% Power. If you want to detect a smaller lift of 1% (halving the effect size) with the same Power, roughly how many users do you need?",
+"options": [
+"10,000 (Same)",
+"20,000 (Double)",
+"40,000 (Quadruple)",
+"100,000 (Tenfold)"
+],
+"answer": [
+2
+],
+"explanation": "Sample size is inversely proportional to the square of the MDE (). Halving the effect size () requires multiplying the sample size by ."
+},
+{
+"type": "single",
+"question": "You observe a 'Sample Ratio Mismatch' (SRM): Control has 5,000 users, Treatment has 4,500 users. The target allocation was 50/50. A Chi-Square test returns p=0.0001. What is the correct next step?",
+"options": [
+"Proceed with analysis but adjust the weights.",
+"Discard the experiment results as invalid and investigate the assignment bug.",
+"Randomly delete 500 users from Control to match sizes.",
+"Conclude the Treatment is harmful causing users to leave."
+],
+"answer": [
+1
+],
+"explanation": "A significant SRM indicates a fundamental flaw in the randomization or data tracking. Any analysis on the metrics would be biased (selection bias). The test is invalid."
+},
+{
+"type": "single",
+"question": "In a Linear Regression model predicting 'House Price', the coefficient for 'Square Feet' is 150. If you add an interaction term `Square_Feet * Is_Luxury_Neighborhood` and its coefficient is 50, what is the effective slope of 'Square Feet' for a Luxury home?",
+"options": [
+"150",
+"50",
+"200",
+"100"
+],
+"answer": [
+2
+],
+"explanation": "For a luxury home (Is_Luxury=1), the equation becomes . Slope = ."
+},
+{
+"type": "single",
+"question": "A regression model has an R-squared of 0.85 on the training set and 0.40 on the test set. What diagnosis is most likely?",
+"options": [
+"Underfitting",
+"Overfitting",
+"Perfect Calibration",
+"Multicollinearity"
+],
+"answer": [
+1
+],
+"explanation": "A large gap between high training performance and low test performance is the hallmark of overfitting (high variance)."
+},
+{
+"type": "single",
+"question": "You have two features X1 and X2 with a correlation of 0.95. You run a Lasso regression. What is the likely outcome for their coefficients?",
+"options": [
+"Both coefficients will be large and equal.",
+"One coefficient will likely be non-zero, and the other will be shrunk to exactly zero.",
+"Both coefficients will be shrunk to zero.",
+"Lasso cannot handle correlated features."
+],
+"answer": [
+1
+],
+"explanation": "Lasso (L1) tends to arbitrarily select one feature from a highly correlated pair and suppress the other to zero, effectively acting as a feature selector."
+},
+{
+"type": "single",
+"question": "In a confusion matrix for a Cancer diagnosis model (Positive = Cancer): TP=90, FN=10. What is the Recall?",
+"options": [
+"0.80",
+"0.90",
+"0.10",
+"0.95"
+],
+"answer": [
+1
+],
+"explanation": "Recall = TP / (TP + FN) = 90 / (90 + 10) = 0.90."
+},
+{
+"type": "single",
+"question": "You are building a Fraud model. Cost of False Negative (missing fraud) = $1000. Cost of False Positive (blocking legit) = $20. If your model makes 10 FNs and 100 FPs, what is the total cost?",
+"options": [
+"$12,000",
+"$10,200",
+"$3,000",
+"$20,000"
+],
+"answer": [
+0
+],
+"explanation": "Cost = (10 * 1000) + (100 * 20) = 10,000 + 2,000 = $12,000."
+},
+{
+"type": "single",
+"question": "Your model predicts a probability of 0.8 for an event. The event does NOT occur (Outcome=0). What is the Brier Score component for this single prediction?",
+"options": [
+"0.8",
+"0.64",
+"0.2",
+"0.04"
+],
+"answer": [
+1
+],
+"explanation": "Brier Score is Mean Squared Error for probabilities. ."
+},
+{
+"type": "single",
+"question": "Using K-Means, you have two centroids C1 at (0,0) and C2 at (4,4). To which cluster is point P(1,1) assigned (using Euclidean distance)?",
+"options": [
+"C1",
+"C2",
+"Both",
+"Neither"
+],
+"answer": [
+0
+],
+"explanation": "Dist(P, C1) = sqrt((1-0)^2 + (1-0)^2) = sqrt(2) ≈ 1.41. Dist(P, C2) = sqrt((4-1)^2 + (4-1)^2) = sqrt(18) ≈ 4.24. P is closer to C1."
+},
+{
+"type": "single",
+"question": "In a PCA analysis, the first eigenvalue is 4.0 and the sum of all eigenvalues is 10.0. What percentage of total variance is explained by PC1?",
+"options": [
+"4%",
+"25%",
+"40%",
+"10%"
+],
+"answer": [
+2
+],
+"explanation": "Explained Variance Ratio = Eigenvalue / Sum(Eigenvalues) = 4.0 / 10.0 = 0.40 or 40%."
+},
+{
+"type": "single",
+"question": "A customer last bought 10 days ago (R=5), buys 2 times a year (F=1), and spent $50 (M=1). Another customer last bought 300 days ago (R=1), buys 50 times a year (F=5), spent $5000 (M=5). In an RFM segmentation, which customer is likely 'At Risk' or 'Lost'?",
+"options": [
+"The first customer (5-1-1)",
+"The second customer (1-5-5)",
+"Both are Champions",
+"Neither"
+],
+"answer": [
+1
+],
+"explanation": "The second customer has high historical value (F=5, M=5) but very low Recency (R=1), indicating they were a good customer who has stopped engaging."
+},
+{
+"type": "single",
+"question": "A time series has a level of 100. The seasonal index for 'December' is 1.5. What is the forecast for December?",
+"options": [
+"100",
+"150",
+"101.5",
+"66"
+],
+"answer": [
+1
+],
+"explanation": "Multiplicative Seasonality: Forecast = Level * Seasonal_Index = 100 * 1.5 = 150."
+},
+{
+"type": "single",
+"question": "You fit an ARIMA(1, 1, 0) model. What specific preprocessing step is implied by the 'd=1' parameter?",
+"options": [
+"The data was logged.",
+"The data was differenced once () to achieve stationarity.",
+"One moving average term was added.",
+"Seasonality was removed."
+],
+"answer": [
+1
+],
+"explanation": "The 'I' in ARIMA stands for Integrated. The parameter 'd' specifies the order of differencing required to make the series stationary."
+},
+{
+"type": "single",
+"question": "In a User-User Collaborative Filtering system, User A and User B have a correlation of 1.0. User B rated 'The Matrix' a 5. User A has not seen it. If User A's average rating is 3 and User B's is 3, what is the predicted rating?",
+"options": [
+"3",
+"5",
+"4",
+"0"
+],
+"answer": [
+1
+],
+"explanation": "Since they are perfectly correlated and have the same baseline average, User A is predicted to have the exact same preference as User B. Prediction = 5."
+},
+{
+"type": "single",
+"question": "You recommend 10 items. The user clicks on 1. What is the Precision@10?",
+"options": [
+"0.01",
+"0.10",
+"1.00",
+"0.50"
+],
+"answer": [
+1
+],
+"explanation": "Precision@K = (Relevant Items in Top K) / K = 1 / 10 = 0.10."
+},
+{
+"type": "single",
+"question": "If your Metric Tree states `Profit = Revenue - Cost`, and `Revenue` is up 5% while `Cost` is up 10%, and initially Revenue=Cost=100 (Profit=0), what is the new Profit status?",
+"options": [
+"Profit is positive.",
+"Profit is negative.",
+"Profit is zero.",
+"Profit is 5%."
+],
+"answer": [
+1
+],
+"explanation": "New Revenue = 105. New Cost = 110. Profit = 105 - 110 = -5. The company is losing money."
+},
+{
+"type": "single",
+"question": "Table A has 10 rows. Table B has 10 rows. `SELECT * FROM A CROSS JOIN B` results in how many rows?",
+"options": [
+"10",
+"20",
+"100",
+"0"
+],
+"answer": [
+2
+],
+"explanation": "Cartesian product: 10 * 10 = 100."
+},
+{
+"type": "single",
+"question": "You have a dataset with Date, Region, and Sales. You want to compute the percentage contribution of each Region to the daily total sales. Which Window Function logic is correct?",
+"options": [
+"`Sales / SUM(Sales) OVER (PARTITION BY Region)`",
+"`Sales / SUM(Sales) OVER (PARTITION BY Date)`",
+"`Sales / SUM(Sales) OVER (ORDER BY Date)`",
+"`Sales / COUNT(*) OVER (PARTITION BY Region)`"
+],
+"answer": [
+1
+],
+"explanation": "You want to divide the individual row's sales by the total sales *for that day*. `PARTITION BY Date` sums up all sales occurring on the same date."
+},
+{
+"type": "single",
+"question": "If you define 'Churn' as 'No purchase in 30 days', how does a 'Win-back' campaign (reactivating users after 60 days) affect the Churn Rate calculation for the *previous* month?",
+"options": [
+"It lowers the previous churn rate retroactively.",
+"It has no effect on the past churn rate; it increases the 'Reactivation' metric for the current month.",
+"It makes the definition of churn invalid.",
+"It increases the churn rate."
+],
+"answer": [
+1
+],
+"explanation": "Churn is a snapshot metric. Once a user satisfies the condition (30 days silent), they are counted as churned for that period. A later return counts as a new 'Join' or 'Reactivation', not an un-churning of the past."
+},
+{
+"type": "single",
+"question": "Which of the following distributions would likely have a Mean significantly larger than its Median?",
+"options": [
+"Normal distribution (Height of adults)",
+"Right-skewed distribution (Income, Web Traffic)",
+"Left-skewed distribution (Age at death)",
+"Uniform distribution"
+],
+"answer": [
+1
+],
+"explanation": "In a right-skewed distribution (long tail of high values), the large outliers pull the Mean upward, while the Median stays with the 'typical' mass of data. Mean > Median."
+},
+{
+"type": "single",
+"question": "You want to visualize the correlation between 5 numeric variables. Which plot is most efficient for a quick overview?",
+"options": [
+"5 separate histograms.",
+"A Correlation Heatmap or Pair Plot.",
+"A single Line Chart.",
+"A Stacked Bar Chart."
+],
+"answer": [
+1
+],
+"explanation": "A heatmap displays the correlation matrix (pairwise relationships) in a single dense grid, making it easy to spot strong positive/negative associations."
+},
+{
+"type": "single",
+"question": "In a statistical test, if you increase the Sample Size (N) while keeping the Effect Size and Alpha constant, what happens to the Power?",
+"options": [
+"Power decreases.",
+"Power increases.",
+"Power stays the same.",
+"Power becomes zero."
+],
+"answer": [
+1
+],
+"explanation": "Larger samples reduce the standard error, making it easier to distinguish the signal from the noise. This increases the probability of correctly rejecting the null (Power)."
+},
+{
+"type": "single",
+"question": "CUPED (Controlled-Experiment Using Pre-Experiment Data) reduces variance by:",
+"options": [
+"Removing outliers from the dataset.",
+"Subtracting the variance explained by pre-experiment data (covariate) from the metric.",
+"Adding more users to the control group.",
+"Running the test for a longer duration."
+],
+"answer": [
+1
+],
+"explanation": "CUPED uses the high correlation between pre-experiment behavior and the test metric to mathematically remove the 'known' variation, leaving only the 'new' variation to be tested."
+},
+{
+"type": "single",
+"question": "If a feature has a Variance Inflation Factor (VIF) of 1.0, what does it imply?",
+"options": [
+"High multicollinearity.",
+"No correlation with other predictors.",
+"Perfect correlation with the target.",
+"The feature is categorical."
+],
+"answer": [
+1
+],
+"explanation": "VIF starts at 1.0 (no correlation). Higher values indicate increasing multicollinearity. 1.0 means the feature is orthogonal to all others."
+},
+{
+"type": "single",
+"question": "You calculate the Silhouette Score for a cluster and get a value of -0.8. What does this mean?",
+"options": [
+"The point is well-clustered.",
+"The point is on the boundary.",
+"The point is likely assigned to the wrong cluster (closer to a neighboring cluster than its own).",
+"The cluster is too large."
+],
+"answer": [
+2
+],
+"explanation": "Negative Silhouette scores indicate that the average distance to the nearest neighboring cluster is smaller than the average distance to the own cluster members—i.e., it's in the wrong place."
+},
+{
+"type": "single",
+"question": "In a Time Series decomposition, if the amplitude of the seasonal wave is 50 units when the trend is 100, and 500 units when the trend is 1000, which model is appropriate?",
+"options": [
+"Additive Model",
+"Multiplicative Model",
+"Linear Trend Model",
+"White Noise Model"
+],
+"answer": [
+1
+],
+"explanation": "The seasonality scales proportionally with the trend (50/100 = 50%, 500/1000 = 50%). Constant percentage = Multiplicative."
+},
+{
+"type": "single",
+"question": "Using the Naive Forecasting method for daily sales: Monday=100, Tuesday=120. What is the forecast for Wednesday?",
+"options": [
+"100",
+"110",
+"120",
+"130"
+],
+"answer": [
+2
+],
+"explanation": "Naive forecast uses the last observed value. . Forecast = 120."
+},
+{
+"type": "single",
+"question": "Calculate the Lift of a rule A -> B. Support(A) = 0.2, Support(B) = 0.2, Support(A & B) = 0.1.",
+"options": [
+"0.5",
+"1.0",
+"2.5",
+"2.0"
+],
+"answer": [
+3
+],
+"explanation": "Confidence(A->B) = 0.1 / 0.2 = 0.5. Lift = Confidence / Support(B) = 0.5 / 0.2 = 2.5. Wait. Let's recompute. Lift = P(A&B) / (P(A)*P(B)) = 0.1 / (0.2*0.2) = 0.1 / 0.04 = 2.5. Correct answer is 2.5."
+},
+{
+"type": "single",
+"question": "Re-calculate Lift for A -> B: Support(A)=0.5, Support(B)=0.2, Support(A & B)=0.1.",
+"options": [
+"1.0",
+"0.5",
+"2.0",
+"1.5"
+],
+"answer": [
+0
+],
+"explanation": "Lift = 0.1 / (0.5 * 0.2) = 0.1 / 0.10 = 1.0. The events are independent."
+},
+{
+"type": "single",
+"question": "A user reads a news article. A Content-Based Recommender would suggest:",
+"options": [
+"Articles read by similar users.",
+"Articles with similar keywords/topics to the one read.",
+"The most popular articles on the site.",
+"Random articles."
+],
+"answer": [
+1
+],
+"explanation": "Content-based filtering uses item attributes (text, tags) to find similarity to the user's history."
+},
+{
+"type": "single",
+"question": "If you perform a 'Back-fill' operation in your Data Warehouse, what are you doing?",
+"options": [
+"Restoring a backup.",
+"Processing historical data with new logic to fill gaps or update metrics.",
+"Deleting old data.",
+"Creating a new table."
+],
+"answer": [
+1
+],
+"explanation": "Back-filling is the process of running a new ETL pipeline on past date ranges to ensure history is consistent with the current logic."
+},
+{
+"type": "single",
+"question": "Which of these is a 'Vanity Metric'?",
+"options": [
+"Monthly Recurring Revenue (MRR)",
+"Daily Active Users (DAU)",
+"Total Registered Users (Cumulative count)",
+"Customer Acquisition Cost (CAC)"
+],
+"answer": [
+2
+],
+"explanation": "Cumulative counts (Total Users) always go up and never down. They look good ('Vanity') but don't reflect current health or retention like Active Users or Revenue do."
+},
+{
+"type": "single",
+"question": "You have a dataset with 5 categorical features, each having 5 levels. If you apply One-Hot Encoding, how many total columns will the dataset have (excluding original)?",
+"options": [
+"5",
+"10",
+"25",
+"50"
+],
+"answer": [
+2
+],
+"explanation": "5 features * 5 levels each = 25 binary columns."
+},
+{
+"type": "single",
+"question": "In a decision tree, if a split divides 100 samples (50 Pos, 50 Neg) into two pure nodes (50 Pos) and (50 Neg), what is the Gini Impurity of the child nodes?",
+"options": [
+"0.5",
+"1.0",
+"0.0",
+"0.25"
+],
+"answer": [
+2
+],
+"explanation": "A pure node (all same class) has 0 impurity."
+},
+{
+"type": "single",
+"question": "You are optimizing a delivery route. The 'Objective Function' is to minimize time. A 'Constraint' is 'Driver cannot work > 8 hours'. This is an example of:",
+"options": [
+"Descriptive Analytics",
+"Prescriptive Analytics",
+"Predictive Analytics",
+"Diagnostic Analytics"
+],
+"answer": [
+1
+],
+"explanation": "Prescriptive analytics involves optimization problems (Linear Programming) with objectives and constraints to decide the best course of action."
+},
+{
+"type": "single",
+"question": "If you increase the 'Confidence Level' of a Confidence Interval from 95% to 99%, what happens to the width of the interval?",
+"options": [
+"It gets narrower.",
+"It gets wider.",
+"It stays the same.",
+"It becomes zero."
+],
+"answer": [
+1
+],
+"explanation": "To be more confident (99%) that the true value lies within the range, you must cast a wider net. The Z-score multiplier increases from 1.96 to 2.58."
+},
+{
+"type": "single",
+"question": "Comparing Model A (AUC=0.60) and Model B (AUC=0.90), which one is better at ranking?",
+"options": [
+"Model A",
+"Model B",
+"They are equal.",
+"Depends on the threshold."
+],
+"answer": [
+1
+],
+"explanation": "Higher AUC indicates better discrimination/ranking ability. 0.90 is excellent; 0.60 is barely better than random guessing (0.50)."
+},
+{
+"type": "single",
+"question": "If `customer_id` is a primary key in the `customers` table, what is the result of `COUNT(DISTINCT customer_id)` vs `COUNT(customer_id)`?",
+"options": [
+"Different results if there are NULLs.",
+"Different results if there are duplicates.",
+"The same result (assuming no NULLs).",
+"Syntax error."
+],
+"answer": [
+2
+],
+"explanation": "Since it is a Primary Key, it must be unique and non-null. Therefore, distinct count equals total count."
+},
+{
+"type": "single",
+"question": "A business wants to reduce 'Time to Hire'. They visualize the process steps. Step 1 takes 2 days, Step 2 takes 15 days, Step 3 takes 1 day. This analysis is an example of:",
+"options": [
+"Funnel Analysis / Bottleneck Identification",
+"Cohort Analysis",
+"Segmentation",
+"Predictive Modeling"
+],
+"answer": [
+0
+],
+"explanation": "Analyzing the stages of a sequential process to find where time/users are lost or stuck is Funnel/Bottleneck analysis."
+},
+{
+"type": "single",
+"question": "You have a monthly time series. You decide to use a 'Seasonal Naive' forecast. If the sales in last January were 500, what is the forecast for next January?",
+"options": [
+"500",
+"The average of all months.",
+"The value of last December.",
+"Zero"
+],
+"answer": [
+0
+],
+"explanation": "Seasonal Naive sets  (where m is the seasonal period). Forecast for this January = Last January."
+},
+{
+"type": "single",
+"question": "If you perform a 'Log Transformation' on a target variable  before regression, how do you interpret a prediction ?",
+"options": [
+"The predicted value is 4.6.",
+"The predicted value is .",
+"The predicted value is .",
+"The predicted value is ."
+],
+"answer": [
+1
+],
+"explanation": "To reverse the log transformation (natural log assumed unless specified), you exponentiate the result. Prediction = ."
+},
+{
+"type": "single",
+"question": "In a 'Lakehouse' architecture, if you update a record in a Delta Table, what physically happens to the underlying files?",
+"options": [
+"The file is modified in place.",
+"A new Parquet file is written containing the new data, and the old file is marked invalid in the transaction log (Copy-on-Write).",
+"The update is stored in a separate database.",
+"Nothing happens."
+],
+"answer": [
+1
+],
+"explanation": "Object storage (S3/ADLS) is immutable. Updates are handled by writing new files and updating the metadata log (Delta Log) to point to the valid version."
+},
+{
+"type": "single",
+"question": "A 'Pareto Chart' combines a Bar Chart and a Line Chart to display:",
+"options": [
+"Correlation between two variables.",
+"Frequency of categories (bars) and cumulative percentage (line), highlighting the '80/20' rule.",
+"Time series trends.",
+" Geographic distribution."
+],
+"answer": [
+1
+],
+"explanation": "Pareto charts visually prioritize problems, showing which few categories (Vital Few) account for the majority of the volume (e.g., 20% of bug types cause 80% of crashes)."
+},
+{
+"type": "single",
+"question": "If you have a Recall of 1.0 but a Precision of 0.1, what is the model doing?",
+"options": [
+"It is perfectly accurate.",
+"It is predicting 'Positive' for almost everyone, catching all true cases but generating massive false alarms.",
+"It is predicting 'Negative' for almost everyone.",
+"It is broken."
+],
+"answer": [
+1
+],
+"explanation": "Perfect Recall (1.0) means no False Negatives. Low Precision means many False Positives. This is typical of a 'spam all' strategy."
+},
+{
+"type": "single",
+"question": "Calculating 'Customer Lifetime Value' (LTV). ARPA = $10/month. Gross Margin = 50%. Churn Rate = 5%. What is the LTV?",
+"options": [
+"$100",
+"$200",
+"$50",
+"$1000"
+],
+"answer": [
+0
+],
+"explanation": "LTV = (ARPA * Margin) / Churn Rate. ($10 * 0.50) / 0.05 = $5 / 0.05 = $100."
+},
+{
+"type": "single",
+"question": "In a SQL query, if you use `GROUP BY category` but select `product_name` (which is not aggregated and not in the group by), what happens?",
+"options": [
+"It returns the first product.",
+"It throws an error (in standard SQL).",
+"It returns all products.",
+"It returns NULL."
+],
+"answer": [
+1
+],
+"explanation": "Standard SQL requires all non-aggregated columns in the SELECT clause to appear in the GROUP BY clause. (Some dialects like MySQL loosely allow it, but it's an error in strict mode)."
+},
+{
+"type": "single",
+"question": "Which correlation coefficient indicates the strongest relationship?",
+"options": [
+"0.80",
+"-0.90",
+"0.10",
+"0.00"
+],
+"answer": [
+1
+],
+"explanation": "The strength is the absolute value. |-0.90| = 0.90, which is stronger than 0.80."
+},
+{
+"type": "single",
+"question": "If you train a model on data from 2020-2022 and test it on data from 2023, what validation strategy are you using?",
+"options": [
+"K-Fold Cross Validation",
+"Out-of-Time (OOT) Validation",
+"Random Split",
+"Bootstrap"
+],
+"answer": [
+1
+],
+"explanation": "Splitting by time (Train = Past, Test = Future) mimics the production scenario and prevents look-ahead bias."
+},
+{
+"type": "single",
+"question": "A 'Heatmap' of Store Traffic by Hour (Rows) and Day of Week (Cols) shows a dark hotspot in the bottom right (Sunday evening). This reveals:",
+"options": [
+"A trend.",
+"A correlation.",
+"A seasonality/pattern in customer behavior.",
+"An outlier."
+],
+"answer": [
+2
+],
+"explanation": "This is a visual representation of weekly seasonality."
+},
+{
+"type": "single",
+"question": "If you have a 'Star Schema', how many joins are typically required to query a metric filtered by two dimensions (e.g., Sales by Product Category and Region)?",
+"options": [
+"Zero",
+"Two (Fact to Product, Fact to Region)",
+"Ten",
+"One"
+],
+"answer": [
+1
+],
+"explanation": "A Star Schema connects the central Fact table directly to Dimension tables. One join per dimension used."
+},
+{
+"type": "single",
+"question": "What is the 'Support' of an itemset {Bread, Milk} if 50 out of 100 transactions contain both?",
+"options": [
+"0.5",
+"0.2",
+"50",
+"1.0"
+],
+"answer": [
+0
+],
+"explanation": "Support is the proportion of transactions containing the itemset. 50/100 = 0.5."
+},
+{
+"type": "single",
+"question": "In a 'Sankey Diagram' of user flow, the width of the lines represents:",
+"options": [
+"Time spent.",
+"The volume (count) of flow between steps.",
+"User satisfaction.",
+"The conversion rate."
+],
+"answer": [
+1
+],
+"explanation": "Sankey diagrams visualize flow volumes, making it easy to see where the majority of users go and where drop-offs happen."
+},
+{
+"type": "single",
+"question": "If a regression model has Heteroscedasticity (residuals fan out), which inference is compromised?",
+"options": [
+"The coefficient estimates are biased.",
+"The standard errors of the coefficients are unreliable (affecting p-values/CIs).",
+"R-squared becomes 0.",
+"Predictions are impossible."
+],
+"answer": [
+1
+],
+"explanation": "OLS assumes constant variance (Homoscedasticity). Heteroscedasticity doesn't bias the coefficients, but it invalidates the standard error calculations, making hypothesis tests unreliable."
+},
+{
+"type": "single",
+"question": "You use `SMOTE` (Synthetic Minority Over-sampling Technique). What does it do to the training set?",
+"options": [
+"It deletes majority class rows.",
+"It creates new, synthetic examples of the minority class by interpolating between existing ones.",
+"It duplicates existing minority rows exactly.",
+"It changes the weights of the model."
+],
+"answer": [
+1
+],
+"explanation": "SMOTE creates synthetic points along the line segments joining k-nearest neighbors of the minority class, adding diversity unlike simple oversampling."
+},
+{
+"type": "single",
+"question": "What is the resulting dimensionality if you apply PCA to a dataset with 10 variables and choose to keep 3 components?",
+"options": [
+"10 columns",
+"3 columns",
+"7 columns",
+"13 columns"
+],
+"answer": [
+1
+],
+"explanation": "PCA reduces the feature space. The output is the data projected onto the 3 selected principal components."
+},
+{
+"type": "single",
+"question": "If you see a 'check mark' shape in the Loss vs Epochs curve (Training loss goes down, Validation loss goes down then shoots up), what is happening?",
+"options": [
+"Underfitting",
+"Overfitting",
+"Convergence",
+"Ideal training"
+],
+"answer": [
+1
+],
+"explanation": "The point where validation loss starts increasing while training loss continues to decrease is the onset of overfitting."
+},
+{
+"type": "single",
+"question": "In A/B testing, if you calculate the sample size to be 10,000, but you only collect 5,000 and find a significant result (p < 0.05), is the result valid?",
+"options": [
+"Yes, absolutely.",
+"No, the test is underpowered, and the 'significant' result has a higher probability of being a False Positive or an exaggerated effect (Winner's Curse).",
+"Yes, because p < 0.05 is all that matters.",
+"No, you need exactly 10,000."
+],
+"answer": [
+1
+],
+"explanation": "Underpowered studies that happen to yield significant results often overestimate the effect size (Winner's Curse) and have a higher False Discovery Rate."
+},
+{
+"type": "single",
+"question": "Which SQL clause is processed LAST in the logical order of execution?",
+"options": [
+"FROM",
+"WHERE",
+"GROUP BY",
+"LIMIT / ORDER BY"
+],
+"answer": [
+3
+],
+"explanation": "Logical order: FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY -> LIMIT."
+},
+{
+"type": "single",
+"question": "If you have a monthly churn rate of 5%, what is the approximate average customer lifetime (1/Churn)?",
+"options": [
+"5 months",
+"10 months",
+"20 months",
+"50 months"
+],
+"answer": [
+2
+],
+"explanation": "Lifetime = 1 / Churn Rate = 1 / 0.05 = 20 months."
+},
+{
+"type": "single",
+"question": "Comparing Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE). If one prediction is off by 100 (outlier) and the rest are off by 1. Which metric will be higher?",
+"options": [
+"RMSE",
+"MAE",
+"They will be equal.",
+"Cannot determine."
+],
+"answer": [
+0
+],
+"explanation": "RMSE squares the errors (), punishing the outlier heavily. MAE takes the linear average (). RMSE > MAE when outliers are present."
+},
+{
+"type": "single",
+"question": "If you perform a 'Left Anti Join' (Row present in A but NOT in B), what is the resulting set?",
+"options": [
+"Intersection",
+"Difference (A - B)",
+"Union",
+"Complement"
+],
+"answer": [
+1
+],
+"explanation": "Anti-join returns rows from the left table that have no match in the right table."
+},
+{
+"type": "single",
+"question": "What happens to the confidence interval if the standard deviation of the population increases (with N constant)?",
+"options": [
+"It gets wider.",
+"It gets narrower.",
+"It stays the same.",
+"It disappears."
+],
+"answer": [
+0
+],
+"explanation": "More noise (variance) in the data means less certainty about the true mean, resulting in a wider interval."
+},
+{
+"type": "single",
+"question": "In a 'Recency, Frequency, Monetary' (RFM) model, which factor is typically the strongest predictor of future response?",
+"options": [
+"Recency",
+"Frequency",
+"Monetary",
+"Age"
+],
+"answer": [
+0
+],
+"explanation": "Empirically, Recency ('Did they buy yesterday?') is often the strongest signal of engagement, followed by Frequency."
+},
+{
+"type": "single",
+"question": "If you have 3 models: Logistic Regression, Decision Tree, and Random Forest. Which one gives you 'Feature Importance' for free?",
+"options": [
+"Logistic Regression only.",
+"Decision Tree and Random Forest.",
+"None.",
+"Only Deep Learning."
+],
+"answer": [
+1
+],
+"explanation": "Tree-based models naturally calculate feature importance based on the reduction in impurity (Gini/Entropy) provided by each feature split."
+},
+{
+"type": "single",
+"question": "A 'Dual-Axis' chart plots Revenue (Bars) and Margin % (Line) on the same X-axis (Date). What is the main risk?",
+"options": [
+"It's hard to implement.",
+"Visual deception: manipulating the scales can falsely imply correlation or intersection where none exists.",
+"It uses too much ink.",
+"It is always accurate."
+],
+"answer": [
+1
+],
+"explanation": "Dual axes are notorious for misleading readers because the relationship between the two lines depends entirely on the arbitrary scaling of the two Y-axes."
+},
+{
+"type": "single",
+"question": "In a recommender system, if you penalize popular items to improve 'Novelty', what trade-off usually occurs?",
+"options": [
+"Accuracy (Precision/Recall) often drops.",
+"Diversity drops.",
+"Coverage drops.",
+"Speed increases."
+],
+"answer": [
+0
+],
+"explanation": "Popular items are popular for a reason—people like them. Removing them improves novelty but often lowers the immediate likelihood of a 'hit' (Accuracy)."
+},
+{
+"type": "single",
+"question": "Calculate the probability of rolling two 6s with two dice.",
+"options": [
+"1/6",
+"1/12",
+"1/36",
+"2/6"
+],
+"answer": [
+2
+],
+"explanation": "Independent events. P(6) * P(6) = 1/6 * 1/6 = 1/36."
+},
+{
+"type": "single",
+"question": "If you use 'Target Encoding' on a training set without smoothing or cross-validation, and a category appears only once with a target of 1. What value does it get encoded as?",
+"options": [
+"1.0",
+"0.5",
+"0.0",
+"The global mean."
+],
+"answer": [
+0
+],
+"explanation": "It gets replaced by the mean of the target for that category. Sum/Count = 1/1 = 1.0. This is a perfect leak."
+},
+{
+"type": "single",
+"question": "In SQL, `rank() over (order by score desc)` gives ranks 1, 2, 2. What is the next rank?",
+"options": [
+"3",
+"4",
+"2",
+"1"
+],
+"answer": [
+1
+],
+"explanation": "RANK skips. 1, 2, 2, 4."
+},
+{
+"type": "single",
+"question": "In a dashboard, putting the most important number in the bottom-right corner violates:",
+"options": [
+"The Gutenberg Diagram / F-Pattern reading behavior.",
+"Color theory.",
+"The Data-Ink ratio.",
+"Consistency."
+],
+"answer": [
+0
+],
+"explanation": "Western readers start Top-Left and end Bottom-Right. Key metrics (BANs) belong Top-Left."
+},
+{
+"type": "single",
+"question": "If a Box-Cox transformation requires positive data, but your data contains zeros, what is a common fix?",
+"options": [
+"Add a small constant (Shift) like log(x + 1).",
+"Square the data.",
+"Multiply by -1.",
+"Use PCA."
+],
+"answer": [
+0
+],
+"explanation": "Shifted Log or Box-Cox () handles zero values."
+},
+{
+"type": "single",
+"question": "Interpreting an Interaction Plot: If the two lines are parallel, what does it mean?",
+"options": [
+"No interaction effect.",
+"Strong interaction effect.",
+"Collinearity.",
+"Errors are zero."
+],
+"answer": [
+0
+],
+"explanation": "Parallel lines mean the effect of Factor A is the same regardless of Factor B. Non-parallel (crossing) lines indicate interaction."
+},
+{
+"type": "single",
+"question": "If you perform 100 hypothesis tests and use a p-value threshold of 0.05, how many False Positives do you expect by chance (assuming null is true)?",
+"options": [
+"0",
+"1",
+"5",
+"10"
+],
+"answer": [
+2
+],
+"explanation": "0.05 * 100 = 5."
+},
+{
+"type": "single",
+"question": "Which chart is best for showing the distribution of a single numeric variable?",
+"options": [
+"Histogram",
+"Scatter Plot",
+"Pie Chart",
+"Heatmap"
+],
+"answer": [
+0
+],
+"explanation": "Histograms bin the data to show frequency distribution."
+},
+{
+"type": "single",
+"question": "In a SQL Window Frame `ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW`, what is being calculated?",
+"options": [
+"A Cumulative (Running) Total.",
+"A Moving Average.",
+"A Rank.",
+"A Lag."
+],
+"answer": [
+0
+],
+"explanation": "The window grows with each row, including everything from the start up to the current row."
+},
+{
+"type": "single",
+"question": "If the AIC (Akaike Information Criterion) of Model A is 100 and Model B is 120 (lower is better), which model is preferred?",
+"options": [
+"Model A",
+"Model B",
+"Both are equal.",
+"Cannot tell."
+],
+"answer": [
+0
+],
+"explanation": "AIC estimates the relative quality. Lower AIC implies a better trade-off between goodness-of-fit and complexity."
+},
+{
+"type": "single",
+"question": "You calculate a Z-score of -2.5. What does this tell you about the data point?",
+"options": [
+"It is 2.5 standard deviations below the mean.",
+"It is 2.5 times the mean.",
+"It is an error.",
+"It is the median."
+],
+"answer": [
+0
+],
+"explanation": "Definition of Z-score."
+},
+{
+"type": "single",
+"question": "Which step in CRISP-DM consumes the most time (typically 60-80%)?",
+"options": [
+"Data Preparation",
+"Modeling",
+"Evaluation",
+"Deployment"
+],
+"answer": [
+0
+],
+"explanation": "Cleaning, integrating, and formatting data is the bottleneck."
+},
+{
+"type": "single",
+"question": "If `Precision = 0.8` and `Recall = 0.2`, what is likely true?",
+"options": [
+"The model is conservative (high threshold).",
+"The model is aggressive (low threshold).",
+"The model is random.",
+"The model is perfect."
+],
+"answer": [
+0
+],
+"explanation": "High Precision/Low Recall means the model rarely predicts positive, but when it does, it's usually right. This corresponds to a high probability threshold."
+},
+{
+"type": "single",
+"question": "If you have 1 million rows and use `ORDER BY random()` to shuffle, is it efficient?",
+"options": [
+"No, it requires sorting the entire dataset.",
+"Yes, it's the standard way.",
+"Yes, it uses an index.",
+"No, it produces an error."
+],
+"answer": [
+0
+],
+"explanation": "Assigning a random number to every row and then sorting is O(N log N), which is very slow for large data."
+},
+{
+"type": "single",
+"question": "What is the Euclidean distance between (0,0) and (3,4)?",
+"options": [
+"5",
+"7",
+"25",
+"12"
+],
+"answer": [
+0
+],
+"explanation": "sqrt(3^2 + 4^2) = sqrt(9+16) = sqrt(25) = 5. (3-4-5 triangle)."
+},
+{
+"type": "single",
+"question": "If the 'churn' class is only 1% of the data, what is the accuracy of a 'Zero Rule' baseline (always predict 'No Churn')?",
+"options": [
+"99%",
+"1%",
+"50%",
+"0%"
+],
+"answer": [
+0
+],
+"explanation": "Predicting the majority class every time yields accuracy equal to the majority proportion (99%)."
+},
+{
+"type": "single",
+"question": "In K-Means, if the Inertia (WCSS) drops from 1000 (k=2) to 950 (k=3), is the 3rd cluster worth it?",
+"options": [
+"Probably not (marginal gain).",
+"Yes, definitely.",
+"Inertia always drops.",
+"Cannot tell."
+],
+"answer": [
+0
+],
+"explanation": "A small drop (5%) suggests the Elbow has already been passed; adding complexity for little gain."
+},
+{
+"type": "single",
+"question": "What is the impact of a 'high learning rate' in Gradient Descent?",
+"options": [
+"It might overshoot the minimum and fail to converge.",
+"It converges very slowly.",
+"It gets stuck in local minima.",
+"It has no impact."
+],
+"answer": [
+0
+],
+"explanation": "Large steps can bounce across the valley (objective function) and diverge."
+},
+{
+"type": "single",
+"question": "If you have a table of 'User Logins'. How do you count how many users logged in on 3 consecutive days?",
+"options": [
+"Use `LEAD()` and `LAG()` to check date differences.",
+"Use `COUNT(*)`.",
+"Use `GROUP BY`.",
+"Use `DISTINCT`."
+],
+"answer": [
+0
+],
+"explanation": "Window functions allow comparing a row's date with the next and previous rows to check for sequence continuity."
+}
+]
