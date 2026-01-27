@@ -1,0 +1,482 @@
+[
+  {
+    "type": "single",
+    "question": "What is the primary objective of the k-means clustering algorithm?",
+    "options": [
+      "To maximize the distance between data points and their respective centroids.",
+      "To find the set of k centroids that minimizes the Within-Cluster Sum of Squares (WCSS).",
+      "To predict the categorical label of a new data point based on its nearest neighbors.",
+      "To reduce the number of features in a dataset while preserving the maximum variance."
+    ],
+    "answer": [1],
+    "explanation": "The core goal of k-means is to partition data into k clusters by minimizing the WCSS (also known as inertia or SSE), which ensures that clusters are as tight and compact as possible."
+  },
+  {
+    "type": "single",
+    "question": "Why is feature scaling, such as StandardScaler, considered critical before applying k-means?",
+    "options": [
+      "It ensures that categorical features are converted into a numerical format the algorithm can read.",
+      "It helps the algorithm handle non-convex shapes like crescents or rings.",
+      "It prevents features with large scales from dominating the distance calculations used to assign clusters.",
+      "It is required to calculate the Log-Likelihood of the Gaussian components."
+    ],
+    "answer": [2],
+    "explanation": "k-means uses Euclidean distance. If one feature (like Income) has a much larger scale than another (like Age), it will dominate the distance metric, leading to biased clustering. Scaling ensures all features contribute equally."
+  },
+  {
+    "type": "single",
+    "question": "In the context of k-means, what does the 'k-means++' initialization strategy aim to solve?",
+    "options": [
+      "The issue of the algorithm getting stuck in a local minimum due to poor initial centroid placement.",
+      "The inability of k-means to handle categorical data through Hamming distance.",
+      "The 'Curse of Dimensionality' that degrades model performance in high-dimensional spaces.",
+      "The slow convergence speed when working with massive datasets containing millions of points."
+    ],
+    "answer": [0],
+    "explanation": "Standard random initialization can be 'unlucky' by picking centroids in the same region. k-means++ uses a probabilistic method to ensure initial centroids are better spread out, improving final cluster quality and speed."
+  },
+  {
+    "type": "multi",
+    "question": "Which of the following are recognized 'failure modes' or limitations of the standard k-means algorithm?",
+    "options": [
+      "It struggles to detect complex, non-convex geometries like crescent shapes.",
+      "It assumes all clusters have equal variance and spherical shapes.",
+      "It automatically selects the optimal number of clusters without human intervention.",
+      "Smaller, high-value groups may be misclassified because centroids are pulled toward larger clusters."
+    ],
+    "answer": [0, 1, 3],
+    "explanation": "k-means assumes spherical clusters and equal variance, causing it to fail on curved data or varying densities. It also struggles with imbalanced cluster sizes. It does not automatically select k; the user must provide it."
+  },
+  {
+    "type": "single",
+    "question": "When interpreting an Elbow Plot for k-means, what does the 'Elbow' point represent?",
+    "options": [
+      "The point where the silhouette score reaches its maximum value of +1.",
+      "The point where adding more clusters yields significantly diminishing returns in WCSS reduction.",
+      "The exact moment when the centroids stop moving and the algorithm has converged.",
+      "The point where the reconstruction error becomes zero."
+    ],
+    "answer": [1],
+    "explanation": "The elbow point is the value of k where the rate of decrease in inertia (WCSS) slows down significantly. Beyond this, adding more clusters adds unnecessary complexity for minimal improvement in accuracy."
+  },
+  {
+    "type": "single",
+    "question": "A Silhouette Score close to +1 indicates that:",
+    "options": [
+      "The data point is likely placed in the wrong cluster.",
+      "The clusters are overlapping and the boundaries are ambiguous.",
+      "The clusters are dense and clearly separated from one another.",
+      "The model has overfitted the data by creating too many components."
+    ],
+    "answer": [2],
+    "explanation": "A high silhouette score (+1) means a point is very similar to its own cluster (cohesion) and very different from other clusters (separation), indicating well-defined clustering."
+  },
+  {
+    "type": "single",
+    "question": "How does Mini-batch k-means improve performance for 'Big Data' compared to standard k-means?",
+    "options": [
+      "It uses Mahalanobis distance to account for feature covariance.",
+      "It updates centroids using small, random subsets of data instead of the entire dataset at once.",
+      "It applies PCA to reduce dimensionality before the clustering process begins.",
+      "It eliminates the need for multiple restarts by finding the global minimum in one run."
+    ],
+    "answer": [1],
+    "explanation": "Standard k-means requires the entire dataset in memory. Mini-batch k-means uses random sampling and incremental learning to adjust centroids batch-by-batch, making it much faster for massive datasets."
+  },
+  {
+    "type": "multi",
+    "question": "When building customer personas from clustering results, which actions are recommended in the slides to make segments actionable?",
+    "options": [
+      "Assigning human-readable labels like 'Power Users' or 'Churn Risks' to cluster numbers.",
+      "Using only the most complex mathematical labels to ensure precision for stakeholders.",
+      "Identifying specific KPIs for each segment, such as Average Spend or Login Frequency.",
+      "Developing tailored marketing campaigns or service strategies for each group."
+    ],
+    "answer": [0, 2, 3],
+    "explanation": "Actionable segmentation involves naming clusters intuitively, tracking relevant KPIs, and creating specific business interventions (like VIP upgrades for Power Users) rather than relying on abstract numbers."
+  },
+  {
+    "type": "single",
+    "question": "What is a major advantage of Gaussian Mixture Models (GMM) over k-means?",
+    "options": [
+      "GMM is much faster and more computationally efficient for large datasets.",
+      "GMM allows for 'Soft Membership' where a point has a probability of belonging to multiple clusters.",
+      "GMM uses Hamming distance to handle categorical data more effectively.",
+      "GMM is simpler to implement because it only requires the mean as a parameter."
+    ],
+    "answer": [1],
+    "explanation": "Unlike k-means' 'Hard Assignment' (0 or 1), GMM provides probabilistic 'Soft Labels.' This allows businesses to identify borderline cases, such as a customer who is 60% 'Loyal' but 40% 'At-Risk'."
+  },
+  {
+    "type": "single",
+    "question": "In GMM, which parameter determines the shape and orientation (stretching or rotation) of a cluster?",
+    "options": [
+      "The Weight (π).",
+      "The Mean (μ).",
+      "The Covariance (Σ).",
+      "The Within-Cluster Sum of Squares (WCSS)."
+    ],
+    "answer": [2],
+    "explanation": "The covariance matrix in GMM represents the variance and correlation among features, allowing clusters to take elliptical shapes rather than just circles."
+  },
+  {
+    "type": "single",
+    "question": "Which GMM covariance type is the most flexible but also the most computationally expensive and prone to overfitting?",
+    "options": [
+      "Spherical",
+      "Diagonal",
+      "Tied",
+      "Full"
+    ],
+    "answer": [3],
+    "explanation": "A 'Full' covariance allows clusters to stretch and rotate in any direction. While this is the most flexible, it requires more parameters and can overfit if data is scarce."
+  },
+  {
+    "type": "single",
+    "question": "What is the role of the E-Step (Expectation) in the EM algorithm used by GMM?",
+    "options": [
+      "To update the means and weights of the Gaussian components.",
+      "To calculate the probability (responsibility) that each data point belongs to each cluster.",
+      "To reduce the number of features using singular value decomposition.",
+      "To penalize the model for having too many parameters using BIC."
+    ],
+    "answer": [1],
+    "explanation": "The E-Step is the 'Soft Assignment' phase where the algorithm computes the responsibilities (probabilities) based on the current cluster parameters."
+  },
+  {
+    "type": "single",
+    "question": "When selecting the number of components for GMM, why are AIC and BIC used instead of Log-Likelihood alone?",
+    "options": [
+      "Log-Likelihood is not a valid metric for Gaussian distributions.",
+      "AIC and BIC are used to find the global minimum, whereas Log-Likelihood only finds local minima.",
+      "Log-Likelihood always increases as more components are added, which would lead to overfitting.",
+      "AIC and BIC are required to scale the features to a z-score of 0."
+    ],
+    "answer": [2],
+    "explanation": "Adding more components will always improve the fit (Log-Likelihood). AIC and BIC penalize model complexity (the number of parameters) to help find a balance between fit and utility."
+  },
+  {
+    "type": "multi",
+    "question": "Which statements correctly compare BIC and AIC in the context of model selection?",
+    "options": [
+      "Lower values of AIC/BIC are generally considered better.",
+      "BIC imposes a stricter penalty for complexity compared to AIC.",
+      "AIC is generally safer for Business Analytics because it prefers simpler models.",
+      "Both metrics balance model fit against the number of parameters."
+    ],
+    "answer": [0, 1, 3],
+    "explanation": "Lower scores indicate a better model. BIC has a stricter penalty and prefers simpler models, making it generally safer for business use to avoid overfitting. Statement 2 is incorrect as the slides state BIC (not AIC) is generally safer."
+  },
+  {
+    "type": "single",
+    "question": "What is the 'Curse of Dimensionality' that PCA helps to mitigate?",
+    "options": [
+      "The loss of interpretability when cluster names are too long.",
+      "The performance degradation of models caused by data sparsity in high-dimensional spaces.",
+      "The inability of distance metrics to work with categorical variables.",
+      "The exponential growth of the Within-Cluster Sum of Squares as k increases."
+    ],
+    "answer": [1],
+    "explanation": "As the number of dimensions increases, data becomes sparse, making it harder for models to find patterns. PCA reduces dimensionality to focus on the 'true signal'."
+  },
+  {
+    "type": "single",
+    "question": "Principal Component Analysis (PCA) identifies new axes (Principal Components) that are:",
+    "options": [
+      "Parallel to the original feature axes.",
+      "Orthogonal (perpendicular) to each other to ensure independence.",
+      "Clustered around the centroids calculated by k-means.",
+      "Always scaled between -1 and +1."
+    ],
+    "answer": [1],
+    "explanation": "PCA identifies orthogonal directions of maximum variance. This perpendicularity ensures that the resulting components are independent and capture unique information."
+  },
+  {
+    "type": "single",
+    "question": "In a PCA Scree Plot, what is the 'Elbow Rule' used for?",
+    "options": [
+      "To determine the probability of a point belonging to a specific Gaussian component.",
+      "To identify the point where the curve flattens, helping to decide how many components to keep.",
+      "To measure the correlation between two different features (e.g., Age and Spend).",
+      "To calculate the reconstruction error of a 2D projection."
+    ],
+    "answer": [1],
+    "explanation": "Similar to k-means, a Scree Plot's elbow shows where the variance explained by additional components drops off. Components before the elbow represent 'signal,' while those after represent 'noise' or 'scree'."
+  },
+  {
+    "type": "single",
+    "question": "What is a PCA 'Biplot' specifically designed to visualize?",
+    "options": [
+      "The training vs. testing error of a clustering model over time.",
+      "The probability of a customer migrating between segments.",
+      "Both the sample scores (dots) and the feature loadings (vectors) simultaneously.",
+      "The non-linear 'Swiss Roll' structure of a complex dataset."
+    ],
+    "answer": [2],
+    "explanation": "A biplot is a dual visualization that allows you to see how individual samples are distributed (scores) and which original features influence those positions (loadings/vectors)."
+  },
+  {
+    "type": "multi",
+    "question": "Which of the following are recognized caveats or limitations of Principal Component Analysis (PCA)?",
+    "options": [
+      "It is highly sensitive to outliers, which can distort the principal axes.",
+      "It assumes data lies on a linear subspace and fails to unfold non-linear manifolds like the 'Swiss Roll'.",
+      "Standardization of variables is optional and rarely impacts the result.",
+      "Variables with large magnitudes will dominate the variance if not scaled."
+    ],
+    "answer": [0, 1, 3],
+    "explanation": "PCA is linear, sensitive to outliers, and highly sensitive to scale. Standardization is 'mandatory,' not optional, because PCA is based on variance maximization."
+  },
+  {
+    "type": "single",
+    "question": "How do non-linear methods like t-SNE and UMAP differ primarily from PCA?",
+    "options": [
+      "They are deterministic, meaning they produce the same result every time they are run.",
+      "They excel at unfolding complex, non-linear structures that PCA flattens or destroys.",
+      "Their axes have clear, interpretable meanings related to the original features.",
+      "They are much slower than PCA and cannot be used for visualization."
+    ],
+    "answer": [1],
+    "explanation": "PCA is a linear mapping. t-SNE and UMAP are non-linear techniques that can capture 'manifolds' (like a Swiss Roll). However, unlike PCA, they are stochastic (results vary) and their axes are generally not interpretable."
+  },
+  {
+    "type": "single",
+    "question": "In the RFM framework, what does 'Recency' specifically measure?",
+    "options": [
+      "How much total revenue a customer has generated over their lifetime.",
+      "How many days have passed since the customer's last transaction.",
+      "The total count of transactions a customer has made.",
+      "The average time between a customer's support tickets."
+    ],
+    "answer": [1],
+    "explanation": "Recency (R) measures engagement by looking at how recently a customer made a purchase, usually measured in days since the last transaction."
+  },
+  {
+    "type": "single",
+    "question": "In RFM scoring, why is 'Quantile Binning' preferred over equal-width binning?",
+    "options": [
+      "Because real-world customer data is often heavily right-skewed and follows the Pareto Principle.",
+      "Because quantile binning automatically handles categorical variables like 'City'.",
+      "Because equal-width binning requires the data to be PCA-transformed first.",
+      "Because quantile binning is the only way to calculate a Silhouette Score."
+    ],
+    "answer": [0],
+    "explanation": "Customer data (Spend, Frequency) is rarely normally distributed; most customers spend little while a few 'whales' spend a lot. Quantile binning ensures that the 1-5 scores are balanced across the population."
+  },
+  {
+    "type": "single",
+    "question": "In an RFM segment taxonomy, which group is defined as having bought recently, buying often, and spending the most?",
+    "options": [
+      "Loyal Customers",
+      "Potential Loyalists",
+      "Champions",
+      "At Risk"
+    ],
+    "answer": [2],
+    "explanation": "Champions are the highest-value segment, scoring high (usually 5s) across Recency, Frequency, and Monetary metrics."
+  },
+  {
+    "type": "single",
+    "question": "What is the defining characteristic of an 'At Risk' customer in the RFM model?",
+    "options": [
+      "They are new customers who have only made one small purchase.",
+      "They are big spenders who have not purchased anything lately.",
+      "They have low recency, low frequency, and low monetary scores.",
+      "They have a high frequency of support tickets but low spend."
+    ],
+    "answer": [1],
+    "explanation": "At Risk customers have high historical value (Frequency/Monetary) but poor Recency, suggesting they may be churning."
+  },
+  {
+    "type": "single",
+    "question": "In an RFM Scatter plot, what does 'Bubble Size' typically represent to add a third dimension?",
+    "options": [
+      "Recency",
+      "Monetary Value",
+      "Frequency",
+      "Customer Tenure"
+    ],
+    "answer": [2],
+    "explanation": "While Recency and Monetary are often plotted on the X and Y axes, Bubble Size is used to visualize Frequency, helping to identify frequent 'Champions'."
+  },
+  {
+    "type": "single",
+    "question": "What is the recommended first step in a 'Hybrid Segmentation Pipeline' that combines RFM and Machine Learning?",
+    "options": [
+      "PCA Projection to reduce noise.",
+      "k-means clustering to identify groups.",
+      "Standardize/Z-score scaling.",
+      "Naming personas like 'Whales'."
+    ],
+    "answer": [2],
+    "explanation": "The pipeline follows a specific order: 1. Standardize (essential for distance algorithms) -> 2. PCA Projection -> 3. Clustering -> 4. Profile & Name."
+  },
+  {
+    "type": "single",
+    "question": "Why is 'Time-Based Splitting' preferred over random splitting for validating customer segmentation models?",
+    "options": [
+      "Random splits are computationally more expensive.",
+      "Random splits can 'leak' information from the future and fail to test against seasonality.",
+      "Time-based splits are required to calculate the Mahalanobis distance.",
+      "PCA only works if the data is split by month."
+    ],
+    "answer": [1],
+    "explanation": "In time-series or customer data, behavior evolves. Using a past period (Jan-Jun) to train and a subsequent period (Jul) to test ensures the model is stable and handles future unseen data correctly."
+  },
+  {
+    "type": "multi",
+    "question": "Which of the following are ethical considerations mentioned in the slides regarding customer segmentation?",
+    "options": [
+      "Avoiding the use of sensitive attributes like race, gender, or religion as features.",
+      "Ensuring transparency and adhering to regulations like GDPR or CCPA.",
+      "Using 'Black Box' models for high-stakes decisions like credit limits to prevent gaming.",
+      "Providing explainability (XAI) so stakeholders understand why a customer is profiled."
+    ],
+    "answer": [0, 1, 3],
+    "explanation": "Ethical AI involves avoiding protected characteristics, ensuring consent/privacy, and providing explainable results to build trust. 'Black Box' models should be avoided for sensitive decisions."
+  },
+  {
+    "type": "single",
+    "question": "In a deployment scenario, what is the 'Real-time' scoring strategy used for?",
+    "options": [
+      "Generating nightly email marketing lists.",
+      "Instant classification via API for live website personalization.",
+      "Calculating the annual churn rate for executive reports.",
+      "Performing the initial PCA transformation on the entire database."
+    ],
+    "answer": [1],
+    "explanation": "While Batch scoring is for periodic, large-scale updates, Real-time input/output allows for immediate action, such as showing a personalized offer the moment a user logs in."
+  },
+  {
+    "type": "single",
+    "question": "What should trigger a model re-train in a production monitoring environment?",
+    "options": [
+      "The completion of an A/B test.",
+      "A 'Drift Alert' indicating that the input data distribution has changed significantly.",
+      "Whenever a new 'Champion' customer is identified.",
+      "If the WCSS of a single cluster reaches zero."
+    ],
+    "answer": [1],
+    "explanation": "Automated monitoring should track 'Concept Drift.' If customer behaviors evolve so much that the data distribution shifts, the model centroids and PCA components need to be refreshed."
+  },
+  {
+    "type": "single",
+    "question": "Distance-based methods like k-means assume that the features are on a:",
+    "options": [
+      "Categorical scale.",
+      "Comparable scale.",
+      "Logarithmic scale.",
+      "Ordinal scale."
+    ],
+    "answer": [1],
+    "explanation": "The slides explicitly state that 'Distance-based methods assume comparable scale,' which is why standardization/z-score scaling is necessary."
+  },
+  {
+    "type": "single",
+    "question": "Which distance metric is the 'default' for the k-means algorithm?",
+    "options": [
+      "Cosine",
+      "Mahalanobis",
+      "Euclidean",
+      "Hamming"
+    ],
+    "answer": [2],
+    "explanation": "Euclidean distance, which measures the 'straight-line' magnitude between points, is the default metric for standard k-means."
+  },
+  {
+    "type": "single",
+    "question": "When is the 'Cosine' distance metric preferred over Euclidean?",
+    "options": [
+      "When features are highly correlated and you need to account for covariance.",
+      "When working with high-dimensional, sparse data like text (TF-IDF) where direction matters more than magnitude.",
+      "When the dataset contains a mix of numeric and categorical features.",
+      "When you need to detect outliers that are several standard deviations from the mean."
+    ],
+    "answer": [1],
+    "explanation": "Cosine distance focuses on the angle (direction) between vectors, making it ideal for sparse data like text where document length (magnitude) is less important than content."
+  },
+  {
+    "type": "single",
+    "question": "The K-Prototypes algorithm is used when:",
+    "options": [
+      "You only have categorical data and need to use Hamming distance.",
+      "You have a massive dataset and need to use mini-batches.",
+      "Your dataset has a mix of numeric features (Euclidean) and categorical features (Hamming).",
+      "You want to model clusters as ellipses instead of spheres."
+    ],
+    "answer": [2],
+    "explanation": "K-Prototypes is a hybrid algorithm designed for mixed data types, combining Euclidean distance for numbers and mismatch counts (Hamming) for categories."
+  },
+  {
+    "type": "single",
+    "question": "What does 'Inertia' (or SSE) measure in a k-means output?",
+    "options": [
+      "The total probability mass of the Gaussian components.",
+      "The total sum of squared Euclidean distances from every point to its assigned centroid.",
+      "The number of principal components needed to explain 95% of the variance.",
+      "The ratio of inter-cluster separation to intra-cluster cohesion."
+    ],
+    "answer": [1],
+    "explanation": "Inertia/WCSS measures how tightly grouped the data points are within their clusters. Low inertia signifies compact clusters."
+  },
+  {
+    "type": "single",
+    "question": "In GMM, 'responsibilities' calculated during the E-step are:",
+    "options": [
+      "The weights assigned to each feature in the PCA transformation.",
+      "The probabilistic assignments of points to clusters.",
+      "The penalty terms added to the Log-Likelihood to prevent overfitting.",
+      "The distances between the means of two different Gaussians."
+    ],
+    "answer": [1],
+    "explanation": "Responsibilities represent the 'soft' part of GMM, indicating the probability (e.g., 80% Cluster 1, 20% Cluster 2) that a specific point belongs to a specific component."
+  },
+  {
+    "type": "single",
+    "question": "PCA 'Whitening' is an optional step that:",
+    "options": [
+      "Removes all outliers from the dataset automatically.",
+      "Rescales the Principal Components so that each dimension has unit variance (isotropic sphere).",
+      "Converts the PCA output back into human-readable business personas.",
+      "Assigns a 'Soft Label' to each data point."
+    ],
+    "answer": [1],
+    "explanation": "Whitening normalizes the components so that the data distribution becomes a sphere rather than an oriented ellipse, which is a required preprocessing step for some algorithms."
+  },
+  {
+    "type": "single",
+    "question": "If you keep enough components to reach a '95% Explained Variance' threshold, you are:",
+    "options": [
+      "Ensuring that you have removed 95% of the noise from the data.",
+      "Retaining 95% of the information/variability from the original high-dimensional dataset.",
+      "Guaranteeing that your k-means algorithm will find the global minimum.",
+      "Using the BIC rule to avoid model complexity."
+    ],
+    "answer": [1],
+    "explanation": "The target threshold (e.g., 90% or 95%) is a common strategy to select the number of components 'm' that retains most of the original information while reducing dimensionality."
+  },
+  {
+    "type": "single",
+    "question": "What happens to the 'Reconstruction Error' in PCA as the number of components (k) increases?",
+    "options": [
+      "The error increases because the model becomes more complex.",
+      "The error decreases because the approximation of the original data improves.",
+      "The error remains constant because PCA is a linear transformation.",
+      "The error drops to zero only when k equals 1."
+    ],
+    "answer": [1],
+    "explanation": "Reconstruction error measures lost information. As you keep more components, you lose less information. If k equals the original number of dimensions, the error becomes zero."
+  },
+  {
+    "type": "single",
+    "question": "In a PCA Biplot, what does it mean if the vectors for two features are orthogonal (at a 90-degree angle)?",
+    "options": [
+      "The two features are perfectly positively correlated.",
+      "The two features are perfectly negatively correlated.",
+      "There is no correlation between the two features.",
+      "One feature is a 'Power User' and the other is a 'Churn Risk'."
+    ],
+    "answer": [2],
+    "explanation": "In a biplot, the angle between feature vectors indicates correlation: 0° is positive, 180° is negative, and 90° (orthogonal) indicates no correlation."
+  }
+]

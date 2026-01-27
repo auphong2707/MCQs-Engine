@@ -1,0 +1,482 @@
+[
+    {
+        "type": "single",
+        "question": "According to the slides, what is the primary shift in user behavior that Recommender Systems aim to facilitate?",
+        "options": [
+            "Shifting from Passive Discovery to Active Search",
+            "Shifting from Active Search to Passive Discovery",
+            "Shifting from Information Overload to Data Sparsity",
+            "Shifting from Long Tail consumption to Blockbuster consumption"
+        ],
+        "answer": [1],
+        "explanation": "The slides explicitly state that the solution to information overload and the paradox of choice is shifting the user experience from 'Active Search' to 'Passive Discovery', where the system finds content for the user."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following best describes the 'Long Tail' effect in the context of sales and inventory?",
+        "options": [
+            "A small number of popular items that account for the majority of revenue.",
+            "Items with high individual demand and high competition.",
+            "Niche items where individual demand is low, but aggregate volume is massive.",
+            "The top 20% of items that generate 80% of the sales."
+        ],
+        "answer": [2],
+        "explanation": "The Long Tail refers to niche items. While individual demand for these items is low, their aggregate volume is massive. The 'Head' refers to popular items/blockbusters."
+    },
+    {
+        "type": "single",
+        "question": "What is a key disadvantage of relying solely on Explicit Feedback (e.g., star ratings)?",
+        "options": [
+            "It is computationally expensive to process.",
+            "It suffers from data sparsity because users rarely rate items.",
+            "It is inherently noisy due to accidental clicks.",
+            "It cannot capture negative signals from the user."
+        ],
+        "answer": [1],
+        "explanation": "Explicit feedback, while having high precision, has the disadvantage of being sparse because users rarely take the time to rate items. Noise and lack of negative signals are disadvantages of Implicit feedback."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are examples of Implicit Feedback?",
+        "options": [
+            "Star Ratings (1-5)",
+            "Purchase History",
+            "Watch Time",
+            "Likes/Dislikes"
+        ],
+        "answer": [1, 2],
+        "explanation": "Implicit feedback is indirect behavior. The slides list Purchase History, Clicks, Watch Time, and Page Views as implicit examples. Ratings and Likes/Dislikes are Explicit feedback."
+    },
+    {
+        "type": "single",
+        "question": "What is the core logic behind Content-Based Filtering?",
+        "options": [
+            "Show me what people like me liked.",
+            "Show me more of what I liked based on item attributes.",
+            "Show me items that are popular globally.",
+            "Show me items based solely on my demographic location."
+        ],
+        "answer": [1],
+        "explanation": "Content-Based Filtering focuses on Item Attributes and follows the logic: 'Show me more of what I liked' (e.g., recommending a Sci-Fi movie because the user watched other Sci-Fi movies)."
+    },
+    {
+        "type": "single",
+        "question": "In Content-Based Filtering, how is a User Profile typically constructed?",
+        "options": [
+            "By finding the nearest neighbors in the user database.",
+            "By calculating a weighted average of the feature vectors of items the user consumed.",
+            "By using Matrix Factorization to find latent factors.",
+            "By random assignment of genre preferences."
+        ],
+        "answer": [1],
+        "explanation": "The slides state that a User Profile is an aggregation of the items they consumed, often calculated as a Weighted Average of Item Vectors."
+    },
+    {
+        "type": "single",
+        "question": "What does a Cosine Similarity score of 0.0 indicate between a User Vector and an Item Vector?",
+        "options": [
+            "A perfect match where the vectors align.",
+            "A negative correlation where the user dislikes the item.",
+            "No correlation, as the vectors are orthogonal (90 degrees).",
+            "A strong match, but with low confidence."
+        ],
+        "answer": [2],
+        "explanation": "Cosine Similarity measures the angle between vectors. A score of 1.0 is a perfect match (small angle), while 0.0 indicates no correlation (vectors are orthogonal/90 degrees)."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a specific 'Pro' (advantage) of Content-Based Filtering?",
+        "options": [
+            "It facilitates high serendipity and discovery of new genres.",
+            "It works in isolation and does not need a large community of users.",
+            "It is unaffected by the New User Cold-Start problem.",
+            "It requires no domain knowledge for feature engineering."
+        ],
+        "answer": [1],
+        "explanation": "Content-Based systems have 'User Independence,' meaning they work in isolation and do not require a large community of users to generate recommendations. Serendipity is a pro of Collaborative Filtering."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Filter Bubble' effect in Content-Based Filtering?",
+        "options": [
+            "The system filters out too many items, leaving the user with nothing.",
+            "The system overspecializes, so the user never discovers new genres.",
+            "The system recommends items that are too popular.",
+            "The system cannot handle new items with no metadata."
+        ],
+        "answer": [1],
+        "explanation": "Overspecialization in Content-Based Filtering leads to a 'Filter Bubble,' where the user is only shown more of the same type of content and never discovers new genres (Low Serendipity)."
+    },
+    {
+        "type": "single",
+        "question": "What is the core logic of Collaborative Filtering (CF)?",
+        "options": [
+            "It analyzes the metadata of items to find similarities.",
+            "It relies on the 'Wisdom of Crowds' and patterns in user behavior.",
+            "It manually curates lists based on editorial reviews.",
+            "It recommends items solely based on the user's search keywords."
+        ],
+        "answer": [1],
+        "explanation": "Collaborative Filtering is based on the 'Wisdom of Crowds,' assuming that if User A and User B agreed in the past, they will agree in the future. It focuses on user interactions rather than item content."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary difference between User-Based and Item-Based Collaborative Filtering?",
+        "options": [
+            "User-Based finds similar users to recommend items; Item-Based finds items often purchased together.",
+            "User-Based is for implicit data; Item-Based is for explicit data.",
+            "User-Based uses Matrix Factorization; Item-Based uses Deep Learning.",
+            "User-Based is more stable; Item-Based is more personalized."
+        ],
+        "answer": [0],
+        "explanation": "User-Based CF ('Find people like me') recommends items liked by similar users. Item-Based CF ('Find items bought together') recommends items often purchased with the current item."
+    },
+    {
+        "type": "single",
+        "question": "Why is Item-Based Collaborative Filtering often preferred over User-Based CF in large e-commerce systems like Amazon?",
+        "options": [
+            "Users are more stable than items.",
+            "Items are more stable than users, requiring fewer real-time calculations.",
+            "Item-Based CF does not suffer from the cold-start problem.",
+            "Item-Based CF provides more serendipitous recommendations."
+        ],
+        "answer": [1],
+        "explanation": "Item-Based CF is preferred for stability and efficiency because 'Items are more stable than users' and it requires fewer real-time calculations."
+    },
+    {
+        "type": "single",
+        "question": "In the context of the User-Item Interaction Matrix, what does 'Sparsity' refer to?",
+        "options": [
+            "The matrix contains too many users compared to items.",
+            "The matrix is dense with data, making it hard to process.",
+            "The matrix is typically >99% empty because users interact with very few items.",
+            "The matrix contains incorrect or noisy data values."
+        ],
+        "answer": [2],
+        "explanation": "Sparsity refers to the fact that a typical interaction matrix is >99% empty because any single user has only interacted with a tiny fraction of the available items."
+    },
+    {
+        "type": "multi",
+        "question": "What are the two specific problems associated with Implicit Feedback data?",
+        "options": [
+            "No Negatives (Missing data does not mean dislike)",
+            "Low Precision (Star ratings are inaccurate)",
+            "Noise (Interactions vary in intensity/accidental clicks)",
+            "High Cost (Data is expensive to acquire)"
+        ],
+        "answer": [0, 2],
+        "explanation": "The slides identify 'No Negatives' (missing data $\neq$ dislike) and 'Noise' (interactions vary in intensity, accidental clicks) as the main problems with Implicit Feedback."
+    },
+    {
+        "type": "single",
+        "question": "How does the 'Confidence vs. Preference' model handle implicit feedback?",
+        "options": [
+            "It treats all interactions as binary (0 or 1) regardless of intensity.",
+            "It uses binary preference to indicate if an interaction occurred, and confidence weights based on intensity.",
+            "It ignores missing values and only models observed interactions.",
+            "It converts all implicit data into explicit 5-star ratings."
+        ],
+        "answer": [1],
+        "explanation": "The solution to implicit feedback issues is modeling 'Preference' (binary: did they interact?) and 'Confidence' (weight: how strong/frequent was the interaction?)."
+    },
+    {
+        "type": "single",
+        "question": "In Matrix Factorization, the large sparse matrix $R$ is decomposed into which two matrices?",
+        "options": [
+            "A User-User matrix and an Item-Item matrix.",
+            "A User-Latent Factors matrix ($U$) and an Item-Latent Factors matrix ($V^T$).",
+            "A Training matrix and a Testing matrix.",
+            "A Content matrix and a Collaborative matrix."
+        ],
+        "answer": [1],
+        "explanation": "Matrix Factorization decomposes the sparse User-Item interaction matrix $R$ into two smaller, dense matrices: $U$ (User-Latent Factors) and $V^T$ (Item-Latent Factors)."
+    },
+    {
+        "type": "single",
+        "question": "What are 'Latent Factors' in the context of Matrix Factorization?",
+        "options": [
+            "Explicit tags provided by the content creators.",
+            "Demographic data such as age and location.",
+            "Hidden features learned by the machine (e.g., Serious vs. Funny) that map users and items to a shared space.",
+            "The error rates calculated during the training process."
+        ],
+        "answer": [2],
+        "explanation": "Latent Factors are 'Hidden features learned by the machine' representing a shared latent space (e.g., dimensions like Serious vs. Funny or Blockbuster vs. Art-house) where users and items are mapped as points."
+    },
+    {
+        "type": "single",
+        "question": "Mathematically, how is a missing rating $\\hat{y}_{ui}$ predicted in Matrix Factorization?",
+        "options": [
+            "By calculating the cosine similarity between user vectors.",
+            "By computing the dot product of the User Vector and the Item Vector ($x_u^T \\cdot y_i$).",
+            "By averaging the ratings of the top-k nearest neighbors.",
+            "By summing the latent factors of the user and the item."
+        ],
+        "answer": [1],
+        "explanation": "The predicted score is the dot product of the User's latent factor vector and the Item's latent factor vector: $\\hat{y}_{ui} = x_u^T \\cdot y_i$."
+    },
+    {
+        "type": "single",
+        "question": "Why is Alternating Least Squares (ALS) used for training Matrix Factorization models with Implicit Data instead of standard Gradient Descent?",
+        "options": [
+            "ALS is more accurate for small datasets.",
+            "Standard Gradient Descent struggles with the massive amount of zero values (missing data) in implicit datasets.",
+            "ALS does not require a loss function.",
+            "ALS can only run on a single CPU core."
+        ],
+        "answer": [1],
+        "explanation": "The slides state 'Why ALS? Standard Gradient Descent is hard with Implicit Data (too many zeros).' ALS is also highlighted as being highly parallelizable."
+    },
+    {
+        "type": "single",
+        "question": "How does the ALS (Alternating Least Squares) algorithm operate iteratively?",
+        "options": [
+            "It updates both User and Item vectors simultaneously.",
+            "It fixes User vectors to solve for Item vectors, then fixes Item vectors to solve for User vectors.",
+            "It randomly adjusts vectors until the error minimizes.",
+            "It focuses only on the non-zero entries of the matrix."
+        ],
+        "answer": [1],
+        "explanation": "The ALS process is: 1. Fix User vectors, solve for Item vectors. 2. Fix Item vectors, solve for User vectors. 3. Repeat until error is minimized."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a major advantage of Collaborative Filtering over Content-Based Filtering?",
+        "options": [
+            "It does not suffer from the cold-start problem.",
+            "It provides high serendipity, helping users discover items they wouldn't have found otherwise.",
+            "It is transparent and easy to explain exactly why an item was recommended.",
+            "It requires detailed metadata for every item."
+        ],
+        "answer": [1],
+        "explanation": "A key advantage of CF is 'Serendipity,' as it helps users discover items they wouldn't have found otherwise (e.g., finding a new genre because a similar user liked it)."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Cold-Start Problem' in Collaborative Filtering?",
+        "options": [
+            "The system takes a long time to boot up.",
+            "The system cannot make recommendations for new items (no interactions) or new users (no history).",
+            "The system cannot handle old items that are no longer popular.",
+            "The system struggles to process data during off-peak hours."
+        ],
+        "answer": [1],
+        "explanation": "The Cold-Start Problem refers to the inability to define vectors or find neighbors for New Items (no clicks yet) or New Users (0 history)."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Popularity Bias' in Collaborative Filtering?",
+        "options": [
+            "The tendency to recommend niche items that nobody likes.",
+            "The tendency to recommend only items that the user has already seen.",
+            "The tendency to recommend what is already popular (e.g., Blockbusters), ignoring the long tail.",
+            "The bias users have against popular items."
+        ],
+        "answer": [2],
+        "explanation": "Popularity Bias (e.g., The 'Harry Potter' problem) is the tendency of CF systems to recommend items that are already popular, which can drown out niche items."
+    },
+    {
+        "type": "single",
+        "question": "In the comparison between Content-Based and Collaborative Filtering, which approach handles 'New Items' better?",
+        "options": [
+            "Collaborative Filtering, because it relies on user interactions.",
+            "Content-Based, because it can recommend an item immediately if it has metadata/attributes.",
+            "Both handle it equally well.",
+            "Neither can handle new items."
+        ],
+        "answer": [1],
+        "explanation": "Content-Based Filtering is 'Easy to recommend' for New Items because it relies on Item Features. CF finds it 'Hard' because it requires user interactions (Cold Start)."
+    },
+    {
+        "type": "single",
+        "question": "Which metric is best suited for evaluating Prediction Accuracy (e.g., 'How many stars will they give?')?",
+        "options": [
+            "Precision@K",
+            "Recall@K",
+            "RMSE (Root Mean Squared Error)",
+            "NDCG"
+        ],
+        "answer": [2],
+        "explanation": "RMSE is listed under Prediction Accuracy (Rating) with the question 'How many stars will they give?'. The other metrics are for Ranking Accuracy."
+    },
+    {
+        "type": "single",
+        "question": "What is a limitation of using RMSE for evaluating recommender systems?",
+        "options": [
+            "It cannot be calculated for explicit ratings.",
+            "A good RMSE does not necessarily mean a good user experience, as users care more about ranking order than exact decimal ratings.",
+            "It is computationally too expensive for large datasets.",
+            "It only works for binary data."
+        ],
+        "answer": [1],
+        "explanation": "The slides state: 'Good RMSE $\\neq$ Good Experience. Users care about the Ranking Order, not the exact decimal rating.'"
+    },
+    {
+        "type": "single",
+        "question": "In Top-N Evaluation, what constitutes a 'Hit'?",
+        "options": [
+            "When the system recommends an item that is popular.",
+            "When the system recommends an item that is also present in the user's 'Test Set' (actual behavior).",
+            "When the user clicks on an ad.",
+            "When the predicted rating is exactly 5.0."
+        ],
+        "answer": [1],
+        "explanation": "A 'Hit' occurs when a recommendation matches user behavior, meaning the recommended item is found in the User's 'Test Set' (items they actually consumed)."
+    },
+    {
+        "type": "single",
+        "question": "How is 'Precision@K' defined in the context of recommender systems?",
+        "options": [
+            "The percentage of relevant items found by the system out of all relevant items.",
+            "The percentage of recommendations that are relevant (Hits) out of the total recommendations (K).",
+            "The average rating of the top K items.",
+            "The number of users who clicked on the top K items."
+        ],
+        "answer": [1],
+        "explanation": "Precision@K is defined as Usefulness: (Number of Hits) / (Total System Recommendations K). It measures the % of recommendations that are relevant."
+    },
+    {
+        "type": "single",
+        "question": "What does 'Recall@K' measure?",
+        "options": [
+            "Usefulness (how many recommendations were good).",
+            "Coverage (what percentage of relevant items the system found).",
+            "Latency (how fast the system retrieved items).",
+            "Diversity (how different the items are)."
+        ],
+        "answer": [1],
+        "explanation": "Recall@K is defined as Coverage: (Number of Hits) / (Total Items in 'Test Set'). It measures the % of relevant items found by the system."
+    },
+    {
+        "type": "single",
+        "question": "Describe the typical trade-off between Precision and Recall as 'K' (the cut-off rank) increases.",
+        "options": [
+            "Both Precision and Recall increase.",
+            "Both Precision and Recall decrease.",
+            "Recall increases (finding more items), but Precision often decreases (more irrelevant items in the mix).",
+            "Precision increases, but Recall decreases."
+        ],
+        "answer": [2],
+        "explanation": "The slides illustrate a trade-off: 'Higher K $\\rightarrow$ Higher Recall, Lower Precision.' As you recommend more items, you find more hits (Recall), but the density of hits (Precision) drops."
+    },
+    {
+        "type": "single",
+        "question": "Why is Mean Average Precision (MAP) often preferred over simple Precision?",
+        "options": [
+            "It is easier to calculate.",
+            "It accounts for the position of the hit, rewarding systems that put relevant items at the very top.",
+            "It works better for explicit ratings.",
+            "It ignores the ranking order."
+        ],
+        "answer": [1],
+        "explanation": "MAP 'Rewards systems that put relevant items at the very top' because simple Precision ignores position (a hit at #1 is treated the same as at #10)."
+    },
+    {
+        "type": "single",
+        "question": "What is the key concept behind NDCG (Normalized Discounted Cumulative Gain)?",
+        "options": [
+            "It counts the total number of clicks.",
+            "It discounts the value of a hit based on its rank (logarithmic decay), valuing hits at the top more.",
+            "It averages the error between predicted and actual ratings.",
+            "It measures the diversity of the recommendations."
+        ],
+        "answer": [1],
+        "explanation": "NDCG is described as the 'Gold Standard for Ranking.' It uses a Discount factor (dividing score by log(Rank)) so that 'A hit at Rank 10 is worth much less than a hit at Rank 1.'"
+    },
+    {
+        "type": "single",
+        "question": "Which evaluation method is considered the 'Gold Standard' because it measures actual business impact?",
+        "options": [
+            "Offline Evaluation (Train/Test Split)",
+            "RMSE Calculation",
+            "Online Evaluation (A/B Testing)",
+            "User Surveys"
+        ],
+        "answer": [2],
+        "explanation": "Online Evaluation (A/B Testing) is distinct from offline metrics which are just proxies. It measures actual business impact (e.g., Do they watch more? Do they buy more?)."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are mentioned as Business KPIs for recommender systems?",
+        "options": [
+            "CTR (Click-Through Rate)",
+            "CVR (Conversion Rate)",
+            "Diversity (Preventing boredom)",
+            "RMSE (Root Mean Squared Error)"
+        ],
+        "answer": [0, 1, 2],
+        "explanation": "The slides list CTR, CVR, Diversity, and Novelty as Business KPIs. RMSE is listed as a technical Prediction Metric, not a Business KPI."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of the 'Diversity' KPI?",
+        "options": [
+            "To ensure items from all categories are sold equally.",
+            "To prevent boredom by not showing 10 very similar items.",
+            "To maximize the revenue per user.",
+            "To help users find unpopular items."
+        ],
+        "answer": [1],
+        "explanation": "Diversity is defined as 'Preventing boredom (not showing 10 similar items).' Helping users find unpopular items is defined as 'Novelty.'"
+    },
+    {
+        "type": "single",
+        "question": "Which Python library is recommended in the slides for handling Explicit Ratings (RMSE)?",
+        "options": [
+            "Implicit",
+            "Surprise",
+            "TensorFlow Recommenders",
+            "LightFM"
+        ],
+        "answer": [1],
+        "explanation": "The 'Python Ecosystem' slide lists 'Surprise' as 'Good for explicit ratings (RMSE)'."
+    },
+    {
+        "type": "single",
+        "question": "Which Python library is optimized for Implicit Feedback and ALS?",
+        "options": [
+            "Surprise",
+            "Implicit",
+            "Scikit-learn",
+            "Pandas"
+        ],
+        "answer": [1],
+        "explanation": "The 'Python Ecosystem' slide lists the library 'Implicit' as 'Optimized for Implicit Feedback (ALS)'."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Paradox of Choice' described in the Business Problem section?",
+        "options": [
+            "Users prefer having fewer options.",
+            "More options lead to paralysis and customer churn rather than higher satisfaction.",
+            "Users always choose the cheapest option.",
+            "Recommendations reduce the total number of sales."
+        ],
+        "answer": [1],
+        "explanation": "The Paradox of Choice is described as: 'More options -> Paralysis -> Customer Churn.' It explains why information overload is a problem."
+    },
+    {
+        "type": "single",
+        "question": "In the 'MovieStream' case study, the objective is to predict which movie Alice will watch next. This is an example of using what type of data?",
+        "options": [
+            "Explicit Feedback (Ratings)",
+            "Implicit Feedback (Minutes watched)",
+            "Demographic Data (Age/Gender)",
+            "Social Graph Data"
+        ],
+        "answer": [1],
+        "explanation": "The Data Structure for the MovieStream case study lists 'Feedback: Number of minutes watched (Implicit)'."
+    },
+    {
+        "type": "single",
+        "question": "According to the 'Key Takeaways', evaluation of recommender systems must focus on what?",
+        "options": [
+            "Minimizing error (RMSE) above all else.",
+            "Ranking (NDCG), not just Error (RMSE).",
+            "Speed of recommendation generation.",
+            "The visual design of the user interface."
+        ],
+        "answer": [1],
+        "explanation": "A Key Takeaway is that 'Evaluation must focus on Ranking (NDCG), not just Error (RMSE).'"
+    }
+]

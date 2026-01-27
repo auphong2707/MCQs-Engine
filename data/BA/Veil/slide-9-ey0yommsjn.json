@@ -1,0 +1,482 @@
+[
+    {
+        "type": "single",
+        "question": "According to the slides, what is the fundamental statistical difference between standard statistics (random sampling) and time series analysis?",
+        "options": [
+            "Standard statistics assumes data points are temporally dependent, while time series assumes independence.",
+            "Standard statistics assumes no correlation between points ($y_i \\perp y_j$), whereas time series relies on temporal dependence ($Cov(y_t, y_{t-1}) \\neq 0$).",
+            "Standard statistics focuses on volatility modeling, while time series focuses only on mean forecasting.",
+            "Standard statistics uses the 'Data Cube' paradigm, while time series uses simple vector analysis."
+        ],
+        "answer": [1],
+        "explanation": "Slide 2 highlights the 'Core Shift': Standard statistics assumes independence ($y_i \\perp y_j$), while Time Series relies on the fact that points are correlated over time ($Cov(y_t, y_{t-1}) \\neq 0$), which is the signal."
+    },
+    {
+        "type": "single",
+        "question": "Which component of the 'Data Cube Paradigm' is responsible for introducing 'Multiple Seasonalities' in business time series?",
+        "options": [
+            "High frequency and granularity (e.g., Daily/Hourly data).",
+            "Multivariate vectors (e.g., Sales + Price).",
+            "Hierarchical aggregation constraints.",
+            "The presence of exogenous matrices."
+        ],
+        "answer": [0],
+        "explanation": "Slide 2 states under 'Business Implication' that high frequency (Daily/Hourly) data introduces 'Multiple Seasonalities' (e.g., time of day AND day of week)."
+    },
+    {
+        "type": "single",
+        "question": "In Time Series Decomposition, when should a Multiplicative Model ($y_t = T_t \\times S_t \times R_t$) be chosen over an Additive Model?",
+        "options": [
+            "When the magnitude of seasonal fluctuations is constant regardless of the trend level.",
+            "When the seasonal fluctuations scale proportionally with the trend (e.g., sales vary by percentage).",
+            "When the data contains negative values.",
+            "When the trend component is strictly linear."
+        ],
+        "answer": [1],
+        "explanation": "Slide 3 defines the Multiplicative Model's assumption: Seasonal fluctuations scale proportionally with the trend (e.g., sales vary by ±20%), whereas the Additive Model assumes constant magnitude."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary advantage of STL Decomposition over Classical Decomposition as presented in the slides?",
+        "options": [
+            "STL requires less computational power.",
+            "STL allows the Seasonality component ($S_t$) to change over time using Loess smoothing.",
+            "STL assumes the seasonal component is constant forever.",
+            "STL eliminates the need for separating the Remainder component."
+        ],
+        "answer": [1],
+        "explanation": "Slide 4 explains that Classical Decomposition assumes $S_t$ is fixed, while STL Decomposition allows $S_t$ to be time-varying (e.g., changing shopping patterns over years) using Loess."
+    },
+    {
+        "type": "single",
+        "question": "How do Exponential Smoothing (ETS) weights differ from Simple Moving Average (MA) weights?",
+        "options": [
+            "ETS assigns equal weights ($1/k$) to all past observations.",
+            "ETS assigns weights that decay exponentially as data gets older, making recent data more relevant.",
+            "ETS assigns higher weights to older data to capture long-term trends.",
+            "ETS uses a random weighting assignment based on the Remainder component."
+        ],
+        "answer": [1],
+        "explanation": "Slide 4 comparisons show that MA uses equal weights for the last $k$ observations, while Exponential Smoothing uses weights that decay exponentially ($W_j = \\alpha(1-\\alpha)^j$), prioritizing recent data."
+    },
+    {
+        "type": "single",
+        "question": "Which ETS model is best suited for data with no clear trend and no seasonality?",
+        "options": [
+            "Holt-Winters Seasonal Method",
+            "Simple Exponential Smoothing (SES) - ETS(A,N,N)",
+            "Holt's Linear Trend Method - ETS(A,A,N)",
+            "Damped Trend Method - ETS(A,Ad,N)"
+        ],
+        "answer": [1],
+        "explanation": "Slide 5 identifies Simple Exponential Smoothing (SES) - ETS(A,N,N) as the model for data with no clear trend and no seasonality, producing a flat forecast."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Holt's Linear Trend Method, what is the interpretation of the Level equation ($l_t$)?",
+        "options": [
+            "It represents the slope of the trend.",
+            "It is a weighted average of the new observation ($y_t$) and the previous level ($l_{t-1}$) adjusted for trend.",
+            "It calculates the seasonal index for the current period.",
+            "It measures the error between the forecast and actual value."
+        ],
+        "answer": [1],
+        "explanation": "Slide 5 describes the Level equation for Holt's method: $l_t = \\alpha y_t + (1-\\alpha)(l_{t-1} + b_{t-1})$. It updates the level based on new information ($y_t$) and accumulated history."
+    },
+    {
+        "type": "single",
+        "question": "Why is the Damped Trend Method (ETS(A,Ad,N)) often considered more realistic for long-term business forecasting than Holt's Linear Trend?",
+        "options": [
+            "Because trends rarely continue linearly forever due to competition and market saturation.",
+            "Because it assumes the trend will accelerate exponentially over time.",
+            "Because it completely removes the trend component to simplify the model.",
+            "Because it forces the seasonality to be multiplicative."
+        ],
+        "answer": [0],
+        "explanation": "Slide 6 states 'The Business Reality': Trends rarely continue linearly forever. The Damped Trend method flattens the forecast trend as $h \\to \\infty$, reflecting market saturation."
+    },
+    {
+        "type": "single",
+        "question": "What mathematical operation distinguishes the Holt-Winters Multiplicative method from the Additive method regarding seasonality?",
+        "options": [
+            "Multiplicative uses division to normalize $y_t$ by $S_{t-m}$, while Additive uses subtraction.",
+            "Multiplicative uses subtraction to remove seasonality, while Additive uses division.",
+            "Multiplicative uses log transformation, while Additive uses square roots.",
+            "There is no mathematical difference; only the notation changes."
+        ],
+        "answer": [0],
+        "explanation": "Slide 7 notes the 'Key Difference': Additive uses Subtraction ($y_t - s$), while Multiplicative uses Division ($y_t / s$) in the level update and multiplication in the forecast."
+    },
+    {
+        "type": "single",
+        "question": "When selecting an ETS model automatically, what metric is minimized to balance goodness of fit and model complexity?",
+        "options": [
+            "Likelihood (L)",
+            "AICc (Corrected Akaike Information Criterion)",
+            "MSE (Mean Squared Error)",
+            "R-squared"
+        ],
+        "answer": [1],
+        "explanation": "Slide 7 states that for automatic selection, we fit multiple models and select the one with the lowest AICc, which balances goodness of fit ($L$) vs. complexity ($k$)."
+    },
+    {
+        "type": "multi",
+        "question": "Select all conditions that must be met for a time series to be defined as 'Stationary'.",
+        "options": [
+            "Constant Mean ($\\mu$) over time.",
+            "Constant Variance ($\\sigma^2$) over time.",
+            "Autocovariance depends only on lag $k$, not time $t$.",
+            "The series must exhibit a clear linear trend."
+        ],
+        "answer": [0, 1, 2],
+        "explanation": "Slide 8 defines Stationarity: A time series is stationary if its statistical properties do not change over time, specifically constant mean, constant variance, and autocovariance depending only on lag."
+    },
+    {
+        "type": "single",
+        "question": "In an Augmented Dickey-Fuller (ADF) test, what does a p-value < 0.05 imply?",
+        "options": [
+            "The series has a unit root and is non-stationary.",
+            "We fail to reject the null hypothesis.",
+            "The series is stationary (reject the null hypothesis of a unit root).",
+            "The series requires further differencing."
+        ],
+        "answer": [2],
+        "explanation": "Slide 9 outlines the hypotheses: $H_0$ is Non-Stationary (Unit Root). If $p < 0.05$, we reject $H_0$, implying the series is stationary ($H_a$)."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of First Differencing ($d=1$) in ARIMA modeling?",
+        "options": [
+            "To remove seasonality.",
+            "To remove linear trend.",
+            "To smooth the variance.",
+            "To estimate the moving average parameters."
+        ],
+        "answer": [1],
+        "explanation": "Slide 9 states that First Differencing ($y'_t = y_t - y_{t-1}$) removes linear trend."
+    },
+    {
+        "type": "single",
+        "question": "How is an AutoRegressive (AR) model conceptually described in the slides?",
+        "options": [
+            "The current value is a linear combination of past forecast errors (shocks).",
+            "The current value is a linear combination of past values, implying the system has 'momentum'.",
+            "The current value is independent of all past values.",
+            "The current value is determined solely by the seasonal index."
+        ],
+        "answer": [1],
+        "explanation": "Slide 10 describes AR(p) as a regression on past values. The interpretation is that the system has 'momentum' (e.g., if sales were high yesterday, they are likely high today)."
+    },
+    {
+        "type": "single",
+        "question": "Which diagnostic plot pattern suggests an AR(p) model?",
+        "options": [
+            "ACF cuts off after lag p; PACF decays exponentially.",
+            "ACF decays exponentially; PACF cuts off after lag p.",
+            "Both ACF and PACF cut off immediately.",
+            "Both ACF and PACF decay exponentially."
+        ],
+        "answer": [1],
+        "explanation": "Slide 11's table 'Determining p and q' states that for an AR(p) model, the ACF decays exponentially, and the PACF cuts off after lag p."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary limitation of standard SARIMA models when dealing with holidays like Easter or Ramadan?",
+        "options": [
+            "SARIMA cannot handle negative values.",
+            "SARIMA assumes seasonality is fixed to the calendar month (e.g., 'March effect') and misses moving holidays.",
+            "SARIMA requires too much data to train.",
+            "SARIMA cannot be used for forecasting more than one step ahead."
+        ],
+        "answer": [1],
+        "explanation": "Slide 12 explains that standard SARIMA assumes seasonality is fixed to the calendar month. It fails for moving holidays like Easter or Ramadan which shift dates annually."
+    },
+    {
+        "type": "single",
+        "question": "What is the key insight behind Dynamic Regression (ARIMAX)?",
+        "options": [
+            "It replaces ARIMA entirely with a simple linear regression.",
+            "It combines Linear Regression for external factors and uses ARIMA to forecast the residuals (error structure).",
+            "It ignores the time series aspect and treats data as cross-sectional.",
+            "It uses neural networks to predict the trend."
+        ],
+        "answer": [1],
+        "explanation": "Slide 12 states the concept of Dynamic Regression: Combine Linear Regression (for external factors) with ARIMA (for the time series error structure). We forecast the residuals of the regression using ARIMA."
+    },
+    {
+        "type": "single",
+        "question": "How are holiday 'window effects' (e.g., lead-up to Christmas) typically handled in regression models?",
+        "options": [
+            "By deleting the data around the holiday.",
+            "By creating a single dummy variable for the holiday date only.",
+            "By creating multiple dummy variables for the lags and leads (e.g., Christmas_Lag_7).",
+            "By smoothing the data to remove the spike."
+        ],
+        "answer": [2],
+        "explanation": "Slide 13 suggests creating multiple dummies (e.g., Christmas_Lag_7, Christmas_Lead_2) to handle lead-up or hangover effects."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are components of the Facebook Prophet additive model?",
+        "options": [
+            "Piecewise linear trend ($g(t)$) to handle structural breaks.",
+            "Fourier terms for seasonality ($s(t)$).",
+            "User-supplied holiday effects ($h(t)$).",
+            "Autoregressive lags ($AR(p)$) for momentum."
+        ],
+        "answer": [0, 1, 2],
+        "explanation": "Slide 13 lists the Prophet components: Piecewise linear trend ($g(t)$), Fourier terms for seasonality ($s(t)$), and Holiday effects ($h(t)$)."
+    },
+    {
+        "type": "single",
+        "question": "Why is standard K-Fold Cross-Validation considered 'illegal' for time series data?",
+        "options": [
+            "Because it is computationally too expensive.",
+            "Because random shuffling destroys temporal dependence and allows 'peeking into the future'.",
+            "Because it requires the data to be stationary.",
+            "Because it can only be used for classification problems."
+        ],
+        "answer": [1],
+        "explanation": "Slide 14 calls this the 'Golden Rule': Shuffling destroys temporal dependence. You cannot use future data (e.g., 2024) to train a model predicting the past (e.g., 2023)."
+    },
+    {
+        "type": "single",
+        "question": "What is a specific advantage of the 'Rolling Window' Time Series Cross-Validation strategy?",
+        "options": [
+            "It uses all available history for every forecast.",
+            "It maintains a constant training size, allowing the model to adapt to structural breaks by forgetting old history.",
+            "It guarantees that the error metric will always be zero.",
+            "It requires no retraining of the model."
+        ],
+        "answer": [1],
+        "explanation": "Slide 15 states that Rolling Window (dropping old indexes) has a constant training size and adapts to structural breaks by forgetting old, irrelevant history."
+    },
+    {
+        "type": "single",
+        "question": "What are the identified flaws of MAPE (Mean Absolute Percentage Error)?",
+        "options": [
+            "It is scale-dependent and cannot compare series with different units.",
+            "It is undefined at zero ($y_t=0$) and penalizes positive errors more than negative ones.",
+            "It requires the data to be stationary.",
+            "It is difficult to interpret for business stakeholders."
+        ],
+        "answer": [1],
+        "explanation": "Slide 15 lists the flaws of MAPE: Undefined at Zero (if $y_t=0$, MAPE=$\\infty$) and Asymmetric (penalizes positive errors more)."
+    },
+    {
+        "type": "single",
+        "question": "How is the MASE (Mean Absolute Scaled Error) interpreted?",
+        "options": [
+            "MASE < 1 means the model is better than the Seasonal Naive forecast.",
+            "MASE > 1 means the model is better than the Seasonal Naive forecast.",
+            "MASE = 0 means the model is identical to the Naive forecast.",
+            "MASE measures the percentage error of the forecast."
+        ],
+        "answer": [0],
+        "explanation": "Slide 16 states the interpretation: MASE < 1 means the model is better than Naive (Good). MASE > 1 means the model is worse (Useless)."
+    },
+    {
+        "type": "single",
+        "question": "In the Australian Domestic Tourism case study, why did ETS typically outperform ARIMA?",
+        "options": [
+            "Because the data was stationary.",
+            "Because the data had a clear seasonal shape that ETS(M,A,M) fits natively without transformation.",
+            "Because ARIMA cannot handle trends.",
+            "Because the dataset had many zeros."
+        ],
+        "answer": [1],
+        "explanation": "Slide 16 explains that ETS(M,A,M) fits the strong trend and multiplicative seasonality natively, whereas ARIMA requires log transformations."
+    },
+    {
+        "type": "single",
+        "question": "In the Rossmann Store Sales case study, why did Univariate ARIMA fail?",
+        "options": [
+            "It could not handle the non-stationary data.",
+            "It could not 'see' the Promo schedule (exogenous variables).",
+            "It was too slow to compute.",
+            "The data had no seasonality."
+        ],
+        "answer": [1],
+        "explanation": "Slide 17 notes that Univariate ARIMA fails because it cannot see the Promo schedule, which is a critical exogenous variable."
+    },
+    {
+        "type": "single",
+        "question": "Which forecasting methodology is described as focusing on 'Autocorrelations' and requires stationarity?",
+        "options": [
+            "ETS",
+            "ARIMA",
+            "Dynamic Regression",
+            "Prophet"
+        ],
+        "answer": [1],
+        "explanation": "Slide 17's summary table lists ARIMA's focus as 'Autocorrelations' and notes that Stationarity is 'Required ($d$)'."
+    },
+    {
+        "type": "single",
+        "question": "What is the recommended first step in the 'Forecasting Workflow'?",
+        "options": [
+            "Calculate MASE.",
+            "Visualize the data to identify trend, seasonality, and outliers.",
+            "Apply differencing to stationarize the data.",
+            "Run an ADF test."
+        ],
+        "answer": [1],
+        "explanation": "Slide 18 lists the workflow starting with '1. Visualize: Identify Trend, Seasonality, Outliers.'"
+    },
+    {
+        "type": "single",
+        "question": "What is the Ljung-Box test used for in the ARIMA modeling process?",
+        "options": [
+            "To test for stationarity.",
+            "To estimate the parameters $p$ and $q$.",
+            "To diagnose the residuals and ensure they are white noise.",
+            "To determine the differencing order $d$."
+        ],
+        "answer": [2],
+        "explanation": "Slide 11's Step 6 (Diagnose) states: 'Check residuals. Must be white noise (Ljung-Box Test).'"
+    },
+    {
+        "type": "single",
+        "question": "According to the slides, what is the 'Backshift Notation' ($B$) equivalent to?",
+        "options": [
+            "$By_t = y_{t+1}$",
+            "$By_t = y_{t-1}$",
+            "$By_t = y_t - y_{t-1}$",
+            "$By_t = (y_t)^2$"
+        ],
+        "answer": [1],
+        "explanation": "Slide 9 defines the Backshift Notation: $By_t = y_{t-1}$."
+    },
+    {
+        "type": "single",
+        "question": "What defines the 'Remainder' ($R_t$) component in Time Series Decomposition?",
+        "options": [
+            "The long-term direction of the series.",
+            "Patterns repeating with fixed frequency.",
+            "The stochastic noise or residuals left after extracting trend and seasonality.",
+            "The effect of holidays on the data."
+        ],
+        "answer": [2],
+        "explanation": "Slide 3 defines Remainder ($R_t$) as 'The stochastic noise (residuals)'."
+    },
+    {
+        "type": "single",
+        "question": "Which ETS component combination represents Holt's Linear Trend Method?",
+        "options": [
+            "ETS(A,N,N)",
+            "ETS(A,A,N)",
+            "ETS(A,Ad,N)",
+            "ETS(A,A,A)"
+        ],
+        "answer": [1],
+        "explanation": "Slide 5 labels Holt's Linear Trend Method as ETS(A,A,N)."
+    },
+    {
+        "type": "single",
+        "question": "What implies a 'Unit Root' in the context of the ADF test?",
+        "options": [
+            "The series is stationary.",
+            "The series is non-stationary.",
+            "The series has no variance.",
+            "The series is seasonal."
+        ],
+        "answer": [1],
+        "explanation": "Slide 9 states that $H_0$ (Null Hypothesis) is that the series has a unit root, which corresponds to it being Non-Stationary."
+    },
+    {
+        "type": "single",
+        "question": "What is the mathematical property of the Seasonal component in an Additive Model?",
+        "options": [
+            "The sum of seasonal components over a period is approximately 0 ($\\Sigma S_j \\approx 0$).",
+            "The average of seasonal components is approximately 1.",
+            "The seasonal components must be positive.",
+            "The seasonal components grow with the trend."
+        ],
+        "answer": [0],
+        "explanation": "Slide 3 lists the Mathematical Property for the Additive Model: $\\Sigma_{j=1}^{m} S_j \\approx 0$."
+    },
+    {
+        "type": "single",
+        "question": "In an MA(q) model, the current value is a linear combination of what?",
+        "options": [
+            "Past values of the series.",
+            "Past forecast errors (shocks).",
+            "Future predictions.",
+            "The trend component."
+        ],
+        "answer": [1],
+        "explanation": "Slide 10 states that for Moving Average Models - MA(q), the concept is that the current value is a linear combination of past $q$ forecast errors (shocks)."
+    },
+    {
+        "type": "single",
+        "question": "Which forecasting approach is described as 'designed for business analysts' and handles outliers better than ARIMA?",
+        "options": [
+            "ETS",
+            "Box-Jenkins",
+            "Facebook Prophet",
+            "Simple Moving Average"
+        ],
+        "answer": [2],
+        "explanation": "Slide 13 introduces Facebook Prophet and lists 'Handles outliers better' and 'Designed for business analysts' as pros."
+    },
+    {
+        "type": "single",
+        "question": "What is the Box-Cox transformation used for in the ARIMA workflow?",
+        "options": [
+            "To remove seasonality.",
+            "To stabilize variance.",
+            "To calculate the AICc.",
+            "To estimate the lag parameters."
+        ],
+        "answer": [1],
+        "explanation": "Slide 11's ARIMA selection procedure, Step 2, is 'Transform: Box-Cox (Logs) to stabilize variance.'"
+    },
+    {
+        "type": "single",
+        "question": "What does the 'I' in ARIMA stand for?",
+        "options": [
+            "Independent",
+            "Integrated (Differencing)",
+            "Iterative",
+            "Interval"
+        ],
+        "answer": [1],
+        "explanation": "Slide 8 and 10 refer to ARIMA as AutoRegressive Integrated Moving Average, where 'I' corresponds to Differencing to achieve stationarity."
+    },
+    {
+        "type": "single",
+        "question": "Which visual characteristic suggests a time series is stationary?",
+        "options": [
+            "A clear upward trend.",
+            "Increasing variance over time (funnel shape).",
+            "Looks like 'white noise' with constant amplitude.",
+            "Clear repeating seasonal cycles."
+        ],
+        "answer": [2],
+        "explanation": "Slide 8 describes the visual test for stationarity: 'No trend, no seasonality, looks like white noise with constant amplitude.'"
+    },
+    {
+        "type": "single",
+        "question": "In the context of Holt-Winters, what does the 'damped' parameter $\\phi$ control?",
+        "options": [
+            "The strength of the seasonality.",
+            "The rate at which the trend flattens out.",
+            "The weight given to the most recent observation.",
+            "The width of the confidence interval."
+        ],
+        "answer": [1],
+        "explanation": "Slide 6 explains the Damping Parameter $\\phi$: 'Forecast trend flattens out into a horizontal line'. It controls how quickly the trend dampens."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary drawback of the Expanding Window TSCV strategy compared to Rolling Window?",
+        "options": [
+            "It cannot handle seasonality.",
+            "It is computationally expensive due to retraining on growing data.",
+            "It uses less data for training.",
+            "It is less accurate."
+        ],
+        "answer": [1],
+        "explanation": "Slide 14 lists the Cons of Expanding Window: 'Computationally expensive (retraining on growing data).'"
+    }
+]

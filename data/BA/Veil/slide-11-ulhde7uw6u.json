@@ -1,0 +1,482 @@
+[
+    {
+        "type": "single",
+        "question": "According to the Data Storytelling Triangle, what is the result when Data and Visuals intersect without Narrative?",
+        "options": [
+            "Change",
+            "Engage",
+            "Explain",
+            "Enlighten"
+        ],
+        "answer": [3],
+        "explanation": "The Data Storytelling Triangle defines the intersection of Data and Visuals as 'Enlighten' (making the data accessible and accurate). 'Engage' requires Visuals and Narrative, while 'Explain' requires Data and Narrative."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary role of the 'Metric Layer' in the Modern Data Stack architecture?",
+        "options": [
+            "To visualize data in tools like PowerBI and Tableau.",
+            "To act as a Single Source of Truth by defining metrics in code.",
+            "To extract raw data from sources like Fivetran.",
+            "To store centralized data in warehouses like Snowflake."
+        ],
+        "answer": [1],
+        "explanation": "The slides define the Metric Layer as a centralized layer between the Data Warehouse and BI tools where metrics (like 'Gross Profit') are defined once in code to ensure consistency across all reporting platforms."
+    },
+    {
+        "type": "single",
+        "question": "In the context of the 'Data Storytelling Arc', what follows the 'Aha Moment'?",
+        "options": [
+            "Rising Points",
+            "Context & Hook",
+            "Solution & Next Steps",
+            "Conflict & Analysis"
+        ],
+        "answer": [2],
+        "explanation": "The Data Storytelling Arc consists of four steps: 1. Setting & Hook, 2. Rising Points, 3. Aha Moment (major finding/insight), and 4. Solution & Next Steps (options and recommendations)."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following best describes the 'Executive's Dilemma' presented in the slides?",
+        "options": [
+            "Executives lack access to sufficient data to make decisions.",
+            "Executives have too many insights but lack the raw data to back them up.",
+            "Executives are 'Data Rich' but 'Insight Poor' due to information overload.",
+            "Executives struggle to purchase the correct visualization software."
+        ],
+        "answer": [2],
+        "explanation": "The slides describe the reality where executives are overwhelmed by too many reports (Information Overload) and data without direction (Analysis Paralysis), leading to a state of being 'Data Rich' but 'Insight Poor'."
+    },
+    {
+        "type": "single",
+        "question": "When designing a dashboard, what is the '5-Second Rule'?",
+        "options": [
+            "A dashboard should load in under 5 seconds to prevent user churn.",
+            "A user should be able to answer if the business is doing well and where the problem is within 5 seconds.",
+            "An analyst should be able to update the data sources within 5 seconds.",
+            "Visuals should fade in within 5 seconds to create a compelling story."
+        ],
+        "answer": [1],
+        "explanation": "The 5-Second Rule states that if a user cannot answer 'Is the business doing well or badly?' and 'Where is the problem?' within 5 seconds, the design has failed."
+    },
+    {
+        "type": "multi",
+        "question": "Select all the components required to achieve 'Change' (Actionable Insight) in the Data Storytelling Triangle.",
+        "options": [
+            "Data",
+            "Visuals",
+            "Narrative",
+            "Animation"
+        ],
+        "answer": [0, 1, 2],
+        "explanation": "According to the slides, the intersection of all three components—Data, Visuals, and Narrative—is required to drive 'Change' and produce actionable insights."
+    },
+    {
+        "type": "single",
+        "question": "In a Cohort Analysis Heatmap, what does reading the data 'diagonally' reveal?",
+        "options": [
+            "The lifecycle comparison of different user groups.",
+            "The current performance across different cohorts at the same specific calendar month.",
+            "The retention rate of a single cohort over its lifetime.",
+            "The total revenue accumulated by all cohorts."
+        ],
+        "answer": [1],
+        "explanation": "Reading a cohort heatmap diagonally shows 'Current Performance' (e.g., how different cohorts are performing in the most recent month), whereas vertical reading shows 'Lifecycle Comparison'."
+    },
+    {
+        "type": "single",
+        "question": "Which level of analytics is considered the most valuable for which executives are willing to pay?",
+        "options": [
+            "Descriptive (What happened?)",
+            "Diagnostic (Why?)",
+            "Predictive (Future?)",
+            "Prescriptive (Action?)"
+        ],
+        "answer": [3],
+        "explanation": "The slides explicitly state 'Executives pay for Level 4,' which is Prescriptive Analytics (determining the action to take, such as allocating budget)."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary purpose of a KPI Driver Tree?",
+        "options": [
+            "To visualize the customer journey through a website.",
+            "To compare retention rates across different time periods.",
+            "To deconstruct a primary goal into mathematical components for Root Cause Analysis.",
+            "To store data definitions in a centralized code layer."
+        ],
+        "answer": [2],
+        "explanation": "The KPI Driver Tree is used for Root Cause Analysis by deconstructing a top-level metric (like GMV) into its mathematical drivers (like Active Users and Revenue Per User)."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Signal vs. Noise, which of the following is considered 'Noise'?",
+        "options": [
+            "Data that aids decision-making.",
+            "Clean bar charts.",
+            "3D effects and excessive gridlines.",
+            "High data-ink ratio."
+        ],
+        "answer": [2],
+        "explanation": "The slides define Noise as clutter that distracts from the data, specifically listing '3D effects,' 'excessive gridlines,' and 'decorative' elements as examples."
+    },
+    {
+        "type": "single",
+        "question": "What is the recommended ratio of Lagging to Leading indicators for an Executive Dashboard?",
+        "options": [
+            "100% Lagging / 0% Leading",
+            "50% Lagging / 50% Leading",
+            "40% Lagging / 60% Leading",
+            "60% Lagging / 40% Leading"
+        ],
+        "answer": [3],
+        "explanation": "The slides recommend a ratio of 60% Lagging indicators to 40% Leading indicators for Executive Dashboards to balance tracking the score and predicting the future."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a characteristic of a 'Strategic Dashboard'?",
+        "options": [
+            "Designed for Analysts to perform ad-hoc granular analysis.",
+            "Updated daily for monitoring operations.",
+            "Designed for Executives with a monthly frequency and high-level KPIs.",
+            "Focuses on drill-down capabilities for tactics."
+        ],
+        "answer": [2],
+        "explanation": "Strategic Dashboards are defined as tools for Executives (CEO/CFO) that focus on strategy, ROI, and trends, typically reviewed on a monthly basis."
+    },
+    {
+        "type": "single",
+        "question": "In a Funnel Analysis, what does the 'Leaky Bucket' theory suggest?",
+        "options": [
+            "Marketing budgets should be increased to compensate for lost users.",
+            "You should not pour marketing budget into a product funnel that has significant drop-off points.",
+            "Watermarks on charts distract from the data story.",
+            "Funnels should only be used for water-based products."
+        ],
+        "answer": [1],
+        "explanation": "The 'Leaky Bucket' theory in the slides warns against pouring marketing budget into a 'leaky product funnel,' emphasizing the need to fix bottlenecks before scaling."
+    },
+    {
+        "type": "single",
+        "question": "Which logic is used in a KPI Driver Tree when calculating Revenue as 'Traffic x Conversion x Price'?",
+        "options": [
+            "Additive (+)",
+            "Subtractive (-)",
+            "Multiplicative (x)",
+            "Divisive (/)"
+        ],
+        "answer": [2],
+        "explanation": "The slides define the logic for Revenue as Multiplicative (x), where the drivers (Traffic, Conversion, Price) are multiplied to equal the top-level metric."
+    },
+    {
+        "type": "single",
+        "question": "What is the definition of a 'Metric' compared to a 'KPI'?",
+        "options": [
+            "A Metric is strictly tied to strategic objectives; a KPI is anything measurable.",
+            "A Metric is anything measurable; a KPI is strictly tied to strategic objectives.",
+            "Metrics and KPIs are interchangeable terms.",
+            "A Metric is a future prediction; a KPI is a past record."
+        ],
+        "answer": [1],
+        "explanation": "The slides distinguish the two: A Metric is 'Anything measurable' (e.g., Page views), while a KPI is 'Strictly tied to strategic objectives' (e.g., CAC, Net Profit)."
+    },
+    {
+        "type": "single",
+        "question": "According to the 'F-Pattern & Z-Pattern' layout principles, where should the Key KPIs (BANs) be placed on a dashboard?",
+        "options": [
+            "Bottom Right",
+            "Top Left",
+            "Center",
+            "Top Right"
+        ],
+        "answer": [1],
+        "explanation": "The Top Left is described as the 'Most valuable space' on a dashboard, reserved for Key KPIs (BANs), following the natural scanning patterns of the human eye."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary focus of an 'Analyst' persona?",
+        "options": [
+            "Strategy and ROI.",
+            "Operations and Tactics.",
+            "Root cause and Granular data.",
+            "Executive Summaries."
+        ],
+        "answer": [2],
+        "explanation": "The slides identify the Analyst persona as focusing on 'Root cause' and 'Granular data,' utilizing tools like Exploratory Reports."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is considered a 'Leading Indicator'?",
+        "options": [
+            "Revenue",
+            "Churn Rate",
+            "Net Profit",
+            "Demo Bookings"
+        ],
+        "answer": [3],
+        "explanation": "Leading Indicators are inputs that predict future outcomes. The slides list 'Demo bookings,' 'NPS,' and 'Daily Active Users' as examples. Revenue, Churn, and Profit are Lagging (Output) indicators."
+    },
+    {
+        "type": "single",
+        "question": "What is the main benefit of using 'Color Semantics' correctly in a dashboard?",
+        "options": [
+            "To make the dashboard look more artistic and engaging.",
+            "To highlight anomalies and alerts rather than for decoration.",
+            "To ensure every metric has a unique color.",
+            "To fill empty white space on the screen."
+        ],
+        "answer": [1],
+        "explanation": "The slides advise using color sparingly to 'highlight anomalies' (e.g., Red for Alert, Green for Good) and not for decoration, following the principle of maximizing the Data-Ink Ratio."
+    },
+    {
+        "type": "single",
+        "question": "In a Cohort Analysis, why is it called 'The Time Machine'?",
+        "options": [
+            "It predicts the future revenue of the company with 100% accuracy.",
+            "It analyzes groups of users sharing a characteristic over time to reveal retention issues hidden by aggregates.",
+            "It allows analysts to change past data entries.",
+            "It is a legacy tool that is no longer used in modern analytics."
+        ],
+        "answer": [1],
+        "explanation": "The slides refer to Cohort Analysis as 'The Time Machine' because it allows for analyzing user groups (cohorts) over time to find retention issues that aggregate metrics might hide."
+    },
+    {
+        "type": "single",
+        "question": "Which chart type is identified as a 'Wrong Chart' pitfall when used for more than 5 categories?",
+        "options": [
+            "Bar Chart",
+            "Line Chart",
+            "Pie Chart",
+            "Scatter Plot"
+        ],
+        "answer": [2],
+        "explanation": "Under 'Common Design Pitfalls,' the slides explicitly mention 'Pie charts for >5 categories' as a wrong chart choice."
+    },
+    {
+        "type": "single",
+        "question": "What is the recommended limit for the number of KPIs per dashboard?",
+        "options": [
+            "1-2",
+            "3-5",
+            "10-15",
+            "Unlimited"
+        ],
+        "answer": [1],
+        "explanation": "The slides quote, 'If everything is important, nothing is important,' and recommend limiting KPIs to '3-5 per dashboard.'"
+    },
+    {
+        "type": "single",
+        "question": "How is Lifetime Value (LTV) visualized in a Cohort Heatmap?",
+        "options": [
+            "By filling cells with the Retention Rate percentage.",
+            "By filling cells with Cumulative Revenue per User.",
+            "By filling cells with the number of active users.",
+            "By filling cells with the Churn Rate."
+        ],
+        "answer": [1],
+        "explanation": "The slides state the method for Cohorts & LTV is to 'Fill cells with Cumulative Revenue per User instead of Retention.'"
+    },
+    {
+        "type": "single",
+        "question": "What does a 'Lagging Indicator' represent?",
+        "options": [
+            "Input that is actionable and predicts future outcomes.",
+            "Output that reflects past performance and is hard to change.",
+            "Real-time data that is currently being processed.",
+            "A metric that is strictly qualitative."
+        ],
+        "answer": [1],
+        "explanation": "Lagging Indicators are defined as 'Output' and 'Looking Backward,' reflecting past performance that is 'Hard to change' (e.g., Revenue, Churn)."
+    },
+    {
+        "type": "multi",
+        "question": "Select the correct examples of 'Noise' that should be removed to improve the Data-Ink Ratio.",
+        "options": [
+            "3D effects",
+            "Excessive gridlines",
+            "Clear data labels",
+            "Background textures"
+        ],
+        "answer": [0, 1, 3],
+        "explanation": "The slides identify 'Distractions, 3D effects,' 'Excessive gridlines,' and 'Texture' as Noise that clutters the visualization. Clear data labels are part of the Signal."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'One-Size-Fits-All' design pitfall?",
+        "options": [
+            "Creating a dashboard that only fits on one screen size.",
+            "Trying to satisfy everyone (executives, managers, analysts) with a single dashboard.",
+            "Using only one type of chart for all data.",
+            "Using a single color for all metrics."
+        ],
+        "answer": [1],
+        "explanation": "The 'One-Size-Fits-All' pitfall is described as 'Trying to satisfy everyone,' which fails because different personas (C-Level vs. Analyst) have different needs."
+    },
+    {
+        "type": "single",
+        "question": "Which tool in the Modern Data Stack is responsible for 'Transformation'?",
+        "options": [
+            "Fivetran",
+            "Snowflake",
+            "dbt",
+            "PowerBI"
+        ],
+        "answer": [2],
+        "explanation": "In the Modern Data Stack Architecture diagram, 'dbt' is listed under the 'Transformation' step, between Storage and the Metric Layer."
+    },
+    {
+        "type": "single",
+        "question": "What is the strategic decision rule provided for LTV and CAC in the slides?",
+        "options": [
+            "If LTV is greater than CAC, stop scaling immediately.",
+            "If LTV is equal to CAC, double the marketing budget.",
+            "If LTV (6 mo) < CAC, you are losing money and should stop scaling immediately.",
+            "If LTV is negative, launch a new product."
+        ],
+        "answer": [2],
+        "explanation": "The slides provide a specific case: 'If LTV (6 mo) = $50 and CAC = $60, we are losing money. Stop scaling immediately.'"
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of 'Vertical Reading' in a Cohort Heatmap?",
+        "options": [
+            "To see current performance across all cohorts.",
+            "To compare the lifecycle of different cohorts (e.g., Month 1 retention of Jan vs. Feb).",
+            "To calculate the total revenue for the year.",
+            "To identify the drop-off rate between funnel steps."
+        ],
+        "answer": [1],
+        "explanation": "Vertical Reading allows for 'Lifecycle Comparison,' such as comparing how the January cohort performed in Month 1 versus how the February cohort performed in Month 1."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following best defines 'Analysis Paralysis'?",
+        "options": [
+            "Conflicting numbers across departments.",
+            "Data without direction.",
+            "Too many reports.",
+            "Lack of visualization tools."
+        ],
+        "answer": [1],
+        "explanation": "The slides define 'Analysis Paralysis' as having 'Data without direction,' which is distinct from 'Information Overload' (Too many reports)."
+    },
+    {
+        "type": "single",
+        "question": "In a Dashboard Layout, where should 'Context (Filters)' be placed?",
+        "options": [
+            "Top Left",
+            "Top Right",
+            "Bottom Center",
+            "Hidden in a menu"
+        ],
+        "answer": [1],
+        "explanation": "The dashboard layout diagram places 'Context: Date Filters & User Info' in the Top Right section."
+    },
+    {
+        "type": "single",
+        "question": "What is the problem known as 'Metric Chaos'?",
+        "options": [
+            "Metrics changing too rapidly to track.",
+            "Different logic for the same metric across departments (e.g., Marketing vs. Finance).",
+            "Too many metrics on a single dashboard.",
+            "Metrics that cannot be calculated mathematically."
+        ],
+        "answer": [1],
+        "explanation": "The slides describe 'Metric Chaos' as the problem where there is 'Different logic in Marketing vs Finance' for the same metric, which the Metric Layer solves."
+    },
+    {
+        "type": "single",
+        "question": "Which visual element represents 'Neutral' or 'Context' in the Color Semantics guidelines?",
+        "options": [
+            "Blue",
+            "Red",
+            "Green",
+            "Grey"
+        ],
+        "answer": [3],
+        "explanation": "According to the Color Semantics slide: Grey is for 'Context / Neutral', Green is for 'Good', Red is for 'Bad', and Blue is for 'Primary Data'."
+    },
+    {
+        "type": "single",
+        "question": "When visualizing funnels, what is a critical issue that might be identified?",
+        "options": [
+            "A high number of website visitors.",
+            "A drastic drop in Conversion Rate (e.g., 25% CR at purchase step).",
+            "Users moving linearly through the steps.",
+            "The presence of a funnel chart."
+        ],
+        "answer": [1],
+        "explanation": "The Case Study in the slides highlights a 'Critical Issue' where the conversion rate drops to 25% at the purchase step, indicating a problem at that specific stage."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Manager' persona's dashboard tool typically called?",
+        "options": [
+            "Executive Summary Dashboard",
+            "Operational Dashboard (Drill-down)",
+            "Exploratory Report",
+            "Strategic Overview"
+        ],
+        "answer": [1],
+        "explanation": "Managers, who focus on Operations and Tactics, use an 'Operational Dashboard (Drill-down)'."
+    },
+    {
+        "type": "single",
+        "question": "In the Data Storytelling Arc, what is the function of the 'Setting & Hook'?",
+        "options": [
+            "To reveal the major insight.",
+            "To provide background on the current situation and characters.",
+            "To offer potential options and recommendations.",
+            "To show supporting information and details."
+        ],
+        "answer": [1],
+        "explanation": "The first step, 'Setting & Hook', is defined as providing the 'Background on current situation, characters and hook'."
+    },
+    {
+        "type": "single",
+        "question": "Which component of the KPI Driver Tree is used to isolate underperformance?",
+        "options": [
+            "The root node only.",
+            "The mathematical branches (e.g., determining if the drop is in Traffic or Conversion).",
+            "The visual color scheme.",
+            "The software tool used to create it."
+        ],
+        "answer": [1],
+        "explanation": "The purpose of the KPI Driver Tree is to 'isolate which branch is underperforming' (e.g., seeing that Conversion Rate is down while Traffic is flat)."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Scroll Fatigue' in dashboard design?",
+        "options": [
+            "Users getting tired of clicking drill-down buttons.",
+            "Dashboards that require scrolling, which should be avoided for executive dashboards.",
+            "The time it takes to scroll through data tables.",
+            "A mouse hardware malfunction."
+        ],
+        "answer": [1],
+        "explanation": "The slides list 'Scroll Fatigue' as a pitfall and state the rule: 'Keep exec dashboards to one screen.'"
+    },
+    {
+        "type": "single",
+        "question": "What defines a 'Clean Bar Chart' according to the Signal vs. Noise principle?",
+        "options": [
+            "A chart with 3D bars and shadows.",
+            "A chart with maximized Data-Ink Ratio and minimal decoration.",
+            "A chart with heavy gridlines and background textures.",
+            "A chart with labels on every single axis point regardless of relevance."
+        ],
+        "answer": [1],
+        "explanation": "A 'Clean Bar Chart' is contrasted with a cluttered one; it maximizes the Data-Ink Ratio by removing 3D effects, excessive gridlines, and unnecessary decorations."
+    },
+    {
+        "type": "single",
+        "question": "Which layer ensures 'Governance' and 'Trust in numbers' for leadership?",
+        "options": [
+            "The Visualization Layer",
+            "The Extraction Layer",
+            "The Metric Layer",
+            "The Storage Layer"
+        ],
+        "answer": [2],
+        "explanation": "The slides state that the Metric Layer provides benefits for leadership including 'Consistency: Trust in numbers' and 'Governance: Clear ownership.'"
+    }
+]
