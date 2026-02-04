@@ -54,3 +54,8 @@ Each JSON file should contain an array of question objects:
 ## Sample Data
 
 Two sample question files are provided in the `data/` folder to help you get started.
+
+## Python Command to Generate 10-char Random IDs
+```bash
+python -c "import random, string; print(''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(10)))"
+```
