@@ -2,7 +2,7 @@ Generate 40 multiple-choice questions (MCQs) Web Mining and Design from these sl
 
 Requirements:
 - Match the style and vibe of the sample questions of the JSON file
-- Wrong options must be plausible but definitively incorrect (avoid obviously wrong distractors)
+- Wrong options must be plausible (approximate length to the right one, considerable) but definitively incorrect (avoid obviously wrong distractors)
 - Provide detailed explanations without citation
 - Make sure options is 0-indexed
 
