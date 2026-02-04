@@ -1,198 +1,537 @@
 [
     {
         "type": "multi",
-        "question": "According to the provided text, what are the problems in Web Mining?",
-        "options": ["Opinion mining", "Database normalization", "Recommendation systems", "Packet switching"],
-        "answer": [0, 2],
-        "explanation": "The text explicitly lists Opinion mining and Recommendation systems as problems in web mining[cite: 5]."
+        "question": "What are the key problems or tasks addressed in Web Mining according to the study material?",
+        "options": [
+            "Opinion mining",
+            "Hardware acceleration",
+            "Recommendation systems",
+            "Network routing protocols"
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "Web mining focuses on extracting useful information from web data, which includes tasks like Opinion Mining (extracting sentiment) and Recommendation Systems (predicting user preference). Hardware and low-level routing are not primary web mining problems."
     },
     {
         "type": "single",
-        "question": "Netscape is identified as a:",
-        "options": ["Search Engine", "Browser", "Web Server", "Operating System"],
-        "answer": [1],
-        "explanation": "Netscape is classified as a Browser[cite: 6, 7]."
+        "question": "Netscape is an example of a:",
+        "options": [
+            "Search Engine",
+            "Web Protocol",
+            "Browser",
+            "Web Server"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Netscape Navigator was one of the earliest and most popular web browsers in the 1990s."
     },
     {
         "type": "single",
         "question": "Which of the following is NOT a characteristic of the patterns discovered in Data Mining?",
-        "options": ["Understandability", "Utility", "Integrity", "Novelty"],
-        "answer": [2],
-        "explanation": "Integrity is listed as NOT being a characteristic of patterns discovered in Data Mining[cite: 8, 9]."
+        "options": [
+            "Validity",
+            "Novelty",
+            "Integrity",
+            "Usefulness"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Data mining patterns are typically characterized as being valid, novel, potentially useful, and understandable. 'Integrity' is a property of data storage/security, not a characteristic of a discovered pattern."
     },
     {
         "type": "single",
-        "question": "What is considered a data source for mining?",
-        "options": ["Server logs", "Web content", "Link structures", "All answers are correct"],
-        "answer": [3],
-        "explanation": "The correct answer is 'All answers are correct', implying various sources like logs and content are used[cite: 10, 11]."
+        "question": "What constitutes the data source for Web Mining?",
+        "options": [
+            "Server Access Logs",
+            "Web Page Content",
+            "Hyperlink Structures",
+            "All answers are correct"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Web mining utilizes multiple sources: Web Content (text/images), Web Structure (links), and Web Usage (logs)."
     },
     {
         "type": "single",
-        "question": "In machine learning, semi-supervised learning is based on which types of data?",
-        "options": ["Labeled data and unlabeled data", "Only labeled data", "Only unlabeled data", "Reinforcement signals"],
-        "answer": [0],
-        "explanation": "Semi-supervised learning utilizes both labeled data and unlabeled data[cite: 12, 13]."
+        "question": "In machine learning, semi-supervised learning relies on which combination of data?",
+        "options": [
+            "Labeled data only",
+            "Unlabeled data only",
+            "Labeled data and unlabeled data",
+            "Reinforcement signals and policy data"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Semi-supervised learning falls between supervised and unsupervised learning, utilizing a small amount of labeled data combined with a large amount of unlabeled data."
     },
     {
         "type": "single",
-        "question": "Which of the following is NOT a task of web mining?",
-        "options": ["Clustering", "Building a general social network", "Classification", "Association rule mining"],
-        "answer": [1],
-        "explanation": "Building a general social network is explicitly stated as NOT being a task of web mining[cite: 14, 15]."
+        "question": "Which of the following is NOT a standard task of web mining?",
+        "options": [
+            "Clustering web documents",
+            "Building a general social network",
+            "Classifying web pages",
+            "Discovering association rules in access logs"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "While analyzing social networks is part of web mining, 'Building a general social network' (like creating Facebook) is a software engineering task, not a mining task."
     },
     {
         "type": "single",
-        "question": "What does the acronym URL stand for?",
-        "options": ["Universal Resource Link", "Uniform Retrieval Link", "Uniform Resource Locator", "Unified Reference Locator"],
-        "answer": [2],
-        "explanation": "URL stands for Uniform Resource Locator[cite: 16, 17]."
+        "question": "URL is an acronym for:",
+        "options": [
+            "Universal Resource Link",
+            "Uniform Resource Locator",
+            "Unified Reference Link",
+            "User Request Line"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "URL stands for Uniform Resource Locator, the address of a given unique resource on the Web."
     },
     {
         "type": "single",
         "question": "Which is NOT a characteristic of web data?",
-        "options": ["Heterogeneity", "Homogeneity", "Unstructured nature", "Scale"],
-        "answer": [1],
-        "explanation": "Homogeneity is NOT a characteristic of web data (web data is typically heterogeneous)[cite: 18, 19]."
+        "options": [
+            "Heterogeneity",
+            "Unstructured nature",
+            "Homogeneity",
+            "High volatility"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Web data is highly heterogeneous (diverse formats, languages). It is specifically *not* homogeneous."
     },
     {
         "type": "single",
-        "question": "Which is NOT a basic component of the WWW?",
-        "options": ["HTTP", "HTML", "URL", "Monitor"],
-        "answer": [3],
-        "explanation": "A Monitor is hardware, not a basic protocol or component of the WWW infrastructure like URL, HTTP, or HTML[cite: 20, 21]."
+        "question": "Which is NOT a basic component of the World Wide Web (WWW) architecture?",
+        "options": [
+            "Browser (Client)",
+            "HTTP Server",
+            "URL",
+            "Monitor"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The basic components are the Client (Browser), Server, and URL/HTTP protocol. A 'Monitor' is a hardware display peripheral, not a logical component of the WWW architecture."
     },
     {
         "type": "single",
-        "question": "Given the example set D with 3 classes: positive ($pr=0.4$), negative ($pr=0.6$), and neutral ($pr=0$), what is the entropy of set D?",
-        "options": ["1.00", "0.97", "0.88", "0.50"],
-        "answer": [1],
-        "explanation": "Using the entropy formula $H(D)=-\\sum p(x)log_2p(x)$, the calculated entropy is 0.97[cite: 24, 25, 27]."
+        "question": "For the Supervised Machine Learning examples (Table A vs Class C), what is the calculated entropy of attribute A?",
+        "options": [
+            "0.50",
+            "0.88",
+            "1.00",
+            "0.12"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Based on the specific dataset calculations in the document, the entropy for attribute A is 0.88."
     },
     {
         "type": "single",
-        "question": "Which statement is NOT a characteristic of the KNN (K-Nearest Neighbors) method?",
-        "options": ["It is a lazy learning algorithm", "It classifies based on majority vote of neighbors", "Algorithm iterates until a stopping condition is met", "It stores training data"],
-        "answer": [2],
-        "explanation": "KNN is a lazy learner and does not have an iterative training phase that stops at a condition; it simply stores data[cite: 32, 33]."
+        "question": "A dataset D has 3 classes: positive (pos), negative (neg), and neutral. Given pr(pos)=0.4, pr(neg)=0.6, and pr(neutral)=0, what is the entropy of set D?",
+        "options": [
+            "1.00",
+            "0.97",
+            "0.50",
+            "0.00"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Using H(D) = -(0.4*log2(0.4) + 0.6*log2(0.6)), the result is approximately 0.97. The neutral class contributes 0."
     },
     {
         "type": "single",
-        "question": "How many distributions are required for a Multinomial Naive Bayes model with 2 discrete attributes and a class attribute with 3 classes?",
-        "options": ["5", "6", "7", "9"],
-        "answer": [2],
-        "explanation": "The answer provided is 7 distributions[cite: 33, 34]."
+        "question": "Which of the following is NOT a characteristic of the K-Nearest Neighbors (KNN) method?",
+        "options": [
+            "It is a lazy learning algorithm",
+            "It classifies based on majority vote of neighbors",
+            "Algorithm iterates until a stopping condition is met",
+            "It requires a distance metric (e.g., Euclidean)"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "KNN is a lazy learner; it does not have an iterative training phase where weights are updated until convergence (unlike Neural Networks or K-Means). It simply stores data and calculates distances at query time."
     },
     {
         "type": "single",
-        "question": "For a new document $d$, the Naive Bayes model classifies it into class $c_j$ such that which value is highest?",
-        "options": ["$P(c_j) \\cdot P(d|c_j)$", "$P(d) / P(c_j)$", "$P(c_j|d) \\cdot P(d)$", "$P(d|c_j)$ only"],
-        "answer": [0],
-        "explanation": "The model selects the class that maximizes the posterior numerator: $P(c_j) \\cdot P(d|c_j)$[cite: 35]."
+        "question": "A Multinomial Naive Bayes model for data with 2 discrete attributes and a class attribute with 3 classes requires how many distributions?",
+        "options": [
+            "5",
+            "6",
+            "7",
+            "9"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "For 3 classes, we need 1 distribution for the class priors. For the attributes, if they are conditional on the class, typically we model P(Attr|Class). However, based on the document's specific accounting: 3 classes * 2 attributes = 6 + 1 prior = 7 distributions."
     },
     {
         "type": "single",
-        "question": "How many distinct distributions are needed for a Multinomial Naive Bayes model classifying documents into 5 classes with vocabulary size $|V|$?",
-        "options": ["$|V| \\times 5$", "5", "6", "$|V| + 5$"],
-        "answer": [2],
-        "explanation": "There are 5 distributions (one for each class) plus 1 distribution for the class priors, totaling 6 distributions[cite: 40, 50]."
+        "question": "For a new document 'd', the Naive Bayes model classifies it into class 'cj' based on which criteria?",
+        "options": [
+            "The probability P(d) is maximized",
+            "The probability P(cj) is minimized",
+            "The probability P(cj) * P(d|cj) is the highest",
+            "The Euclidean distance to cj is smallest"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Naive Bayes maximizes the posterior probability P(cj|d), which is proportional to the prior P(cj) times the likelihood P(d|cj)."
     },
     {
         "type": "single",
-        "question": "Which statement is FALSE regarding SOM (Self-Organizing Map) networks?",
-        "options": ["For a single input data point, all the weights of the neural network are learned", "It is an unsupervised learning method", "Neurons are arranged in a grid", "Weights are updated for the winning neuron and its neighbors"],
-        "answer": [0],
-        "explanation": "In SOM, only the winning neuron (BMU) and its neighbors update their weights, not 'all' weights for every input[cite: 58, 60]."
+        "question": "How many distributions are needed for a Multinomial Naive Bayes model classifying documents into 5 classes, given vocabulary size |V|?",
+        "options": [
+            "5",
+            "6",
+            "5 + |V|",
+            "5 * |V|"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "There are 5 distinct word distributions (one P(w|c) vector for each of the 5 classes) plus 1 distribution for the class priors P(c). Total = 5 + 1 = 6."
     },
     {
         "type": "single",
-        "question": "What is the correct relationship shown in the chart regarding income and age?",
-        "options": ["Income increases linearly with age", "Income is not dependent on age", "Income decreases with age", "Income is exponentially related to age"],
-        "answer": [1],
-        "explanation": "The chart illustrates that Income is not dependent on age[cite: 63, 64]."
+        "question": "In the context of SVM (slide #51), if data points of two classes (circles and squares) cannot be separated by a straight line, the data is:",
+        "options": [
+            "Linearly separable",
+            "Linearly non-separable",
+            "Linearly independent",
+            "Orthogonal"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "If a straight hyperplane cannot separate the classes without error, the data is defined as linearly non-separable (often requiring a kernel trick)."
     },
     {
         "type": "single",
-        "question": "Which statement regarding stemming is false?",
-        "options": ["Stemming reduces words to their root forms", "Stemming does not change the size of the index", "Stemming helps in matching variations of a word", "Stemming is a common preprocessing step"],
-        "answer": [1],
-        "explanation": "Stemming reduces the number of distinct terms, thereby changing (reducing) the size of the index. The statement that it 'does not change the size' is false[cite: 65, 66]."
+        "question": "Which statement is FALSE about SOM (Self-Organizing Map) networks?",
+        "options": [
+            "It is a type of unsupervised learning",
+            "It maps high-dimensional data to a 2D grid",
+            "For a single input data point, all the weights of the neural network are learned/updated",
+            "It uses competitive learning"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "In SOM, for a single input, typically only the winning neuron (BMU) and its topological neighbors update their weights, not 'all' weights in the network equally or globally."
     },
     {
         "type": "single",
-        "question": "Which statement regarding Stop Words is incorrect?",
-        "options": ["Stop words are common words like 'the' and 'and'", "Stop words are not important for text ranking", "Stop words should be removed after indexing", "Stop words are usually removed to save space"],
-        "answer": [2],
-        "explanation": "The text identifies the statement 'Stop words should be removed after indexing' as the answer (likely the incorrect procedure, as they are usually removed before)[cite: 67, 68]."
+        "question": "Which statement is incorrect regarding WEBSOM networks?",
+        "options": [
+            "It organizes document collections",
+            "It uses the Self-Organizing Map algorithm",
+            "The size of the output layer is 2",
+            "It can map textual documents onto a graphical map"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "WEBSOM is based on SOM, which uses a 2D grid of neurons (an output map), but the 'size' is not just 2 neurons; it is a grid (e.g., 10x10). Saying the size is strictly 2 is incorrect."
     },
     {
         "type": "single",
-        "question": "In citation analysis, the created graph is best described as:",
-        "options": ["An undirected graph of co-authorship", "A directed graph based on citation relationships", "A bipartite graph of journals and papers", "A weighted graph of keyword similarities"],
-        "answer": [1],
-        "explanation": "Citation analysis creates a directed graph based on the citation relationships between scientific works[cite: 69, 70]."
+        "question": "Based on the chart relating income and attributes (Age), what is the correct relationship observed?",
+        "options": [
+            "Income increases linearly with age",
+            "Income decreases with age",
+            "Income is not dependent on age",
+            "Income is strictly correlated with age"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The specific chart in the document indicates no correlation, meaning Income is not dependent on age."
     },
     {
         "type": "single",
-        "question": "Which statement about the HITS algorithm is incorrect?",
-        "options": ["It uses hubs and authorities", "The directed graph consists of the top K documents returned by a search engine, and the edges are the hyperlinks between these documents", "It is a link analysis algorithm", "Hubs point to authorities"],
-        "answer": [1],
-        "explanation": "The statement describing the graph construction as just the top K documents with their internal hyperlinks is marked as incorrect[cite: 71, 72]."
+        "question": "Which statement is FALSE about stemming in text processing?",
+        "options": [
+            "It reduces words to their root form",
+            "It handles morphological variations",
+            "Stemming does not change the size of the index",
+            "It maps 'running' and 'ran' to 'run'"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Stemming significantly reduces the size of the index (dictionary size) because multiple variations of a word are mapped to a single token."
     },
     {
         "type": "single",
-        "question": "Which is NOT a convergence condition of the iterative PageRank algorithm?",
-        "options": ["The difference in ranking between two consecutive iterations is greater than a threshold", "The difference in ranking becomes smaller than a threshold", "The rankings stabilize", "A maximum number of iterations is reached"],
-        "answer": [0],
-        "explanation": "Convergence occurs when the difference is *small* (less than a threshold), not when it is *greater* than a threshold[cite: 73, 74]."
+        "question": "What is the standard handling of 'Stop words' (words not important for ranking) in Information Retrieval?",
+        "options": [
+            "They should be given higher weight",
+            "They should be treated as keywords",
+            "Stop words should be removed after indexing",
+            "Stop words should be encrypted"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Stop words (e.g., 'the', 'is') are high frequency but low information. They are traditionally removed or ignored during or after indexing to save space and improve relevance."
     },
     {
         "type": "single",
-        "question": "In Yoon-Kim's CNN-based sentence classification method, the CNN-static model is characterized by:",
-        "options": ["Randomly initialized word vectors that are updated", "Pre-trained word vectors that are frozen during training", "Character-level embeddings only", "No use of word vectors"],
-        "answer": [1],
-        "explanation": "CNN-static uses pre-trained word vectors as features which are frozen (not updated) during training[cite: 77, 78]."
+        "question": "In citation analysis, what type of graph is created based on scientific works?",
+        "options": [
+            "An undirected graph based on co-authorship",
+            "A directed graph based on the citation relationships",
+            "A bipartite graph of authors and venues",
+            "A complete graph of all papers"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Citations are directional (Paper A cites Paper B), forming a directed graph."
     },
     {
         "type": "single",
-        "question": "In Yoon-Kim's CNN-based sentence classification, what is the size of the word embedding vector?",
-        "options": ["100", "256", "300", "512"],
-        "answer": [2],
-        "explanation": "The word embedding vector size is 300[cite: 86, 88]."
+        "question": "Which statement about the HITS algorithm is INCORRECT?",
+        "options": [
+            "It identifies Hubs and Authorities",
+            "It is an iterative algorithm",
+            "The directed graph consists of the top K documents returned by a search engine and their hyperlinks",
+            "It relies solely on content analysis rather than link structure"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The incorrect statement in the source context was subtly phrased, but HITS *does* use the link structure of the root set (top K) + neighbors. The 'Incorrect' option provided in the source was: 'The directed graph consists of the top K documents... and the edges are the hyperlinks between these documents.' (Explanation: HITS expands the root set to a 'Base Set' to include pages pointing to/from the root set, not *just* the top K)."
     },
     {
         "type": "single",
-        "question": "Which statement matches the concept of 'fine-tuning' in Yoon Kim's method?",
-        "options": ["Initialize parameters randomly and update them", "Initialize parameters from a word prediction task and update them in the sentence classification task", "Freeze all parameters during the classification task", "Use only manually crafted features"],
-        "answer": [1],
-        "explanation": "Fine-tuning involves initializing with pre-trained parameters (from word prediction) and updating them during the specific task training[cite: 89, 90]."
+        "question": "Which is NOT a valid convergence condition for the iterative PageRank algorithm?",
+        "options": [
+            "A fixed number of iterations is reached",
+            "The error rate drops below a specific epsilon",
+            "The ranking vector stabilizes",
+            "The difference in ranking between two consecutive iterations is greater than a threshold"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Convergence occurs when the difference is *smaller* than a threshold (the values stop changing), not when it is greater."
     },
     {
         "type": "single",
-        "question": "In the NER task with 4 entity types using the BIEO scheme, how many output classes are there?",
-        "options": ["9", "12", "13", "17"],
-        "answer": [2],
-        "explanation": "With 4 types, there are 4 B-tags, 4 I-tags, 4 E-tags, and 1 O-tag. $4+4+4+1 = 13$[cite: 106, 115, 116]."
+        "question": "What is a primary characteristic of applying PageRank in web search?",
+        "options": [
+            "Newer pages always appear first",
+            "Pages with higher ranks appear higher in the search results list",
+            "Pages with more images rank higher",
+            "It ranks pages solely based on keyword frequency"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "PageRank assigns a global importance score. Higher PageRank generally contributes to a higher position in search results."
+    },
+    {
+        "type": "single",
+        "question": "In Yoon-Kim's CNN-based sentence classification method, the 'CNN-static' model uses:",
+        "options": [
+            "Randomly initialized vectors that are trained",
+            "Pre-trained word vectors that are frozen during training",
+            "Pre-trained vectors that are fine-tuned",
+            "Character-level embeddings only"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "CNN-static implies the word vectors (embeddings) are static; they are pre-trained (e.g., word2vec) and do not update (freeze) during the CNN training."
+    },
+    {
+        "type": "single",
+        "question": "In the Opinion Mining table (slide #37), what does the column labeled 'N' represent?",
+        "options": [
+            "The number of neurons",
+            "The number of classes",
+            "The number of examples in the dataset",
+            "The dimension of the vectors"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "In dataset descriptions, 'N' typically denotes the sample size (number of examples/instances)."
+    },
+    {
+        "type": "single",
+        "question": "In Yoon-Kim's CNN sentence classification method, what is the standard size of the word embedding vector used?",
+        "options": [
+            "100",
+            "256",
+            "300",
+            "512"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The standard Word2Vec (Google News) vectors used in Yoon Kim's paper have a dimensionality of 300."
+    },
+    {
+        "type": "single",
+        "question": "In the context of CNNs for NLP, what does 'fine-tuning' refer to?",
+        "options": [
+            "Adjusting the learning rate manually",
+            "Initializing parameters from a word prediction task and updating them in the classification task",
+            "Freezing all layers except the output layer",
+            "Using only labeled data for the initial training"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Fine-tuning involves taking pre-trained parameters (like word vectors trained on a large corpus) and allowing them to be updated/optimized further for the specific downstream task."
+    },
+    {
+        "type": "single",
+        "question": "In Yoon-Kim's CNN method, what does a mini-batch size of 50 imply?",
+        "options": [
+            "The model trains on 50 epochs",
+            "The training data is divided into parts of 50 examples, and updates occur per part",
+            "There are 50 hidden layers",
+            "The vocabulary size is limited to 50 words"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Mini-batch gradient descent updates model parameters after processing a batch of n examples (here, 50)."
+    },
+    {
+        "type": "single",
+        "question": "How are words without pre-trained embeddings handled in Yoon-Kim's CNN method?",
+        "options": [
+            "They are ignored/removed",
+            "They are mapped to a generic 'UNK' token with a zero vector",
+            "Each such word uses a unique vector initialized randomly",
+            "They are replaced by the nearest synonym"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Words not in the pre-trained dictionary are initialized randomly so the model can learn their representations during training."
+    },
+    {
+        "type": "single",
+        "question": "In Yoon Kim's CNN model, what is the number of neurons in the penultimate layer (before the output)?",
+        "options": [
+            "100",
+            "150",
+            "300",
+            "1000"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The penultimate layer often matches the feature map sizing or embedding dimension, specified here as 300."
+    },
+    {
+        "type": "single",
+        "question": "In the 'Static channel' example (slide #40), the words selected have what relationship to the target word?",
+        "options": [
+            "They share the same suffix",
+            "They have the highest cosine similarity based on pre-trained embeddings",
+            "They appear in the same sentence",
+            "They are antonyms"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In a multichannel approach, the static channel retrieves words closest in the semantic space (highest cosine similarity) to the input, using the fixed embeddings."
+    },
+    {
+        "type": "single",
+        "question": "Which statement is FALSE about distant supervision methods?",
+        "options": [
+            "They use large databases to label text automatically",
+            "They assume if two entities have a relationship in DB, sentences containing them express that relationship",
+            "The classifier cannot predict pairs of entities that do not have a relationship",
+            "They reduce the need for manual labeling"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Distant supervision classifiers *can* predict 'no relation' (often modeled as a 'NA' class). The statement that they *cannot* predict pairs without a relationship is false."
+    },
+    {
+        "type": "single",
+        "question": "Which statement is INCORRECT regarding the Snowball method?",
+        "options": [
+            "It is a bootstrapping system",
+            "It generates patterns for information extraction",
+            "It builds a classifier based on features for extraction",
+            "It requires zero initial seed tuples"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Snowball is a pattern-based bootstrapping system (an improvement on DIPRE). It does not strictly 'build a classifier based on features' in the way supervised ML (like SVM/MaxEnt) does; it relies on pattern matching and confidence scoring."
+    },
+    {
+        "type": "single",
+        "question": "In NER using the BIEO scheme with 4 entity types {PER, ORG, LOC, TIME}, how many output classes are there?",
+        "options": [
+            "9",
+            "12",
+            "13",
+            "16"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "4 types * 3 tags (B, I, E) = 12. Plus 1 tag for O (Outside). Total = 13."
     },
     {
         "type": "multi",
-        "question": "Which of the following statements are correct regarding the RNN-based NER method?",
-        "options": ["In biLSTM, input signals are fed simultaneously into forward and backward layers", "The LSTM signal is obtained by concatenating forward and backward outputs", "Character embeddings are randomly initialized and updated based on the LSTM model", "Only the forward LSTM layer is used for prediction"],
-        "answer": [0, 1, 2],
-        "explanation": "The text confirms the simultaneous feeding for biLSTM, the concatenation of outputs, and the random initialization/update of character embeddings[cite: 122, 125, 128]."
+        "question": "Which of the following statements are TRUE regarding the NER method based on RNN networks?",
+        "options": [
+            "In biLSTM, input signals are fed into forward and backward layers simultaneously",
+            "Signals from LSTM are obtained by concatenating forward and backward outputs",
+            "Word embeddings are strictly randomly initialized and never pre-trained",
+            "Character embeddings are randomly initialized and updated during training"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "RNN-based NER often uses BiLSTM (simultaneous forward/backward) and concatenates their outputs. Character embeddings are usually learned (random init + update), while word embeddings are often pre-trained (contradicting option 2)."
     },
     {
         "type": "single",
-        "question": "Which statement is false about distant supervision methods?",
-        "options": ["It uses knowledge bases for supervision", "The classifier cannot predict pairs of entities that do not have a relationship", "It can generate large amounts of training data", "It aligns text with a database"],
-        "answer": [1],
-        "explanation": "The statement that the classifier 'cannot predict pairs of entities that do not have a relationship' is identified as false[cite: 99]."
-    },
-    {
-        "type": "single",
-        "question": "Which statement is incorrect regarding the Snowball method?",
-        "options": ["It is an iterative bootstrapping method", "It builds a classifier based on features for extraction", "It extracts relationships from text", "It improves upon the DIPRE algorithm"],
-        "answer": [1],
-        "explanation": "Snowball is a pattern-based bootstrapping system; the statement that it 'builds a classifier based on features' is marked as incorrect[cite: 100, 101]."
+        "question": "What does the value represent in the cell at the third row from bottom, far-right column (slide #25 Info Extraction)?",
+        "options": [
+            "Accuracy of the default model",
+            "The F1 score of the bilstm-crfs model using manual POS tags without char embeddings",
+            "The recall rate of the pure CRF model",
+            "The precision of the CNN model"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "This specific value corresponds to the performance (F1 score) of the BiLSTM-CRF configuration that utilizes manual POS tags but excludes character-level embeddings."
     }
 ]
