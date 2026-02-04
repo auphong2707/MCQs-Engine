@@ -32,8 +32,8 @@
         "type": "single",
         "question": "Which of the following is NOT a characteristic of the patterns discovered in Data Mining?",
         "options": [
-            "Validity",
-            "Novelty",
+            "Correct",
+            "Understandable",
             "Integrity",
             "Usefulness"
         ],
