@@ -1,0 +1,564 @@
+[
+    {
+        "type": "single",
+        "question": "Who is credited with inventing the concept of 'Hypertext' in 1965?",
+        "options": [
+            "Tim Berners-Lee",
+            "Ted Nelson",
+            "Bill Gates",
+            "Marc Andreessen"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "According to the lecture, Hypertext was invented by Ted Nelson in 1965, distinct from the invention of the World Wide Web by Tim Berners-Lee later in 1989."
+    },
+    {
+        "type": "single",
+        "question": "Which browser was the first to feature a graphical interface and mouse interaction, created in 1993?",
+        "options": [
+            "Internet Explorer",
+            "Netscape Navigator",
+            "Mosaic",
+            "Firefox"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Mosaic, created in 1993 at Illinois University, was the first browser with a graphical interface and mouse interaction."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Web History, what significant event occurred in 2001?",
+        "options": [
+            "The invention of Google",
+            "The launch of ARPANET",
+            "The dot-com bubble",
+            "The release of Internet Explorer"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The lecture timeline marks 2001 as the year of the 'dot-com bubble'."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary function of the W3C (World Wide Web Consortium)?",
+        "options": [
+            "To provide internet service to end users",
+            "To build standards and specifications for the Web",
+            "To index all web pages for search engines",
+            "To develop operating systems for servers"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The W3C was founded to lead the development of the Web by building standards and setting up specifications."
+    },
+    {
+        "type": "single",
+        "question": "Data Mining is often defined as:",
+        "options": [
+            "The process of storing large amounts of data",
+            "The process of discovering useful patterns or knowledge from data sources",
+            "The manual entry of data into a database",
+            "The encryption of sensitive data"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Data Mining (or KDD) is defined as the process of discovering useful patterns or knowledge from data sources."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is considered a 'Supervised Learning' task in Data Mining?",
+        "options": [
+            "Clustering",
+            "Association Rule Mining",
+            "Classification",
+            "Sequential Mining"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The slides explicitly categorize Classification as a supervised learning task, while Clustering is unsupervised."
+    },
+    {
+        "type": "single",
+        "question": "In the Data Mining process, what is the purpose of 'Data Cleansing'?",
+        "options": [
+            "To encrypt data for security",
+            "To remove noise and anomalies",
+            "To compress data for storage",
+            "To visualize data patterns"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Data cleansing is required to remove noise and anomalies because raw data is typically unsuitable for mining."
+    },
+    {
+        "type": "single",
+        "question": "Which OLAP operation involves observing detailed data from a summarized level (e.g., viewing monthly data from quarter data)?",
+        "options": [
+            "Roll-up",
+            "Drill-down",
+            "Slice",
+            "Dice"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Drill-down allows users to observe data at a more detailed level (e.g., monthly from quarter), whereas Roll-up does the reverse."
+    },
+    {
+        "type": "single",
+        "question": "In an association rule $X \\rightarrow Y$, what does 'Confidence' represent?",
+        "options": [
+            "The percentage of transactions containing both X and Y",
+            "The probability P(X|Y)",
+            "The probability P(Y|X) (certainty)",
+            "The total number of items in the database"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Confidence measures the certainty or reliability of the rule, representing the conditional probability that Y occurs given that X occurs."
+    },
+    {
+        "type": "single",
+        "question": "What does 'Support' measure in Association Rule Mining?",
+        "options": [
+            "The accuracy of the rule",
+            "The proportion of transactions where the rule holds (X and Y appear together)",
+            "The number of attributes in the dataset",
+            "The speed of the algorithm"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Support represents the ratio of transactions that contain both the antecedent and consequent of the rule to the total number of transactions."
+    },
+    {
+        "type": "single",
+        "question": "Which Data Mining technique groups items by maximizing intra-group similarity and minimizing inter-group similarity?",
+        "options": [
+            "Regression",
+            "Classification",
+            "Clustering",
+            "Prediction"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Clustering is the process of grouping items such that items in the same cluster are similar to each other and dissimilar to items in other clusters."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an application of Anomaly Detection?",
+        "options": [
+            "Market basket analysis",
+            "Fraud detection in credit card transactions",
+            "Predicting future stock prices",
+            "Grouping similar customers"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Anomaly detection is used to identify items that do not fit the common behavior, such as detecting fraud in card transactions."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are characteristics of a 'Data Warehouse'?",
+        "options": [
+            "Stores information collected from multiple sources",
+            "Used primarily for real-time transaction processing (OLTP)",
+            "Provides a historical view for decision support",
+            " Modeled by multidimensional data cubes"
+        ],
+        "answer": [
+            0,
+            2,
+            3
+        ],
+        "explanation": "A Data Warehouse collects data from multiple sources, provides a historical view for decision support (OLAP), and is often modeled using data cubes. It is not primarily for OLTP."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Semi-supervised learning' based on?",
+        "options": [
+            "Labeled data only",
+            "Unlabeled data only",
+            "Both labeled and unlabeled data",
+            "Feedback from the environment"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Semi-supervised learning utilizes both labeled and unlabeled data, often using labeled data to build a model and unlabeled data to tune boundaries."
+    },
+    {
+        "type": "single",
+        "question": "Active Learning aims to optimize model quality by:",
+        "options": [
+            "Using purely random sampling",
+            "Allowing the user to participate in the learning process",
+            "Ignoring unlabeled data",
+            "Running the algorithm on a supercomputer"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Active learning allows user participation in the learning process, often to optimize quality under constraints on the number of labeled data."
+    },
+    {
+        "type": "single",
+        "question": "What is a primary assumption of traditional Information Retrieval (IR)?",
+        "options": [
+            "Queries are complex SQL statements",
+            "Data is highly structured",
+            "Data is non-structural and queries are keyword-based",
+            "All documents are images"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "IR assumes that data is non-structural (text/multimedia) and that queries include keywords without complex structure."
+    },
+    {
+        "type": "single",
+        "question": "Which component is NOT initially listed as a component of the Web in the lecture?",
+        "options": [
+            "HTTP",
+            "HTML",
+            "Browser",
+            "Blockchain"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The initial components listed are Server, Browser, HTTP, HTML, and URL. Blockchain is not a component of the Web architecture described."
+    },
+    {
+        "type": "single",
+        "question": "In the context of 'Business Intelligence', what role does Data Mining play?",
+        "options": [
+            "It creates the transaction data",
+            "It helps analyze markets, competitors, and customers to make decisions",
+            "It manages the hardware infrastructure",
+            "It replaces the need for human managers"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Data Mining helps organizations effectively analyze markets, compare feedback, analyze competitors, and make wise business decisions."
+    },
+    {
+        "type": "single",
+        "question": "Which statement describes 'Incremental Mining'?",
+        "options": [
+            "Mining that occurs only once a year",
+            "Updating knowledge with new data without restarting the process from scratch",
+            "Mining that requires deleting old data",
+            "Mining performed manually by users"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Incremental mining allows updating new data without restarting the mining process from the beginning to enrich mined knowledge."
+    },
+    {
+        "type": "single",
+        "question": "Web pages are described as 'heterogeneous' because:",
+        "options": [
+            "They all look the same",
+            "They exist in many formats (structured, semi-structured, multimedia)",
+            "They are all written in Python",
+            "They are strictly text-only"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Heterogeneity refers to the variety of data types on the Web, including structured tables, semi-structured pages, and multimedia."
+    },
+    {
+        "type": "single",
+        "question": "Why is information on the Web considered 'misleading'?",
+        "options": [
+            "Because search engines randomize results",
+            "Because there is no content proof and anyone can publish anything",
+            "Because all web pages are encrypted",
+            "Because the web is too small"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Web lacks content proof mechanisms, meaning anyone can publish anything, leading to low quality, errors, or incorrectness."
+    },
+    {
+        "type": "single",
+        "question": "In a Web Mining context, what do hyperlinks between websites implicitly represent?",
+        "options": [
+            "The file size of the page",
+            "The loading speed of the page",
+            "The role/quality/impact of the web pages",
+            "The geographic location of the server"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Hyperlinks between websites implicitly indicate the role of web pages, where densely linked pages typically have high quality or impact."
+    },
+    {
+        "type": "single",
+        "question": "Which technique is used to estimate customer satisfaction based on review content?",
+        "options": [
+            "Spatial Data Mining",
+            "Textual Data Mining",
+            "Image Processing",
+            "DNA Sequencing"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Mining textual data (reviews) is used to estimate customer satisfaction."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Support' threshold in Association Rules used for?",
+        "options": [
+            "To filter out rules that occur too frequently",
+            "To ensure a rule appears in a sufficient fraction of transactions",
+            "To measure the length of the rule",
+            "To determine the price of items"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A rule must satisfy a minimum support threshold to be considered frequent/valid."
+    },
+    {
+        "type": "single",
+        "question": "In the rule 'Computer -> Software [1%, 50%]', what does 1% represent?",
+        "options": [
+            "Confidence",
+            "Support",
+            "Error rate",
+            "Discount"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The first number in the bracket notation [Support, Confidence] represents the Support."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a challenge in Data Mining?",
+        "options": [
+            "Noise and uncertainty",
+            "Mining in multi-dimensional space",
+            "Data having too few attributes",
+            "Scalability (Efficiency)"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Challenges listed include noise, multi-dimensional mining, and efficiency. Having 'too few attributes' is generally not cited as a primary challenge compared to high dimensionality."
+    },
+    {
+        "type": "single",
+        "question": "Visualization in Data Mining is important because:",
+        "options": [
+            "It makes the computer run faster",
+            "It helps users understand results and use them in decision making",
+            "It reduces the size of the database",
+            "It automatically cleans the data"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Visualization represents results lively and flexibly so users can understand them and apply them to decision making."
+    },
+    {
+        "type": "single",
+        "question": "Parallel and distributed computing is applied in Data Mining to:",
+        "options": [
+            "Make the algorithms more complex",
+            "Process large volumes of data effectively",
+            "Reduce the need for internet connection",
+            "Increase the cost of mining"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Parallel computing is needed to process large volumes of data by separating it into pieces processed in parallel."
+    },
+    {
+        "type": "single",
+        "question": "The 'Deep Web' or 'Hidden Web' refers to:",
+        "options": [
+            "Pages that are indexed by Google",
+            "Pages that are not accessible via standard search engines or are dynamic",
+            "The dark mode setting on browsers",
+            "Websites that sell illegal goods"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "While not explicitly defined in the brief snippet, the context of Web Mining implies parts of the web (like dynamic DB content) are harder to access. However, strictly based on provided text, 'Web is a computer network...'. The lecture mentions 'Huge information... accessible'. The concept of 'Deep Web' is often contextually relevant to 'non-structural' or 'dynamic' data mentioned in slide 45/46."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Virtual Society' characteristic of the Web?",
+        "options": [
+            "It is a simulation game",
+            "It reflects real-world interactions between humans and organizations",
+            "It is a VR headset technology",
+            "It is a society of only AI bots"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Web is described as a virtual society reflecting the real world, involving interactions between humans, organizations, and systems."
+    },
+    {
+        "type": "single",
+        "question": "Which year was ARPANET developed?",
+        "options": [
+            "1969",
+            "1982",
+            "1990",
+            "1995"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "ARPANET was developed in 1969 by ARPA."
+    },
+    {
+        "type": "single",
+        "question": "The protocol TCP/IP was introduced in 1973 to allow:",
+        "options": [
+            "Faster processing speeds",
+            "Networks to connect",
+            "Better graphics",
+            "Wireless charging"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "TCP/IP (1973) allows networks to connect."
+    },
+    {
+        "type": "single",
+        "question": "Which search engine was introduced by Stanford in 1993?",
+        "options": [
+            "Google",
+            "Excite",
+            "Bing",
+            "Yahoo!"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Excite search engine was introduced by Stanford in 1993."
+    },
+    {
+        "type": "single",
+        "question": "Classification models can be represented by:",
+        "options": [
+            "Decision trees",
+            "Neural networks",
+            "Rules",
+            "All of the above"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Models for classification can be represented by rules, decision trees, math equations, or neural networks."
+    },
+    {
+        "type": "single",
+        "question": "Which Data Mining task focuses on discovering frequent sequential patterns?",
+        "options": [
+            "Clustering",
+            "Sequential Mining",
+            "Regression",
+            "Indexing"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Sequential mining is a main task in DM focused on patterns like 'customers buy camera then memory card'."
+    },
+    {
+        "type": "single",
+        "question": "What is a characteristic of 'Objective Metrics' for pattern evaluation?",
+        "options": [
+            "They are based on user belief",
+            "They rely on structure and statistics (e.g., Support, Confidence)",
+            "They are purely random",
+            "They depend on the UI design"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Objective metrics are based on structure and statistics of the pattern, such as support and confidence."
+    },
+    {
+        "type": "single",
+        "question": "Subjective metrics in pattern evaluation are based on:",
+        "options": [
+            "Mathematical formulas only",
+            "User belief and expectation (e.g., novelty, usefulness)",
+            "The file size of the data",
+            "The RAM usage"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Subjective metrics are based on user belief, such as whether a pattern is unexpected or confirms an assumption."
+    },
+    {
+        "type": "single",
+        "question": "Which field studies the collection, analysis, and explanation of data, often using probabilistic models?",
+        "options": [
+            "Statistics",
+            "Hardware Engineering",
+            "Operating Systems",
+            "Compiler Design"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Statistics is the study of collection, analysis, explanation, and visualization of data, often using stochastic processes."
+    },
+    {
+        "type": "single",
+        "question": "What does 'Data Integration' involve?",
+        "options": [
+            "Splitting data into smaller files",
+            "Combining data from multiple sources into a coherent store",
+            "Deleting data to save space",
+            "Printing data to paper"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Integration involves combining data from multiple sources (e.g., in a Data Warehouse)."
+    },
+    {
+        "type": "single",
+        "question": "Web Mining includes studying which of the following?",
+        "options": [
+            "Information distribution in the web",
+            "Web evolution monitoring",
+            "Characteristics of web pages",
+            "All of the above"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Web Mining involves studying information distribution, characteristics, evolution, and relationships on the Web."
+    }
+]
