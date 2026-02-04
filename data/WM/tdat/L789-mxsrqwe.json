@@ -1,0 +1,482 @@
+[
+    {
+        "type": "single",
+        "question": "What is the fundamental difference between Information Retrieval (IR) and Recommendation Systems (RS) as described in the lecture?",
+        "options": [
+            "IR deals with static content, while RS deals with dynamic content.",
+            "IR systems require a user query to express intent, whereas RS helps users who may not know exactly what they want.",
+            "IR focuses on multimedia data, while RS focuses solely on text data.",
+            "IR uses collaborative filtering, while RS uses boolean queries."
+        ],
+        "answer": [1],
+        "explanation": "According to the slides, Information Retrieval involves users expressing their wishes through a query (pull mode), while Recommendation Systems are designed for scenarios where users do not know exactly what they want (push mode) or are overloaded with information."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Content-based Recommendation Systems, which statement best describes the core principle?",
+        "options": [
+            "\"Tell me what's popular among my peers.\"",
+            "\"Show me more of the same what I've liked.\"",
+            "\"Suggest items based on the transaction chains of other users.\"",
+            "\"Recommend items that optimize the seller's revenue regardless of user preference.\""
+        ],
+        "answer": [1],
+        "explanation": "The slides explicitly characterize the Content-based approach with the phrase: \"Show me more of the same what I've liked,\" focusing on item features and user profiles rather than community data."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a disadvantage of User-based Collaborative Filtering (k-Nearest Neighbors)?",
+        "options": [
+            "It cannot handle implicit feedback.",
+            "It requires predefined knowledge bases to function.",
+            "It requires computation on the entire set of users and frequent updates when users have new transactions.",
+            "It is only suitable for systems where the number of products is much larger than the number of users."
+        ],
+        "answer": [2],
+        "explanation": "The slides list the disadvantages of User-based CF as: \"Regularly update the user vector when the user has a new transaction\" and \"Requires computation on the entire set of users.\""
+    },
+    {
+        "type": "single",
+        "question": "In Matrix Factorization for recommendation systems, how is the prediction $p_{ij}$ (rating of user $i$ for item $j$) calculated?",
+        "options": [
+            "By calculating the Pearson correlation between user $i$ and item $j$.",
+            "By computing the dot product of the user latent vector $u_i$ and the item latent vector $m_j$.",
+            "By averaging the ratings of the $k$ nearest neighbors of user $i$.",
+            "By using a decision tree based on the attributes of item $j$."
+        ],
+        "answer": [1],
+        "explanation": "The slides state that in Matrix Factorization, the rating matrix $R$ is approximated by $U^T M$, where the prediction $p_{ij}$ is the dot product (sum of products) of the user vector $u_i$ and the movie (item) vector $m_j$ across $K$ latent aspects."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary function of the 'Embedding Layer' in Neural Collaborative Filtering (NCF)?",
+        "options": [
+            "To perform the final classification of whether a user likes an item.",
+            "To transform sparse one-hot vectors of users and items into dense latent vectors.",
+            "To calculate the Mean Square Error (MSE) loss for the network.",
+            "To generate text explanations for recommendations."
+        ],
+        "answer": [1],
+        "explanation": "The NCF architecture slide shows that the Embedding Layer transforms the sparse input (one-hot vectors for users and items) into dense user and item latent vectors ($P$ and $Q$) via connection weights."
+    },
+    {
+        "type": "single",
+        "question": "Which metric is used to evaluate the accuracy of a rating prediction in a recommendation system by measuring the average magnitude of errors?",
+        "options": [
+            "Precision",
+            "Recall",
+            "MAE (Mean Absolute Error)",
+            "CTR (Click-Through Rate)"
+        ],
+        "answer": [2],
+        "explanation": "The slides define MAE (Mean Absolute Error) as $\\frac{\\sum |p_{ui} - r_{ui}|}{n}$, which measures the average magnitude of the deviation between predicted and actual ratings. Precision and Recall are ranking metrics, not rating prediction error metrics."
+    },
+    {
+        "type": "multi",
+        "question": "Select all valid revenue models for Online Advertising discussed in the lecture.",
+        "options": [
+            "CPM (Cost Per iMpression)",
+            "CPC (Cost Per Click)",
+            "CPA (Cost Per Action)",
+            "CPR (Cost Per Registration)"
+        ],
+        "answer": [0, 1, 2],
+        "explanation": "The slides explicitly categorize the revenue models into CPM (Cost Per iMpression), CPC (Cost Per Click), and CPA (Cost Per Action). CPR is not listed as a primary distinct category in the slides."
+    },
+    {
+        "type": "single",
+        "question": "In the CPC (Cost Per Click) advertising model, how is the revenue typically calculated?",
+        "options": [
+            "Revenue = N * CPM",
+            "Revenue = N * CTR * CPC",
+            "Revenue = N * CTR * Conversion Rate * CPA",
+            "Revenue = N * CPC"
+        ],
+        "answer": [1],
+        "explanation": "According to the slides, for CPC, Revenue = N * CTR * CPC, where N is the number of impressions and CTR is the Click-Through Rate."
+    },
+    {
+        "type": "single",
+        "question": "When matching ads to queries using Language Models, which metric is commonly used to compare the Query Language Model and the Ad Language Model?",
+        "options": [
+            "Euclidean Distance",
+            "Jaccard Similarity",
+            "KL Divergence",
+            "Pearson Correlation"
+        ],
+        "answer": [2],
+        "explanation": "The slides illustrate the Language Model approach for ad matching using KL (Kullback-Leibler) divergence to measure the distance/difference between the Query LM and the Ad LM."
+    },
+    {
+        "type": "single",
+        "question": "What is the main advantage of using Logistic Regression for scoring ads based on user feedback?",
+        "options": [
+            "It requires no training data.",
+            "It can handle rare queries better than any other method.",
+            "It allows for learning weights ($W$) using user feedback (clicks) as training data.",
+            "It relies solely on the text similarity without considering user interactions."
+        ],
+        "answer": [2],
+        "explanation": "The slides describe using Logistic Regression where the weights $W$ are estimated using user feedback as training data, allowing the model to predict the probability of a click ($Pr(click|q,a)$)."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Query Mining, identifying 'Query Generalization' involves:",
+        "options": [
+            "Finding queries with the same content but different search scope.",
+            "Detecting a pair of consecutive queries where the second query is a broader topic than the first.",
+            "Filtering out bot-generated queries.",
+            "Standardizing the query by removing stopwords."
+        ],
+        "answer": [1],
+        "explanation": "The slides categorize query sessions. Query Generalization is listed as a specific class of consecutive queries, implying the user moves to a broader topic, distinct from 'Same query content' or 'Query detailing' (fine-tuning)."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of 'Stemming' in query preprocessing?",
+        "options": [
+            "To remove stopwords like 'and', 'the'.",
+            "To identify the session ID of the user.",
+            "To reduce words to their base or root form (e.g., 'fishing', 'fished' -> 'fish').",
+            "To correct spelling errors in the query."
+        ],
+        "answer": [2],
+        "explanation": "The slides list Stemming as a step in 'Standardize query'. In information retrieval contexts, stemming refers to reducing words to their root form to handle variations, which fits the context of standardization."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following describes 'Distant Supervision' for Relation Extraction?",
+        "options": [
+            "It relies entirely on manually labeled training data from experts.",
+            "It uses a small set of seed patterns to bootstrap the extraction process iteratively.",
+            "It leverages a large knowledge base (like Freebase) to automatically label a corpus for training.",
+            "It extracts relationships based solely on dependency parse trees without any external data."
+        ],
+        "answer": [2],
+        "explanation": "The slides define Distant Supervision as leveraging a knowledge base (like Freebase) to supervise the process of extracting relations, effectively creating labeled data from 'Freebase + corpus'."
+    },
+    {
+        "type": "single",
+        "question": "In the Snowball algorithm for relation extraction, what constitutes a '5-tuple' representation?",
+        "options": [
+            "<Subject, Predicate, Object, Confidence, Source>",
+            "<Left context, Tag 1, Middle context, Tag 2, Right context>",
+            "<Entity 1, Entity 2, Distance, Dependency Path, POS tags>",
+            "<Word embedding, Char embedding, POS tag, Chunk tag, Label>"
+        ],
+        "answer": [1],
+        "explanation": "The slides explicitly define the 5-tuple generated in Snowball as: $<left, tag 1, middle, tag 2, right>$, where 'left', 'middle', and 'right' are context words with weight vectors."
+    },
+    {
+        "type": "multi",
+        "question": "Select all inputs used in the 'Feature-rich CRFs' for Vietnamese NER as described in the evaluation slides.",
+        "options": [
+            "Word forms (uppercase/lowercase)",
+            "POS tags (Part of Speech)",
+            "Chunking tags",
+            "Audio signals"
+        ],
+        "answer": [0, 1, 2],
+        "explanation": "The feature set slide for NER lists: Word form (uppercase, lowercase, etc.), Word type (output of labeling), Word position (output of chunking), and words in window. Audio signals are not mentioned."
+    },
+    {
+        "type": "single",
+        "question": "What is the role of the 'Bidirectional LSTM' in the neural network architecture for NER?",
+        "options": [
+            "To transform one-hot vectors into dense vectors.",
+            "To allow words at the beginning of a sentence to use information from the end of the sentence and vice versa.",
+            "To apply a softmax function for the final classification.",
+            "To generate character-level embeddings using convolution."
+        ],
+        "answer": [1],
+        "explanation": "The slides state the purpose of Bidirectional LSTM is that \"Words at the beginning of a sentence can use both the information at the end of the sentence to make predictions and vice versa.\""
+    },
+    {
+        "type": "single",
+        "question": "In the End-to-end Neural Coreference Resolution model, what does the 'Antecedent score' $s_a(i,j)$ represent?",
+        "options": [
+            "The probability that span $i$ is an entity.",
+            "The likelihood that span $i$ refers to the same entity as span $j$.",
+            "The grammatical distance between span $i$ and span $j$.",
+            "The confidence score of the mention detection."
+        ],
+        "answer": [1],
+        "explanation": "The slides describe $s_a(i,j)$ as calculating the similarity between two segments (spans) $i$ and $j$, essentially measuring the likelihood that $j$ is the antecedent of $i$ (they co-refer)."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a type of coreference mentioned in the lecture?",
+        "options": [
+            "Pronoun as subject/object",
+            "Apposition",
+            "Part-whole relationship",
+            "Spectral Clustering"
+        ],
+        "answer": [3],
+        "explanation": "The slides list types of coreferences such as Pronouns, Apposition, Attribute-value, Order, and Part-whole. Spectral Clustering is a machine learning algorithm, not a linguistic type of coreference."
+    },
+    {
+        "type": "single",
+        "question": "In the context of the BIO scheme for NER, what does 'B-ORG' signify?",
+        "options": [
+            "The token is inside an Organization entity.",
+            "The token is the beginning of an Organization entity.",
+            "The token is outside any entity.",
+            "The token is the beginning of a Location entity."
+        ],
+        "answer": [1],
+        "explanation": "BIO stands for Begin, Inside, Outside. 'B-ORG' explicitly marks the Begin (B) of an entity of type Organization (ORG)."
+    },
+    {
+        "type": "single",
+        "question": "What is the main limitation of the Collaborative Filtering using kNN method mentioned in the slides?",
+        "options": [
+            "It cannot be used for movie recommendations.",
+            "It requires calculating product-product similarity which is impossible.",
+            "It requires computation on the entire set of users and regular updates when new transactions occur.",
+            "It only works with binary ratings."
+        ],
+        "answer": [2],
+        "explanation": "The slides list disadvantages for User-based CF (kNN): \"Requires computation on the entire set of users\" and \"Regularly update the user vector when the user has a new transaction.\""
+    },
+    {
+        "type": "single",
+        "question": "In Session-based Recommendation systems, which neural network architecture is primarily used to capture sequential information?",
+        "options": [
+            "Convolutional Neural Networks (CNN)",
+            "Recurrent Neural Networks (RNN/LSTM/GRU)",
+            "Generative Adversarial Networks (GAN)",
+            "Autoencoders"
+        ],
+        "answer": [1],
+        "explanation": "The slides for Session-based recommendation describe using a \"Recurrent layer\" (often stacked) and mention advanced models like LSTM or GRU to store historical information through recurrent links."
+    },
+    {
+        "type": "single",
+        "question": "What problem does 'Matrix Factorization' address in Collaborative Filtering?",
+        "options": [
+            "It eliminates the need for user ratings.",
+            "It represents users and products in latent aspects to capture complex interactions and handle sparsity.",
+            "It converts the problem into a pure classification task.",
+            "It allows the system to ignore time effects."
+        ],
+        "answer": [1],
+        "explanation": "Matrix Factorization works by factorizing the rating matrix $R$ into user ($U$) and item ($M$) matrices, representing them in $K$-dimensional latent aspects to capture the \"overall context\" and make predictions ($R \\approx U^T M$)."
+    },
+    {
+        "type": "single",
+        "question": "In the context of evaluating Recommender Systems, what does RMSE stand for?",
+        "options": [
+            "Root Mean Squared Error",
+            "Ratio of Mean Standard Error",
+            "Recursive Mean Score Estimation",
+            "Regularized Mean Square Evaluation"
+        ],
+        "answer": [0],
+        "explanation": "The evaluation methods section defines RMSE as Root Mean Squared Error, calculated as $\\sqrt{\\frac{1}{n}\\sum (p_{ui} - r_{ui})^2}$."
+    },
+    {
+        "type": "single",
+        "question": "Which layer in the NCF (Neural Collaborative Filtering) architecture is responsible for learning the nonlinear interaction between user and item representations?",
+        "options": [
+            "Input Layer (Sparse)",
+            "Embedding Layer",
+            "Neural CF Layers (MLP)",
+            "Output Layer (Score)"
+        ],
+        "answer": [2],
+        "explanation": "The NCF architecture slide shows the 'Neural CF Layers' (labeled as Layer 1, Layer 2, ... Layer X) placed after the embedding layer to 'learn complex user and product interactions' via a multi-layered MLP network."
+    },
+    {
+        "type": "single",
+        "question": "What is a 'Cold Start' problem in Recommendation Systems?",
+        "options": [
+            "When the server overheats due to too many requests.",
+            "When there is not enough information about new users or new products to make accurate recommendations.",
+            "When the recommendation algorithm takes too long to initialize.",
+            "When users provide false information in their profiles."
+        ],
+        "answer": [1],
+        "explanation": "The 'Challenges of recommender system' slide lists \"Not enough information about new users and products\" as a key challenge, which is the definition of the Cold Start problem."
+    },
+    {
+        "type": "single",
+        "question": "In the Google Flu Trends application of Query Mining, what is the core assumption?",
+        "options": [
+            "People searching for flu symptoms are likely trying to buy medicine online.",
+            "The number of queries for flu information is proportional to the number of people actually sick with the flu.",
+            "Flu trends can only be predicted by doctors, not search engines.",
+            "Search queries are too noisy to predict disease outbreaks."
+        ],
+        "answer": [1],
+        "explanation": "The slide on Application 3: Disease warning states: \"The number of people looking for information about the disease is proportional to the number of people who are sick.\""
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a heuristic used to filter 'Bot queries' during Query Preprocessing?",
+        "options": [
+            "Queries that contain stopwords.",
+            "Queries that are in uppercase.",
+            "Unusually high query rate or recurring query frequency.",
+            "Queries that result in zero search results."
+        ],
+        "answer": [2],
+        "explanation": "The slide on filtering bot queries lists \"Unusually high query rate and/or recurring query frequency\" as a method to identify bots."
+    },
+    {
+        "type": "single",
+        "question": "In the 'Extend query model' based on user feedback, what is the assumption regarding keyword relationships?",
+        "options": [
+            "Keywords are related only if they appear in the same dictionary definition.",
+            "If a query containing one keyword leads to selected documents containing another keyword, the two keywords are likely related.",
+            "Keywords are related if they have the same number of characters.",
+            "Keywords are related only if they are synonyms."
+        ],
+        "answer": [1],
+        "explanation": "The slide on Application 2: Extend query states the assumption: \"If a query containing one keyword leads to related documents containing another keyword, it is likely that the two keywords are related.\""
+    },
+    {
+        "type": "single",
+        "question": "What is the formula for 'Log-odds' used in Logistic Regression for ad click prediction?",
+        "options": [
+            "Log-odds = P(click) / P(no-click)",
+            "Log-odds = log(P(click) / (1 - P(click)))",
+            "Log-odds = P(click) * log(P(click))",
+            "Log-odds = 1 - P(click)"
+        ],
+        "answer": [1],
+        "explanation": "The Logistic Regression slide defines the function $f(x) = \\log \frac{x}{1-x}$. In the context of probability $x = Pr(click|q,a)$, the log-odds is $\\log(P / (1-P))$."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary motivation for using 'Session-based' recommendation systems?",
+        "options": [
+            "Users always log in, so sessions are easy to track.",
+            "It is the only method that uses Matrix Factorization.",
+            "In many cases (e.g., news sites, small commercial sites), users are difficult to identify, so recommendations must rely on the current transaction chain.",
+            "It is computationally cheaper than all other methods."
+        ],
+        "answer": [2],
+        "explanation": "The slides state that session-based recommendation is used because \"In many cases, it is difficult to identify users... Does not require user identification.\" It relies on transaction chains."
+    },
+    {
+        "type": "single",
+        "question": "Which loss function is commonly used in Matrix Factorization for recommender systems?",
+        "options": [
+            "Cross Entropy Loss",
+            "Hinge Loss",
+            "Mean Squared Error (MSE)",
+            "Zero-One Loss"
+        ],
+        "answer": [2],
+        "explanation": "The slides on Matrix Factorization explicitly state the error function as $e_{ij}^2 = (r_{ij} - p_{ij})^2$, and the model learning minimizes this Mean Square Error."
+    },
+    {
+        "type": "single",
+        "question": "In the Snowball algorithm, how are 'Extraction Patterns' generated?",
+        "options": [
+            "By manually writing regular expressions.",
+            "By clustering 5-tuples based on similarity and taking the centroid.",
+            "By training a deep neural network on the entire corpus.",
+            "By using a dictionary of known entities."
+        ],
+        "answer": [1],
+        "explanation": "The Snowball slides explain the process: \"Clustering 5-tuples based on similarity\" and \"For each cluster, take the centroid of c as extraction patterns.\""
+    },
+    {
+        "type": "single",
+        "question": "Which of the following features is used in the Distant Supervision model for relation extraction?",
+        "options": [
+            "The audio frequency of the spoken sentence.",
+            "The path between two entities in the dependency tree.",
+            "The pixel values of the document image.",
+            "The number of vowels in the entities."
+        ],
+        "answer": [1],
+        "explanation": "The 'Feature set' slide for Distant Supervision lists \"The path between two entities in the dependency tree\" as a key feature, along with words, POS tags, and entity types."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Span representation' $g_i$ in the End-to-end Neural Coreference Resolution model composed of?",
+        "options": [
+            "Only the word embedding of the first word.",
+            "The start word representation, end word representation, a soft head word representation, and a length feature.",
+            "The average of all word vectors in the document.",
+            "The character-level CNN output only."
+        ],
+        "answer": [1],
+        "explanation": "The slides define the span representation $g_i$ as $[x^*_{START(i)}, x^*_{END(i)}, \\hat{x}_i, \\Phi(i)]$, corresponding to the start/end representations, the soft head word representation ($\\hat{x}_i$), and the length feature ($\\Phi(i)$)."
+    },
+    {
+        "type": "single",
+        "question": "Why is 'character-level representation' (using CNN or LSTM) important in Named Entity Recognition?",
+        "options": [
+            "It is faster to compute than word-level representation.",
+            "It helps in handling Out-Of-Vocabulary (OOV) words and capturing morphological features.",
+            "It eliminates the need for a Softmax layer.",
+            "It is required by the BIO scheme."
+        ],
+        "answer": [1],
+        "explanation": "While the slides don't explicitly state the 'why' in text, the architecture diagrams and input layer descriptions for Deep Learning NER show character representations (via CNN or BiLSTM) combined with word embeddings to handle input, which is a standard technique for morphological richness and OOV handling in the context of the architectures shown."
+    },
+    {
+        "type": "single",
+        "question": "In the 'Gradient Descent' update rule for Matrix Factorization, what does the parameter $\\lambda$ (lambda) represent?",
+        "options": [
+            "Learning rate",
+            "Regularization parameter",
+            "Number of latent factors",
+            "Momentum"
+        ],
+        "answer": [1],
+        "explanation": "The slide on Gradient Descent (cont.) defines the update rule and explicitly states: \"$\\lambda$: regularize parameter\" (and $\\gamma$ as the learning rate)."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Implicit Feedback' hypothesis used in the loss function for Session-based Recommendation?",
+        "options": [
+            "If a user rates an item 5 stars, they like it.",
+            "If an item $i$ is selected, its priority is higher than any other unselected item $j$.",
+            "Users always leave feedback after a transaction.",
+            "Implicit feedback is less valuable than explicit feedback."
+        ],
+        "answer": [1],
+        "explanation": "The slide on Loss function for Session-based recommendation states the \"Implicit feedback hypothesis: item $i$ is selected so $i$'s priority is higher than any other item $j$\" (used in pair-wise rank loss)."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a component of the 'Information extraction system architecture' presented in the slides?",
+        "options": [
+            "Word Tokenize",
+            "Pos-tag",
+            "Image Segmentation",
+            "Coreference resolution"
+        ],
+        "answer": [2],
+        "explanation": "The architecture diagram lists Word Tokenize, Morphological analysis, Parsing, Pos-tag, Semantic parsing, Coreference resolution, etc. Image Segmentation is not part of this text-based extraction architecture."
+    },
+    {
+        "type": "single",
+        "question": "In search engine advertising, what is the goal of the 'Match' phase?",
+        "options": [
+            "To calculate the total revenue for the day.",
+            "To match ads to the user's query.",
+            "To match users to other users with similar interests.",
+            "To match the content provider with the advertiser manually."
+        ],
+        "answer": [1],
+        "explanation": "The diagram for Search engine advertising model shows the 'Match' phase connecting the 'Search Query' to the 'Text ads', with the label \"Match ads to the query\"."
+    },
+    {
+        "type": "single",
+        "question": "What does the 'Grand Prize' solution for the Netflix Challenge achieve in terms of improvement over the baseline?",
+        "options": [
+            "1% improvement",
+            "5% improvement",
+            "10% improvement",
+            "20% improvement"
+        ],
+        "answer": [2],
+        "explanation": "The Netflix challenge slide notes that the Grand Prize solution (BellKor's Pragmatic Chaos) achieved a RMSE of 0.8563, which was a \"10% improvement\" over the baseline (Cinematch)."
+    }
+]
