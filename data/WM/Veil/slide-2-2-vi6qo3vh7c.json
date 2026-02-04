@@ -1,0 +1,564 @@
+[
+    {
+        "type": "single",
+        "question": "According to the slides, an Artificial Neural Network (ANN) can be best described as:",
+        "options": [
+            "A serial computing architecture dependent on a single central processor",
+            "A distributed and parallel computing architecture simulating biological neural systems",
+            "A rigid algorithm that does not update weights after initialization",
+            "A database system for storing biological data"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "ANNs simulate biological neural systems and function as distributed and parallel computing architectures where neurons receive inputs and perform local computations."
+    },
+    {
+        "type": "single",
+        "question": "In a Perceptron or Feedforward Neural Network, what determines the output value of a neuron?",
+        "options": [
+            "Solely the input signals received from the external environment",
+            "The characteristics of the neuron, its connections (weights), and the activation function",
+            "The global error rate of the entire network calculated beforehand",
+            "The number of layers in the network only"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The output depends on the input signals multiplied by connection weights, the bias, and the specific activation function applied to the sum."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following ranges represents the output values of the Sigmoid activation function?",
+        "options": [
+            "(-1, 1)",
+            "(0, 1)",
+            "[0, infinity)",
+            "(-infinity, infinity)"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Sigmoid function maps input values to a continuous range between 0 and 1, making it useful for probability-like outputs."
+    },
+    {
+        "type": "single",
+        "question": "In a standard Feedforward Neural Network (FNN), how are connections structured?",
+        "options": [
+            "Connections go from the output layer back to the input layer",
+            "Connections exist between neurons within the same layer",
+            "Connections proceed from the previous layer to the following layer without backward loops",
+            "Neurons are fully connected to every other neuron in the network regardless of layer"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "In an FNN, signals travel one way: from input to hidden layers to output. There are no backward (recurrent) or intra-layer connections."
+    },
+    {
+        "type": "single",
+        "question": "For a 3-layer FNN with an input layer of 4 neurons, a hidden layer of 5 neurons, and an output layer of 2 neurons, how many parameters (weights + biases) are there?",
+        "options": [
+            "26",
+            "30",
+            "32",
+            "37"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The number of parameters is the sum of weights and biases between layers.\n\n1. Input (4) to Hidden (5):\n   - Weights: 4 × 5 = 20\n   - Biases: 5\n   - Subtotal: 25\n\n2. Hidden (5) to Output (2):\n   - Weights: 5 × 2 = 10\n   - Biases: 2\n   - Subtotal: 12\n\nTotal: 25 + 12 = 37."
+    },
+    {
+        "type": "single",
+        "question": "In the context of the Loss Function $E_D(w)$, what is the goal of the learning process?",
+        "options": [
+            "To maximize the value of $E_D(w)$",
+            "To keep $E_D(w)$ constant to ensure stability",
+            "To minimize the value of $E_D(w)$ by updating weights",
+            "To set $E_D(w)$ to exactly 1.0"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The objective of training is to minimize the loss function (error), which measures the difference between the model's output and the ground-truth."
+    },
+    {
+        "type": "single",
+        "question": "What is the function of the gradient $\\nabla E(w)$ in the Gradient Descent algorithm?",
+        "options": [
+            "It determines the fastest direction to increase the error",
+            "It sets the weights to zero immediately",
+            "It determines the fastest direction to decrease the error (when negated)",
+            "It calculates the final output of the network"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The gradient vector points in the direction of the steepest increase of the function. To minimize the error, the algorithm moves in the opposite direction (negative gradient)."
+    },
+    {
+        "type": "single",
+        "question": "In the weight update formula $\\Delta w = -\\eta \\cdot \\nabla E(w)$, what does $\\eta$ represent?",
+        "options": [
+            "The momentum factor",
+            "The learning rate",
+            "The error threshold",
+            "The number of hidden layers"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "$\\eta$ (eta) represents the learning rate, which controls the step size of the weight updates during training."
+    },
+    {
+        "type": "single",
+        "question": "Why are weights in an ANN typically initialized with small random values rather than large values?",
+        "options": [
+            "Small values ensure the code runs faster",
+            "Large weights cause the sigmoid function to saturate, slowing down learning",
+            "Random values are required for the network to become a Convolutional Neural Network",
+            "Large weights always lead to immediate overfitting"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Large weights push the neuron input to the extremes of the sigmoid function (saturation regions), where the derivative is near zero, causing the gradient to vanish and learning to stop."
+    },
+    {
+        "type": "single",
+        "question": "What is a potential risk of setting the learning rate $\\eta$ too large?",
+        "options": [
+            "The learning process becomes infinitely slow",
+            "The model might overlook the global optimum and fail to converge",
+            "The number of parameters in the network will increase",
+            "The activation function will become linear"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A large learning rate causes the algorithm to take huge steps, potentially overshooting the minimum (global optimum) and oscillating or diverging."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a limitation of a single-layer Perceptron (without hidden layers)?",
+        "options": [
+            "It can only perform linearly separable functions",
+            "It cannot handle binary inputs",
+            "It requires infinite training data",
+            "It is computationally more expensive than a multi-layer network"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Perceptrons (single-layer) can only solve problems where the classes can be separated by a straight line (linearly separable). They fail at problems like XOR."
+    },
+    {
+        "type": "single",
+        "question": "What is a major disadvantage ('Con') of Artificial Neural Networks mentioned in the slides?",
+        "options": [
+            "They cannot support parallel computing",
+            "They are a 'black box' method, making it hard to explain how results are derived",
+            "They are not fault tolerant",
+            "They strictly require linear activation functions"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "ANNs are often considered 'black boxes' because the internal learned representations (weights) are difficult for humans to interpret or explain to customers."
+    },
+    {
+        "type": "single",
+        "question": "Convolutional Neural Networks (CNNs) are primarily designed to handle what type of input data effectively?",
+        "options": [
+            "Stock market numerical tables",
+            "Visual/Image data where spatial relations matter",
+            "Unstructured audio streams only",
+            "Relational database records"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "CNNs simulate visual activity and utilize the spatial relationships of pixels in pictures, which standard FNNs cannot effectively utilize."
+    },
+    {
+        "type": "single",
+        "question": "In a CNN, what is the role of the 'Filter' (or kernel)?",
+        "options": [
+            "To reduce the learning rate",
+            "To learn and detect patterns in the input picture",
+            "To convert the image to grayscale",
+            "To disconnect neurons in the hidden layer"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Filters (kernels) slide over the input and perform convolution to detect specific visual features (patterns) like edges or shapes."
+    },
+    {
+        "type": "single",
+        "question": "What does 'Parameter Sharing' in a CNN imply?",
+        "options": [
+            "Every filter has its own unique set of weights for every pixel position",
+            "Weights and biases are shared among neurons for a specific filter across the entire input",
+            "The input layer shares parameters with the output layer",
+            "Biases are always set to zero"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In CNNs, the same filter (set of weights) is applied across different parts of the image (translational invariance), significantly reducing the total number of parameters."
+    },
+    {
+        "type": "single",
+        "question": "What is the output of a convolution layer typically called?",
+        "options": [
+            "Error Matrix",
+            "Feature Map",
+            "Pooling Grid",
+            "Recurrent State"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Applying a filter to the input generates a 'feature map' representing the presence of that feature across the input."
+    },
+    {
+        "type": "single",
+        "question": "Which statement correctly compares the number of parameters in CNNs versus FNNs for image processing?",
+        "options": [
+            "CNNs generally have fewer parameters due to parameter sharing",
+            "CNNs have significantly more parameters because of the filters",
+            "They have exactly the same number of parameters",
+            "FNNs have zero parameters when processing images"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Due to parameter sharing (using the same filter weights across the image), CNNs have far fewer parameters than a fully connected FNN processing the same image."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary function of the Pooling layer in a CNN?",
+        "options": [
+            "To add more parameters to the network",
+            "To increase the spatial resolution of the feature maps",
+            "To aggregate features, reduce dimensions, and remove positional information",
+            "To perform the final classification"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Pooling (like Max Pooling) reduces the size of feature maps and provides translational invariance by keeping only the most important feature values in a region."
+    },
+    {
+        "type": "single",
+        "question": "Which pooling method calculates the square root of the sum of squares of values in the area?",
+        "options": [
+            "Max pooling",
+            "Average pooling",
+            "L2 pooling",
+            "Min pooling"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "L2 pooling is defined as taking the square root of the sum of the squares of the values in the pooling window."
+    },
+    {
+        "type": "single",
+        "question": "The Softmax activation function is typically used in which layer of a classification network?",
+        "options": [
+            "The first convolutional layer",
+            "The pooling layer",
+            "The output layer",
+            "The input layer"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Softmax is used in the output layer for multi-class classification to convert raw outputs into a probability distribution that sums to 1."
+    },
+    {
+        "type": "single",
+        "question": "Recurrent Neural Networks (RNNs) are specifically useful for which type of problem?",
+        "options": [
+            "Static image classification",
+            "Time-series problems and Natural Language Processing",
+            "Clustering of unrelated data points",
+            "Compression of single files"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "RNNs handle sequential data where the current output depends on previous inputs, making them ideal for time-series, speech, and text."
+    },
+    {
+        "type": "single",
+        "question": "In an RNN, how is information from the recent history stored?",
+        "options": [
+            "In an external database",
+            "By feeding the state of a neuron at time (t-1) as input to the neuron at time t",
+            "By increasing the learning rate over time",
+            "By using a larger input layer"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The recurrent connection takes the hidden state from the previous time step (t-1) and uses it as part of the input for the current time step (t)."
+    },
+    {
+        "type": "single",
+        "question": "What is a key characteristic of parameters in an RNN across different time steps?",
+        "options": [
+            "New parameters are generated for every time step",
+            "Parameters are shared by time (the same weights are used at each step)",
+            "Parameters decrease in value as time progresses",
+            "Parameters are randomly reset at each step"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In RNNs, the weights (matrices W) are shared across all time steps, allowing the network to process sequences of varying lengths with a fixed number of parameters."
+    },
+    {
+        "type": "single",
+        "question": "The 'Gradient Vanishing' problem in RNNs refers to:",
+        "options": [
+            "The gradient becoming too large and exploding",
+            "The error signal disappearing as it backpropagates through many time steps",
+            "The loss function reaching zero too quickly",
+            "The input data being missing"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "When backpropagating through time (especially long sequences), gradients can become extremely small (vanish), preventing the network from learning long-term dependencies."
+    },
+    {
+        "type": "single",
+        "question": "Which architecture is introduced to deal with the Gradient Vanishing problem in RNNs?",
+        "options": [
+            "Perceptron",
+            "CNN",
+            "LSTM (Long-Short Term Memory)",
+            "K-Means"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "LSTM cells are designed with gating mechanisms to maintain information over long periods and prevent gradients from vanishing."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are gates found in a standard LSTM cell? (Select all that apply)",
+        "options": [
+            "Input gate",
+            "Forget gate",
+            "Convolution gate",
+            "Output gate"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Standard LSTM cells contain an Input gate, a Forget gate, and an Output gate to control the flow of information into and out of the cell state."
+    },
+    {
+        "type": "single",
+        "question": "In a Bidirectional RNN, how are the layers structured?",
+        "options": [
+            "Only one forward layer is used",
+            "Two independent networks train on different datasets",
+            "It consists of a forward layer and a backward layer processing the sequence in opposite directions",
+            "The input is fed directly to the output skipping hidden layers"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Bidirectional RNNs have two separate hidden layers connected to the same output: one processes the sequence forward, and the other processes it backward."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Bagging (Bootstrap Aggregating), how are the training sets $S_i$ created?",
+        "options": [
+            "By taking the first n examples sequentially",
+            "By randomly sampling with replacement from the original dataset D",
+            "By randomly sampling without replacement",
+            "By dividing the dataset into k equal disjoint parts"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Bagging involves creating multiple subsets of data by randomly sampling from the original dataset with replacement (bootstrapping)."
+    },
+    {
+        "type": "single",
+        "question": "Bagging is most effective for increasing the performance of which type of algorithm?",
+        "options": [
+            "Stable algorithms like K-Nearest Neighbors",
+            "Unstable algorithms like Decision Trees",
+            "Linear Regression only",
+            "Simple Perceptrons"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Bagging reduces variance and helps prevent overfitting, making it very effective for unstable algorithms like Decision Trees that change significantly with small data changes."
+    },
+    {
+        "type": "single",
+        "question": "How does Boosting differ from Bagging in terms of classifier training?",
+        "options": [
+            "Boosting trains classifiers in parallel independently",
+            "Boosting trains a sequence of classifiers where each depends on the previous one",
+            "Boosting does not use the training data",
+            "Boosting randomly selects weights without training"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Boosting is a sequential process where each subsequent classifier focuses on the errors (misclassified examples) of the previous ones, whereas Bagging trains in parallel."
+    },
+    {
+        "type": "single",
+        "question": "In the AdaBoost algorithm, what happens to the weights of examples that are misclassified by the current base learner?",
+        "options": [
+            "Their weights are decreased",
+            "Their weights are increased",
+            "Their weights remain unchanged",
+            "They are removed from the dataset"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "AdaBoost increases the weights of misclassified examples so that the next classifier in the sequence pays more attention to them."
+    },
+    {
+        "type": "single",
+        "question": "In the context of the FNN Loss Function $E_x(w) = 1/2(y - y')^2$, what does $y'$ represent?",
+        "options": [
+            "The ground-truth label",
+            "The model's predicted output",
+            "The input signal",
+            "The learning rate"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In the Mean Square Error formula, $y$ is the ground truth and $y'$ (y-prime) is the actual output produced by the model."
+    },
+    {
+        "type": "single",
+        "question": "Which backpropagation step happens *after* propagating the input signal to the output layer?",
+        "options": [
+            "Initializing weights",
+            "Backpropagating the error signal from output to input",
+            "Defining the network architecture",
+            "Normalizing the input data"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "After the forward pass (computing output), the network calculates the error and backpropagates it from the output layer back to the input layer to update weights."
+    },
+    {
+        "type": "single",
+        "question": "What is the formula for the output $a_j^L$ of a neuron in the output layer using Softmax?",
+        "options": [
+            "$a_j^L = \\sum z_k^L$",
+            "$a_j^L = \\frac{e^{z_j^L}}{\\sum_k e^{z_k^L}}$",
+            "$a_j^L = \\frac{1}{1+e^{-z_j^L}}$",
+            "$a_j^L = max(0, z_j^L)$"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Softmax function exponentiates each output and divides by the sum of all exponentials to create a probability distribution."
+    },
+    {
+        "type": "single",
+        "question": "In the Sentiment Analysis RNN example, how are words typically represented as input?",
+        "options": [
+            "As scalar intensity values",
+            "Using One-hot encoding based on dictionary size",
+            "As raw ASCII codes",
+            "They are not processed, only the whole document is"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The slides describe using One-hot encoding where a word is a vector with a 1 at its dictionary index and 0 elsewhere."
+    },
+    {
+        "type": "single",
+        "question": "When initializing weights for a neuron with $n_a$ inputs, a common range for random values is $[-1/n_a, 1/n_a]$. Why does the number of inputs matter?",
+        "options": [
+            "It doesn't matter, it's just a convention",
+            "To normalize the variance of the input sum and prevent saturation",
+            "To ensure the weights are always integers",
+            "To match the number of hidden layers"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Scaling weights by the number of inputs helps keep the weighted sum within the active region of the activation function, avoiding saturation early in training."
+    },
+    {
+        "type": "single",
+        "question": "What happens if a neural network model converges (stops improving)?",
+        "options": [
+            "You should always double the hidden neurons immediately",
+            "You might consider decreasing the number of hidden neurons to simplify the model",
+            "You must switch to a genetic algorithm",
+            "You should delete the training data"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "If a model converges easily, it might be too complex (over-parameterized). Reducing neurons can help simplify the model without losing performance."
+    },
+    {
+        "type": "single",
+        "question": "In the context of ensemble learning, a 'Stable' algorithm is one where:",
+        "options": [
+            "The output changes drastically with small data changes",
+            "The output does not change significantly with small changes in the training data",
+            "The algorithm never converges",
+            "The algorithm only works on fixed datasets"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Stable algorithms (like k-NN) produce similar models even if the training data is slightly perturbed, unlike unstable ones (Decision Trees)."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'BaseLearner' in the AdaBoost algorithm?",
+        "options": [
+            "The final strong classifier",
+            "The weak learning algorithm used to create individual classifiers",
+            "The dataset used for testing",
+            "The error function"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The BaseLearner is the simple (weak) algorithm (e.g., a decision stump) that is trained repeatedly on weighted data to form the ensemble."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT an application of ANN mentioned in the slides?",
+        "options": [
+            "High dimensional input processing",
+            "Data with noise",
+            "Precise arithmetic calculation requiring exact explanations",
+            "Problems where results explanation is not mandatory"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "ANNs are suitable for noisy, high-dimensional data where exact explanation is not required. They are not typically used for tasks requiring precise, rule-based arithmetic explanations."
+    }
+]
