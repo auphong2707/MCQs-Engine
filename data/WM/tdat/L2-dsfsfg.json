@@ -1,0 +1,564 @@
+[
+    {
+        "type": "single",
+        "question": "In the context of Artificial Neural Networks (ANN), what describes the connection between layers in a Feedforward Neural Network?",
+        "options": [
+            "Connections exist between neurons within the same layer.",
+            "Connections go from the output layer back to the input layer.",
+            "Connections proceed strictly from the previous layer to the following layer without cycles.",
+            "Neurons in the hidden layer are fully connected to all other neurons in the network, including themselves."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "In a Feedforward Neural Network, connections come from the previous layer to the following layer. There are no backward connections (feedback) or intra-layer connections (connections between neurons in the same layer)."
+    },
+    {
+        "type": "single",
+        "question": "Calculate the number of parameters (weights + biases) for a Convolutional Neural Network (CNN) layer with 20 filters, where each filter has a size of 5x5. The input is a single-channel image.",
+        "options": [
+            "500 parameters",
+            "520 parameters",
+            "25 parameters",
+            "100 parameters"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Each filter has 5x5 = 25 weights and 1 bias. Therefore, one filter has 26 parameters. With 20 filters, the total is 20 * 26 = 520 parameters."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a primary problem addressed by the Long-Short Term Memory (LSTM) architecture in Recurrent Neural Networks?",
+        "options": [
+            "The inability to handle binary classification tasks.",
+            "The Gradient Vanishing problem in time-series data.",
+            "The high computational cost of the Softmax function.",
+            "The lack of translation invariance in image data."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Standard RNNs suffer from the gradient vanishing problem, where gradients vanish when backpropagating through many time steps. LSTMs use gates (input, forget, output) to maintain information over long periods and mitigate this issue."
+    },
+    {
+        "type": "multi",
+        "question": "Select all statements that correctly describe the Bagging (Bootstrap Aggregating) ensemble method.",
+        "options": [
+            "It creates a sequence of classifiers where each depends on the previous one.",
+            "It trains multiple classifiers on random samples with replacement from the training dataset.",
+            "It is primarily used to increase the performance of unstable algorithms like decision trees.",
+            "It determines the final result by weighted voting based on the error rate of each classifier."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "Bagging involves random sampling with replacement (bootstrap) to create multiple datasets and training classifiers in parallel. It improves unstable algorithms. Sequential dependency and weighted voting based on error are characteristics of Boosting, not Bagging."
+    },
+    {
+        "type": "single",
+        "question": "In the K-means clustering algorithm, what is the primary stopping condition?",
+        "options": [
+            "When the number of clusters k reaches a predetermined maximum.",
+            "When the distance between all data points is minimized.",
+            "When the centroids no longer change significantly or a reassignment threshold is met.",
+            "When the training data is fully labeled."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The K-means algorithm iterates until a stopping criterion is met, which includes: the number of reassigned data points is less than a threshold, the centroids change less than a threshold, or the sum of squared errors is below a threshold."
+    },
+    {
+        "type": "single",
+        "question": "Given a dataset D with two classes, Positive (pos) and Negative (neg). If Pr(pos) = 0.8 and Pr(neg) = 0.2, what is the Entropy(D)? (Note: log2(0.8) ≈ -0.322, log2(0.2) ≈ -2.322)",
+        "options": [
+            "0.500",
+            "0.722",
+            "1.000",
+            "0.200"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Entropy(D) = - (0.8 * log2(0.8) + 0.2 * log2(0.2)) = - (0.8 * -0.322 + 0.2 * -2.322) = - (-0.2576 - 0.4644) = 0.722."
+    },
+    {
+        "type": "single",
+        "question": "Which Hierarchical Clustering method defines the distance between two clusters as the shortest distance between any two data points in those clusters?",
+        "options": [
+            "Complete link (Full link)",
+            "Single link",
+            "Average link (Medium link)",
+            "Ward's method"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Single link method calculates the distance between two clusters as the minimum (shortest) distance between two data points, one from each cluster. It is known to potentially cause chaining effects."
+    },
+    {
+        "type": "single",
+        "question": "What is the specific role of the 'Forget gate' in an LSTM cell?",
+        "options": [
+            "It decides which new information to store in the cell state.",
+            "It calculates the final output of the cell based on the input.",
+            "It determines how much of the previous cell state should be discarded.",
+            "It normalizes the input data to a range of [0, 1]."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "In an LSTM cell, the Forget gate is responsible for deciding what information from the previous cell state should be thrown away or kept."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Decision Trees, how is Information Gain calculated for an attribute A?",
+        "options": [
+            "Entropy(D) + Entropy_A(D)",
+            "Entropy(D) - Entropy_A(D)",
+            "Entropy_A(D) / Entropy(D)",
+            "Entropy(D) * Entropy_A(D)"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Information Gain is the reduction in entropy achieved by splitting the data D on attribute A. Therefore, Gain(D, A) = Entropy(D) - Entropy_A(D), where Entropy_A(D) is the weighted average entropy of the partitions."
+    },
+    {
+        "type": "single",
+        "question": "If a dataset D has 10 positive examples and 5 negative examples, what is the accuracy of a classifier that predicts 'Positive' for every instance (Majority Class prediction)?",
+        "options": [
+            "33.3%",
+            "50%",
+            "66.7%",
+            "100%"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Total examples = 15. The majority class is 'Positive' with 10 examples. If the classifier predicts 'Positive' for all, it gets 10 correct and 5 wrong. Accuracy = 10 / 15 = 66.7%."
+    },
+    {
+        "type": "single",
+        "question": "Which activation function is defined as f(u) = 1 / (1 + e^(-alpha(u + theta))) and maps values to the range (0, 1)?",
+        "options": [
+            "ReLU",
+            "Tanh",
+            "Sigmoid",
+            "Linear"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Sigmoid activation function is defined by the formula 1 / (1 + e^-x) (or with alpha/theta parameters) and outputs values strictly between 0 and 1. It is continuous and differentiable."
+    },
+    {
+        "type": "multi",
+        "question": "Select the correct characteristics of the Support Vector Machine (SVM) algorithm.",
+        "options": [
+            "It seeks a hyperplane that minimizes the margin between classes.",
+            "It can handle non-linear data using Kernel functions.",
+            "It minimizes a loss function that includes a penalty for misclassification (slack variables).",
+            "It is fundamentally a multi-class classifier that cannot handle binary classification directly."
+        ],
+        "answer": [
+            1,
+            2
+        ],
+        "explanation": "SVM seeks to *maximize* the margin (not minimize). It uses Kernel functions (Polynomial, RBF) to map data to higher dimensions for non-linear separation. It allows for errors using slack variables in the soft-margin formulation."
+    },
+    {
+        "type": "single",
+        "question": "In Naive Bayes text classification, what is the purpose of Laplace smoothing (lambda = 1)?",
+        "options": [
+            "To remove stop words from the dictionary.",
+            "To prevent the probability of a document being zero if it contains a word not seen in the training class.",
+            "To normalize the term frequency vectors to unit length.",
+            "To reduce the dimensionality of the feature space."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Laplace smoothing adds a small count (lambda=1) to the frequency of every word to ensure that the probability P(word|class) is never zero, which would otherwise zero out the entire posterior probability product."
+    },
+    {
+        "type": "single",
+        "question": "Calculate the Jaccard similarity between two binary vectors x1 = (1, 1, 0, 0, 1, 0) and x2 = (1, 0, 0, 1, 1, 0).",
+        "options": [
+            "0.40",
+            "0.50",
+            "0.66",
+            "0.75"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Jaccard similarity = (Intersection) / (Union). \nPositions: \n1: (1,1) -> Match\n2: (1,0) -> Mismatch\n3: (0,0) -> Zero-match (ignored in Jaccard)\n4: (0,1) -> Mismatch\n5: (1,1) -> Match\n6: (0,0) -> Zero-match\nIntersection (both 1) = 2. Union (at least one 1) = 4. Jaccard = 2/4 = 0.5."
+    },
+    {
+        "type": "single",
+        "question": "Which algorithm is used to train Feedforward Neural Networks by propagating error signals from the output layer back to the input layer?",
+        "options": [
+            "K-means Clustering",
+            "Backpropagation",
+            "Agglomerative Clustering",
+            "PageRank"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Backpropagation is the specific algorithm used to train neural networks. It calculates the gradient of the loss function with respect to the weights by propagating the error backwards from the output to the input."
+    },
+    {
+        "type": "single",
+        "question": "In the context of PU Learning (Positive and Unlabeled Learning), what is the 'Spying Technique' used for?",
+        "options": [
+            "To identify a set of reliable negative examples (RN) from the unlabeled set U.",
+            "To effectively label all unlabeled data as positive.",
+            "To spy on the test data to improve training accuracy.",
+            "To convert the problem into a standard supervised learning task with fully labeled data."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The Spy technique involves taking a sample of Positive examples (S), mixing them with Unlabeled data (U), training a classifier, and using the probability of the 'Spies' (S) to determine a threshold. This threshold helps identify Reliable Negatives (RN) within U."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary advantage of using a Validation set during the training of a machine learning model?",
+        "options": [
+            "It is used to calculate the final accuracy of the model after all training is complete.",
+            "It allows the model to learn new features that are not present in the training set.",
+            "It is used to tune hyperparameters (e.g., pruning a tree) without contaminating the test set.",
+            "It increases the size of the training data to prevent underfitting."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "A validation set is an independent subset of data used to select model hyperparameters (like tree depth for pruning) or stop training early. It is distinct from the test set, which is used only for final evaluation."
+    },
+    {
+        "type": "single",
+        "question": "In a Convolutional Neural Network (CNN), what is the result of applying a Pooling layer (e.g., Max Pooling)?",
+        "options": [
+            "It increases the spatial resolution of the feature map.",
+            "It aggregates features to remove positional information and reduce dimensionality.",
+            "It applies a non-linear activation function to every pixel.",
+            "It connects every neuron in the previous layer to every neuron in the next layer."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Pooling layers (like Max Pooling) aggregate values in a local region (e.g., taking the max value in a 2x2 square). This reduces the size of the feature map (dimensionality reduction) and provides translation invariance by removing precise positional information."
+    },
+    {
+        "type": "single",
+        "question": "For a Naive Bayes model with a vocabulary size |V| = 2000 and 3 output classes, what is the total number of probability distributions required (excluding priors)?",
+        "options": [
+            "3 distributions",
+            "2000 distributions",
+            "6000 distributions",
+            "1 distribution"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The model requires one probability distribution for each class. Each distribution contains the probabilities of all |V| words given that class. Therefore, for 3 classes, there are 3 distributions (each of size |V|)."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following describes 'Overfitting' in a decision tree model?",
+        "options": [
+            "The model performs poorly on both training and test data.",
+            "The model has high accuracy on the training set but significantly lower accuracy on the test set.",
+            "The model is too simple to capture the underlying patterns of the data.",
+            "The tree is pruned too aggressively, losing important information."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Overfitting occurs when a model learns the training data (including noise) too well. It is characterized by having high accuracy on the training data but failing to generalize, resulting in low accuracy on unseen test data."
+    },
+    {
+        "type": "single",
+        "question": "In the EM algorithm for semi-supervised learning, what happens during the 'Maximization' (M) step?",
+        "options": [
+            "Missing data labels are filled based on the current parameters.",
+            "The classifier parameters are re-estimated to maximize the probability (likelihood) of the data.",
+            "The algorithm stops and returns the final parameters.",
+            "The labeled and unlabeled datasets are merged randomly."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The EM algorithm alternates between two steps. The E-step estimates the missing data (labels). The M-step re-estimates (updates) the model parameters to maximize the likelihood function based on the current data completion."
+    },
+    {
+        "type": "single",
+        "question": "Given the formula for F-score: F = 2pr / (p + r). If Precision (p) = 1.0 and Recall (r) = 0.5, what is the F-score?",
+        "options": [
+            "0.50",
+            "0.67",
+            "0.75",
+            "1.00"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "F = 2 * 1.0 * 0.5 / (1.0 + 0.5) = 1.0 / 1.5 = 2/3 ≈ 0.666..., which rounds to 0.67."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Kernel Trick' in Support Vector Machines (SVM)?",
+        "options": [
+            "A method to reduce the number of support vectors.",
+            "A technique to project data into a higher-dimensional feature space to make it linearly separable.",
+            "A way to normalize data to the range [0, 1].",
+            "A heuristic to choose the best learning rate."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Kernel Trick allows SVMs to solve non-linear classification problems by implicitly mapping input vectors into a higher-dimensional feature space where they become linearly separable, without explicitly computing the coordinates in that space."
+    },
+    {
+        "type": "single",
+        "question": "In the Co-training semi-supervised learning algorithm, what is a key assumption about the attribute sets X1 and X2?",
+        "options": [
+            "They must be completely dependent on each other.",
+            "They must be conditional independent given the class label.",
+            "They must share the exact same vocabulary.",
+            "They must be numerical attributes only."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Co-training assumes that the features can be split into two sets (X1 and X2) that are sufficient to train a good classifier and are conditionally independent of each other given the class label."
+    },
+    {
+        "type": "single",
+        "question": "Which type of Neural Network is specifically designed to handle time-series data and sequential information by sharing parameters across time steps?",
+        "options": [
+            "Convolutional Neural Network (CNN)",
+            "Feedforward Neural Network (FNN)",
+            "Recurrent Neural Network (RNN)",
+            "Perceptron"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Recurrent Neural Networks (RNNs) are designed for sequence data. They use the state of a neuron from the previous time step (t-1) as input for the current time step (t), allowing them to store history."
+    },
+    {
+        "type": "single",
+        "question": "What does the 'Lift Curve' compare a classification model against?",
+        "options": [
+            "A perfect classifier.",
+            "A random selection baseline.",
+            "An SVM classifier.",
+            "The training error rate."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A Lift Curve plots the performance of a model against a baseline, which typically represents a random selection hypothesis (no model). It shows how much better the model is at identifying positive cases compared to random guessing."
+    },
+    {
+        "type": "single",
+        "question": "In Named Entity Recognition (NER) using the BIO labeling scheme with 4 entity types (PER, ORG, LOC, TIME), how many total output classes does the model predict?",
+        "options": [
+            "5 classes",
+            "9 classes",
+            "12 classes",
+            "13 classes"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "For each entity type, there are 2 tags: B-Type and I-Type. With 4 types, that is 4 * 2 = 8 tags. Plus 1 tag for 'O' (Outside). Total = 8 + 1 = 9 classes. (Note: The provided prep file mentions 'BIEO' scheme which has 13. Standard BIO has 9. Based on the slides/file content, standard BIO implies B/I/O per class. If the prep file explicitly asks for BIEO it is 13. The question here says BIO. Wait, BIO usually means Begin, Inside, Outside. B-PER, I-PER, B-ORG, I-ORG... + O. 4*2+1 = 9. If the question implies B, I, E, O, it would be 13. I will stick to the logic of BIO = 2 per class + O)."
+    },
+    {
+        "type": "single",
+        "question": "What is the main disadvantage of the 'Single Link' hierarchical clustering method?",
+        "options": [
+            "It is computationally expensive compared to K-means.",
+            "It is sensitive to outliers and can cause the 'chaining effect'.",
+            "It cannot handle non-elliptical clusters.",
+            "It requires the number of clusters to be specified in advance."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Single link clustering joins the two closest points between clusters. This can lead to the 'chaining effect,' where clusters are elongated and bridged by noisy data points, making it sensitive to outliers."
+    },
+    {
+        "type": "single",
+        "question": "In the AdaBoost algorithm, how are weights updated for misclassified examples?",
+        "options": [
+            "Weights are decreased to ignore hard examples.",
+            "Weights are increased so the next classifier pays more attention to them.",
+            "Weights remain constant throughout the process.",
+            "Weights are set to zero."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In Boosting (AdaBoost), examples that are misclassified by the current learner are assigned higher weights. This forces the subsequent weak learner to focus on these 'hard' examples."
+    },
+    {
+        "type": "single",
+        "question": "Given the Softmax activation function formula for output 'a_j': a_j = e^(z_j) / Sum(e^(z_k)). What is the sum of all outputs 'a_j' in the layer?",
+        "options": [
+            "0",
+            "1",
+            "Undefined",
+            "The number of neurons in the layer."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Softmax function normalizes the output vector into a probability distribution. The numerator is the exponential of the input, and the denominator is the sum of exponentials of all inputs. Thus, the sum of all output probabilities equals 1."
+    },
+    {
+        "type": "single",
+        "question": "Which distance measure is defined as the maximum difference between any single dimension of two vectors? (Chebychev distance)",
+        "options": [
+            "max(|x_i1 - x_j1|, |x_i2 - x_j2|, ..., |x_ir - x_jr|)",
+            "sqrt(sum((x_ik - x_jk)^2))",
+            "sum(|x_ik - x_jk|)",
+            "sum(x_ik * x_jk)"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The Chebychev distance (L-infinity norm) is defined as the maximum absolute difference between any coordinate dimension of the two vectors."
+    },
+    {
+        "type": "single",
+        "question": "In a decision tree, what does the 'Gain Ratio' attempt to correct for, compared to standard Information Gain?",
+        "options": [
+            "It corrects for missing values in the data.",
+            "It corrects the bias of Information Gain towards attributes with many distinct values.",
+            "It corrects for the computational complexity of entropy calculation.",
+            "It corrects for class imbalance."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Information Gain tends to favor attributes with a large number of distinct values (splitting data into many small, pure groups). Gain Ratio normalizes the gain by the 'Split Information' (entropy of the split itself) to reduce this bias."
+    },
+    {
+        "type": "single",
+        "question": "When normalizing a linear continuous attribute 'f' using Z-score normalization, what formula is used?",
+        "options": [
+            "(x - min) / (max - min)",
+            "(x - mean) / standard_deviation",
+            "log(x)",
+            "x / max"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Z-score normalization transforms data to have a mean of 0 and standard deviation of 1. The formula is z = (x - mean) / standard_deviation."
+    },
+    {
+        "type": "single",
+        "question": "What is the output of a standard 'Max Pooling' operation with a 2x2 filter and stride 2 on a 4x4 input matrix?",
+        "options": [
+            "A 4x4 matrix",
+            "A 3x3 matrix",
+            "A 2x2 matrix",
+            "A scalar value"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "A 2x2 pool with stride 2 cuts the dimensions in half. A 4x4 input becomes a 2x2 output (4/2 = 2)."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a typical application of Self-Organizing Maps (SOM) or WEBSOM?",
+        "options": [
+            "Clustering documents based on similarity.",
+            "Visualizing high-dimensional data on a 2D map.",
+            "Predicting the exact future value of a stock price (Regression).",
+            "Organizing data elements into groups with similar properties."
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "SOMs are primarily used for unsupervised learning tasks like clustering and visualization (dimensionality reduction). While they can relate to regression, their core function in Web Mining (WEBSOM) is clustering and organizing document maps, not precise time-series regression."
+    },
+    {
+        "type": "single",
+        "question": "In the KNN (k-Nearest Neighbors) algorithm, what happens if the value of 'k' is too small (e.g., k=1)?",
+        "options": [
+            "The model becomes too simple (Underfitting).",
+            "The model becomes sensitive to noise and outliers (Overfitting).",
+            "The model computational cost decreases significantly.",
+            "The model will always predict the majority class."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "With a very small k (like k=1), the prediction relies entirely on the single nearest neighbor. If that neighbor is noise or an outlier, the prediction is wrong. This high variance corresponds to overfitting."
+    },
+    {
+        "type": "single",
+        "question": "For a Recurrent Neural Network (RNN) with Input size I, Hidden size H, and Output size K, what is the formula for the number of parameters?",
+        "options": [
+            "I*H + H*K",
+            "I*H + H*H + H*K + H + K",
+            "(I + H + K)^2",
+            "I*H + H + K"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The parameters include: Input-to-Hidden weights (I*H), Hidden-to-Hidden recurrent weights (H*H), Hidden-to-Output weights (H*K), Hidden biases (H), and Output biases (K). Sum = I*H + H*H + H*K + H + K."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Gradient Descent' update rule for a weight 'w' given learning rate 'eta' and gradient 'VE(w)'?",
+        "options": [
+            "w = w + eta * VE(w)",
+            "w = w - eta * VE(w)",
+            "w = VE(w) / eta",
+            "w = w - eta"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Gradient Descent seeks to minimize the loss function. The gradient points in the direction of steepest increase, so we move in the opposite direction. Update: w_new = w_old - learning_rate * gradient."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Web Mining, what does 'Opinion Mining' primarily deal with?",
+        "options": [
+            "Extracting and analyzing subjective information (sentiments) from text.",
+            "Predicting the number of visitors to a website.",
+            "Classifying web pages into categories like News or Sports.",
+            "Ranking search results based on link structure."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Opinion Mining (or Sentiment Analysis) focuses on determining the emotional tone or subjective opinion (positive, negative, neutral) expressed within a text."
+    },
+    {
+        "type": "single",
+        "question": "Which assumption is made by the 'Totally Random Selection Hypothesis' in PU Learning?",
+        "options": [
+            "Labeled positive examples are chosen completely randomly from the set of all positive examples.",
+            "Negative examples are chosen randomly from the universe of all data.",
+            "The data distribution is Gaussian.",
+            "The classifier is a random number generator."
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The Totally Random Selection Hypothesis states that the labeled positive examples (s=1) are a random subset of the true positive class (y=1), meaning P(s=1|x, y=1) = P(s=1|y=1) = constant."
+    }
+]

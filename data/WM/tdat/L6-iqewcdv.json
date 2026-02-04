@@ -1,0 +1,482 @@
+[
+    {
+        "type": "single",
+        "question": "According to the general problem definition of Opinion Mining, which of the following best describes the 'Opinion Holder'?",
+        "options": [
+            "The specific feature or attribute of the product being discussed.",
+            "The person or organization that expresses the sentiment.",
+            "The target object (e.g., a camera or phone) that is being reviewed.",
+            "The time stamp associated with the posted review."
+        ],
+        "answer": [1],
+        "explanation": "The opinion holder is defined as the entity (person, organization, etc.) that holds and expresses the specific sentiment or opinion."
+    },
+    {
+        "type": "multi",
+        "question": "In the context of Unsupervised Sentiment Analysis (Turney's algorithm), which of the following steps are part of the process?",
+        "options": [
+            "Extracting opinion phrases based on POS patterns like NN+JJ or RB+JJ.",
+            "Training a Support Vector Machine (SVM) on a labeled dataset.",
+            "Calculating the Semantic Orientation (SO) using Pointwise Mutual Information (PMI).",
+            "Using a Sentiment Ontology Tree (SOT) to map hierarchical features."
+        ],
+        "answer": [0, 2],
+        "explanation": "Turney's unsupervised approach involves extracting phrases using POS patterns (Step 1), calculating Semantic Orientation using PMI (Step 2), and then determining the document sentiment. SVM and SOT are associated with supervised or aspect-based approaches."
+    },
+    {
+        "type": "single",
+        "question": "In Turney's unsupervised sentiment analysis method, how is the Semantic Orientation (SO) of a phrase 't' calculated?",
+        "options": [
+            "SO(t) = PMI(t, 'excellent') / PMI(t, 'bad')",
+            "SO(t) = PMI(t, 'good') - PMI(t, 'bad')",
+            "SO(t) = PMI(t, 'positive') + PMI(t, 'negative')",
+            "SO(t) = log(PMI(t, 'good') * PMI(t, 'bad'))"
+        ],
+        "answer": [1],
+        "explanation": "The Semantic Orientation (SO) is calculated by taking the difference between the PMI of the phrase with a positive reference word ('good' or 'tốt') and the PMI of the phrase with a negative reference word ('bad' or 'kém')."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary function of the 'Skip-gram' model in Word2Vec?",
+        "options": [
+            "To predict the center word based on the surrounding context words.",
+            "To classify the sentiment of a sentence as positive or negative directly.",
+            "To predict surrounding context words based on a given center word.",
+            "To generate a parse tree for sentence structure analysis."
+        ],
+        "answer": [2],
+        "explanation": "Skip-gram is a Word2Vec architecture that uses the current focus (center) word to predict the surrounding context words, whereas CBOW does the reverse."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following statements accurately describe the CNN-static model for sentence classification?",
+        "options": [
+            "It uses pre-trained word vectors (like Word2Vec) that are kept frozen during training.",
+            "It randomly initializes all word vectors and trains them from scratch.",
+            "It learns the weights of the filters (convolutional layer) during training.",
+            "It fine-tunes the pre-trained word vectors during the backpropagation process."
+        ],
+        "answer": [0, 2],
+        "explanation": "In the CNN-static model, the pre-trained word embeddings are used as features and are 'frozen' (not updated) during training, but the model still learns the weights of the network itself (like the filters)."
+    },
+    {
+        "type": "single",
+        "question": "In the Aspect-based Opinion Mining approach using the Sentiment Ontology Tree (SOT), what does a node in the tree represent?",
+        "options": [
+            "A specific sentiment polarity (positive or negative) unrelated to any feature.",
+            "An aspect or feature of the entity, which may have descendant nodes for sub-aspects.",
+            "A user profile that has commented on the entity.",
+            "A comparative word used to link two different entities."
+        ],
+        "answer": [1],
+        "explanation": "The SOT is a hierarchical structure where nodes represent aspects (e.g., 'camera', 'lens', 'battery') and their relationships (ancestors-descendants) to organize sentiment analysis granularly."
+    },
+    {
+        "type": "single",
+        "question": "In the Hierarchical Learning (HL-SOT) algorithm, when is the weight vector for a specific node 'i' updated?",
+        "options": [
+            "It is updated in every iteration regardless of the input.",
+            "It is updated only if the parent node of 'i' is set to positive (labeled 1).",
+            "It is updated only if the classifier predicts the class 'neutral'.",
+            "It is updated only when the threshold vector is zero."
+        ],
+        "answer": [1],
+        "explanation": "According to the HL-SOT learning algorithm, the weight W for node 'i' is only updated if the parent node of 'i' has been determined to be positive/relevant in the hierarchy."
+    },
+    {
+        "type": "single",
+        "question": "When analyzing sentiment on Twitter, why is a general sentiment classifier often insufficient?",
+        "options": [
+            "Tweets are too long and contain too much formal language.",
+            "General classifiers cannot handle the XML format of tweets.",
+            "Tweets are short, ambiguous, and require context or target-specific features.",
+            "Twitter data is always encrypted and cannot be processed by standard classifiers."
+        ],
+        "answer": [2],
+        "explanation": "Tweets are characterized by being short (max 140 chars originally), ambiguous, and often lacking clear target objects compared to standard product reviews, making general classifiers less effective."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are considered 'Content features' for sentiment analysis on Twitter?",
+        "options": [
+            "Words and punctuations.",
+            "Emoticons and hashtags.",
+            "The number of followers the user has.",
+            "The GPS coordinates of the tweet."
+        ],
+        "answer": [0, 1],
+        "explanation": "Content features are derived directly from the text and metadata within the tweet body, such as words, punctuation, emoticons, and hashtags. Follower counts and GPS are user/meta-info, not content features in this specific context."
+    },
+    {
+        "type": "single",
+        "question": "In the context of graph optimization for Twitter sentiment, what does a 'dashed line' typically represent in the tweet graph?",
+        "options": [
+            "Tweets from the same user.",
+            "A reply to another tweet.",
+            "A retweet relation.",
+            "A follower-following relationship."
+        ],
+        "answer": [2],
+        "explanation": "In the described tweet graph model, a solid line represents tweets from the same user, a dashed line represents a retweet, and a dotted line represents a reply."
+    },
+    {
+        "type": "single",
+        "question": "For the cascade model in sentiment analysis, what is the purpose of the 'First level' classifier?",
+        "options": [
+            "To distinguish between positive and negative sentiment.",
+            "To distinguish between objective (no sentiment) and subjective (sentiment) text.",
+            "To identify the specific target entity of the review.",
+            "To parse the dependency tree of the sentence."
+        ],
+        "answer": [1],
+        "explanation": "The cascade model's first level is designed to filter out neutral or objective sentences (subjectivity classification) before passing subjective sentences to subsequent levels for polarity classification."
+    },
+    {
+        "type": "single",
+        "question": "What is the definition of 'Entity Detection' in the context of analyzing forum threads?",
+        "options": [
+            "Assigning a positive or negative score to a known product.",
+            "Detecting the set of entities (e.g., product names) mentioned in the thread.",
+            "Determining the author of a specific post.",
+            "Comparing the battery life of two different devices."
+        ],
+        "answer": [1],
+        "explanation": "Entity Detection (Task 1) is defined as detecting the set of entities E (objects, products) that are mentioned within the threads."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid types of comparative sentences?",
+        "options": [
+            "Non-comparable (e.g., comparing different shapes).",
+            "Equative (e.g., A and B are of the same size).",
+            "Superlative (e.g., A is the best).",
+            "Descriptive (e.g., A is red)."
+        ],
+        "answer": [0, 1, 2],
+        "explanation": "The slides categorize comparative sentences into types such as Comparative (better/worse), Equative (same), Non-comparable (different attributes), and Superlative (best/worst). Descriptive is a standard sentence, not comparative."
+    },
+    {
+        "type": "single",
+        "question": "In the 'Entity Assignment' algorithm, if the current sentence is NOT a comparative sentence, to which entity is the sentiment usually assigned?",
+        "options": [
+            "The 'worse' entity mentioned in the previous comparative sentence.",
+            "The 'better' or 'superior' entity mentioned in the previous comparative sentence.",
+            "The first entity found in the entire thread.",
+            "A randomly selected entity from the entity set."
+        ],
+        "answer": [1],
+        "explanation": "The algorithm assumes sentiment consistency: if a sentence is not comparative, it likely continues to discuss the 'preferred' or 'better' entity established in the previous context."
+    },
+    {
+        "type": "single",
+        "question": "When analyzing comparative sentences using the pattern 'C (comparative) + F (feature)', if 'C' reduces the feature (e.g., 'less noise') and 'F' is negative (e.g., 'noise'), which entity is preferred?",
+        "options": [
+            "Entity 1 (the subject).",
+            "Entity 2 (the object).",
+            "Neither entity.",
+            "Both entities equally."
+        ],
+        "answer": [0],
+        "explanation": "If C is a reduction comparative (e.g., 'less') and F is negative (e.g., 'noise'), the phrase means 'less noise', which is a positive trait. Therefore, the subject (Entity 1) is preferred."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Yoon Kim's CNN model, what does the term 'multichannel' refer to?",
+        "options": [
+            "Using multiple different filter sizes (e.g., 3, 4, 5).",
+            "Using two sets of word vectors: one static and one non-static (fine-tuned).",
+            "Processing text, audio, and video simultaneously.",
+            "Using multiple output layers for different classification tasks."
+        ],
+        "answer": [1],
+        "explanation": "CNN-multichannel uses two channels of word vectors: one that is kept static (frozen) and one that is non-static (updated during training), allowing the model to leverage both pre-trained priors and task-specific tuning."
+    },
+    {
+        "type": "single",
+        "question": "Calculate the Semantic Orientation (SO) of a phrase 't' if PMI(t, 'good') = 5 and PMI(t, 'bad') = 2.",
+        "options": [
+            "3",
+            "7",
+            "2.5",
+            "10"
+        ],
+        "answer": [0],
+        "explanation": "The formula for Semantic Orientation is SO(t) = PMI(t, 'good') - PMI(t, 'bad'). Thus, 5 - 2 = 3."
+    },
+    {
+        "type": "single",
+        "question": "If a CNN model for sentence classification uses a vocabulary size |V| = 10,000 and an embedding dimension N = 300, what is the number of parameters in the embedding layer?",
+        "options": [
+            "30,000",
+            "300,000",
+            "3,000,000",
+            "10,300"
+        ],
+        "answer": [2],
+        "explanation": "The embedding layer is a matrix of size |V| x N. Therefore, 10,000 * 300 = 3,000,000 parameters."
+    },
+    {
+        "type": "single",
+        "question": "In a pooling layer of a CNN for text, if we use 100 filters for each of the window sizes 3, 4, and 5, what is the total number of neurons in the pooling layer?",
+        "options": [
+            "100",
+            "1200",
+            "300",
+            "3"
+        ],
+        "answer": [2],
+        "explanation": "Max-over-time pooling produces one number per feature map (filter). With 100 filters for each of the 3 window sizes, we have 100 * 3 = 300 outputs (neurons) in the pooling layer."
+    },
+    {
+        "type": "single",
+        "question": "Given the Pointwise Mutual Information formula PMI(t1, t2) = log(P(t1, t2) / (P(t1)P(t2))), what does a high PMI value indicate?",
+        "options": [
+            "t1 and t2 appear together less often than expected by chance.",
+            "t1 and t2 are statistically independent.",
+            "t1 and t2 appear together more often than expected by chance.",
+            "t1 is a negation of t2."
+        ],
+        "answer": [2],
+        "explanation": "PMI measures the association between two words. A high positive value means the probability of them co-occurring is higher than the product of their individual probabilities, indicating a strong association."
+    },
+    {
+        "type": "single",
+        "question": "In the context of comparative sentence analysis, what is the role of 'OSA' (Opinion Sentiment Analysis)?",
+        "options": [
+            "To determine which entity is preferred when the comparative word itself carries no sentiment.",
+            "To optimize the graph of tweets for better classification.",
+            "To calculate the entropy of the dataset.",
+            "To visualize the word embeddings in 2D space."
+        ],
+        "answer": [0],
+        "explanation": "OSA is used to determine sentiment orientation (which entity is preferred) when the comparative word (C) and feature (F) might not have explicit sentiment alone, often using log likelihood ratios based on Pros/Cons data."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a pre-processing step typically used in Twitter sentiment analysis?",
+        "options": [
+            "Stemming using a dictionary.",
+            "Tagging parts-of-speech (POS).",
+            "Normalization (e.g., 'gooood' -> 'good').",
+            "Removing all hashtags and emoticons."
+        ],
+        "answer": [3],
+        "explanation": "Hashtags and emoticons are listed as 'Content features' and are valuable for sentiment analysis; they are typically preserved or processed, not removed like noise."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Assumption of sentiment consistency' in entity assignment?",
+        "options": [
+            "A user always expresses the same sentiment towards all products.",
+            "If a sentence does not explicitly mention an entity, it likely refers to the 'better' entity from the previous context.",
+            "Positive and negative sentiments always cancel each other out.",
+            "Sentiment remains constant over time for all users."
+        ],
+        "answer": [1],
+        "explanation": "The assumption states that unless specified otherwise (e.g., by a comparative structure), the sentiment of a sentence is directed towards the entity that was previously established as superior or the focus."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are sub-problems in Aspect-based Sentiment Analysis (ABSA)?",
+        "options": [
+            "Aspect extraction.",
+            "Sentiment classification for each aspect.",
+            "Network bandwidth optimization.",
+            "Server load balancing."
+        ],
+        "answer": [0, 1],
+        "explanation": "ABSA involves identifying the specific features (aspects) of an entity being discussed and then determining the sentiment polarity directed at those specific aspects."
+    },
+    {
+        "type": "single",
+        "question": "In the CBOW (Continuous Bag of Words) model architecture, what is the prediction target?",
+        "options": [
+            "The surrounding context words given the center word.",
+            "The center word given the surrounding context words.",
+            "The document class given the sequence of words.",
+            "The next sentence in the paragraph."
+        ],
+        "answer": [1],
+        "explanation": "CBOW predicts the focus (center) word based on the context of surrounding words within a window."
+    },
+    {
+        "type": "single",
+        "question": "Consider a dataset D with 2 classes: Positive (P) and Negative (N). If P(P) = 0.5 and P(N) = 0.5, what is the Entropy H(D)?",
+        "options": [
+            "0",
+            "0.5",
+            "1.0",
+            "2.0"
+        ],
+        "answer": [2],
+        "explanation": "Entropy H(D) = - (0.5 log2(0.5) + 0.5 log2(0.5)) = - (-0.5 - 0.5) = 1.0."
+    },
+    {
+        "type": "single",
+        "question": "In the context of the BIEO labeling scheme for NER, if there are 4 entity types, how many total output classes are required?",
+        "options": [
+            "4",
+            "9",
+            "13",
+            "16"
+        ],
+        "answer": [2],
+        "explanation": "For each of the 4 entity types, there are B (Beginning), I (Inside), and E (End) tags. That is 4 * 3 = 12 tags. Plus 1 tag for O (Outside). Total = 13."
+    },
+    {
+        "type": "single",
+        "question": "What is the dimensionality of the feature map generated by a filter in a CNN if the sentence length is 'n' and the filter window size is 'h'?",
+        "options": [
+            "n",
+            "n + h + 1",
+            "n - h + 1",
+            "h"
+        ],
+        "answer": [2],
+        "explanation": "A convolution operation with a filter of height 'h' sliding over a sequence of length 'n' produces a feature map of length n - h + 1."
+    },
+    {
+        "type": "multi",
+        "question": "Select all correct techniques used for graph optimization in Twitter sentiment analysis.",
+        "options": [
+            "Assuming users do not change sentiment about an object in a short window.",
+            "Connecting tweets based on reply relationships.",
+            "Removing all edges to treat every tweet independently.",
+            "Using retweet relationships to infer shared content/sentiment."
+        ],
+        "answer": [0, 1, 3],
+        "explanation": "The graph optimization approach builds a graph where tweets are connected by user continuity, retweets, and replies to leverage context, rather than treating them independently."
+    },
+    {
+        "type": "single",
+        "question": "In the sentence 'Camera A is better than Camera B', what type of comparative relation is this?",
+        "options": [
+            "Non-comparable",
+            "Equative",
+            "Superior/Inferior Comparative",
+            "Superlative"
+        ],
+        "answer": [2],
+        "explanation": "This expresses a clear superiority of one entity over another, classifying it as a comparative relation (specifically superior)."
+    },
+    {
+        "type": "single",
+        "question": "If we apply the pattern 'RB + JJ' (Adverb + Adjective) for opinion phrase extraction, which of the following phrases would be extracted?",
+        "options": [
+            "Battery life",
+            "Very good",
+            "Run fast",
+            "Cheap price"
+        ],
+        "answer": [1],
+        "explanation": "'Very' is an adverb (RB) and 'good' is an adjective (JJ). 'Battery life' is NN+NN, 'Run fast' is VB+RB, 'Cheap price' is JJ+NN."
+    },
+    {
+        "type": "single",
+        "question": "What is the main advantage of using 'CNN-non-static' over 'CNN-static'?",
+        "options": [
+            "It requires significantly fewer parameters.",
+            "It allows the model to fine-tune task-specific meanings of words (e.g., 'good' vs 'bad').",
+            "It completely ignores pre-trained embeddings to avoid bias.",
+            "It uses a recursive structure instead of convolution."
+        ],
+        "answer": [1],
+        "explanation": "CNN-non-static allows the word vectors to be updated during training, enabling the model to learn task-specific semantic shifts (fine-tuning) that might not be captured in the generic pre-trained vectors."
+    },
+    {
+        "type": "single",
+        "question": "In the formula for calculating weights in HL-SOT, what does the identity matrix 'I' help prevent?",
+        "options": [
+            "Overfitting on small datasets.",
+            "The matrix from being non-invertible (singularity).",
+            "The gradients from vanishing.",
+            "The bias from becoming too large."
+        ],
+        "answer": [1],
+        "explanation": "In the weight update formula involving the inverse of a matrix (specifically involving the outer product of inputs), adding the identity matrix (or a regularization term) ensures the matrix is invertible."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following describes the 'One-hot' representation of a word?",
+        "options": [
+            "A dense vector of real numbers derived from Word2Vec.",
+            "A sparse vector with a single '1' at the index corresponding to the word and '0's elsewhere.",
+            "A binary tree representation of the word's syntactic dependencies.",
+            "A probability distribution over the entire vocabulary."
+        ],
+        "answer": [1],
+        "explanation": "One-hot encoding represents a word as a vector the size of the vocabulary with a single 1 identifying the word and 0s everywhere else."
+    },
+    {
+        "type": "single",
+        "question": "In the context of 'Entity Detection', what is the purpose of the 'Brand Model'?",
+        "options": [
+            "To determine the price of the brand's stock.",
+            "To search for and identify brand and model pairs (e.g., 'Moto Razr V3').",
+            "To classify the brand as luxury or budget.",
+            "To generating advertising slogans for the brand."
+        ],
+        "answer": [1],
+        "explanation": "The Brand Model pattern is used to identify entity candidates by looking for known patterns of Brand + Model strings."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are distinct problems in Opinion Mining?",
+        "options": [
+            "Opinion Summarization.",
+            "Opinion Spam/Filtering.",
+            "Comparative Opinion Analysis.",
+            "Database Normalization."
+        ],
+        "answer": [0, 1, 2],
+        "explanation": "The slides list Opinion Summarization, Opinion Filtering (Spam), and Comparative Opinions as key sub-problems. Database Normalization is a general database concept, not specific to Opinion Mining."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of 'Dropout' in the fully connected layer of the CNN sentence classifier?",
+        "options": [
+            "To increase the training speed.",
+            "To serve as a regularizer and prevent overfitting.",
+            "To reduce the dimensionality of the word vectors.",
+            "To filter out stop words."
+        ],
+        "answer": [1],
+        "explanation": "Dropout is a regularization technique used in neural networks (including the penultimate layer of this CNN) to prevent overfitting by randomly dropping units during training."
+    },
+    {
+        "type": "single",
+        "question": "In a comparative sentence analysis, if the structure is 'Product A is [comparative] than Product B', and the comparative word implies a negative sentiment (e.g., 'worse'), which entity is considered superior?",
+        "options": [
+            "Product A",
+            "Product B",
+            "Both are equal",
+            "Cannot be determined"
+        ],
+        "answer": [1],
+        "explanation": "If A is 'worse' than B, then B is the superior entity."
+    },
+    {
+        "type": "single",
+        "question": "Which evaluation metric is defined as 2 * (Precision * Recall) / (Precision + Recall)?",
+        "options": [
+            "Accuracy",
+            "F-measure (F1 score)",
+            "Entropy",
+            "Kappa statistic"
+        ],
+        "answer": [1],
+        "explanation": "This is the standard formula for the F1 score (harmonic mean of Precision and Recall), used to evaluate classification performance."
+    },
+    {
+        "type": "single",
+        "question": "When extracting candidate entities, why might a candidate like 'accessories' be filtered out?",
+        "options": [
+            "It is too long.",
+            "It is a proper noun.",
+            "Its Part-Of-Speech (POS) tag in context is different from the most popular tag for that candidate (e.g., used as a number instead of a noun).",
+            "It is a stop word."
+        ],
+        "answer": [2],
+        "explanation": "The slides mention filtering candidates if their POS tag in the specific sentence differs from the most common POS tag associated with that candidate (e.g., accessories labeled as CD/number instead of NNS/noun would be excluded)."
+    }
+]

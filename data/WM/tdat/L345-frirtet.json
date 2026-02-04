@@ -1,0 +1,482 @@
+[
+    {
+        "type": "single",
+        "question": "In the context of data visualization attributes, which statement best describes a nominal attribute?",
+        "options": [
+            "It represents a ranking or order among values, such as 'Gold', 'Silver', 'Bronze'.",
+            "It represents symbols or names with no inherent order, such as 'Red', 'Green', 'Blue'.",
+            "It represents quantitative data where the difference between two values is meaningful.",
+            "It represents data with a fixed zero point, allowing for ratio comparisons."
+        ],
+        "answer": [1],
+        "explanation": "Nominal attributes are valuable as symbols or names (e.g., 'hair color') and describe categories, codes, or states without any intrinsic ordering."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary method used to determine outliers in a Boxplot?",
+        "options": [
+            "Values that fall outside the range of the minimum and maximum observed data points.",
+            "Values that are more than 1.5 times the Interquartile Range (IQR) above the third quartile or below the first quartile.",
+            "Values that deviate from the median by more than two standard deviations.",
+            "Values that are distinct from the cluster centers in a scatter plot."
+        ],
+        "answer": [1],
+        "explanation": "In a boxplot, outliers are typically defined as individual points plotted beyond the whiskers, which extend to 1.5 * IQR from the upper and lower quartiles."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid space-filling curves used in pixel-oriented visualization techniques?",
+        "options": [
+            "Z-curve",
+            "Hilbert curve",
+            "Bezier curve",
+            "Gaussian curve"
+        ],
+        "answer": [0, 1],
+        "explanation": "The slides list specific space-filling curves used to map data dimensions to 2D screens, specifically the Z-curve and the Hilbert curve. Bezier and Gaussian curves are not mentioned in this context."
+    },
+    {
+        "type": "single",
+        "question": "In Parallel Coordinates visualization, how is a single data record (row) represented?",
+        "options": [
+            "As a single point in n-dimensional space.",
+            "As a bar whose height corresponds to the value of the first attribute.",
+            "As a polygonal line connecting intercepts on parallel axes.",
+            "As a colored pixel arranged in a recursive pattern."
+        ],
+        "answer": [2],
+        "explanation": "Parallel coordinates map k-dimensional space to two display dimensions by representing an n-dimensional record as a polygonal line connecting the value intercepts on k parallel axes."
+    },
+    {
+        "type": "single",
+        "question": "What is the defining characteristic of the 'Winning Neuron' (Best Matching Unit) in a Self-Organizing Map (SOM)?",
+        "options": [
+            "It is the neuron with the highest weight vector magnitude.",
+            "It is the neuron that has the minimum distance (e.g., Euclidean) to the input vector.",
+            "It is the neuron located at the geometric center of the map.",
+            "It is the only neuron whose weights are updated during a training iteration."
+        ],
+        "answer": [1],
+        "explanation": "The winning neuron is defined as the neuron with the minimum distance between the input vector and its weight vector."
+    },
+    {
+        "type": "single",
+        "question": "Which step occurs immediately after initializing weights in the SOM algorithm?",
+        "options": [
+            "Update the weights of the winning neuron.",
+            "Define the neighborhood radius.",
+            "Compete to find the winning neuron for a randomly selected input vector.",
+            "Select a random input vector from the training data."
+        ],
+        "answer": [3],
+        "explanation": "The SOM algorithm steps are: 1. Initialize weights, 2. Select a random input vector, 3. Compete (find winning neuron), 4. Update weights."
+    },
+    {
+        "type": "single",
+        "question": "Given a dataset with quartiles Q1 = 10 and Q3 = 30, which value would be considered an outlier in a boxplot?",
+        "options": [
+            "12",
+            "35",
+            "61",
+            "-15"
+        ],
+        "answer": [2],
+        "explanation": "The IQR is 30 - 10 = 20. The upper fence is Q3 + 1.5*IQR = 30 + 30 = 60. The lower fence is Q1 - 1.5*IQR = 10 - 30 = -20. The value 61 is greater than 60, making it an outlier."
+    },
+    {
+        "type": "single",
+        "question": "What is the main goal of the WEBSOM method?",
+        "options": [
+            "To crawl web pages faster using parallel processing.",
+            "To represent a set of documents on a 2D map based on text similarity.",
+            "To detect spam links between web pages.",
+            "To calculate the PageRank of website nodes."
+        ],
+        "answer": [1],
+        "explanation": "WEBSOM is used for the representation of a set of documents on a 2D map, where texts are represented as bags of words and grouped by similarity."
+    },
+    {
+        "type": "single",
+        "question": "In Information Retrieval, what is the primary limitation of the Boolean Model mentioned in the slides?",
+        "options": [
+            "It cannot handle large datasets.",
+            "It provides no ranking of retrieved documents (exact match only).",
+            "It is computationally more expensive than the Vector Space Model.",
+            "It requires documents to be manually labeled."
+        ],
+        "answer": [1],
+        "explanation": "The Boolean model is based on exact matching (documents either contain the terms or they don't). A key disadvantage is that there is no ranking of the retrieved documents."
+    },
+    {
+        "type": "single",
+        "question": "Which component of the TF-IDF weight decreases as a term appears in more documents across the collection?",
+        "options": [
+            "Term Frequency (tf)",
+            "Inverse Document Frequency (idf)",
+            "Document Length Normalization",
+            "Term Proximity"
+        ],
+        "answer": [1],
+        "explanation": "Inverse Document Frequency (idf) measures the informativeness of a term. If a term appears in many documents (high df), its idf value decreases, reducing its overall weight."
+    },
+    {
+        "type": "multi",
+        "question": "Select the correct statements regarding the Vector Space Model.",
+        "options": [
+            "Documents and queries are represented as vectors in a t-dimensional space.",
+            "Similarity is typically computed using the cosine of the angle between vectors.",
+            "It only supports binary weights (0 or 1).",
+            "It allows for partial matching and ranking of documents."
+        ],
+        "answer": [0, 1, 3],
+        "explanation": "The Vector Space Model represents docs/queries as vectors, allows for non-binary weights (like TF-IDF), supports partial matching/ranking, and commonly uses cosine similarity."
+    },
+    {
+        "type": "single",
+        "question": "Calculation: A search engine retrieves 20 documents. 12 of them are relevant. The total number of relevant documents in the entire database is 30. What is the Recall?",
+        "options": [
+            "0.40",
+            "0.60",
+            "0.30",
+            "0.20"
+        ],
+        "answer": [0],
+        "explanation": "Recall is defined as (Number of relevant items retrieved) / (Total number of relevant items in collection). Calculation: 12 / 30 = 0.40."
+    },
+    {
+        "type": "single",
+        "question": "Calculation: Using the same scenario (20 retrieved, 12 relevant), what is the Precision?",
+        "options": [
+            "0.40",
+            "0.60",
+            "0.30",
+            "0.12"
+        ],
+        "answer": [1],
+        "explanation": "Precision is defined as (Number of relevant items retrieved) / (Total number of items retrieved). Calculation: 12 / 20 = 0.60."
+    },
+    {
+        "type": "single",
+        "question": "What is the harmonic mean of Precision and Recall known as?",
+        "options": [
+            "Mean Average Precision (MAP)",
+            "F-measure (or F1 score)",
+            "Accuracy",
+            "R-Precision"
+        ],
+        "answer": [1],
+        "explanation": "The F-measure is defined as the harmonic mean of precision and recall, often calculated as 2*P*R / (P+R)."
+    },
+    {
+        "type": "single",
+        "question": "In an Inverted Index, what does the 'Postings List' contain?",
+        "options": [
+            "The definitions of the terms in the dictionary.",
+            "The list of documents (and often positions) where a specific term appears.",
+            "The TF-IDF weights for every term in the collection.",
+            "The HTML source code of the indexed pages."
+        ],
+        "answer": [1],
+        "explanation": "An inverted index consists of a dictionary of terms and a postings list for each term, which records which documents contain that term (and often frequency/position data)."
+    },
+    {
+        "type": "single",
+        "question": "What mathematical technique does Latent Semantic Indexing (LSI) use to reduce the dimensionality of the term-document matrix?",
+        "options": [
+            "Singular Value Decomposition (SVD)",
+            "Discrete Fourier Transform (DFT)",
+            "Logistic Regression",
+            "PageRank Algorithm"
+        ],
+        "answer": [0],
+        "explanation": "LSI uses Singular Value Decomposition (SVD) to project the term-document matrix into a lower-dimensional space to address synonymy and polysemy."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are common techniques used in Web Spamming?",
+        "options": [
+            "Content Spam (e.g., repeating keywords, invisible text)",
+            "Link Spam (e.g., link farms, honey pots)",
+            "Inverted Indexing",
+            "Stop-word removal"
+        ],
+        "answer": [0, 1],
+        "explanation": "Web spamming techniques listed in the slides include Content Spam (manipulating page text) and Link Spam (manipulating link structures to boost rank). Indexing and stop-word removal are standard IR processes, not spam."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of the 'Robots.txt' file in web crawling?",
+        "options": [
+            "It contains the list of all URLs on the website.",
+            "It provides a protocol for web crawlers to know which parts of a site should not be accessed.",
+            "It stores the metadata and ranking scores of the website.",
+            "It is a script that automatically generates new content."
+        ],
+        "answer": [1],
+        "explanation": "Robots.txt is the Robots Exclusion Protocol, which tells compliant web crawlers which files or directories they are not allowed to visit."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Link Analysis, what does an element A[i,j] = 1 in an adjacency matrix typically represent?",
+        "options": [
+            "A link from node j to node i.",
+            "A link from node i to node j.",
+            "The weight of the node i.",
+            "The PageRank score of node j."
+        ],
+        "answer": [1],
+        "explanation": "In the standard adjacency matrix representation shown in the slides, A[i,j] = 1 indicates there is an edge (link) from node i to node j."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Random Surfer Model' used to explain?",
+        "options": [
+            "The HITS algorithm.",
+            "The PageRank algorithm.",
+            "The Community Detection process.",
+            "The calculation of TF-IDF."
+        ],
+        "answer": [1],
+        "explanation": "PageRank is conceptually based on the Random Surfer Model, where a user randomly clicks links or jumps to a new page with a certain probability."
+    },
+    {
+        "type": "single",
+        "question": "Why is a 'damping factor' (d) used in the PageRank calculation?",
+        "options": [
+            "To increase the speed of the crawling process.",
+            "To handle 'sinks' (nodes with no outgoing links) and ensure the graph is connected (irreducible).",
+            "To give higher weight to new web pages.",
+            "To convert the adjacency matrix into a boolean matrix."
+        ],
+        "answer": [1],
+        "explanation": "The damping factor (usually 0.85) allows the random surfer to 'teleport' to a random page, preventing them from getting stuck in sinks (pages with no out-links) or cycles."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following best describes the HITS algorithm?",
+        "options": [
+            "It computes a single global score for every page independent of the query.",
+            "It computes two scores for each page: Authority and Hub, based on a query-specific subgraph.",
+            "It uses a probabilistic model based on random walks exclusively.",
+            "It is a content-based ranking algorithm that ignores links."
+        ],
+        "answer": [1],
+        "explanation": "HITS (Hypertext Induced Topic Selection) computes two scores (Authority and Hub) and operates on a small subgraph of pages relevant to a specific query (query-dependent)."
+    },
+    {
+        "type": "multi",
+        "question": "In the HITS algorithm, what is the relationship between Hubs and Authorities?",
+        "options": [
+            "A good hub points to many good authorities.",
+            "A good authority is pointed to by many good hubs.",
+            "Hubs and Authorities are calculated independently of each other.",
+            "Hub scores are always higher than Authority scores."
+        ],
+        "answer": [0, 1],
+        "explanation": "The HITS thesis states a mutually reinforcing relationship: a good hub is a page that points to many good authorities, and a good authority is a page pointed to by many good hubs."
+    },
+    {
+        "type": "single",
+        "question": "Calculation: In a HITS update step, if a page 'P' is pointed to by three hubs with scores 0.2, 0.3, and 0.5, what is the unnormalized Authority score of 'P'?",
+        "options": [
+            "0.33",
+            "1.0",
+            "0.03",
+            "0.1"
+        ],
+        "answer": [1],
+        "explanation": "The Authority score of a page is the sum of the Hub scores of the pages pointing to it. Calculation: 0.2 + 0.3 + 0.5 = 1.0."
+    },
+    {
+        "type": "single",
+        "question": "Calculation: In a HITS update step, if a page 'Q' points to two authorities with scores 0.4 and 0.6, what is the unnormalized Hub score of 'Q'?",
+        "options": [
+            "1.0",
+            "0.24",
+            "0.5",
+            "0.4"
+        ],
+        "answer": [0],
+        "explanation": "The Hub score of a page is the sum of the Authority scores of the pages it points to. Calculation: 0.4 + 0.6 = 1.0."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary difference between PageRank and HITS regarding query dependence?",
+        "options": [
+            "PageRank is query-dependent; HITS is query-independent.",
+            "PageRank is query-independent; HITS is query-dependent.",
+            "Both are query-independent.",
+            "Both are query-dependent."
+        ],
+        "answer": [1],
+        "explanation": "PageRank is computed offline for the entire web graph (query-independent). HITS is computed at runtime on a subgraph constructed from the query results (query-dependent)."
+    },
+    {
+        "type": "single",
+        "question": "What is the definition of 'Community Detection' in a network?",
+        "options": [
+            "Classifying nodes into predefined categories based on labels.",
+            "Identifying groups of nodes that are more densely connected to each other than to the rest of the network.",
+            "Ranking nodes based on their structural importance or centrality.",
+            "Predicting future links that will form in the network."
+        ],
+        "answer": [1],
+        "explanation": "Community detection involves finding clusters or groups where members are similar in nature or densely connected internally compared to external connections."
+    },
+    {
+        "type": "single",
+        "question": "What does the 'Modularity' (Q) metric measure in community detection?",
+        "options": [
+            "The total number of edges in the graph.",
+            "The strength of the division of a network into modules (clusters).",
+            "The speed of the community detection algorithm.",
+            "The average degree of nodes in the network."
+        ],
+        "answer": [1],
+        "explanation": "Modularity is a measure of the structure of networks or graphs. It measures the strength of division of a network into modules (clusters)."
+    },
+    {
+        "type": "single",
+        "question": "Which algorithm is a 'Divisive' hierarchical method for community detection relying on edge removal?",
+        "options": [
+            "Girvan-Newman Algorithm",
+            "PageRank Algorithm",
+            "DeepWalk",
+            "Agglomerative Clustering"
+        ],
+        "answer": [0],
+        "explanation": "The Girvan-Newman algorithm is a divisive method that detects communities by progressively removing edges with the highest 'edge betweenness'."
+    },
+    {
+        "type": "single",
+        "question": "In the Girvan-Newman algorithm, how is 'Edge Betweenness' defined?",
+        "options": [
+            "The number of triangles an edge is part of.",
+            "The number of shortest paths between pairs of nodes that run along the edge.",
+            "The weight of the edge in the adjacency matrix.",
+            "The sum of degrees of the two nodes connected by the edge."
+        ],
+        "answer": [1],
+        "explanation": "Edge betweenness is defined as the number of shortest paths between all pairs of nodes that pass through the given edge."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary goal of Graph Representation Learning (e.g., DeepWalk, node2vec)?",
+        "options": [
+            "To visualize the graph in 3D.",
+            "To learn low-dimensional vector representations (embeddings) for nodes.",
+            "To calculate the diameter of the network.",
+            "To find the maximum clique in the graph."
+        ],
+        "answer": [1],
+        "explanation": "The goal is to encode nodes into a latent vector space (embeddings) such that structural properties of the graph are preserved in the geometric relationships of the vectors."
+    },
+    {
+        "type": "single",
+        "question": "How does DeepWalk generate sequences of nodes to learn embeddings?",
+        "options": [
+            "By performing breadth-first search (BFS) only.",
+            "By using truncated random walks starting from each node.",
+            "By selecting the top k nodes with the highest degree.",
+            "By analyzing the adjacency matrix eigenvalues."
+        ],
+        "answer": [1],
+        "explanation": "DeepWalk treats random walks as the equivalent of sentences. It generates short random walks to create sequences of nodes which are then processed by a Skip-Gram model."
+    },
+    {
+        "type": "single",
+        "question": "In the node2vec algorithm, what do the parameters 'p' and 'q' control?",
+        "options": [
+            "The learning rate and number of epochs.",
+            "The biased random walk strategy (interpolating between BFS and DFS behavior).",
+            "The number of communities to detect.",
+            "The dimensions of the output vector."
+        ],
+        "answer": [1],
+        "explanation": "node2vec introduces a flexible biased random walk that explores neighborhoods. The return parameter 'p' and in-out parameter 'q' control the trade-off between BFS (structural equivalence) and DFS (homophily)."
+    },
+    {
+        "type": "single",
+        "question": "What type of proximity does the LINE algorithm explicitly attempt to preserve?",
+        "options": [
+            "Only first-order proximity.",
+            "Only second-order proximity.",
+            "Both first-order and second-order proximity.",
+            "Third-order proximity (triangles)."
+        ],
+        "answer": [2],
+        "explanation": "LINE (Large-scale Information Network Embedding) is designed to preserve both First-order Proximity (direct links) and Second-order Proximity (shared neighbors)."
+    },
+    {
+        "type": "single",
+        "question": "In the context of the Bag-of-Words model used in text visualization, how are texts represented?",
+        "options": [
+            "As a linked list of sentences.",
+            "As an unordered collection (bag) of words, disregarding grammar and word order.",
+            "As a strict hierarchy of grammatical structures.",
+            "As a sequence of phonemes."
+        ],
+        "answer": [1],
+        "explanation": "The Bag-of-Words model represents text as a set of words and their counts, ignoring the order or grammatical structure."
+    },
+    {
+        "type": "single",
+        "question": "Which visualization technique is described as mapping each attribute value to a specific colored pixel?",
+        "options": [
+            "Pixel-oriented visualization technique",
+            "Parallel Coordinates",
+            "Boxplot",
+            "Super Sphere Tree"
+        ],
+        "answer": [0],
+        "explanation": "Pixel-oriented techniques map each data value to a colored pixel and arrange them in separate areas for each attribute."
+    },
+    {
+        "type": "single",
+        "question": "Calculation: If the Term Frequency (tf) of a term 'apple' in a document is 3, and the Inverse Document Frequency (idf) is 2, what is the TF-IDF weight?",
+        "options": [
+            "5",
+            "1.5",
+            "6",
+            "0.66"
+        ],
+        "answer": [2],
+        "explanation": "The basic formula for TF-IDF weight is tf * idf. Calculation: 3 * 2 = 6."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Term Spam' in the context of Web Spamming?",
+        "options": [
+            "Creating link farms to boost PageRank.",
+            "Modifying the textual content of a page (e.g., in title, body, or meta tags) to appear relevant to popular queries.",
+            "Hacking a server to redirect users.",
+            "Sending phishing emails to users."
+        ],
+        "answer": [1],
+        "explanation": "Term spam involves manipulating the text fields of a page (content, title, metatags) to manipulate relevance scores, unlike Link spam which targets graph-based ranking."
+    },
+    {
+        "type": "single",
+        "question": "Calculation: In a PageRank iteration for node A, if A has incoming links from B and C, and we assume no damping factor for simplicity, how is PR(A) calculated?",
+        "options": [
+            "PR(A) = PR(B) + PR(C)",
+            "PR(A) = PR(B)/OutDegree(B) + PR(C)/OutDegree(C)",
+            "PR(A) = PR(B)*OutDegree(B) + PR(C)*OutDegree(C)",
+            "PR(A) = PR(B) - PR(C)"
+        ],
+        "answer": [1],
+        "explanation": "In the simplified PageRank formula, a node receives rank from its in-neighbors proportional to their rank divided by their number of outgoing links."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Link Prediction' problem in Link Analysis?",
+        "options": [
+            "Classifying the type of existing links.",
+            "Predicting the evolution of a graph over time by estimating the likelihood of new edges forming.",
+            "Predicting the PageRank score of a new node.",
+            "Finding the shortest path between two nodes."
+        ],
+        "answer": [1],
+        "explanation": "Link prediction is defined in the slides as predicting the evolution of a graph over time, specifically which edges (links) will appear in the future."
+    }
+]
