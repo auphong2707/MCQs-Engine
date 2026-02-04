@@ -1,0 +1,562 @@
+[
+    {
+        "type": "single",
+        "question": "In the context of supervised learning, what is the primary purpose of the test dataset?",
+        "options": [
+            "To build the classifier model",
+            "To select the best hyperparameters",
+            "To measure the accuracy of the learned model",
+            "To increase the size of the training data"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The test dataset is independent of the training process and is used solely to evaluate the performance and accuracy of the model after it has been trained."
+    },
+    {
+        "type": "single",
+        "question": "Which evaluation method is most appropriate when the available dataset is extremely small?",
+        "options": [
+            "Random sampling (70-30 split)",
+            "Leave-one-out",
+            "5-fold cross-validation",
+            "Hold-out method"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Leave-one-out is a special case of cross-validation where the number of folds equals the number of elements in the dataset. It is ideal for very small datasets to maximize the training data used."
+    },
+    {
+        "type": "single",
+        "question": "In a confusion matrix, what does 'False Positive' (FP) represent?",
+        "options": [
+            "Actual positive, predicted positive",
+            "Actual positive, predicted negative",
+            "Actual negative, predicted positive",
+            "Actual negative, predicted negative"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "A False Positive occurs when the model incorrectly predicts the positive class for an instance that is actually negative (often called a Type I error)."
+    },
+    {
+        "type": "single",
+        "question": "What is the formula for Precision?",
+        "options": [
+            "TP / (TP + FN)",
+            "TP / (TP + FP)",
+            "TN / (TN + FP)",
+            "2 * (Precision * Recall) / (Precision + Recall)"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Precision measures the accuracy of the positive predictions. It is calculated as the number of True Positives divided by the total number of items predicted as positive (TP + FP)."
+    },
+    {
+        "type": "single",
+        "question": "What does the Recall metric measure?",
+        "options": [
+            "The proportion of actual positives that were correctly identified",
+            "The proportion of predicted positives that were actually correct",
+            "The proportion of actual negatives that were correctly identified",
+            "The overall correctness of the model"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Recall (also known as Sensitivity) calculates the fraction of relevant instances (actual positives) that were successfully retrieved or classified by the model (TP / (TP + FN))."
+    },
+    {
+        "type": "single",
+        "question": "The F-measure (or F1 score) is the harmonic mean of which two metrics?",
+        "options": [
+            "Sensitivity and Specificity",
+            "Accuracy and Error Rate",
+            "Precision and Recall",
+            "True Positive Rate and False Positive Rate"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The F-measure balances Precision and Recall, providing a single score that accounts for both false positives and false negatives."
+    },
+    {
+        "type": "single",
+        "question": "What are the axes of a Receiver Operating Characteristic (ROC) curve?",
+        "options": [
+            "Precision vs. Recall",
+            "True Positive Rate vs. False Positive Rate",
+            "Accuracy vs. Error Rate",
+            "True Positive Rate vs. True Negative Rate"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "An ROC curve plots the True Positive Rate (Sensitivity) on the y-axis against the False Positive Rate (1 - Specificity) on the x-axis."
+    },
+    {
+        "type": "single",
+        "question": "In Decision Tree learning, what does Entropy measure?",
+        "options": [
+            "The accuracy of the tree",
+            "The impurity or homogeneity of the dataset",
+            "The number of branches in the tree",
+            "The correlation between attributes"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Entropy quantifies the amount of uncertainty or impurity in a dataset. A completely homogeneous dataset (all examples belong to one class) has an entropy of 0."
+    },
+    {
+        "type": "single",
+        "question": "Which algorithm uses the 'divide-and-conquer' strategy to recursively split data into homogeneous subsets?",
+        "options": [
+            "Support Vector Machine",
+            "Naive Bayes",
+            "Decision Tree",
+            "K-Nearest Neighbor"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Decision Trees use a greedy, top-down, recursive divide-and-conquer approach to partition the data based on attribute values until a stopping condition is met."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Information Gain' used for in Decision Trees?",
+        "options": [
+            "To calculate the final accuracy of the tree",
+            "To select the best attribute to split the data at each node",
+            "To pruning the tree after construction",
+            "To handle missing values"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Information Gain measures the reduction in entropy achieved by splitting the data on a specific attribute. The attribute with the highest gain is chosen as the splitting node."
+    },
+    {
+        "type": "single",
+        "question": "Why might 'Gain Ratio' be preferred over 'Information Gain'?",
+        "options": [
+            "Information Gain is computationally too expensive",
+            "Information Gain tends to favor attributes with many distinct values",
+            "Gain Ratio allows for handling continuous variables",
+            "Gain Ratio eliminates the need for pruning"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Information Gain has a bias toward attributes with a large number of values (e.g., ID codes). Gain Ratio normalizes the gain by the split information to correct this bias."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Overfitting' in the context of machine learning?",
+        "options": [
+            "The model performs poorly on both training and test data",
+            "The model is too simple to capture the underlying patterns",
+            "The model performs well on training data but poorly on unseen test data",
+            "The model requires too much memory to store"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Overfitting occurs when a model learns the noise or specific details of the training data to the extent that it negatively impacts its performance on new, unseen data."
+    },
+    {
+        "type": "single",
+        "question": "What is the main purpose of 'Pruning' in Decision Trees?",
+        "options": [
+            "To increase the depth of the tree for better accuracy",
+            "To remove branches that reflect noise or outliers to prevent overfitting",
+            "To add more attributes to the dataset",
+            "To convert the tree into a set of rules"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Pruning reduces the size of the decision tree by removing sections that provide little power to classify instances, thereby reducing complexity and overfitting."
+    },
+    {
+        "type": "single",
+        "question": "Which assumption is central to the Naive Bayes classifier?",
+        "options": [
+            "Attributes are fully dependent on each other",
+            "Attributes are conditionally independent given the class",
+            "The data must be linearly separable",
+            "The distribution of data must be Gaussian"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Naive Bayes assumes that the value of a particular feature is independent of the value of any other feature, given the class variable. This is the 'naive' part of the algorithm."
+    },
+    {
+        "type": "single",
+        "question": "In Naive Bayes, what problem does 'Smoothing' (e.g., Laplace smoothing) address?",
+        "options": [
+            "Overfitting due to too many parameters",
+            "High computational cost",
+            "Zero probability for unseen attribute values in the training set",
+            "The assumption of independence being violated"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "If a categorical value in the test set was not observed in the training set, the probability becomes zero, wiping out the entire calculation. Smoothing adds a small count (like +1) to avoid this zero probability."
+    },
+    {
+        "type": "single",
+        "question": "In text classification using Naive Bayes, how is a document typically represented?",
+        "options": [
+            "As a sequence of characters",
+            "As a Bag of Words (vector of word counts)",
+            "As a semantic graph",
+            "As a set of grammatical rules"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Bag of Words model represents text as an unordered collection of words, disregarding grammar and word order but keeping multiplicity (frequency)."
+    },
+    {
+        "type": "single",
+        "question": "What is the objective of a Support Vector Machine (SVM)?",
+        "options": [
+            "To find a hyperplane that minimizes the distance to all points",
+            "To find a hyperplane that maximizes the margin between classes",
+            "To find the nearest neighbors for classification",
+            "To build a probability distribution of the data"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "SVM seeks to find the optimal separating hyperplane that has the maximum margin (distance) to the nearest data points of any class (the support vectors)."
+    },
+    {
+        "type": "single",
+        "question": "In SVM, what are 'Support Vectors'?",
+        "options": [
+            "The data points farthest from the hyperplane",
+            "The data points closest to the hyperplane",
+            "The weighted average of all data points",
+            "The misclassified data points in the training set"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Support vectors are the data points that lie closest to the decision surface (hyperplane). They are the most difficult to classify and essentially determine the position of the hyperplane."
+    },
+    {
+        "type": "single",
+        "question": "What method does SVM use to handle non-linearly separable data?",
+        "options": [
+            "Pruning",
+            "Bagging",
+            "Kernel Trick",
+            "Gradient Descent"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Kernel Trick maps the input data into a higher-dimensional feature space where a linear hyperplane can separate the classes."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a standard Kernel function used in SVM?",
+        "options": [
+            "Polynomial",
+            "Gaussian RBF",
+            "Sigmoid",
+            "Entropy"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Polynomial, Gaussian RBF, and Sigmoid are common kernel functions. Entropy is a measure of impurity used in Decision Trees, not a kernel function."
+    },
+    {
+        "type": "single",
+        "question": "Why is K-Nearest Neighbors (KNN) often called a 'Lazy Learner'?",
+        "options": [
+            "It is very slow to classify new instances",
+            "It does not build a model during the training phase",
+            "It randomly guesses the class labels",
+            "It only uses a subset of the data for training"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "KNN simply stores the training data and performs computations only when a query is made (at classification time), rather than building a generalized model beforehand."
+    },
+    {
+        "type": "single",
+        "question": "In the KNN algorithm, how is the class of a new data point determined?",
+        "options": [
+            "By the class of the single nearest neighbor",
+            "By the majority vote of its K nearest neighbors",
+            "By the average distance to all cluster centers",
+            "By the probability calculated from the Gaussian distribution"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "KNN identifies the K training examples closest to the query point and assigns the class that is most frequent among those K neighbors."
+    },
+    {
+        "type": "single",
+        "question": "What is a major disadvantage of the KNN algorithm?",
+        "options": [
+            "It requires a long training time",
+            "It is difficult to interpret/explain and slow at query time",
+            "It cannot handle multi-class problems",
+            "It requires linearly separable data"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Because KNN calculates distances to all training samples at query time, it is computationally expensive (slow) for large datasets. It is also a 'black box' in that it doesn't provide a descriptive model (rules)."
+    },
+    {
+        "type": "single",
+        "question": "In the context of SVM, what is the role of the parameter 'C'?",
+        "options": [
+            "It determines the number of clusters",
+            "It controls the trade-off between maximizing the margin and minimizing classification errors",
+            "It sets the learning rate for gradient descent",
+            "It defines the dimensionality of the feature space"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The 'C' parameter in SVM acts as a regularization parameter. A large C penalizes misclassifications heavily (hard margin), while a small C allows more misclassifications to achieve a wider margin (soft margin)."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following describes 'Sensitivity'?",
+        "options": [
+            "True Positive Rate (TPR)",
+            "True Negative Rate (TNR)",
+            "False Positive Rate (FPR)",
+            "False Negative Rate (FNR)"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Sensitivity is synonymous with the True Positive Rate (Recall), measuring the proportion of actual positives correctly identified."
+    },
+    {
+        "type": "single",
+        "question": "In a Lift Curve, what does the baseline typically represent?",
+        "options": [
+            "A perfect model",
+            "A random model",
+            "An inverse model",
+            "The optimal threshold"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In a Lift Chart, the baseline is usually a diagonal line representing the performance of a random classifier. The lift curve shows how much better the model is compared to random guessing."
+    },
+    {
+        "type": "single",
+        "question": "When constructing a decision tree for a continuous attribute, how is the split typically handled?",
+        "options": [
+            "The attribute is discarded",
+            "The attribute is discretized into bins or a binary threshold is chosen",
+            "A separate tree is built for each value",
+            "The average value is always used as the root"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Continuous attributes are usually split by choosing a threshold that maximizes information gain, effectively converting the continuous range into binary intervals (e.g., Age < 30 and Age >= 30)."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'MAP' assumption in Naive Bayes?",
+        "options": [
+            "Maximum Accuracy Prediction",
+            "Maximum A Posteriori",
+            "Minimum Average Precision",
+            "Mean Absolute Probability"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Naive Bayes relies on the Maximum A Posteriori (MAP) hypothesis, which seeks the class that is most probable given the observed data."
+    },
+    {
+        "type": "single",
+        "question": "The 'Kernel Polynomial' of degree d maps the input space to a feature space of what dimensionality?",
+        "options": [
+            "The same dimension as the input",
+            "Infinite dimension",
+            "Higher dimension determined by combinations of input features",
+            "Lower dimension to reduce noise"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "A polynomial kernel maps input vectors into a higher-dimensional feature space containing correlations of the original features (e.g., x1*x2, x1^2), allowing for non-linear separation."
+    },
+    {
+        "type": "single",
+        "question": "Which type of validation set is used to tune hyperparameters (like 'k' in KNN or tree depth)?",
+        "options": [
+            "Training set",
+            "Test set",
+            "Validation set",
+            "Production set"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The validation set is a subset of the training data used to tune hyperparameters and prevent overfitting before the final evaluation on the test set."
+    },
+    {
+        "type": "single",
+        "question": "In the SVM dual problem formulation, what indicates that a data point is a Support Vector?",
+        "options": [
+            "Its Lagrange multiplier (alpha) is zero",
+            "Its Lagrange multiplier (alpha) is greater than zero",
+            "It is misclassified",
+            "It is the centroid of the class"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In the dual formulation of SVM, only the support vectors have non-zero Lagrange multipliers (alpha > 0). Points correctly classified and outside the margin have alpha = 0."
+    },
+    {
+        "type": "single",
+        "question": "If a dataset has an Entropy of 0, what does this imply?",
+        "options": [
+            "The data is completely random",
+            "The data is perfectly homogeneous (all examples belong to one class)",
+            "The data has missing values",
+            "The classes are equally distributed"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Entropy is 0 when there is no impurity, meaning all examples in the dataset belong to the same class."
+    },
+    {
+        "type": "single",
+        "question": "Which SVM kernel is defined by K(x, z) = exp(-||x-z||^2 / 2sigma)?",
+        "options": [
+            "Linear Kernel",
+            "Polynomial Kernel",
+            "Gaussian (RBF) Kernel",
+            "Sigmoid Kernel"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "This formula corresponds to the Gaussian Radial Basis Function (RBF) kernel, which is widely used for non-linear classification."
+    },
+    {
+        "type": "single",
+        "question": "In Naive Bayes text classification, what does the Multinomial model assume?",
+        "options": [
+            "Words are generated by a Gaussian distribution",
+            "The position of words determines their probability",
+            "Word counts (frequencies) matter, and text length is independent of class",
+            "Only the presence or absence of a word matters (Bernoulli)"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Multinomial Naive Bayes model considers the frequency of word occurrences (bag of words) and models the text generation as a multinomial trial."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Structural Risk Minimization' principle in SVM?",
+        "options": [
+            "Minimizing training error only",
+            "Maximizing the margin to minimize the upper bound of generalization error",
+            "Minimizing the number of features used",
+            "Minimizing the computational time"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "SVM aims to minimize structural risk (generalization error) rather than just empirical risk (training error) by maximizing the margin of separation."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'dummy variable trap' NOT related to?",
+        "options": [
+            "Linear Regression",
+            "Categorical Encoding",
+            "Decision Tree Pruning",
+            "Multicollinearity"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The dummy variable trap is a multicollinearity issue in regression when categorical variables are one-hot encoded without dropping one column. It is generally not a concept associated with Decision Tree pruning."
+    },
+    {
+        "type": "single",
+        "question": "If a Decision Tree is fully grown until every leaf is pure, what is the likely outcome?",
+        "options": [
+            "High bias",
+            "Underfitting",
+            "Overfitting",
+            "Optimal generalization"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "A fully grown tree will memorize the training data, capturing noise and specific outliers, leading to high variance and overfitting."
+    },
+    {
+        "type": "single",
+        "question": "In k-fold cross-validation, how many times is the model trained?",
+        "options": [
+            "1 time",
+            "k times",
+            "k-1 times",
+            "n times (where n is dataset size)"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In k-fold cross-validation, the data is divided into k partitions. The training process is repeated k times, each time using a different partition as the test set."
+    },
+    {
+        "type": "single",
+        "question": "Which logic gate problem can a linear classifier (like a perceptron or linear SVM) NOT solve?",
+        "options": [
+            "AND",
+            "OR",
+            "NOT",
+            "XOR"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The XOR problem is the classic example of non-linearly separable data, which a single linear decision boundary cannot solve."
+    },
+    {
+        "type": "single",
+        "question": "For a dataset with two classes where P(Pos)=0.5 and P(Neg)=0.5, what is the Entropy?",
+        "options": [
+            "0",
+            "0.5",
+            "1.0",
+            "2.0"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "When the classes are perfectly balanced (maximum uncertainty), the entropy is 1 (calculated as -0.5*log2(0.5) - 0.5*log2(0.5))."
+    }
+]
