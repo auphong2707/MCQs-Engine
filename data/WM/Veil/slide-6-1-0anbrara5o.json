@@ -1,0 +1,562 @@
+[
+  {
+    "type": "single",
+    "question": "According to the slides, which of the following is NOT one of the five core components of an opinion?",
+    "options": [
+      "Opinion holder",
+      "Sentiment",
+      "Publication date",
+      "Object/entity"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "The five components of an opinion defined in the slides are: opinion holder, sentiment, object/entity, aspect of entity, and time. 'Publication date' is semantically similar to time but the specific terminology used in the definition list is 'time', and often 'hosting platform' or specific metadata like 'publisher' are excluded from the core definition."
+  },
+  {
+    "type": "single",
+    "question": "What are the two sub-problems involved in 'Opinion Summarization'?",
+    "options": [
+      "Detecting the language and translating the review",
+      "Defining aspects and categorizing sentiment for each aspect",
+      "Identifying the opinion holder and their location",
+      "Filtering spam and ranking the remaining reviews"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "Opinion summarization is described as consisting of two sub-problems: defining the aspect (feature) of the product and categorizing the sentiment associated with each of those aspects."
+  },
+  {
+    "type": "single",
+    "question": "Which type of spam is characterized by giving a bad product a positive rating (e.g., 5 stars)?",
+    "options": [
+      "Defaming spam",
+      "Hype spam",
+      "Phishing spam",
+      "Bot spam"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "Hype spam is defined as spam where a 'Bad product' is given a high rating (positive review) to artificially inflate its reputation. Defaming spam is the opposite (good product, bad rating)."
+  },
+  {
+    "type": "single",
+    "question": "In the unsupervised sentiment analysis method, which POS tag pattern matches the phrase 'máy mới' (new machine)?",
+    "options": [
+      "RB + JJ",
+      "NN + JJ",
+      "VB + RB",
+      "RB + VB"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The phrase 'máy mới' consists of 'máy' (common noun, NN) and 'mới' (adjective, JJ). Therefore, it matches the NN + JJ pattern used to identify potential opinion phrases."
+  },
+  {
+    "type": "single",
+    "question": "What is the formula for calculating Semantic Orientation (SO) for a phrase 't' in the Vietnamese application of Turney's algorithm?",
+    "options": [
+      "PMI(t, 'tốt') + PMI(t, 'kém')",
+      "PMI(t, 'tốt') / PMI(t, 'kém')",
+      "PMI(t, 'tốt') - PMI(t, 'kém')",
+      "PMI(t, 'positive') - PMI(t, 'negative')"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "The slides specify that for Vietnamese, the reference words are 'tốt' (good) and 'kém' (poor). The Semantic Orientation is calculated as the difference between the PMI of the phrase with 'tốt' and the PMI of the phrase with 'kém'."
+  },
+  {
+    "type": "single",
+    "question": "What does 'Defaming spam' refer to in the context of opinion filtering?",
+    "options": [
+      "Giving a good product a bad rating",
+      "Giving a bad product a good rating",
+      "Posting unrelated advertisements",
+      "Posting multiple duplicate reviews"
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "Defaming spam is intended to damage the reputation of a competitor or entity. It involves assigning a low rating (1 or 2) to a 'Good product'."
+  },
+  {
+    "type": "single",
+    "question": "Which sentiment analysis category best fits the sentence: 'Thí sinh hồi hộp, gục trên bàn vì mệt mỏi' (Contestant anxious, collapsed due to fatigue)?",
+    "options": [
+      "Introverted sentiment",
+      "Extroverted sentiment",
+      "Mood",
+      "Attitude"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "The slides categorize this sentence as 'Mood', which reflects a state of mind or feeling (anxiety, fatigue) rather than a direct opinion on an external object."
+  },
+  {
+    "type": "single",
+    "question": "In the dictionary-based sentiment analysis example, how is the final sentiment score calculated?",
+    "options": [
+      "Ratio of positive words to negative words",
+      "Count of positive words minus count of negative words",
+      "Average sentiment weight of all words",
+      "Total number of emotional words found"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The example shows calculating the score by subtracting the number of negative words from the number of positive words (Score = pos - neg). If the result is negative, the document is classified as negative."
+  },
+  {
+    "type": "single",
+    "question": "Which POS pattern corresponds to the phrase 'chạy mượt' (runs smoothly)?",
+    "options": [
+      "NN + JJ",
+      "RB + JJ",
+      "VB + RB",
+      "RB + VB"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "'Chạy' is a verb (VB) and 'mượt' is an adjective acting as an adverb (RB) in this context. The slides identify this as the VB + RB pattern."
+  },
+  {
+    "type": "single",
+    "question": "What is the primary function of the 'Max-over-time pooling' layer in the CNN sentence classification model?",
+    "options": [
+      "To average all features into a single value",
+      "To select the most important feature generated by a specific filter",
+      "To reduce the dimension of the word embeddings",
+      "To prevent overfitting by dropping random connections"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "Max-over-time pooling captures the highest value from the feature map, representing the most significant feature (strongest activation) detected by that filter across the entire sentence."
+  },
+  {
+    "type": "single",
+    "question": "Which dataset is described as an extension of the MR dataset with 5 sentiment labels?",
+    "options": [
+      "SST-1",
+      "SST-2",
+      "CR",
+      "TREC"
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "SST-1 (Stanford Sentiment Treebank) is described as an extension of the Movie Review (MR) dataset that includes 5 specific labels: very positive, positive, neutral, negative, and very negative."
+  },
+  {
+    "type": "single",
+    "question": "In the CBOW architecture, what is the goal of the neural network?",
+    "options": [
+      "To predict the surrounding context words given a center word",
+      "To predict the center word given the surrounding context words",
+      "To classify the sentiment of the entire sentence",
+      "To generate a parse tree for the sentence"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "CBOW (Continuous Bag of Words) takes the surrounding words in a window as input and tries to predict the focus (center) word."
+  },
+  {
+    "type": "single",
+    "question": "What characterizes the 'CNN-static' model variant?",
+    "options": [
+      "Word vectors are randomly initialized and trained from scratch",
+      "Pre-trained word vectors are used but kept frozen during training",
+      "Pre-trained word vectors are used and fine-tuned during training",
+      "Two sets of word vectors are used simultaneously"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "CNN-static uses pre-trained vectors (like word2vec) and keeps them static (weights are not updated) throughout the training process. It only learns the weights of the subsequent network layers."
+  },
+  {
+    "type": "single",
+    "question": "Which vector arithmetic operation represents the relationship 'King is to Man as Queen is to Woman'?",
+    "options": [
+      "King + Man = Queen + Woman",
+      "King - Man + Woman ≈ Queen",
+      "King * Woman = Queen",
+      "King / Man = Queen / Woman"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides illustrate semantic relationships with vector algebra: vector('King') - vector('Man') + vector('Woman') results in a vector very close to vector('Queen')."
+  },
+  {
+    "type": "single",
+    "question": "In the Skip-gram model, what serves as the input to the network?",
+    "options": [
+      "The surrounding context words",
+      "The focus (center) word",
+      "The entire document vector",
+      "The syntax tree of the sentence"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "Skip-gram reverses the CBOW approach; it takes the current focus word as input and attempts to predict the surrounding context words."
+  },
+  {
+    "type": "single",
+    "question": "If a CNN has filter window sizes of 3, 4, and 5, and 100 filters for each size, how many total neurons are in the pooling layer?",
+    "options": [
+      "100",
+      "300",
+      "1200",
+      "12"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "For each window size (3 types), there are 100 filters. Each filter produces one feature map, which is pooled to a single value. Therefore, 3 sizes * 100 filters = 300 pooled features (neurons)."
+  },
+  {
+    "type": "single",
+    "question": "What is the dropout ratio applied to the fully connected layer in the described CNN model?",
+    "options": [
+      "0.2",
+      "0.5",
+      "0.75",
+      "0.1"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides specify an adjustment technique where dropout is applied at the pooling layer (feeding into the fully connected layer) with a dropout ratio of p = 0.5."
+  },
+  {
+    "type": "single",
+    "question": "In the unsupervised sentiment analysis algorithm, what is the final step after calculating SO for phrases?",
+    "options": [
+      "Classify the document using a Support Vector Machine",
+      "Sum the SO values of all phrases to determine document sentiment",
+      "Filter out phrases with low PMI scores",
+      "Manually verify the sentiment of the top phrases"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "Step 3 of the algorithm is to determine the sentiment of the document by summing the Semantic Orientation (SO) values of all extracted opinion phrases. If the sum is > 0, the document is positive."
+  },
+  {
+    "type": "single",
+    "question": "Which of the following phrases follows the 'RB + VA' (Adverb + Verb Adjective) pattern?",
+    "options": [
+      "Rất rẻ",
+      "Máy mới",
+      "Chạy nhanh",
+      "Giá cao"
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "'Rất' is an adverb (RB) and 'rẻ' is a verb adjective (VA) (stative verb in Vietnamese). 'Máy mới' is NN+JJ. 'Giá cao' is NN+JJ. 'Chạy nhanh' is VB+RB."
+  },
+  {
+    "type": "single",
+    "question": "What is the dimension of the feature map generated by a filter of height 'h' on a sentence of length 'n'?",
+    "options": [
+      "n * h",
+      "n + h",
+      "n - h + 1",
+      "(n - h) / 2"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "A convolution operation sliding a window of height 'h' over a sequence of length 'n' results in a vector of length n - h + 1."
+  },
+  {
+    "type": "single",
+    "question": "Which dataset consists of product reviews with binary positive/negative labels?",
+    "options": [
+      "MR",
+      "SST-2",
+      "CR",
+      "MPQA"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "The CR dataset is explicitly described in the slides as containing 'Product reviews' with positive and negative labels."
+  },
+  {
+    "type": "single",
+    "question": "What is the 'CNN-multichannel' model?",
+    "options": [
+      "A model with one static channel and one non-static channel",
+      "A model that processes text and images simultaneously",
+      "A model that uses both CBOW and Skip-gram inputs",
+      "A model with multiple output layers for different languages"
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "CNN-multichannel is a hybrid model that employs two sets of word vectors (channels): one that is kept static (frozen) and one that is non-static (fine-tuned) during training."
+  },
+  {
+    "type": "single",
+    "question": "In the 'Fine-tuned word embedding' example, which word becomes most similar to 'bad' in the non-static channel?",
+    "options": [
+      "Good",
+      "Terrible",
+      "Nice",
+      "Great"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides show that in the static channel, 'bad' is close to 'good' (similar context), but in the non-static channel (tuned for sentiment), 'bad' clusters with 'terrible', 'horrible', and 'lousy'."
+  },
+  {
+    "type": "single",
+    "question": "What represents the input layer of the CNN for sentence classification?",
+    "options": [
+      "A bag-of-words vector",
+      "A concatenation of word representation vectors",
+      "A single averaged document vector",
+      "A sparse matrix of character counts"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The document representation (input layer) is formed by concatenating the vectors of the words in the sentence in the order they appear."
+  },
+  {
+    "type": "single",
+    "question": "What is the primary advantage of using pre-trained word embeddings like word2vec?",
+    "options": [
+      "They require labeled data for training",
+      "They leverage large amounts of unlabeled data to capture semantics",
+      "They are smaller in size compared to one-hot encoding",
+      "They eliminate the need for a hidden layer in the network"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "Word2vec is highlighted for its ability to leverage large amounts of learning data without labeling to generate vectors that exhibit semantic relations."
+  },
+  {
+    "type": "single",
+    "question": "Which sentiment classification type is described by the sentence 'Em tự thấy mình khá năng động, biết đàn' (I find myself quite dynamic, can play music)?",
+    "options": [
+      "Attitude",
+      "Mood",
+      "Character",
+      "Extroverted sentiment"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "The slides classify this sentence as 'Character', as it describes the personality or traits of the speaker."
+  },
+  {
+    "type": "single",
+    "question": "In the PMI formula $P(t_1 | t_2)$, what is the purpose of adding '1' in the numerator and 'V' in the denominator?",
+    "options": [
+      "To normalize the values between 0 and 1",
+      "To perform Laplace smoothing (avoiding zero probabilities)",
+      "To increase the weight of rare words",
+      "To account for the document length"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The formula includes +1 and +V (Vocabulary size). This is a standard smoothing technique (Laplace smoothing) to handle cases where counts might be zero, preventing undefined or zero probability calculations."
+  },
+  {
+    "type": "single",
+    "question": "Which of the following is an example of 'Introverted sentiment'?",
+    "options": [
+      "Thật vinh dự và tự hào cho tôi khi được xem bóng đá Việt Nam...",
+      "Nur Farahain còn nổi tiếng là giáo viên thân thiện...",
+      "Thí sinh hồi hộp, gục trên bàn vì mệt mỏi",
+      "Hết lòng vì nhà chồng nhưng tôi vẫn bị mẹ chồng ghét"
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "The sentence expressing personal honor and pride ('Thật vinh dự và tự hào cho tôi...') is classified as Introverted sentiment in the slides."
+  },
+  {
+    "type": "single",
+    "question": "What does the pattern 'NN + JJ' stand for?",
+    "options": [
+      "Noun + Adjective",
+      "Noun + Verb",
+      "Adverb + Adjective",
+      "Verb + Adjective"
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "In POS tagging, NN stands for Noun (specifically common noun) and JJ stands for Adjective."
+  },
+  {
+    "type": "single",
+    "question": "In the 'Comparative opinions' problem, what is the typical structure of the analysis?",
+    "options": [
+      "Object A vs Object B on aspect 's'",
+      "Object A vs Object A at time 't'",
+      "Object A vs global average",
+      "Sentiment of A + Sentiment of B"
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "Comparative opinion mining is defined as analyzing opinions comparing Object A and Object B, often specifically regarding a certain aspect 's'."
+  },
+  {
+    "type": "single",
+    "question": "Which model keeps the word vectors static but allows the rest of the network to learn?",
+    "options": [
+      "CNN-rand",
+      "CNN-static",
+      "CNN-non-static",
+      "CNN-multichannel"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "CNN-static initializes with pre-trained vectors and keeps them fixed (static) while training the model's other parameters."
+  },
+  {
+    "type": "single",
+    "question": "What determines the window width 'h' in the convolutional layer?",
+    "options": [
+      "The number of filters used",
+      "The number of consecutive words scanned",
+      "The dimensionality of the word vectors",
+      "The total length of the sentence"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The window width 'h' corresponds to the number of consecutive words the filter covers (e.g., 3, 4, or 5 words)."
+  },
+  {
+    "type": "single",
+    "question": "What is the purpose of the 'Fully connected layer' in the CNN architecture?",
+    "options": [
+      "To extract local features from the text",
+      "To aggregate features and produce the final class probabilities",
+      "To convert words into vector representations",
+      "To perform max pooling operations"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The fully connected layer receives the high-level features from the pooling layer and uses Softmax to output the probabilities for the final classification (e.g., Positive vs Negative)."
+  },
+  {
+    "type": "single",
+    "question": "In the visualization of word representations, which relationship is depicted using PCA projection?",
+    "options": [
+      "Verb tenses",
+      "Country and Capital cities",
+      "Food and Flavors",
+      "Family relationships"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slide explicitly shows a graph titled 'Country and Capital Vectors Projected by PCA', illustrating the vector relationship between countries (e.g., China) and their capitals (e.g., Beijing)."
+  },
+  {
+    "type": "single",
+    "question": "Which of the following is NOT a method of sentiment analysis listed in the slides?",
+    "options": [
+      "Knowledge base / Dictionary request",
+      "Unsupervised learning",
+      "Supervised learning",
+      "Reinforcement learning"
+    ],
+    "answer": [
+      3
+    ],
+    "explanation": "The slides list three main approaches: Sentiment dictionary (Knowledge base), Unsupervised, and Supervised. Reinforcement learning is not mentioned as a method in this context."
+  },
+  {
+    "type": "single",
+    "question": "What constitutes the 'SST-2' dataset?",
+    "options": [
+      "Movie reviews with 5 sentiment labels",
+      "Movie reviews with binary labels (positive/negative)",
+      "Product reviews with binary labels",
+      "News articles with topic labels"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "SST-2 is described as similar to SST-1 but with the neutral label removed, leaving only binary labels (positive and negative)."
+  },
+  {
+    "type": "single",
+    "question": "What is the 'Penultimate layer' in the CNN architecture?",
+    "options": [
+      "The input layer",
+      "The convolutional layer",
+      "The fully connected layer with dropout",
+      "The softmax output layer"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "The penultimate layer is the one immediately preceding the output layer. In this architecture, it is the fully connected layer where dropout is applied."
+  },
+  {
+    "type": "single",
+    "question": "In the unsupervised algorithm step 2, what does 'PMI' stand for?",
+    "options": [
+      "Positive Mutual Information",
+      "Pointwise Mutual Information",
+      "Predictive Model Index",
+      "Probabilistic Match Indicator"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "PMI stands for Pointwise Mutual Information, which is used to calculate the likelihood of co-occurrence between two terms."
+  },
+  {
+    "type": "single",
+    "question": "For the phrase 'rất tốt' (very good), which extraction pattern applies?",
+    "options": [
+      "RB + JJ",
+      "NN + JJ",
+      "VB + RB",
+      "RB + VB"
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "'Rất' is an adverb (RB) and 'tốt' is an adjective (JJ). Thus, the pattern is RB + JJ."
+  },
+  {
+    "type": "single",
+    "question": "Which CNN model variant randomly initializes words and updates them during training?",
+    "options": [
+      "CNN-rand",
+      "CNN-static",
+      "CNN-non-static",
+      "CNN-multichannel"
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "CNN-rand is the baseline model where word embeddings are initialized randomly (not using pre-trained vectors) and are updated/learned during the training process."
+  }
+]

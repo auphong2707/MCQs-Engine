@@ -1,0 +1,562 @@
+[
+  {
+    "type": "single",
+    "question": "In the context of Aspect-based Opinion Mining, which approach is described as producing high results but being difficult to adjust to new fields?",
+    "options": [
+      "The Unsupervised approach using clustering",
+      "The Supervised approach using dependency syntax",
+      "The Classical approach using rule-based systems",
+      "The Deep Learning approach using transformers"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides explicitly state that the Supervised approach (using dependency syntax) yields high results but is difficult to adjust to new fields, whereas the Classical approach works on multiple fields but requires extensive rule creation."
+  },
+  {
+    "type": "single",
+    "question": "What is the primary function of the Sentiment Ontology Tree (SOT) described in the lecture?",
+    "options": [
+      "To visualize the social network graph of users",
+      "To map the dependency syntax of a single sentence",
+      "To demonstrate ancestor-descendant relationships among domain aspects",
+      "To classify tweets into subjective and objective categories"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "The Sentiment Ontology Tree (SOT) is defined as a structure that demonstrates the relationships (ancestors - descendants) among the aspects in a specific domain."
+  },
+  {
+    "type": "single",
+    "question": "In the HL-SOT problem definition, what condition must be met if a node 'i' has a label of 1 ($y_i=1$)?",
+    "options": [
+      "All its descendant nodes must also have a label of 1",
+      "All its ancestor nodes must also have a label of 1",
+      "All its sibling nodes must have a label of 0",
+      "The root node must have a label of 0"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The adaptation rule for SOT states that if a node $y_i=1$, then $y_j=1$ for all $j$ where $j$ is an ancestor of node $i$."
+  },
+  {
+    "type": "single",
+    "question": "How are the weight matrix $W$ and threshold vector $\\theta$ initialized in the HL-SOT learning algorithm?",
+    "options": [
+      "They are initialized with random small values",
+      "They are initialized using a pre-trained language model",
+      "They are set to be 0 vectors",
+      "They are set to 1 to ensure initial activation"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "The initialization step of the HL-SOT algorithm specifies that each vector $w_{i,1}$ of the weight matrix and the threshold vector $\\theta_1$ are set to be 0 vectors."
+  },
+  {
+    "type": "single",
+    "question": "Under what condition is the weight $W_{i,t}$ of node 'i' updated in the HL-SOT algorithm?",
+    "options": [
+      "It is updated in every iteration regardless of other nodes",
+      "It is updated only if the parent node of 'i' is set to positive",
+      "It is updated only if the prediction error exceeds a specific margin",
+      "It is updated only when the node 'i' is a leaf node"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The algorithm explicitly states: 'Only update weight $W_{i,t}$ of node i if parent node of i is set positive'."
+  },
+  {
+    "type": "single",
+    "question": "How is the threshold $\\theta$ updated when the classifier incorrectly predicts a positive label (False Positive)?",
+    "options": [
+      "The threshold is increased",
+      "The threshold is decreased",
+      "The threshold remains constant",
+      "The threshold is reset to zero"
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "The update rule is $\\theta_{t+1} = \\theta_t + \\epsilon(\\hat{y} - l)$. If the prediction $\\hat{y}$ is positive (1) and the label $l$ is negative (0), the result is positive, leading to an increase in the threshold."
+  },
+  {
+    "type": "single",
+    "question": "What is the maximum character limit for a tweet mentioned in the lecture slides (based on 2011 standards)?",
+    "options": [
+      "140 characters",
+      "280 characters",
+      "160 characters",
+      "100 characters"
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "The slides explicitly mention: 'Tweet has maximum 140 characters'."
+  },
+  {
+    "type": "single",
+    "question": "Which of the following is the first step in the proposed Twitter sentiment analysis algorithm?",
+    "options": [
+      "Positive/Negative classification",
+      "Graph optimization of relevant tweets",
+      "Subjective/Objective classification",
+      "Extraction of user profile metadata"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "The algorithm order is listed as: 1. Subjective/Objective classification, 2. Positive/Negative classification, 3. Optimize graph."
+  },
+  {
+    "type": "single",
+    "question": "Which tool is recommended for part-of-speech tagging in the Twitter preprocessing phase?",
+    "options": [
+      "Stanford CoreNLP",
+      "OpenNLP",
+      "NLTK",
+      "SpaCy"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides specify the use of OpenNLP for part-of-speech tagging in the preprocessing section."
+  },
+  {
+    "type": "single",
+    "question": "In the context of Twitter sentiment analysis, what does PMI stand for?",
+    "options": [
+      "Predictive Model Interface",
+      "Pointwise Mutual Information",
+      "Positive Mining Index",
+      "Probabilistic Mean Imputation"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "PMI stands for Pointwise Mutual Information, used to calculate the relationship between words and target objects."
+  },
+  {
+    "type": "single",
+    "question": "When extracting object-dependent features, what prefix is added if a feature is modified by a negative word?",
+    "options": [
+      "not_",
+      "inv_",
+      "neg-",
+      "anti-"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "The slides state: 'If the feature is modified by a negative word, add the prefix neg-'."
+  },
+  {
+    "type": "single",
+    "question": "In the graph of tweets used for optimization, what does a dashed line represent?",
+    "options": [
+      "A reply to another tweet",
+      "A retweet",
+      "Tweets from the same user",
+      "Tweets with the same hashtag"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The legend for the graph indicates: Solid line = tweet of same user, Dash line = retweet, Dot line = reply."
+  },
+  {
+    "type": "single",
+    "question": "Why is 'Graph Optimization' used in Twitter sentiment analysis?",
+    "options": [
+      "Because tweets are too long to process individually",
+      "To visualize the data for end-user presentations",
+      "Because using content alone is often incorrect for short tweets",
+      "To identify bot accounts within the network"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "The motivation provided is that 'Using only content to classify sentiments can be incorrect for short tweet', so context via graph optimization is required."
+  },
+  {
+    "type": "single",
+    "question": "Which three languages were analyzed in the multilingual forum sentiment analysis experiment?",
+    "options": [
+      "English, Spanish, German",
+      "English, French, Dutch",
+      "English, Chinese, Japanese",
+      "English, Italian, Portuguese"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The study covered product reviews in three languages: English, French, and Dutch."
+  },
+  {
+    "type": "single",
+    "question": "Which syntax feature method was specifically used for the French dataset?",
+    "options": [
+      "Depth difference in syntax tree",
+      "Distance by BFS in syntax tree",
+      "Dependence probability",
+      "N-gram path length"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides distinguish the methods: 'Dept difference' for English/Dutch, and 'Distance (by BFS)' for French."
+  },
+  {
+    "type": "single",
+    "question": "Which classifier is defined as 'Multiclass classifier based on Bayesian probability with assumption of probabilistic independence'?",
+    "options": [
+      "Support Vector Machines (SVM)",
+      "Maximum Entropy (ME)",
+      "Multinomial Naive Bayes (MNB)",
+      "Random Forest (RF)"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "This definition corresponds to the Multinomial Naive Bayes (MNB) classifier as described in the slides."
+  },
+  {
+    "type": "single",
+    "question": "In the Cascade Model, what is the specific task of the First Level?",
+    "options": [
+      "To classify the sentiment as Positive or Negative",
+      "To determine if the input has Sentiment or No Sentiment",
+      "To identify the language of the input text",
+      "To parse the dependency tree of the sentence"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The First Level of the cascade model is responsible for the binary classification of 'sentiment / no sentiment'."
+  },
+  {
+    "type": "single",
+    "question": "Under what condition does the Cascade Model proceed to the Third Level?",
+    "options": [
+      "If the First Level detects no sentiment",
+      "If the Second Level classification certainty is below a threshold and the sentence is parsable",
+      "If the sentence is in a foreign language",
+      "If the sentence contains a negation word"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The logic flow indicates going to the Third Level if 'classification certainty < threshold and sentence parsable?' is Yes."
+  },
+  {
+    "type": "single",
+    "question": "What is the stated target of Active Learning in the lecture?",
+    "options": [
+      "To maximize the amount of labeled data used",
+      "To achieve good quality model learning with minimal labeled data",
+      "To completely automate the data labeling process",
+      "To improve the speed of the classification algorithm"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "Active learning's goal is 'Good quality model learning with minimal amount of labeled data'."
+  },
+  {
+    "type": "single",
+    "question": "For SVM in Uncertain Sampling, how is the degree of uncertainty measured?",
+    "options": [
+      "By the probabilistic output score",
+      "By the distance to the hyperplane",
+      "By the density of the feature vector",
+      "By the number of support vectors"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "For SVM, uncertainty is measured by the 'Distance to hyperplane'."
+  },
+  {
+    "type": "single",
+    "question": "What was the effect of 'Bagging' on the F-measure in the English corpus experiment?",
+    "options": [
+      "It significantly improved the F-measure",
+      "It resulted in a lower F-measure compared to no bagging",
+      "It had no observable impact on the results",
+      "It increased precision but decreased recall to zero"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The experimental results table shows that 'Using bagging' produced lower F-measures (75.47/66.71) compared to 'No bagging' (87.48/79.92)."
+  },
+  {
+    "type": "single",
+    "question": "In the domain impact experiment, what happened when a model trained on the 'Car' domain was tested on the 'Movie' domain?",
+    "options": [
+      "The performance improved due to broader vocabulary",
+      "The performance dropped significantly compared to in-domain testing",
+      "The performance remained exactly the same",
+      "The model was unable to process the data"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The accuracy dropped from roughly 70% (Car on Car) to 59.40% (Car on Movie), indicating a significant performance drop."
+  },
+  {
+    "type": "single",
+    "question": "What was identified as the most frequent cause of error in the Error Analysis section?",
+    "options": [
+      "Ambiguous examples",
+      "Sentiment towards sub-entities",
+      "Features insufficiently known and/or wrong feature connotations",
+      "Cases not handled by negation"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "Table 9 shows that 'Features insufficiently known and/or wrong feature connotations' had the highest total count (59)."
+  },
+  {
+    "type": "single",
+    "question": "Which language-specific problem was explicitly noted for Dutch in the error analysis?",
+    "options": [
+      "The use of compound words",
+      "The extensive use of accents",
+      "Right-to-left text direction",
+      "Ambiguity in subject-verb agreement"
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "The slides mention 'Language-specific problems such as compound words in Dutch'."
+  },
+  {
+    "type": "single",
+    "question": "In the active learning comparison (Slide 57), how did Uncertain Sampling (US) generally compare to Random Sampling (RS)?",
+    "options": [
+      "US consistently performed worse than RS",
+      "US generally achieved higher accuracy/F-measure than RS",
+      "There was no significant difference between the two",
+      "RS was faster but less accurate"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The results show US achieving higher accuracy and F-measures compared to RS for the same number of examples (e.g., at 500 examples)."
+  },
+  {
+    "type": "single",
+    "question": "What defines the node 'v' in the Sentiment Ontology Tree definition?",
+    "options": [
+      "It is a leaf node representing a specific word",
+      "It is a root node expressing property v",
+      "It is a connector node with no semantic meaning",
+      "It is a node representing the entire document"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The SOT definition states that 'v' is the root node expressing property v."
+  },
+  {
+    "type": "single",
+    "question": "Which list of words represents the negative words used for handling negation in Twitter features?",
+    "options": [
+      "bad, poor, terrible, awful, worse",
+      "not, no, never, n't, neither, seldom, hardly",
+      "stop, halt, cease, desist, prevent",
+      "minus, lack, without, missing, absent"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides list the set of negative words as: 'not, no, never, n't, neither, seldom, hardly'."
+  },
+  {
+    "type": "single",
+    "question": "What does the feature 'w1_cp_arg1' represent in the context of object-dependent features?",
+    "options": [
+      "A noun or adjective linking to the Target using a copula",
+      "A transitive verb accepting the Target as a direct object",
+      "An adverb modifying the verb related to the Target",
+      "A prepositional phrase indicating location"
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "The feature 'w1_cp_arg1' is defined as: 'noun or adjective links to T using a copula (e.g. to be)'."
+  },
+  {
+    "type": "single",
+    "question": "What was the 'Consensus degree' among annotators for the tweet dataset mentioned in Slide 31?",
+    "options": [
+      "75%",
+      "86%",
+      "92%",
+      "100%"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The slides state: 'Consensus degree: 86% of 100 tweet'."
+  },
+  {
+    "type": "single",
+    "question": "In the 'Impact of features' experiment (Slide 45), which combination consistently yielded the highest accuracy?",
+    "options": [
+      "Unigrams only",
+      "Unigrams & Subjectivity",
+      "Bigrams only",
+      "Adjectives only"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The table shows 'Unigrams & Subjectivity' consistently having higher accuracy (e.g., 86.35% for SVM) compared to other individual feature sets."
+  },
+  {
+    "type": "single",
+    "question": "What type of error is illustrated by the sentence 'A Good Year is a fine example of a top-notch director... lacking in'?",
+    "options": [
+      "Emotions expressed through metaphors",
+      "Sentences with negative words",
+      "Words with wrong connotations/insufficiently known features",
+      "Ambiguous sentence structure"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "This example falls under Error Type 1, where positive words like 'fine' and 'top-notch' mislead the classifier despite the negative context ('lacking in')."
+  },
+  {
+    "type": "single",
+    "question": "Which model performed best or comparable to others on noisy French sentences (outliers) in the experiment?",
+    "options": [
+      "Cascade with layers 1, 2 and 3",
+      "SC uni-lang",
+      "Random Forest",
+      "Rule-based system"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "SC uni-lang achieved slightly higher metrics (F-measure 38.74) compared to the Cascade model (F-measure 34.71) on the noisy dataset."
+  },
+  {
+    "type": "single",
+    "question": "What batch size was used in the comparison of Random Sampling (RS) and Uncertain Sampling (US) for MNB?",
+    "options": [
+      "1",
+      "10",
+      "50",
+      "100"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The caption for Table 11 explicitly states: 'using seed size 150 and batch size 10'."
+  },
+  {
+    "type": "single",
+    "question": "In the context of 'Extra objects' in tweets, when are 'Central words' of a noun phrase used?",
+    "options": [
+      "When the PMI is greater than a threshold",
+      "When the noun phrase is at the beginning of the tweet",
+      "When the tweet contains no other objects",
+      "When the word count is less than 5"
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "Slide 25 states: 'Central words of noun phrase if PMI greater than a threshold'."
+  },
+  {
+    "type": "single",
+    "question": "What does a 'Solid line' represent in the optimized graph of tweets?",
+    "options": [
+      "A retweet relationship",
+      "A reply relationship",
+      "Tweets belonging to the same user",
+      "Tweets containing the same hashtag"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "Slide 30 legend: 'Solid line: tweet of same user'."
+  },
+  {
+    "type": "single",
+    "question": "Which independent feature is NOT listed as a content feature for Twitter sentiment analysis?",
+    "options": [
+      "Words",
+      "Emoticons",
+      "Graph topology",
+      "Hashtags"
+    ],
+    "answer": [
+      2
+    ],
+    "explanation": "Content features are listed as 'words, punctuations, emoticon, hashtag'. Graph topology is part of the optimization step, not a content feature."
+  },
+  {
+    "type": "single",
+    "question": "In the HL-SOT algorithm, what is the value of $\\hat{y}_{r_t}$ computed as?",
+    "options": [
+      "$\\hat{y}_{r_t} = f(r_t) = g(W_t \\cdot r_t)$",
+      "$\\hat{y}_{r_t} = W_t + r_t$",
+      "$\\hat{y}_{r_t} = \\log(W_t \\cdot r_t)$",
+      "$\\hat{y}_{r_t} = \\sum(W_t - r_t)$"
+    ],
+    "answer": [
+      0
+    ],
+    "explanation": "The formula provided in the algorithm step 8 is $\\hat{y}_{r_t} = f(r_t) = g(W_t \\cdot r_t)$."
+  },
+  {
+    "type": "single",
+    "question": "Which of the following describes the difference between product reviews and tweets?",
+    "options": [
+      "Tweets are longer and more detailed",
+      "Product reviews have a known target object, while tweets need an extra step to determine it",
+      "Tweets are always objective, while reviews are subjective",
+      "Product reviews use more slang than tweets"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "Slide 18: 'Product review has known target object; while tweet need an extra step to determine target object'."
+  },
+  {
+    "type": "single",
+    "question": "What is the update rule for the threshold $\\theta$ if the classifier incorrectly predicts a negative label (False Negative)?",
+    "options": [
+      "Increase the threshold",
+      "Decrease the threshold",
+      "Keep the threshold the same",
+      "Set the threshold to the max value"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The rule is $\\theta_{t+1} = \\theta_t + \\epsilon(\\hat{y} - l)$. If Prediction $\\hat{y}=0$ (negative) and Label $l=1$ (positive), the term is negative, so the threshold decreases."
+  },
+  {
+    "type": "single",
+    "question": "In the Twitter sentiment analysis algorithm, what is done after Positive/Negative classification?",
+    "options": [
+      "Subjective/Objective classification",
+      "Graph optimization of relevant tweets",
+      "Part-of-speech tagging",
+      "Stemming"
+    ],
+    "answer": [
+      1
+    ],
+    "explanation": "The algorithm sequence is 1. Subjective/Objective, 2. Positive/Negative, 3. Optimize graph."
+  }
+]

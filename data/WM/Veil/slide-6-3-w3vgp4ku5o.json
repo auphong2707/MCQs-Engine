@@ -1,0 +1,562 @@
+[
+    {
+        "type": "single",
+        "question": "What is the primary distinction between Opinion Mining on standard product reviews versus forum posts?",
+        "options": [
+            "Product reviews do not contain sentiment, whereas forum posts are purely emotional",
+            "Product reviews are unstructured while forum posts follow a strict XML format",
+            "Forum posts usually require entity detection because the discussion target shifts frequently",
+            "Forum posts always focus on a single entity, whereas reviews compare multiple products"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "In product reviews (e.g., Amazon), the entity is usually known (the product page). In forums, discussions are conversational, and the entity being evaluated can change from sentence to sentence, making 'Entity Detection' a necessary step."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Entity Assignment, what does the 'Assumption of sentiment consistency' imply about a sequence of sentences?",
+        "options": [
+            "If a user likes one feature, they will statistically dislike the next mentioned feature",
+            "Sentences within a single post usually evaluate the same entity unless indicated otherwise",
+            "Positive and negative sentiments must alternate perfectly to create a balanced review",
+            "A user will always maintain the same level of grammar throughout the entire post"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The assumption states that sentences in a post are generally meant to evaluate the same entity object. This allows the system to propagate the entity assignment from a previous sentence to the current one if no new entity is explicitly mentioned."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following represents the correct order of steps in the Unsupervised Method for Entity Detection?",
+        "options": [
+            "Filter candidates -> Extract candidate -> Prepare data -> Sequential pattern mining",
+            "Sequential pattern mining -> Prepare data -> Filter candidates -> Extract candidate",
+            "Extract candidate -> Filter candidates -> Sequential pattern mining -> Prepare data",
+            "Prepare data -> Sequential pattern mining -> Extract candidate -> Filter candidates"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The slides outline the process as: 1. Prepare data (generate series), 2. Sequential pattern mining (find frequent patterns), 3. Extract candidate entities, and 4. Filter candidates (using POS tags and brand models)."
+    },
+    {
+        "type": "single",
+        "question": "During the 'Prepare data' phase of Entity Detection, how are specific entity names handled in the input text?",
+        "options": [
+            "They are removed completely to reduce the noise in the dataset",
+            "They are converted to their dictionary definitions to improve semantic matching",
+            "They are replaced with a generic token like 'ENTITYXYZ' to generalize patterns",
+            "They are heavily weighted to ensure they appear in every mined pattern"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "To find generalizable patterns, specific product names (like 'Nokia' or 'Canon') are replaced with a placeholder token (e.g., 'ENTITYXYZ'). This allows the mining algorithm to find patterns surrounding any entity."
+    },
+    {
+        "type": "single",
+        "question": "What is the specific window size used for generating series in the Data Preparation step?",
+        "options": [
+            "A window of 3 words before and 3 words after the entity",
+            "A window of 10 words before and 10 words after the entity",
+            "A window covering the entire paragraph containing the entity",
+            "A window of 5 words before and 5 words after the entity"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The method specifies generating series by selecting a window of 5 words from before the entity and 5 words after the entity to capture the immediate context."
+    },
+    {
+        "type": "single",
+        "question": "In the Sequential Pattern Mining step, what is the minimum support threshold set for a pattern to be considered frequent?",
+        "options": [
+            "0.05 (5%)",
+            "0.01 (1%)",
+            "0.10 (10%)",
+            "0.50 (50%)"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The slides explicitly state that the Minimum Support threshold is set to 0.01. Patterns appearing less frequently than this are discarded."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a constraint applied during the Sequential Pattern Mining phase?",
+        "options": [
+            "Patterns must not contain any punctuation or special characters",
+            "Patterns must consist entirely of stop words to ensure grammatical flow",
+            "Patterns must have a length of exactly one token to be valid",
+            "Patterns must contain the token {ENTITYXYZ} and a Part-Of-Speech tag"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The constraints for valid patterns are: they must contain the combination of a POS tag and the {ENTITYXYZ} token, and the pattern length must be greater than or equal to 2."
+    },
+    {
+        "type": "single",
+        "question": "How does the 'Filter candidates' step utilize Part-Of-Speech (POS) tags?",
+        "options": [
+            "It converts all verbs into nouns to standardize the candidate list",
+            "It randomly selects candidates regardless of their grammatical function",
+            "It removes candidates whose POS tag does not match the most frequent POS for that word",
+            "It removes all nouns and only keeps adjectives as potential candidates"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "This step filters noise by checking the POS tag of a candidate. If the tag (e.g., CD for a number) differs from the word's standard or most popular POS (e.g., NNS for a noun), the candidate is eliminated."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of the <Brand Model> check in the candidate filtering process?",
+        "options": [
+            "To replace the brand name with a competitor's name for comparison",
+            "To calculate the market share of the brand mentioned in the text",
+            "To identify the manufacturer's country of origin for the product",
+            "To validate candidates by verifying they form known Brand-Model pairs"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The <Brand Model> check is used to confirm if a candidate word creates a valid pair (e.g., 'Moto' + 'Razr') that exists in the domain, effectively acting as a verification step for entity candidates."
+    },
+    {
+        "type": "single",
+        "question": "How is a 'Non-comparable' sentence defined in the context of comparative analysis?",
+        "options": [
+            "A sentence that declares two entities are exactly equal in value",
+            "A sentence stating two entities are different without ranking them (e.g., different shapes)",
+            "A sentence where one entity is strictly better than the other",
+            "A sentence that contains no entities and no sentiment"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Non-comparable sentences indicate a difference or relationship between entities (e.g., 'Camera X and Camera Y have different shapes') but do not establish a 'better' or 'worse' ranking."
+    },
+    {
+        "type": "single",
+        "question": "In Entity Assignment, if sentence $S_0$ is normal and the following sentence $S_1$ is also normal, to which entity is $S_1$ assigned?",
+        "options": [
+            "The same entity assigned to $S_0$",
+            "A completely new entity found in the dictionary",
+            "The entity mentioned in the title of the thread",
+            "The competitor entity mentioned in $S_0$"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Based on the sentiment consistency assumption, if the flow is Normal -> Normal, the system assumes the user is continuing to talk about the same entity, so $S_1$ inherits the entity from $S_0$."
+    },
+    {
+        "type": "single",
+        "question": "If $S_0$ is a Comparative sentence and $S_1$ expresses an emotion without an explicit entity, how is $S_1$ assigned?",
+        "options": [
+            "To both entities mentioned in the comparison equally",
+            "It is discarded as it cannot be accurately assigned",
+            "To the entity that was considered inferior in $S_0$",
+            "To the entity preferred (better/worse) in the context of $S_0$"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "If a comparative sentence is followed by an emotional statement (e.g., 'A is better than B. It is simply amazing.'), the emotion is assigned to the 'winning' or preferred entity established in the comparison."
+    },
+    {
+        "type": "single",
+        "question": "In the case where $S_0$ is an 'Equal' sentence (e.g., 'A is as good as B'), how is the subsequent sentence $S_1$ assigned?",
+        "options": [
+            "It is assigned to both entities as a shared attribute",
+            "It is assigned to the second entity mentioned in the equal comparison",
+            "It is assigned to the entity that was active before $S_0$ occurred",
+            "It is assigned to the first entity mentioned in the equal comparison"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Since an 'Equal' sentence makes it ambiguous which entity is being discussed next, the algorithm reverts to the entity that was the focus of the conversation immediately *before* the comparison took place."
+    },
+    {
+        "type": "single",
+        "question": "What is the function of the algorithm `compOpinion(S)` in the sentiment analysis process?",
+        "options": [
+            "To determine emotions and orientation in comparative sentences",
+            "To calculate the total word count of the sentence",
+            "To detect the author's geographical location",
+            "To translate the sentence into a standard language"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The `compOpinion(S)` function is specifically designed to handle Comparative Sentences, determining which entity is preferred based on the comparative structure and feature orientation."
+    },
+    {
+        "type": "single",
+        "question": "In the sentiment specification language, what does the tag `[T]` represent?",
+        "options": [
+            "The time stamp of the review",
+            "The target of the sentiment or pattern",
+            "The total score of the review",
+            "The type of product being reviewed"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In the grammar rules provided, `[T]` denotes the `<target>`, which is the specific entity or feature the sentiment or pattern is pointing to."
+    },
+    {
+        "type": "single",
+        "question": "If a sentence is tagged as `not[Ng] good[Po]`, what is the resulting sentiment orientation?",
+        "options": [
+            "Positive",
+            "Negative",
+            "Ambiguous",
+            "Neutral"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The tag `[Ng]` indicates a negation or negative modifier. When applied to `[Po]` (a positive word like 'good'), the sentiment flips, resulting in a Negative orientation."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following phrases is explicitly EXCLUDED from the standard 'as + JJ + as' comparative pattern?",
+        "options": [
+            "as long as",
+            "as sharp as",
+            "as fast as",
+            "as good as"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The pattern 'as + JJ + as' generally indicates equality (e.g., 'as good as'), but idiomatic phrases like 'as long as' and 'as far as' are exceptions and are not treated as comparative structures in this context."
+    },
+    {
+        "type": "single",
+        "question": "How is the sentiment of the pattern 'less/least + Positive_Adjective' interpreted?",
+        "options": [
+            "Conditional",
+            "Positive",
+            "Neutral",
+            "Negative"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The combination of a reducing comparator ('less') with a positive attribute ('good') results in a negative sentiment (e.g., 'less good' implies inferior)."
+    },
+    {
+        "type": "single",
+        "question": "How is the sentiment of the pattern 'less/least + Negative_Adjective' interpreted?",
+        "options": [
+            "Neutral",
+            "Positive",
+            "Negative",
+            "Unknown"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The combination of a reducing comparator ('less') with a negative attribute ('expensive') results in a positive sentiment (e.g., 'less expensive' implies better value)."
+    },
+    {
+        "type": "single",
+        "question": "What is the definition of 'Baseline1' used in the evaluation of entity assignment?",
+        "options": [
+            "If the current sentence has no entity, skip it entirely",
+            "If the current sentence has no entity, assign it to the 'General' category",
+            "If the current sentence has no entity, assign the last entity of the previous sentence",
+            "If the current sentence has no entity, assign the most frequent entity in the corpus"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Baseline1 is a simple heuristic: if a sentence explicitly mentions an entity, use it. If not, simply carry over the entity from the immediately preceding sentence."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary challenge when analyzing comparative sentences like 'Camera X has a longer battery life than Camera Y'?",
+        "options": [
+            "Syntax ambiguity: It is hard to identify the nouns 'Camera X' and 'Camera Y'",
+            "Negation handling: The word 'than' acts as a negation in most contexts",
+            "Context dependence: 'Longer' is positive for battery but negative for boot time",
+            "Entity detection: It is impossible to know which camera is the subject"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Many comparative adjectives are context-dependent. 'Longer' is good for battery life but bad for focusing time. The system must understand the feature context to assign the correct sentiment."
+    },
+    {
+        "type": "single",
+        "question": "Which external resource is recommended for learning the orientation of context-dependent features (Pros/Cons)?",
+        "options": [
+            "Twitter.com",
+            "Reddit.com",
+            "Wikipedia.org",
+            "Epinions.com"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Epinions is valuable because users explicitly list 'Pros' and 'Cons' in separate fields. This structured data allows the system to learn which adjectives/features are considered positive or negative in a specific domain."
+    },
+    {
+        "type": "single",
+        "question": "In Type 1 Comparatives, if the structure is 'C comparative + F positive' (e.g., 'X is better at speed than Y'), which entity is preferred?",
+        "options": [
+            "Both entities equally",
+            "Neither entity",
+            "Entity 1 (the subject)",
+            "Entity 2 (the object)"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The rule dictates that a standard comparative (like 'better') combined with a positive feature indicates superiority of the first entity (Entity 1)."
+    },
+    {
+        "type": "single",
+        "question": "In Type 1 Comparatives, if the structure involves a reduction (e.g., 'less') and a positive feature, which entity is preferred?",
+        "options": [
+            "Both entities equally",
+            "Neither entity",
+            "Entity 2 (the object)",
+            "Entity 1 (the subject)"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "A reduction of a positive trait (e.g., 'X is less distinct than Y') flips the preference, meaning the second entity (Entity 2) is the superior or preferred one."
+    },
+    {
+        "type": "single",
+        "question": "What does the OSA (Opinion Sentiment Analysis) formula calculate to determine sentiment orientation?",
+        "options": [
+            "The grammatical correctness score of the comparative sentence",
+            "The ratio of the probability of a word appearing in Pros vs. appearing in Cons",
+            "The number of times a brand name is mentioned in a forum thread",
+            "The frequency of a word appearing in the first sentence of a review"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "OSA calculates the association of a feature/word with 'Pros' versus 'Cons'. If a word appears significantly more often in 'Pros' sections, it is deemed positive."
+    },
+    {
+        "type": "single",
+        "question": "When calculating OSA, how does the system handle limited data for a specific word?",
+        "options": [
+            "It uses WordNet to include synonyms and antonyms in the count",
+            "It defaults the sentiment to Neutral until more data is available",
+            "It generates synthetic reviews to boost the dataset size",
+            "It asks the user to manually tag the sentiment of the word"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "To overcome sparsity, the system uses WordNet to find synonyms (added to the count) and antonyms (added to the opposing category's count) for the target word."
+    },
+    {
+        "type": "single",
+        "question": "What method is used when the comparative word itself describes a feature (e.g., 'smaller') rather than an emotion?",
+        "options": [
+            "Assume the word is always negative",
+            "Assume the word is always neutral",
+            "Count occurrences in Pros and Cons and choose the larger value",
+            "Use the sentiment of the nearest adjective"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "If the comparative word is descriptive (like 'smaller' or 'heavier'), the system checks the Pros/Cons corpus. If 'smaller' appears more in Pros, it's considered positive for that context."
+    },
+    {
+        "type": "single",
+        "question": "Which dataset was primarily used for evaluating the Entity Assignment method in the provided study?",
+        "options": [
+            "Amazon and eBay Reviews",
+            "IMDb and Rotten Tomatoes",
+            "Howard Forums and AVSforums",
+            "Twitter and Facebook Posts"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The evaluation tables in the slides specifically list 'Howard Forums' (mobile phones) and 'AVSforums' (electronics) as the data sources."
+    },
+    {
+        "type": "single",
+        "question": "In the evaluation results, which method consistently achieved the highest F-measure for Entity Assignment?",
+        "options": [
+            "Baseline2 - Majority entity assignment",
+            "ED (k-com) - Entity Detection with known comparative models",
+            "ED (unk-com) - Entity Detection with unknown models",
+            "Baseline1 - Last entity assignment"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The results table shows that ED (k-com) performs best, with F-measures around 93.4% and 91.2%, outperforming the baselines significantly."
+    },
+    {
+        "type": "single",
+        "question": "What was the specific weakness identified in the 'PCS: No Pros & Cons' method during evaluation?",
+        "options": [
+            "It was too computationally expensive to run on large datasets",
+            "It failed to detect any entities in the text",
+            "It had extremely low performance for identifying 'EntityS2 Preferred'",
+            "It could not handle negation in sentences"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The 'No Pros & Cons' variant suffered significantly in the 'EntityS2 Preferred' category, dropping to 0.000 or very low scores because it lacked the context to understand feature orientation."
+    },
+    {
+        "type": "single",
+        "question": "In the comparative pattern 'pronoun + compkey + prodname', what does 'compkey' refer to?",
+        "options": [
+            "The unique ID key of the product in the database",
+            "A comparison keyword like 'better', 'worse', or 'superior'",
+            "The computer keyboard shortcut for the command",
+            "The primary feature being compared in the sentence"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "'Compkey' serves as the placeholder for the comparative term (e.g., better, faster, cheaper) that establishes the relationship between the pronoun and the product name."
+    },
+    {
+        "type": "single",
+        "question": "What percentage of reviews in the dataset were found to be direct reviews as opposed to comparison reviews?",
+        "options": [
+            "Approximately 10%",
+            "Approximately 90%",
+            "Approximately 30%",
+            "Approximately 50%"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The slides cite a statistic (Jindal and Liu 2006) stating that roughly 90% of reviews are direct, while only about 10% involve comparisons."
+    },
+    {
+        "type": "single",
+        "question": "In the sentence 'Camera A is the best', which category of comparison does this fall into?",
+        "options": [
+            "Non-gradable",
+            "Superlative",
+            "Subordinate",
+            "Equative"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Sentences using words like 'best', 'most', or 'least' rank an entity at the top or bottom of a scale, which is the definition of a Superlative comparison."
+    },
+    {
+        "type": "single",
+        "question": "What does the symbol `=>` represent in the specification rule `<rule> := <pattern> '=>' <action>`?",
+        "options": [
+            "It indicates that the pattern is derived from the action",
+            "It implies that if the pattern is matched, the specified action is taken",
+            "It represents a greater-than-or-equal-to mathematical operation",
+            "It acts as a comment separator in the code"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The `=>` symbol is the production rule operator. It signifies that finding the pattern on the left-hand side triggers the sentiment assignment or logic action on the right-hand side."
+    },
+    {
+        "type": "single",
+        "question": "Why is the pattern 'prodname + verb + prodname' NOT listed as a standard comparative pattern?",
+        "options": [
+            "It is too generic and could include non-comparative actions like 'bought'",
+            "It is the most common pattern and doesn't need listing",
+            "Verbs are never used in comparative sentences",
+            "Product names cannot appear twice in the same sentence"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Specific patterns like 'compkey' are required. A generic 'verb' pattern would capture irrelevant sentences like 'Canon replaced Nikon', which is an event, not a sentiment comparison."
+    },
+    {
+        "type": "single",
+        "question": "In the extraction step, if a sentence contains 'The 3G is faster', what is '3G' extracted as?",
+        "options": [
+            "The Sentiment Modifier",
+            "The Stop Word",
+            "The Entity (or Feature) being evaluated",
+            "The Comparative Key"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "In this context, '3G' is the feature or entity subject that is being evaluated by the comparative term 'faster'."
+    },
+    {
+        "type": "single",
+        "question": "What is the result of the combination 'More + Negative Adjective' (e.g., 'More expensive')?",
+        "options": [
+            "Neutral Sentiment",
+            "Ambiguous Sentiment",
+            "Positive Sentiment",
+            "Negative Sentiment"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Increasing the intensity ('more') of a negative trait ('expensive') results in a stronger Negative sentiment."
+    },
+    {
+        "type": "single",
+        "question": "How does the 'PCS (OSA)' method compare to 'Baseline1' in identifying 'EntityS2 Preferred'?",
+        "options": [
+            "PCS (OSA) performs worse than Baseline1",
+            "Baseline1 is not applicable to EntityS2",
+            "They perform exactly the same",
+            "PCS (OSA) significantly outperforms Baseline1"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The table shows PCS (OSA) achieving high F-measures (approx 0.825) for EntityS2, whereas baselines often fail to correctly identify the second entity preference due to lack of context analysis."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary role of the 'Extract candidate' step in the unsupervised method?",
+        "options": [
+            "To assign sentiment scores to the entities",
+            "To translate foreign entity names into English",
+            "To remove all entities that have already been identified",
+            "To identify potential entity names based on the mined frequent patterns"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "After mining frequent patterns (e.g., 'the * is good'), the extract step looks at the original text to see which words fill those pattern slots, marking them as candidate entities."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Web Mining, what is a 'Gradable' comparison?",
+        "options": [
+            "A comparison that relies on pass/fail criteria",
+            "A comparison that orders entities (e.g., greater than, better than)",
+            "A comparison that states two things are identical",
+            "A comparison based on binary features only"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Gradable comparisons allow for degrees of difference, enabling an ordering or ranking of the entities involved (e.g., X is better than Y)."
+    }
+]
