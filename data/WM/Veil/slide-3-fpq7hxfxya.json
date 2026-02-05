@@ -1,0 +1,562 @@
+[
+    {
+        "type": "single",
+        "question": "Which of the following best describes the characteristics of a Nominal attribute?",
+        "options": [
+            "Values representing distinct symbols or names without any inherent order",
+            "Values that allow for meaningful ranking but no magnitude difference",
+            "Values measured on a scale with equal distances but no true zero",
+            "Values that possess a true zero point allowing for ratio calculations"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Nominal attributes (e.g., hair color, marital status) consist of symbols or names that categorize data. They do not have an order, equal intervals, or a zero point."
+    },
+    {
+        "type": "single",
+        "question": "In the context of binary attributes, what is the key difference between symmetric and asymmetric attributes?",
+        "options": [
+            "Symmetric attributes have outcomes of unequal importance, while asymmetric ones are equal",
+            "Asymmetric attributes treat both states equally, while symmetric ones value the positive state",
+            "Symmetric attributes have equally important outcomes; asymmetric ones value the presence (1) more",
+            "Asymmetric attributes are used for continuous data, while symmetric ones are for discrete data"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Symmetric binary attributes (like gender) have states that are equally important. Asymmetric binary attributes (like a medical test result) consider the presence of a trait (usually coded as 1) to be more significant than its absence."
+    },
+    {
+        "type": "single",
+        "question": "Which set of operations is valid for Ordinal attributes?",
+        "options": [
+            "Ranking and ordering of values",
+            "Addition and subtraction of values",
+            "Multiplication and division of values",
+            "Calculation of the mean and standard deviation"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Ordinal attributes allow for ranking and ordering (e.g., small < medium < large), but the magnitude of the difference between values is not known, making arithmetic operations like addition invalid."
+    },
+    {
+        "type": "single",
+        "question": "What distinguishes an Interval attribute from a Ratio attribute?",
+        "options": [
+            "Interval attributes have a true zero point, while Ratio attributes do not",
+            "Ratio attributes have a true zero point, allowing for multiplication",
+            "Interval attributes are always discrete, while Ratio attributes are continuous",
+            "Ratio attributes can only be positive, while Interval attributes are negative"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The key distinction is the 'true zero' point. Ratio attributes (like weight) have a zero that means 'none', allowing ratios (e.g., twice as heavy). Interval attributes (like Celsius temperature) have an arbitrary zero."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following examples best represents a Discrete attribute?",
+        "options": [
+            "The temperature of a room measured to ten decimal places",
+            "The total weight of a shipment of goods in kilograms",
+            "The number of words contained in a document collection",
+            "The time duration of a specific computer process"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Discrete attributes have a finite or countably infinite set of values, such as integers representing counts (e.g., number of words). The other options represent continuous attributes."
+    },
+    {
+        "type": "single",
+        "question": "How is the 'Midrange' of a dataset calculated?",
+        "options": [
+            "By taking the average of the largest and smallest values",
+            "By finding the value that appears most frequently",
+            "By averaging the two middle values of the sorted set",
+            "By calculating the difference between Q3 and Q1"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The Midrange is a measure of central tendency calculated as the arithmetic mean of the maximum and minimum values in the dataset: (Max + Min) / 2."
+    },
+    {
+        "type": "single",
+        "question": "For a unimodal frequency curve that is moderately skewed, what is the empirical relationship between Mean, Median, and Mode?",
+        "options": [
+            "Mean - Mode is approximately 3 times (Mean - Median)",
+            "Mean - Median is approximately 3 times (Mean - Mode)",
+            "Mode - Median is equal to 3 times (Mean - Mode)",
+            "Median - Mode is approximately equal to the Mean"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The empirical relation for moderately skewed unimodal distributions is: Mean - Mode ≈ 3 × (Mean - Median)."
+    },
+    {
+        "type": "single",
+        "question": "What does the Interquartile Range (IQR) represent in a dataset?",
+        "options": [
+            "The difference between the maximum and minimum values",
+            "The distance between the first and third quartiles",
+            "The average deviation of all points from the mean",
+            "The value separating the top half from the bottom half"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The IQR describes the middle 50% of the data distribution and is calculated as the difference between the third quartile (Q3) and the first quartile (Q1)."
+    },
+    {
+        "type": "single",
+        "question": "In a boxplot, what defines the 'whiskers' extending from the box?",
+        "options": [
+            "They extend to the absolute maximum and minimum values in the data",
+            "They extend to the farthest data points within 1.5 times the IQR",
+            "They represent the standard deviation from the mean",
+            "They connect the median to the mode of the distribution"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Whiskers in a standard boxplot extend to the most extreme data points that are not considered outliers. The limit is typically defined as Q1 - 1.5*IQR and Q3 + 1.5*IQR."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary function of a Quantile Plot?",
+        "options": [
+            "To display the correlation between two different variables",
+            "To show the frequency distribution of data using vertical bars",
+            "To plot sorted data values against their percentage position",
+            "To compare the medians of multiple different datasets"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "A Quantile Plot displays all data points sorted in ascending order, plotting the data value (xi) against its quantile index (fi), which represents the percentage of data below that value."
+    },
+    {
+        "type": "single",
+        "question": "What does a Quantile-Quantile (Q-Q) plot allow a user to determine?",
+        "options": [
+            "Whether two datasets follow the same distribution",
+            "The exact number of outliers in a single dataset",
+            "The time-series trend of a variable over years",
+            "The hierarchical structure of a data cluster"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "A Q-Q plot graphs the quantiles of one distribution against the quantiles of another. If the points fall on a straight line, it indicates that the two datasets follow the same distribution."
+    },
+    {
+        "type": "single",
+        "question": "How does a Scatter Plot Matrix visualize multidimensional data?",
+        "options": [
+            "By projecting all dimensions into a single 3D cube space",
+            "By creating a grid of 2D scatter plots for every pair of attributes",
+            "By mapping each dimension to a specific color and texture",
+            "By arranging data in a hierarchical tree of spherical nodes"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A Scatter Plot Matrix is an m x m grid of 2D scatter plots, where each plot visualizes the relationship between a pair of dimensions (attributes) from the m-dimensional dataset."
+    },
+    {
+        "type": "single",
+        "question": "What is the core concept behind Pixel-based Visualization techniques?",
+        "options": [
+            "Representing each data value as a colored pixel to map values to visual attributes",
+            "Using pixels to draw regression lines across multiple charts",
+            "Aggregating data points into a single pixel to save screen space",
+            "Displaying data textually using a pixelated font style"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Pixel-based visualization maps each data value to a colored pixel (e.g., using a color scale) and arranges these pixels in windows to reveal patterns across dimensions."
+    },
+    {
+        "type": "single",
+        "question": "In the context of the Super Sphere Tree, what is the 'Fish Eye' property?",
+        "options": [
+            "A distortion technique that magnifies the center of interest while shrinking the context",
+            "A coloring method that highlights outliers in red and normal data in blue",
+            "A projection method that maps 3D spheres onto a 2D flat circular plane",
+            "A filtering algorithm that removes noise from the edges of the dataset"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The Fish Eye property is a Focus+Context technique where the area of interest is displayed at a high magnification (large size) while the surrounding context is compressed (shrunk) but still visible."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following correctly describes the architecture of a Self-Organizing Map (SOM)?",
+        "options": [
+            "A recurrent network with feedback loops between all layers",
+            "A deep learning model with multiple convolutional hidden layers",
+            "A feed-forward network with an Input layer and a Competition layer",
+            "A supervised network that requires labeled output data for training"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "A SOM is a specific type of feed-forward neural network that consists of exactly two layers: the Input layer and the Competition layer (often arranged in a 2D grid)."
+    },
+    {
+        "type": "single",
+        "question": "How does the WEBSOM method represent text documents for visualization?",
+        "options": [
+            "As syntax trees preserving the grammatical structure",
+            "As bags of words, counting word frequencies",
+            "As character streams processed by an RNN",
+            "As hierarchical clusters of semantic tags"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "WEBSOM represents document text as 'bags of words', converting text data into vectors based on word usage to map them onto a 2D SOM grid."
+    },
+    {
+        "type": "single",
+        "question": "In a SOM, what happens during the weight update phase for a given input?",
+        "options": [
+            "All neurons in the network update their weights equally towards the input",
+            "Only the winning neuron and its spatial neighbors update their weights",
+            "Weights are frozen and only the bias terms are adjusted",
+            "The input vector is modified to match the nearest neuron's weights"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The SOM training algorithm updates the weights of the 'winning' neuron (the one closest to the input) and its neighbors in the lattice, pulling them closer to the input vector."
+    },
+    {
+        "type": "single",
+        "question": "What statistical measure is most robust against outliers?",
+        "options": [
+            "Mean",
+            "Range",
+            "Median",
+            "Standard Deviation"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Median is the middle value of a sorted dataset and is not affected by extreme values (outliers) at the ends of the distribution, unlike the Mean, Range, or Standard Deviation."
+    },
+    {
+        "type": "single",
+        "question": "Which visualization is best suited for identifying the correlation between two continuous variables?",
+        "options": [
+            "Histogram",
+            "Pie Chart",
+            "Scatter Plot",
+            "Boxplot"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "A Scatter Plot maps two continuous variables to the X and Y axes, making it easy to visually identify patterns, clusters, and correlations (linear or non-linear) between them."
+    },
+    {
+        "type": "single",
+        "question": "What is the formula for standard deviation?",
+        "options": [
+            "The sum of absolute deviations divided by N",
+            "The square root of the variance",
+            "The variance squared",
+            "The difference between the max and min values"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Standard deviation is defined as the square root of the variance, providing a measure of dispersion in the same units as the original data."
+    },
+    {
+        "type": "single",
+        "question": "In a Histogram, what does the height of each bar represent?",
+        "options": [
+            "The average value of data points in that interval",
+            "The frequency or count of data points falling into that bucket",
+            "The cumulative sum of values up to that interval",
+            "The standard deviation of the data in that range"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A histogram partitions the data range into buckets (intervals) and the height of the bar corresponds to the frequency (count) of data points that fall within that bucket."
+    },
+    {
+        "type": "single",
+        "question": "Which attribute type is best exemplified by 'Customer ID'?",
+        "options": [
+            "Nominal",
+            "Ordinal",
+            "Interval",
+            "Ratio"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Customer IDs are unique identifiers. Although they are often numbers, they have no quantitative meaning, order, or magnitude. They serve as labels, making them Nominal."
+    },
+    {
+        "type": "single",
+        "question": "What characteristic defines a 'Continuous' attribute?",
+        "options": [
+            "It can only take integer values",
+            "It has a finite set of possible states",
+            "It can take any value within a real number range",
+            "It is used exclusively for categorical labeling"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Continuous attributes are not restricted to discrete steps; they can assume any value within a continuous range of real numbers (floating point values)."
+    },
+    {
+        "type": "single",
+        "question": "What is the main advantage of using a Boxplot over a simple Mean/Variance summary?",
+        "options": [
+            "It visualizes the exact value of every data point",
+            "It shows the distribution, skewness, and outliers clearly",
+            "It calculates the correlation coefficient automatically",
+            "It is capable of handling nominal data types"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Boxplots provide a visual summary of the distribution's shape, including the median, IQR (spread), skewness (asymmetry), and explicitly highlight potential outliers."
+    },
+    {
+        "type": "single",
+        "question": "In Pixel-based visualization, how are data dimensions typically handled?",
+        "options": [
+            "All dimensions are averaged into a single color value",
+            "Each dimension is assigned a separate window or sub-region",
+            "Dimensions are ignored in favor of time-series order",
+            "Only the two most important dimensions are displayed"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "To visualize multiple dimensions, the screen is often divided into m windows (one for each dimension), and the pixels are arranged in the same order within each window to allow comparison."
+    },
+    {
+        "type": "single",
+        "question": "What is the objective function that the SOM algorithm minimizes?",
+        "options": [
+            "The number of neurons in the competition layer",
+            "The Euclidean distance between input vectors and reference vectors",
+            "The classification error on a labeled test set",
+            "The time taken to traverse the network"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "SOM minimizes the quantization error, which is the total Euclidean distance between the input data vectors and the reference vectors (weights) of the winning neurons."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a measure of data dispersion?",
+        "options": [
+            "Mode",
+            "Percentile",
+            "Variance",
+            "Geometric Mean"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Variance measures how spread out the data values are around the mean. Mode, Percentile, and Geometric Mean are measures of central tendency or position."
+    },
+    {
+        "type": "single",
+        "question": "When interpreting a Scatter Plot, what does a dense cloud of points forming a vertical line suggest?",
+        "options": [
+            "A strong linear correlation between X and Y",
+            "The Y variable varies while X remains constant (no correlation)",
+            "A perfect positive correlation between variables",
+            "An error in the plotting algorithm"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "If points form a vertical line, it means the value on the X-axis is constant while Y varies. This indicates no correlation, as changes in Y are independent of X."
+    },
+    {
+        "type": "single",
+        "question": "What does the 'Mode' represent in a dataset?",
+        "options": [
+            "The value that occurs most frequently",
+            "The arithmetic average of values",
+            "The middle value of the sorted list",
+            "The largest value in the set"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The Mode is the value that appears with the highest frequency in a data set. It is possible for a dataset to have more than one mode (bimodal/multimodal)."
+    },
+    {
+        "type": "single",
+        "question": "Which visualization method projects multi-dimensional data into a lower-dimensional space (typically 2D) to preserve distances?",
+        "options": [
+            "Vector Space Visualization",
+            "Histogram Matrix",
+            "Stacked Bar Chart",
+            "Hierarchical Tree Plot"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Vector space visualization methods (like PCA or MDS, implied by the context) project high-dimensional vectors onto a 2D plane attempting to preserve the relative distances or structure."
+    },
+    {
+        "type": "single",
+        "question": "In the context of SOM, what is a 'Reference Vector'?",
+        "options": [
+            "The target output vector provided by the user",
+            "The weight vector connecting the input layer to a specific neuron",
+            "The difference vector between two winning neurons",
+            "The input vector normalized to unit length"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Each neuron in the competition layer maintains a weight vector (reference vector) of the same dimension as the input data, which is adjusted during training."
+    },
+    {
+        "type": "single",
+        "question": "What is the formula for calculating the range of a dataset?",
+        "options": [
+            "Range = Max Value - Min Value",
+            "Range = Q3 - Q1",
+            "Range = Variance / Mean",
+            "Range = (Max + Min) / 2"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The Range is the simplest measure of dispersion, calculated as the difference between the largest (Max) and smallest (Min) values in the dataset."
+    },
+    {
+        "type": "single",
+        "question": "Which plot helps specifically in detecting if a distribution is skewed?",
+        "options": [
+            "Scatter Plot",
+            "Boxplot",
+            "Tree Map",
+            "Network Graph"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A Boxplot clearly shows skewness by the position of the median line within the box and the relative lengths of the whiskers. If the median is not centered, the distribution is skewed."
+    },
+    {
+        "type": "single",
+        "question": "What defines the 'Competition' in a Self-Organizing Map?",
+        "options": [
+            "Neurons compete to see which one is closest to the input vector",
+            "Inputs compete to be processed by the network first",
+            "Layers compete to reduce the number of parameters",
+            "Users compete to label the most data points"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "In the competition phase, every neuron calculates the distance between its weight vector and the input vector. The neuron with the smallest distance 'wins' the competition."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a property of a 'Ratio' attribute that 'Interval' attributes lack?",
+        "options": [
+            "A distinct order of values",
+            "Equal distances between scale units",
+            "A non-arbitrary zero point",
+            "The ability to be represented by numbers"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Both Ratio and Interval attributes have order and equal intervals, but only Ratio attributes have a non-arbitrary (absolute) zero, making operations like multiplication valid."
+    },
+    {
+        "type": "single",
+        "question": "What visual pattern in a scatter plot indicates a negative correlation?",
+        "options": [
+            "Points drifting upwards from left to right",
+            "Points drifting downwards from left to right",
+            "Points scattered randomly in a circular cloud",
+            "Points forming a horizontal line"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A negative correlation means that as X increases, Y decreases. This is visually represented by the data points trending downwards as you move from left to right."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary utility of the 'Fish Eye' view in hierarchical trees?",
+        "options": [
+            "It allows viewing the entire large structure with detail at a specific focus",
+            "It converts the tree structure into a linear list for easier reading",
+            "It colors the tree nodes based on their depth level only",
+            "It removes all leaf nodes to simplify the visualization"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Fish Eye views solve the screen space problem by showing the area of interest (focus) in full detail/size while compressing the rest of the structure (context) around it."
+    },
+    {
+        "type": "single",
+        "question": "For a symmetric distribution, where are the Mean, Median, and Mode located?",
+        "options": [
+            "They are all at the same value",
+            "The Mean is larger than the Median",
+            "The Mode is smaller than the Mean",
+            "They are spaced equally apart"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "In a perfectly symmetric unimodal distribution (like the normal distribution), the Mean, Median, and Mode all coincide at the center peak."
+    },
+    {
+        "type": "single",
+        "question": "Which attribute type involves categories that have a meaningful order but unknown magnitude differences?",
+        "options": [
+            "Nominal",
+            "Ordinal",
+            "Interval",
+            "Ratio"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Ordinal attributes (e.g., grades A, B, C or sizes S, M, L) implies a clear ranking, but the 'distance' between A and B is not necessarily the same as between B and C."
+    },
+    {
+        "type": "single",
+        "question": "In the 'Five-Number Summary' of a distribution, which value is NOT included?",
+        "options": [
+            "Minimum",
+            "First Quartile (Q1)",
+            "Mean",
+            "Third Quartile (Q3)"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Five-Number Summary consists of: Minimum, Q1, Median (Q2), Q3, and Maximum. The Mean is not part of this specific robust summary."
+    }
+]
