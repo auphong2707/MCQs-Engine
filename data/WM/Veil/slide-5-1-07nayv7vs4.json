@@ -1,0 +1,564 @@
+[
+    {
+        "type": "multi",
+        "question": "According to the lecture, which of the following are explicitly listed as 'Main Problems' in Link Analysis?",
+        "options": [
+            "Graph Ranking and Community Detection",
+            "Database Normalization and Indexing",
+            "Link Prediction and Graph Classification",
+            "Server Load Balancing and Caching"
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "The slides explicitly identify four main problems: Graph Ranking, Community Detection, Link Prediction, and Graph Classification. Database and Server topics are not listed."
+    },
+    {
+        "type": "single",
+        "question": "In the Adjacency Matrix representation shown in the slides, what numerical value is assigned to a[i, j] if there is a self-loop (an edge from a node to itself)?",
+        "options": [
+            "0 (Zero value)",
+            "1 (Single edge)",
+            "2 (Self edge)",
+            "3 (Triple edge)"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The slide on Graph Representation / Adjacency Matrix specifies: '2 if there is an edge from a node to itself'."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary objective of 'Graph Ranking' as defined in the course material?",
+        "options": [
+            "To analyze the role or importance of nodes in a graph",
+            "To partition the graph into disjoint sub-graphs",
+            "To classify the edges based on their weight",
+            "To predict missing links between unconnected nodes"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Graph Ranking is defined as the task to 'Analyze the role of nodes in graph', distinguishing important nodes from less important ones."
+    },
+    {
+        "type": "single",
+        "question": "In Dijkstra's algorithm initialization (Step S1), how is the distance value d(v) set for all nodes v other than the source s?",
+        "options": [
+            "It is set to 0",
+            "It is set to 1",
+            "It is set to infinity",
+            "It is set to -1"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The algorithm initializes the distance to the source d(s)=0 and the distance to all other nodes d(v)=infinity."
+    },
+    {
+        "type": "single",
+        "question": "Which formula correctly represents 'Closeness Centrality' C(i) for a node i, where n is the number of nodes?",
+        "options": [
+            "Sum(d(i,j)) / (n - 1)",
+            "(n - 1) / Sum(d(i,j))",
+            "Sum(d(i,j)) * (n - 1)",
+            "(n - 1) - Sum(d(i,j))"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Closeness Centrality is the inverse of the average shortest path distance. The formula provided is C(i) = (n-1) / Sum(d(i,j))."
+    },
+    {
+        "type": "single",
+        "question": "What does 'Betweenness Centrality' specifically measure regarding a node?",
+        "options": [
+            "The number of immediate neighbors it connects to",
+            "The average distance to all other reachable nodes",
+            "The fraction of shortest paths passing through it",
+            "The ratio of incoming links to outgoing links"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Betweenness Centrality quantifies how often a node acts as a bridge along the shortest path between two other nodes."
+    },
+    {
+        "type": "single",
+        "question": "In the star graph example (slide 23), why does the central node have a Betweenness Centrality of 15 while others have 0?",
+        "options": [
+            "It has the highest degree while others have degree 1",
+            "It is on the shortest path between all pairs of other nodes",
+            "It has the largest self-loop weight in the graph",
+            "It is the only node with a non-zero damping factor"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The central node lies on the shortest path between every pair of peripheral nodes. Peripheral nodes are not on any shortest path between other pairs."
+    },
+    {
+        "type": "single",
+        "question": "How is 'Degree Prestige' calculated for a node i?",
+        "options": [
+            "Based on the number of in-edges (in-degree)",
+            "Based on the number of out-edges (out-degree)",
+            "Based on the sum of edge weights",
+            "Based on the number of triangles formed"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Prestige measures prominence based on incoming links. Degree Prestige is defined using d_I(i), the in-degree."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is listed as a disadvantage ('Con') of the PageRank algorithm?",
+        "options": [
+            "It is computationally expensive for small graphs",
+            "It does not depend on the specific user query",
+            "It cannot be applied to directed graphs",
+            "It requires manual labeling of web pages"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A key disadvantage listed is that PageRank is query-independent; it computes a global score regardless of the search terms."
+    },
+    {
+        "type": "single",
+        "question": "The PageRank algorithm models user behavior using a 'Random Surfer' who eventually gets bored and:",
+        "options": [
+            "Stops using the browser completely",
+            "Clicks the 'Back' button repeatedly",
+            "Jumps to a random page in the graph",
+            "Types a new query into the search bar"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The model assumes the surfer follows links but eventually 'gets bored' and teleports (jumps) to a random page."
+    },
+    {
+        "type": "single",
+        "question": "In the PageRank formula R(A) = (1-d)/N + d * Sum(...), what is the standard interpretation of 'd'?",
+        "options": [
+            "The number of outgoing links",
+            "The total number of nodes",
+            "The damping factor",
+            "The convergence threshold"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The variable 'd' is explicitly identified as the damping factor, typically set around 0.85."
+    },
+    {
+        "type": "single",
+        "question": "When does the iterative computation of PageRank stop (converge)?",
+        "options": [
+            "When the difference from the previous iteration is negligible",
+            "When the number of iterations equals the number of nodes",
+            "When every node has exactly the same rank value",
+            "When the damping factor reaches 1.0"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The convergence chart shows the process stops when the total difference between the current and previous rank vectors drops below a threshold."
+    },
+    {
+        "type": "single",
+        "question": "In the HITS algorithm, how is an 'Authority' page defined?",
+        "options": [
+            "A page with many out-links to other pages",
+            "A page with many in-links from other pages",
+            "A page that links to many other authorities",
+            "A page with the highest Betweenness Centrality"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "HITS defines Authorities as pages with many in-links (endorsed by others) and Hubs as pages with many out-links."
+    },
+    {
+        "type": "single",
+        "question": "Which statement accurately compares the execution context of HITS and PageRank?",
+        "options": [
+            "HITS is Online (Query-dependent); PageRank is Offline (Query-independent)",
+            "HITS is Offline (Query-independent); PageRank is Online (Query-dependent)",
+            "Both algorithms are executed Online during the query",
+            "Both algorithms are executed Offline before the query"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The comparison slide states HITS is 'Online' (builds graph from query results) while PageRank is 'Offline' (pre-computed for the whole web)."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Root Set' in the context of the HITS algorithm?",
+        "options": [
+            "The set of all pages available on the web",
+            "The top 'k' pages returned by a search engine for a query",
+            "The set of pages with the highest degree centrality",
+            "The set of pages manually selected by the user"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Step 1 of HITS involves retrieving a 'root set W of top k pages relevant to q' from a standard search engine."
+    },
+    {
+        "type": "multi",
+        "question": "How is the 'Base Set' constructed from the 'Root Set' in HITS? (Select two conditions)",
+        "options": [
+            "Add all pages that are linked to by pages in the Root Set",
+            "Add all pages that link to pages in the Root Set",
+            "Add all pages that share the same domain as the Root Set",
+            "Add all pages with similar text content to the Root Set"
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "The expansion step adds pages pointed to by the root set (children) and pages that point to the root set (parents)."
+    },
+    {
+        "type": "single",
+        "question": "What is the update rule for the Authority score 'a' in matrix notation?",
+        "options": [
+            "a = L^T * h",
+            "a = L * h",
+            "a = h * L",
+            "a = h / L"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The slide provides the matrix formula 'a = L^T * h' where L is the adjacency matrix and h is the hub vector."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary definition of 'Link Prediction' given in the slides?",
+        "options": [
+            "Predicting the evolution of a graph over time",
+            "Predicting the weight of existing edges",
+            "Predicting the rank of a specific node",
+            "Predicting the community a node belongs to"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The 'Main Problems' slide defines Link Prediction as 'Predicting the evolution of a graph over time'."
+    },
+    {
+        "type": "single",
+        "question": "The 'Proximity Degree' (or Proximity Prestige) depends on which set of nodes?",
+        "options": [
+            "The set of nodes that can reach node i (Input domain)",
+            "The set of nodes that node i can reach (Output domain)",
+            "The set of immediate neighbors of node i only",
+            "The set of nodes with the same rank as node i"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Proximity Prestige is based on I_i, the 'Set of nodes that can reach node i', and the distances from them."
+    },
+    {
+        "type": "single",
+        "question": "In the PageRank transition matrix, what must the sum of probabilities in each row equal?",
+        "options": [
+            "0",
+            "1",
+            "N (Number of nodes)",
+            "d (Damping factor)"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The transition matrix represents probabilities of moving from one page to another, so the sum of outgoing probabilities (row) must be 1."
+    },
+    {
+        "type": "single",
+        "question": "In the 'Citation Analysis' application of PageRank, what does a high PageRank value signify?",
+        "options": [
+            "High Academic Influence",
+            "High Publication Volume",
+            "Recent Publication Date",
+            "Large Number of Co-authors"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The graph labels the Y-axis as 'Academic Influence (Average PageRank values)', linking high rank to high influence."
+    },
+    {
+        "type": "single",
+        "question": "Dijkstra's algorithm is specifically designed to solve which problem?",
+        "options": [
+            "Finding the shortest path from a source node to other nodes",
+            "Calculating the PageRank of all nodes in the graph",
+            "Identifying the most authoritative node in a community",
+            "Classifying nodes into different structural categories"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The slide for Dijkstra's Algorithm describes it as an algorithm to 'Find shortest path from source node s to the other nodes'."
+    },
+    {
+        "type": "single",
+        "question": "In the HITS update step, the Hub score h(i) is calculated as the sum of:",
+        "options": [
+            "The authority scores of the pages node i links to",
+            "The hub scores of the pages that link to node i",
+            "The degree centrality of all neighboring nodes",
+            "The inverse distances to all reachable nodes"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The formula 'h(i) = Sum(a(j))' where (i,j) is an edge means the hub score sums the authority scores of the pointed-to pages."
+    },
+    {
+        "type": "single",
+        "question": "A 'Bigraph' in the context of HITS refers to a graph that:",
+        "options": [
+            "Is divided into two sets where edges only connect different sets",
+            "Is divided into two sets where edges only connect within the same set",
+            "Has exactly two nodes and one edge connecting them",
+            "Has bidirectional edges for every pair of connected nodes"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "A Bigraph is defined as a graph 'divided into 2 separated set of node such that every edge connects 2 node of different set'."
+    },
+    {
+        "type": "single",
+        "question": "If the damping factor 'd' in PageRank is set to 1, what happens to the random jump probability?",
+        "options": [
+            "It becomes zero (Surfer never jumps randomly)",
+            "It becomes one (Surfer always jumps randomly)",
+            "It becomes 0.5 (Surfer jumps half the time)",
+            "It remains unchanged (Damping does not affect jumps)"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The random jump probability is (1-d). If d=1, then (1-1) = 0, meaning the surfer relies purely on links."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following represents the correct order of steps in the HITS algorithm?",
+        "options": [
+            "Retrieve Info -> Expand Graph -> Compute Rank",
+            "Expand Graph -> Retrieve Info -> Compute Rank",
+            "Compute Rank -> Retrieve Info -> Expand Graph",
+            "Retrieve Info -> Compute Rank -> Expand Graph"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The algorithm slide lists the sequence: 1 - Retrieve information, 2 - Expand graph, 3 - Compute rank."
+    },
+    {
+        "type": "single",
+        "question": "The 'Degree' of a node in a directed graph is composed of:",
+        "options": [
+            "In-degree and Out-degree",
+            "Distance and Weight",
+            "Hub Score and Authority Score",
+            "Rank and Prestige"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The definition of Degree includes d_in (incoming edges) and d_out (outgoing edges)."
+    },
+    {
+        "type": "single",
+        "question": "What does the acronym HITS stand for?",
+        "options": [
+            "Hypertext Induced Topic Search",
+            "Hyperlink Indexed Text Search",
+            "Heuristic Internet Tree Sort",
+            "Hierarchical Information Transfer System"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Slide 37 titles the section 'HITS Algorithm' and expands it as 'Hypertext Induced Topic Search'."
+    },
+    {
+        "type": "single",
+        "question": "How is convergence determined in the HITS algorithm?",
+        "options": [
+            "By checking if the change in 'a' and 'h' vectors is below a threshold",
+            "By running the algorithm for a fixed number of 100 iterations",
+            "By waiting until the Base Set size stops increasing",
+            "By ensuring the sum of all scores equals the number of nodes"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The pseudocode loop continues 'until' the difference in vectors (convergence) is sufficiently small."
+    },
+    {
+        "type": "single",
+        "question": "In the provided PageRank example (slide 31), what value is used for the damping factor d?",
+        "options": [
+            "0.85",
+            "0.50",
+            "0.15",
+            "1.00"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The slide title is 'PageRank Computation: Example (d=0.85)'."
+    },
+    {
+        "type": "single",
+        "question": "How is 'Community Detection' defined in the lecture slides?",
+        "options": [
+            "Detecting communities consisting of members of similar nature",
+            "Ranking nodes based on their global influence in the graph",
+            "Identifying broken links within a network structure",
+            "Compressing the graph for faster processing"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Slide 4 defines Community Detection as: 'Detect communities consisting of members of similar nature'."
+    },
+    {
+        "type": "single",
+        "question": "In the PageRank transition matrix, if a node has no outgoing links, how is it typically handled to maintain valid probabilities?",
+        "options": [
+            "It is often linked to itself or treated as linking to all nodes",
+            "It is removed from the graph entirely",
+            "Its row in the matrix is set to all zeros",
+            "Its probability is transferred to the 'Back' button"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "While not explicitly detailed in text, standard PageRank (and the requirement for row sum = 1) implies sink nodes must distribute probability, often to all nodes or self."
+    },
+    {
+        "type": "single",
+        "question": "In the Dijkstra algorithm description, what does 'S' denote?",
+        "options": [
+            "The source node from which paths are measured",
+            "The set of nodes that have been visited",
+            "The total sum of all edge weights",
+            "The shortest path found so far"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "In step S1, 'd(s)=0' implies 's' is the specific source node."
+    },
+    {
+        "type": "single",
+        "question": "Why is Degree Centrality often considered the simplest centrality measure?",
+        "options": [
+            "It only counts the number of direct connections",
+            "It requires calculating the shortest paths for all pairs",
+            "It involves complex matrix multiplication",
+            "It depends on a damping factor and random jumps"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Degree centrality is simply the count of edges connected to a node, avoiding path or flow calculations."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT an action in the HITS algorithm's 'Expand graph' phase?",
+        "options": [
+            "Calculating the eigenvalues of the adjacency matrix",
+            "Inserting pages that the root set pages link to",
+            "Inserting pages that link to the root set pages",
+            "Building the Base Set from the Root Set"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Expanding the graph involves adding parents and children of the root set. Eigenvalue calculation happens (implicitly) during the ranking phase, not the expansion phase."
+    },
+    {
+        "type": "single",
+        "question": "What is the specific goal of 'Graph Classification'?",
+        "options": [
+            "To classify the vertices and edges into given classes",
+            "To classify the entire graph as sparse or dense",
+            "To classify the algorithm used to generate the graph",
+            "To classify the users who interact with the graph"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The definition provided is: 'Classify the vertices and edges of the graph into given classes'."
+    },
+    {
+        "type": "single",
+        "question": "In the iterative HITS algorithm, how often are the Authority and Hub vectors normalized?",
+        "options": [
+            "At the end of every iteration loop",
+            "Only once before the iterations begin",
+            "Only once after the algorithm converges",
+            "Never, normalization is not required"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The pseudocode shows normalization occurring inside the 'Repeat... Until' loop, meaning it happens every iteration."
+    },
+    {
+        "type": "single",
+        "question": "In the PageRank formula, what does the term '(1-d)/N' represent?",
+        "options": [
+            "The probability of teleporting to a random page",
+            "The probability of following a specific link",
+            "The weight of the most important node",
+            "The number of dead-end links in the graph"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "This term represents the 'random jump' component, distributed evenly (1/N) across all nodes, weighted by the complement of the damping factor (1-d)."
+    },
+    {
+        "type": "single",
+        "question": "Betweenness Centrality would be most useful for identifying which type of node?",
+        "options": [
+            "A bridge node connecting different clusters",
+            "A node with the most local neighbors",
+            "A node that is close to everyone else on average",
+            "A node with many incoming links"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Because it measures the fraction of shortest paths passing through a node, Betweenness identifies 'bridges' or bottlenecks that connect different parts of a graph."
+    },
+    {
+        "type": "single",
+        "question": "Which link analysis problem involves 'Predicting the evolution of a graph over time'?",
+        "options": [
+            "Link Prediction",
+            "Graph Ranking",
+            "Community Detection",
+            "Graph Classification"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "This is the verbatim definition provided for 'Link Prediction' on Slide 4."
+    }
+]

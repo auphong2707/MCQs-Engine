@@ -1,0 +1,566 @@
+[
+    {
+        "type": "single",
+        "question": "What is the primary objective of the Community Detection problem as described in the slides?",
+        "options": [
+            "To find the shortest path between all pairs of nodes",
+            "To divide the network into groups where members are similar in nature",
+            "To identify the single most influential node in the graph",
+            "To convert the graph into a directed acyclic graph"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Community detection aims to identify clusters or groups within a network where members share similarities or dense connections, distinct from the rest of the network[cite: 14, 15]."
+    },
+    {
+        "type": "single",
+        "question": "According to the Kernighan-Lin algorithm, how is the 'Minimum cut' problem defined?",
+        "options": [
+            "Removing the minimum number of nodes to disconnect the graph completely",
+            "Dividing the graph into two regions of equal size minimizing the sum of edge weights between them",
+            "Finding the single edge with the lowest weight in the entire graph structure",
+            "Partitioning the graph into k clusters of arbitrary sizes to maximize internal density"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Kernighan-Lin algorithm addresses the Minimum Cut problem by partitioning the graph into two subsets of equal size (balanced partition) while minimizing the cost (weight) of edges running between these two subsets[cite: 270]."
+    },
+    {
+        "type": "single",
+        "question": "In the Kernighan-Lin algorithm, how is the 'internal cost' ($I_a$) for a node $a$ defined?",
+        "options": [
+            "The sum of weights of edges connecting $a$ to nodes in the other partition (B)",
+            "The sum of weights of edges connecting $a$ to nodes within the same partition (A)",
+            "The total number of edges connected to node $a$ regardless of partition",
+            "The weight of the edge connecting $a$ to the central node of the cluster"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Internal cost ($I_a$) refers to the sum of costs (weights) associated with edges connecting node $a$ to other nodes within its own current set or cluster ($u \\in A$)[cite: 277]."
+    },
+    {
+        "type": "single",
+        "question": "In the context of the Kernighan-Lin algorithm, if $D_a = E_a - I_a$, what does a high positive $D_a$ value indicate?",
+        "options": [
+            "Node $a$ is strongly connected to its current cluster",
+            "Node $a$ has very few edges connected to it in total",
+            "Node $a$ is more strongly connected to the external cluster than its own",
+            "Node $a$ is an isolated node with no connections"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "$E_a$ is the external cost and $I_a$ is the internal cost. A high positive result for $E_a - I_a$ implies the external connections weigh more than internal ones, suggesting the node might be better placed in the other partition[cite: 279]."
+    },
+    {
+        "type": "single",
+        "question": "What is the estimated time complexity of the Kernighan-Lin algorithm, assuming it terminates after $r$ passes?",
+        "options": [
+            "O(r log n)",
+            "O(rn^2)",
+            "O(rn^3)",
+            "O(n^4)"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The algorithm is estimated to run in $O(rn^3)$ time, where $r$ is the number of passes (loops) and $n$ is related to the number of vertices[cite: 360]."
+    },
+    {
+        "type": "single",
+        "question": "The Girvan-Newman algorithm relies on which metric to identify boundaries between communities?",
+        "options": [
+            "Node degree centrality",
+            "Edge betweenness",
+            "Clustering coefficient",
+            "Eigenvector centrality"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Girvan-Newman detects communities by identifying and removing 'bridges' between clusters. It uses edge betweenness to identify these bridges[cite: 507]."
+    },
+    {
+        "type": "single",
+        "question": "How is 'edge betweenness' defined in the Girvan-Newman algorithm?",
+        "options": [
+            "The number of triangles that an edge is part of",
+            "The number of shortest paths between pairs of nodes that run along the edge",
+            "The weight of the edge multiplied by the degree of connected nodes",
+            "The inverse of the edge weight in a weighted graph"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Edge betweenness is quantified as the number of shortest paths between pairs of nodes that run along that specific edge[cite: 516]."
+    },
+    {
+        "type": "single",
+        "question": "What is the first step in the iterative process of the Girvan-Newman algorithm?",
+        "options": [
+            "Remove the edge with the lowest weight",
+            "Compute the betweenness of every edge in the graph",
+            "Randomly assign nodes to k clusters",
+            "Merge the two most similar nodes"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The algorithm is a divisive method. The first step in the loop is to calculate the betweenness score for all existing edges[cite: 556]."
+    },
+    {
+        "type": "single",
+        "question": "In the Girvan-Newman algorithm, why must betweenness be recomputed after an edge is removed?",
+        "options": [
+            "To increase the computational complexity artificially",
+            "Because removing an edge changes the shortest paths between nodes",
+            "To ensure the graph remains connected",
+            "Because the edge weights change dynamically"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Removing an edge alters the graph structure, forcing shortest paths that previously used that edge to find new routes. Therefore, the betweenness values for the remaining edges change and must be recalculated[cite: 558, 559]."
+    },
+    {
+        "type": "single",
+        "question": "The final result of the Girvan-Newman algorithm is best described as:",
+        "options": [
+            "A single optimal partition with a fixed number of clusters",
+            "A hierarchical tree with the root as the whole graph and leaves as nodes",
+            "A list of the top 10 most important nodes",
+            "A maximum spanning tree of the graph"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "By repeatedly removing edges, the algorithm decomposes the network hierarchically, resulting in a tree structure where leaves are individual nodes and the root is the whole graph[cite: 510]."
+    },
+    {
+        "type": "single",
+        "question": "What is a primary motivation for using Graph Representation Learning (like Node2Vec) over Adjacency Matrices?",
+        "options": [
+            "Adjacency matrices are too low-dimensional",
+            "Adjacency matrices are sparse and high-dimensional",
+            "Graph representations cannot capture structural roles",
+            "Node2Vec does not require any training data"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Adjacency matrices for large graphs are sparse and high-dimensional. Representation learning aims to create low-dimensional, dense vector embeddings[cite: 759, 760]."
+    },
+    {
+        "type": "single",
+        "question": "In the Node2Vec neural network architecture, the input layer typically consists of:",
+        "options": [
+            "The feature vectors of the nodes",
+            "One-hot encoding for the nodes",
+            "The adjacency matrix of the graph",
+            "Randomly initialized noise vectors"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The setup for the skip-gram based node embedding uses a one-hot encoded vector representing the current focus node as the input[cite: 774]."
+    },
+    {
+        "type": "single",
+        "question": "In the Node2Vec model, the weights connecting the input layer to the hidden layer represent:",
+        "options": [
+            "The classification probabilities",
+            "The latent vector representation (embedding) of the nodes",
+            "The betweenness centrality of the nodes",
+            "The reconstruction error"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The hidden layer acts as a lookup table. The connection weight between the input layer and the hidden layer is used as the representation (embedding) for the nodes[cite: 784]."
+    },
+    {
+        "type": "single",
+        "question": "Which sampling strategy in Node2Vec is associated with a 'Macro-view' of the neighborhood?",
+        "options": [
+            "Breadth-First Search (BFS)",
+            "Depth-First Search (DFS)",
+            "Random Edge Sampling",
+            "Uniform Random Sampling"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "DFS explores structurally distant nodes, capturing global structural roles (like bridges or hubs), which is considered a macroscopic view compared to the local microscopic view of BFS[cite: 860, 926]."
+    },
+    {
+        "type": "single",
+        "question": "In Node2Vec, a Breadth-First Search (BFS) sampling strategy is best at preserving which property?",
+        "options": [
+            "Structural equivalence (roles)",
+            "Community structure (homophily)",
+            "Long-distance dependencies",
+            "Hierarchical ordering"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "BFS samples the immediate neighborhood. Nodes belonging to the same local community often have similar local neighborhoods, so BFS preserves community structure[cite: 820]."
+    },
+    {
+        "type": "single",
+        "question": "What is the function of the return parameter '$p$' in Node2Vec's biased random walk?",
+        "options": [
+            "It controls the likelihood of immediately returning to the previous node",
+            "It controls how fast the walk moves away from the source",
+            "It determines the dimensionality of the output vector",
+            "It sets the learning rate for the gradient descent"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Parameter $p$ is the return parameter. It regulates the probability of revisiting the node the walker just came from[cite: 865, 866]."
+    },
+    {
+        "type": "single",
+        "question": "In Node2Vec, if the 'In-out' parameter '$q$' has a low value, the random walk approximates which behavior?",
+        "options": [
+            "BFS (Breadth-First Search)",
+            "DFS (Depth-First Search)",
+            "Static snapshot",
+            "Minimum Spanning Tree"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The parameter $q$ controls the exploration. A low value of $q$ makes the walk more likely to move to nodes further away ('walk away'), mimicking DFS behavior[cite: 914]."
+    },
+    {
+        "type": "single",
+        "question": "Which activation function is used in the output layer of the Node2Vec Skip-gram model to calculate probabilities?",
+        "options": [
+            "ReLU",
+            "Sigmoid",
+            "Softmax",
+            "Tanh"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Softmax is used to parameterize the conditional probabilities of neighborhood nodes in the output layer[cite: 812]."
+    },
+    {
+        "type": "single",
+        "question": "What technique is used in Node2Vec to handle the computational cost of the Softmax denominator?",
+        "options": [
+            "Principal Component Analysis (PCA)",
+            "Negative Sampling",
+            "Dropout",
+            "Batch Normalization"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Calculating the full Softmax over all vertices is expensive. Negative sampling is used to reduce this computational complexity[cite: 813]."
+    },
+    {
+        "type": "single",
+        "question": "In the Kernighan-Lin algorithm, what is the 'gain' ($g_{ab}$) resulting from swapping nodes $a$ and $b$?",
+        "options": [
+            "$D_a - D_b$",
+            "$D_a + D_b - 2c_{ab}$",
+            "$I_a + I_b - 2c_{ab}$",
+            "$E_a + E_b$"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The reduction in cut cost (gain) achieved by swapping nodes $a$ and $b$ is derived as $T_{old} - T_{new} = D_a + D_b - 2c_{a,b}$[cite: 281]."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid operators for creating edge embeddings from node embeddings $f(u)$ and $f(v)$?",
+        "options": [
+            "Average",
+            "Hadamard",
+            "Weighted-L1",
+            "Logarithmic Difference"
+        ],
+        "answer": [
+            0,
+            1,
+            2
+        ],
+        "explanation": "Standard operators for combining node vectors into edge vectors listed in the slides include Average, Hadamard, Weighted-L1, and Weighted-L2. Logarithmic Difference is not listed[cite: 964]."
+    },
+    {
+        "type": "single",
+        "question": "In the Kernighan-Lin algorithm, what happens to nodes $a$ and $b$ after they are swapped in a pass?",
+        "options": [
+            "They are removed from the graph",
+            "They are marked as 'locked' and cannot be moved again in the current pass",
+            "Their internal and external costs are reset to zero",
+            "They become the seed nodes for the next cluster"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "After a swap, nodes $v_{ai}$ and $v_{bi}$ are marked as locked to prevent them from being swapped again within the same pass[cite: 345]."
+    },
+    {
+        "type": "single",
+        "question": "If a network consists of two distinct communities connected by a single edge, that edge is known as a:",
+        "options": [
+            "Leaf",
+            "Bridge",
+            "Hub",
+            "Kernel"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A bridge is an edge that connects communities; if removed, it would disconnect the graph or separate the communities[cite: 515]."
+    },
+    {
+        "type": "single",
+        "question": "In the Girvan-Newman algorithm, calculation of edge betweenness typically uses which traversal method?",
+        "options": [
+            "BFS (Breadth-First Search)",
+            "DFS (Depth-First Search)",
+            "Random Walk",
+            "A* Search"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "BFS is used to efficiently find the shortest paths from a source node to all other nodes, which is necessary for calculating betweenness[cite: 564]."
+    },
+    {
+        "type": "single",
+        "question": "What is the complexity of the 'Loop body' (finding the best swap) in the naive implementation of Kernighan-Lin?",
+        "options": [
+            "O(n)",
+            "O(n^2)",
+            "O(log n)",
+            "O(1)"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In each step, the algorithm searches for the pair $(a, b)$ that maximizes gain. The loop body is stated to be $O(n^2)$ in the slides[cite: 356]."
+    },
+    {
+        "type": "single",
+        "question": "Which statement is true regarding the initialization of the Kernighan-Lin algorithm?",
+        "options": [
+            "It requires the graph to be fully connected with no sub-islands",
+            "It starts with an arbitrary partition of the graph into two sets of equal size",
+            "It requires a pre-calculated Minimum Spanning Tree",
+            "It starts with all nodes in a single set A"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The algorithm begins by separating nodes into two sets A and B such that $|V_A| = |V_B|$[cite: 275, 337]."
+    },
+    {
+        "type": "single",
+        "question": "In Node2Vec, if $p$ is high ($> \\max(q, 1)$), the random walk is less likely to:",
+        "options": [
+            "Explore new nodes",
+            "Return to the visited node immediately",
+            "Visit the neighbors of the current node",
+            "Terminate"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Parameter $p$ is the return parameter. A high value of $p$ implies a low probability ($1/p$) of returning to the previous node[cite: 896, 908]."
+    },
+    {
+        "type": "single",
+        "question": "The 'Hadamard' operator for edge embedding is defined as:",
+        "options": [
+            "The element-wise sum of the two node vectors",
+            "The element-wise product of the two node vectors",
+            "The absolute difference between the two node vectors",
+            "The concatenation of the two node vectors"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Hadamard product $[f(u) \\cdot f(v)]_i$ is calculated as $f_i(u) * f_i(v)$[cite: 964]."
+    },
+    {
+        "type": "single",
+        "question": "What is the stopping condition for the Girvan-Newman algorithm?",
+        "options": [
+            "When the modularity score reaches 1.0",
+            "When there are no edges left in the graph",
+            "When the graph has been divided into exactly 2 clusters",
+            "When the computation time exceeds a threshold"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The algorithm iteratively removes edges and repeats until there are no edges left in the graph[cite: 559]."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following properties is NOT typically associated with a 'Community' in a network?",
+        "options": [
+            "Dense connections within the group",
+            "Sparse connections to the rest of the network",
+            "Members often share similar characteristics",
+            "Members are always structurally equivalent (have the same role)"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Communities are defined by density and similarity. Structural equivalence (e.g., all being hubs) is a property preserved by DFS-like embeddings, not necessarily a definition of a community itself[cite: 15, 801]."
+    },
+    {
+        "type": "single",
+        "question": "The objective function of Node2Vec maximizes:",
+        "options": [
+            "The number of edges in the graph",
+            "The log-probability of observing a network neighborhood given a node's feature representation",
+            "The Euclidean distance between all pairs of nodes",
+            "The accuracy of node classification directly"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Node2Vec maximizes the sum of log-probabilities of observing the neighborhood $N_S(u)$ given the feature representation $f(u)$[cite: 808]."
+    },
+    {
+        "type": "single",
+        "question": "In the Kernighan-Lin example provided, if the gain sequence $g_1, g_2, \\dots, g_k$ yields partial sums, which partial sum is chosen to determine the actual swap?",
+        "options": [
+            "The sum of all gains",
+            "The last partial sum",
+            "The partial sum $G_k$ that is maximized",
+            "The first positive partial sum"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The algorithm finds $k$ such that the cumulative gain $G_k = \\sum_{i=1}^k g_i$ is maximized[cite: 346]."
+    },
+    {
+        "type": "single",
+        "question": "Which algorithm finds bridges between communities based on 'edge betweenness'?",
+        "options": [
+            "Kernighan-Lin",
+            "PageRank",
+            "Girvan-Newman",
+            "HITS"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Girvan-Newman is explicitly defined by its use of edge betweenness to identify and remove bridges[cite: 507]."
+    },
+    {
+        "type": "single",
+        "question": "In Node2Vec, the 'Weighted-L2' operator for edge embedding involves:",
+        "options": [
+            "The squared difference between node features",
+            "The absolute difference between node features",
+            "The average of node features",
+            "The dot product of node features"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Weighted-L2 is defined as $|f_i(u) - f_i(v)|^2$, which represents the squared difference[cite: 964]."
+    },
+    {
+        "type": "single",
+        "question": "In the context of network analysis, what does 'homophily' refer to?",
+        "options": [
+            "The tendency of nodes to connect to hubs",
+            "The principle that similar nodes are likely to be connected (birds of a feather flock together)",
+            "The process of removing edges",
+            "The existence of directed edges"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Homophily refers to the concept that nodes in the same community (similar nodes) have connections, often captured by BFS sampling[cite: 820]."
+    },
+    {
+        "type": "single",
+        "question": "In the Node2Vec biased random walk, what does a transition probability of $1/q$ represent when moving to a node $x$?",
+        "options": [
+            "Moving to a node that is the same distance to the source $u$",
+            "Moving to a node closer to the source $u$",
+            "Moving to a node farther away from the source $u$",
+            "Returning to the source $u$"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "In the search bias configuration, nodes that are farther from the source $t$ (distance 2) are weighted with $1/q$[cite: 883, 891]."
+    },
+    {
+        "type": "single",
+        "question": "What happens if $G_k \\le 0$ in the Kernighan-Lin algorithm?",
+        "options": [
+            "The algorithm restarts with a new random partition",
+            "The algorithm terminates",
+            "The algorithm increases the number of clusters",
+            "The algorithm accepts the negative gain and swaps anyway"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The loop continues 'until $G_k \\le 0$'. If the maximum cumulative gain is not positive, the algorithm stops[cite: 350]."
+    },
+    {
+        "type": "single",
+        "question": "The 'Hidden layer' dimension in the Node2Vec neural network corresponds to:",
+        "options": [
+            "The number of nodes $|V|$",
+            "The number of edges $|E|$",
+            "The embedding dimension $d$ (or $K$)",
+            "The context window size $k$"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The hidden layer has $K$ dimensions, which corresponds to the size of the representation (embedding) for the nodes[cite: 781]."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are characteristics of the Node2Vec random walk parameters?",
+        "options": [
+            "Low $p$ encourages exploration (DFS-like)",
+            "Low $p$ encourages revisiting (BFS-like/Local)",
+            "Low $q$ encourages exploration (DFS-like)",
+            "High $q$ encourages revisiting (BFS-like/Local)"
+        ],
+        "answer": [
+            1,
+            2,
+            3
+        ],
+        "explanation": "Low $p$ increases return probability (BFS-like). Low $q$ increases 'walk away' probability (DFS-like). High $q$ (low 1/q) discourages walking away, thus encouraging local behavior[cite: 913, 914]."
+    },
+    {
+        "type": "single",
+        "question": "Based on the experimental results provided in the slides (Table 2), how does Node2Vec generally compare to algorithms like DeepWalk and Spectral Clustering?",
+        "options": [
+            "It performs significantly worse on all datasets",
+            "It performs roughly the same",
+            "It achieves higher Macro-F1 scores on datasets like BlogCatalog and PPI",
+            "It fails to converge on large datasets"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Node2Vec achieves higher Macro-F1 scores (e.g., 0.2581 vs 0.2110 for DeepWalk on BlogCatalog)[cite: 958]."
+    }
+]
