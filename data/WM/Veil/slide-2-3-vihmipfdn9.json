@@ -1,0 +1,563 @@
+[
+    {
+        "type": "single",
+        "question": "What is the computational complexity of the K-means algorithm, where t is iterations, k is clusters, and n is data points?",
+        "options": [
+            "O(n^2)",
+            "O(tkn)",
+            "O(n log n)",
+            "O(k^n)"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "According to the study material, the complexity of K-means is O(tkn), which is generally efficient since t, k << n."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are valid convergence conditions for the K-means algorithm?",
+        "options": [
+            "The number of reassigned data points is less than a threshold",
+            "The sum of squares of error (SSE) is less than a threshold",
+            "The number of clusters automatically reduces to a single cluster",
+            "The Euclidean distance between all data points becomes zero"
+        ],
+        "answer": [
+            0,
+            1
+        ],
+        "explanation": "Convergence is reached when the system stabilizes, indicated by minimal reassignment of points, minimal change in centroids, or SSE dropping below a threshold."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a primary disadvantage of the Single Link (Nearest Neighbor) hierarchical clustering method?",
+        "options": [
+            "It is computationally much more expensive than the Complete Link method",
+            "It is highly sensitive to outliers which can distort the hierarchy",
+            "It can cause the 'chaining effect' where distinct clusters are merged via a string of points",
+            "It forces all resulting clusters to have a strictly spherical shape"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Single link clustering measures the shortest distance between clusters, which can lead to 'chaining' where two large clusters are merged because of a single noise point or bridge between them."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Hierarchical Clustering, the Complete Link (Full Link) method defines the distance between two clusters as:",
+        "options": [
+            "The minimum distance between any two points in the clusters",
+            "The average distance between all pairs of points in the clusters",
+            "The maximum distance between two data points of each cluster",
+            "The distance between the computed centroids of the clusters"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Complete/Full link uses the maximum distance between members of the two clusters, which helps avoid chaining but makes it sensitive to outliers."
+    },
+    {
+        "type": "single",
+        "question": "For asymmetric binary attributes (where state 1 is more important than 0), which distance coefficient is most appropriate?",
+        "options": [
+            "Euclidean Distance",
+            "Simple Matching Coefficient",
+            "Jaccard Coefficient",
+            "Manhattan Distance"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Jaccard coefficient is used for asymmetric binary attributes because it ignores negative matches (0-0), focusing only on the presence of the attribute (1)."
+    },
+    {
+        "type": "single",
+        "question": "When normalizing a linear continuous attribute using the Z-score method, the formula used is:",
+        "options": [
+            "v' = (v - min) / (max - min)",
+            "v' = (v - μ) / σ",
+            "v' = v / 10^k",
+            "v' = log(v)"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Z-score normalization transforms data to have a mean of 0 and standard deviation of 1 using the formula (x - μ) / σ."
+    },
+    {
+        "type": "single",
+        "question": "In the EM algorithm for Semi-Supervised Learning (LU Learning), what is the primary function of the 'E-step' (Expectation step)?",
+        "options": [
+            "It re-estimates the parameters to maximize the probability of the data",
+            "It fills in missing data (labels) based on current parameter estimates",
+            "It randomly initializes the cluster centroids for the first iteration",
+            "It builds the initial classifier using only the available labeled data"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Expectation step (E-step) calculates the expected value of the missing data (e.g., probability of class labels for unlabeled data) given the current model parameters."
+    },
+    {
+        "type": "single",
+        "question": "Which assumption is required for the Co-training algorithm to work effectively?",
+        "options": [
+            "The dataset must be fully labeled to ensure convergence of both views",
+            "The attributes can be split into two independent sets (X1 and X2), each sufficient for classification",
+            "The data distributions must strictly follow a multivariate Gaussian distribution",
+            "The number of negative examples must equal the number of positive examples"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Co-training relies on having two independent 'views' (feature sets) of the data, where each view is sufficient to learn a good classifier."
+    },
+    {
+        "type": "single",
+        "question": "In Graph-based semi-supervised methods, what does the 'Mincut' algorithm attempt to minimize?",
+        "options": [
+            "The total number of vertices present in the graph partition",
+            "The sum of weights of edges crossing the cut between positive and negative partitions",
+            "The computational time required to calculate the maximum flow",
+            "The total number of edges existing within the entire graph"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Mincut seeks a partition of the graph that separates positive and negative labeled vertices while minimizing the total weight of the cut edges (representing similarity)."
+    },
+    {
+        "type": "single",
+        "question": "What is the defining characteristic of the PU Learning problem?",
+        "options": [
+            "The training data consists of Positive and Negative labeled examples",
+            "The training data consists of Positive labeled examples and Unlabeled examples only",
+            "The training data is entirely Unlabeled with no class information",
+            "The training data consists of multiclass labels rather than binary"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "PU Learning stands for Learning from Positive and Unlabeled examples, where no explicit negative training set is available."
+    },
+    {
+        "type": "single",
+        "question": "In the 'Spying' technique for PU Learning, what is the purpose of the set 'S'?",
+        "options": [
+            "It is a validation set used strictly to tune hyperparameters",
+            "It is a set of positive examples put into the Unlabeled set to help determine a threshold for reliable negatives",
+            "It is the final set of reliable negative examples extracted from U",
+            "It is a set of outliers that must be removed before training"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A subset S of the positive data is 'spied' into the Unlabeled set. The probability assigned to these known positives helps determine the threshold t to identify likely negatives in U."
+    },
+    {
+        "type": "single",
+        "question": "In the 1DNF technique for PU Learning, a word is added to the Positive Feature (PF) list if:",
+        "options": [
+            "Its frequency in Positive set P is strictly greater than 0",
+            "Its frequency in Positive set P is greater than its frequency in Unlabeled set U (normalized)",
+            "It appears in all documents in the dataset regardless of class",
+            "Its TF-IDF score is the highest in the entire vocabulary"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The 1DNF algorithm identifies positive features as those occurring more frequently in the Positive set (P) relative to its size than in the Unlabeled set (U)."
+    },
+    {
+        "type": "single",
+        "question": "In the context of training an SVM for PU Learning (Case 2), what is the primary purpose of applying separate weights ($C_+$ and $C_-$) to the error terms?",
+        "options": [
+            "To penalize the Unlabeled set more heavily because it typically has a much higher sample density than the labeled Positive set.",
+            "To manage noise in both sets by accounting for hidden positives in the Unlabeled data and potential labeling errors in the Positive data.",
+            "To ensure global convergence of the optimization algorithm by normalizing the variance between the positive and unlabeled data points.",
+            "To enforce a strict hard-margin constraint on the Positive set while allowing a soft-margin penalty for the noisy Unlabeled observations."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In Case 2, neither set is assumed to be perfect. The weight $C_-$ accounts for the 'systematic noise' (hidden positives) in the Unlabeled set, while $C_+$ accounts for 'random noise' (mislabeled negatives) that may exist within the Positive set."
+    },
+    {
+        "type": "single",
+        "question": "What does the Chebychev distance measure?",
+        "options": [
+            "The sum of absolute differences between coordinates",
+            "The maximum absolute difference between any single coordinate dimension",
+            "The Euclidean distance squared between points",
+            "The weighted sum of squared differences across dimensions"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Chebychev distance is defined as $max(|x_{i1}-x_{j1}|, ..., |x_{ir}-x_{jr}|)$, effectively the greatest distance along any single axis."
+    },
+    {
+        "type": "single",
+        "question": "When dealing with a dataset containing mixed attribute types (e.g., binary, continuous, and discrete), how is the distance between two observations typically determined?",
+        "options": [
+            "By applying Euclidean distance directly to the raw values regardless of their scale or type.",
+            "By calculating a weighted average of partial distances computed based on the specific type of each attribute.",
+            "By performing Principal Component Analysis (PCA) to convert all attributes into a single numeric format.",
+            "By ignoring categorical and binary variables to focus solely on the linear numeric attributes."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Standard metrics like Euclidean distance cannot handle categorical data. Instead, methods like Gower's Distance calculate a normalized distance for each attribute according to its type and then aggregate them into a single score."
+    },
+    {
+        "type": "single",
+        "question": "Which evaluation metric measures the concentration of data points in a cluster around the centroid (e.g., SSE)?",
+        "options": [
+            "Isolation metric",
+            "Compression metric",
+            "Entropy metric",
+            "Purity metric"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Compression metrics evaluate how compact a cluster is, often measured by the Sum of Squared Errors (SSE) from the centroid."
+    },
+    {
+        "type": "single",
+        "question": "How does the 'Self-training' algorithm in Semi-Supervised Learning utilize unlabeled data?",
+        "options": [
+            "It applies K-means clustering to the unlabeled data first to assign pseudo-labels",
+            "It uses a classifier trained on Labeled data to classify U, then adds high-confidence examples to L",
+            "It asks a human expert to manually label the most difficult unlabeled examples",
+            "It builds a graph and minimizes the cut between Labeled and Unlabeled partitions"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Self-training involves an iterative process: Train on L, classify U, select the examples with highest confidence prediction, add them to L, and repeat."
+    },
+    {
+        "type": "single",
+        "question": "In the standard two-step strategy for PU Learning, what is the first step?",
+        "options": [
+            "Build a final classifier using P and U",
+            "Identify a set of Reliable Negative (RN) documents from U",
+            "Convert all Unlabeled data to Positive",
+            "Perform K-means clustering on P"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The standard approach is: Step 1. Identify Reliable Negatives (RN) from the Unlabeled set. Step 2. Build a classifier using P, RN, and the remaining U."
+    },
+    {
+        "type": "single",
+        "question": "In the Cosine-Rocchio technique for PU Learning, how is the potential negative prototype vector ($c_{PN}$) calculated?",
+        "options": [
+            "It is the average of all documents in the Positive set",
+            "It is the average vector of the documents identified as Potential Negatives (PN)",
+            "It is a random vector initialized at the start of the algorithm",
+            "It is the vector difference between the Positive centroid and the global centroid"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Rocchio classifier uses centroids. $c_{PN}$ is calculated based on the set of Potential Negatives (PN) identified in the initial cosine filtering step."
+    },
+    {
+        "type": "single",
+        "question": "When using the EM algorithm for PU learning (with Naive Bayes), how are the initial class labels assigned?",
+        "options": [
+            "P is assigned 1, U is assigned 1",
+            "P is assigned 1, U is assigned -1",
+            "P is assigned randomly, U is assigned randomly",
+            "P is assigned 0, U is assigned 0"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "As a starting point for the EM-NB algorithm in PU learning, documents in P are treated as class 1, and documents in U are initially treated as class -1."
+    },
+    {
+        "type": "single",
+        "question": "What is the main idea behind Transductive Inference on SVM (TSVM) for semi-supervised learning?",
+        "options": [
+            "To explicitly ignore the unlabeled data to avoid noise",
+            "To find a hyperplane that separates labeled data while passing through the low-density regions of unlabeled data",
+            "To use unlabeled data exclusively for feature selection purposes",
+            "To maximize the classification margin strictly on the labeled support vectors"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "TSVM attempts to optimize the decision boundary so that it not only separates labeled classes but also avoids cutting through dense clusters of unlabeled data (low-density separation)."
+    },
+    {
+        "type": "single",
+        "question": "Which statement regarding the Spectral Graph method is correct compared to the Mincut method?",
+        "options": [
+            "Spectral Graph minimizes the cut value normalized by partition size, avoiding unbalanced solutions",
+            "Spectral Graph is significantly faster but generally yields less accurate partitions",
+            "Spectral Graph is restricted to working only on unweighted binary graphs",
+            "Spectral Graph focuses on maximizing the flow rather than minimizing the cut"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Simple Mincut tends to cut off small, isolated vertices. Spectral methods (like Normalized Cut) minimize the cut relative to the volume of the partitions to ensure balanced clusters."
+    },
+    {
+        "type": "single",
+        "question": "Which formula represents the distance for Symmetric Binary attributes (where 0-0 and 1-1 matches are equally important)?",
+        "options": [
+            "(b + c) / (a + b + c + d)",
+            "(b + c) / (a + b + c)",
+            "a / (a + b + c + d)",
+            "(a + d) / (a + b + c + d)"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "For symmetric binary attributes, the distance is the proportion of mismatches (b+c) over the total variables (a+b+c+d). This is the Simple Matching distance."
+    },
+    {
+        "type": "single",
+        "question": "How do outliers typically affect the K-means clustering algorithm?",
+        "options": [
+            "They have no effect on the final clusters",
+            "They can significantly drag the centroid away from the true cluster center",
+            "They always form their own separate cluster",
+            "They improve the convergence speed"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "K-means is sensitive to outliers because the mean (centroid) minimizes squared error, so a distant outlier pulls the centroid significantly towards itself."
+    },
+    {
+        "type": "single",
+        "question": "What is the distance metric used in Ward's method for Hierarchical Clustering?",
+        "options": [
+            "The distance between the closest points of two clusters",
+            "The distance between the centroids of two clusters",
+            "The increase in the Sum of Squared Errors (SSE) resulting from merging two clusters",
+            "The maximum distance between points in two clusters"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Ward's method merges the pair of clusters that leads to the minimum increase in the total within-cluster variance (SSE)."
+    },
+    {
+        "type": "single",
+        "question": "Which cluster representation method is best suited for discrete data like text documents?",
+        "options": [
+            "Centroid-based (mean vector)",
+            "Representation based on common values/frequent items",
+            "Geometric medoid",
+            "Gaussian Mixture Models"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "For discrete data or text, representing a cluster by a set of common values or frequent keywords is more interpretable than a mathematical mean."
+    },
+    {
+        "type": "single",
+        "question": "In the 'Exploring Holes' strategy, how is a classifier used to find empty regions?",
+        "options": [
+            "By training on existing data labeled 'Y' and randomly generated data labeled 'N'",
+            "By mathematically inverting the decision boundary of a standard classifier",
+            "By applying unsupervised clustering to identify low-density regions",
+            "By manually removing all dense regions and treating the rest as holes"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The strategy involves generating random points uniformly, labeling them 'N' (noise/hole), labeling existing data 'Y', and training a classifier to distinguish data regions from empty regions."
+    },
+    {
+        "type": "single",
+        "question": "When constructing a graph for semi-supervised learning, what do the edge weights typically represent?",
+        "options": [
+            "The physical distance between data points",
+            "The similarity between the examples (vertices)",
+            "The difference in class labels",
+            "The order of data arrival"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In graph-based learning, vertices are examples and weighted edges represent the similarity between them. High weight implies the vertices likely share the same label."
+    },
+    {
+        "type": "single",
+        "question": "In the Iterative SVM (I-SVM) algorithm for PU Learning, the loop terminates when:",
+        "options": [
+            "The Unlabeled set U is completely empty",
+            "The set Q (documents in U classified as negative) is empty",
+            "The classification accuracy reaches 100%",
+            "The number of positive examples equals the number of negative examples"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "I-SVM iteratively classifies the set Q. If no more documents in the remaining set Q are classified as negative, the algorithm converges and stops."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Totally Random Selection' hypothesis in the context of PU Learning probability estimation?",
+        "options": [
+            "The labeled positive examples are chosen completely randomly from the set of all positive examples",
+            "The negative examples are chosen randomly from the universe",
+            "The classifier makes random predictions initially",
+            "The probability of a label depends on the feature vector x"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "This hypothesis states that $Pr(s=1|x, y=1) = Pr(s=1|y=1)$, meaning the labeling process (s=1) is independent of the specific features x, given that the example is positive."
+    },
+    {
+        "type": "single",
+        "question": "To estimate the constant 'c' in PU probability estimation, one typically uses:",
+        "options": [
+            "The maximum value of g(x) on the dataset",
+            "The average value of g(x) calculated on a validation set of Positive examples",
+            "The sum of all g(x) values in Unlabeled set",
+            "The constant 1 (assuming perfect labeling)"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The constant c corresponds to $Pr(s=1|y=1)$ and is estimated by averaging the classifier output g(x) over a hold-out positive validation set ($V_P$)."
+    },
+    {
+        "type": "single",
+        "question": "What is the computational complexity of Agglomerative Hierarchical Clustering using the Single Link method?",
+        "options": [
+            "O(n)",
+            "O(n log n)",
+            "O(n^2)",
+            "O(n^3)"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Standard agglomerative clustering is generally $O(n^2)$ or $O(n^2 \\log n)$. Slide 19 states Single Link is $O(n^2)$."
+    },
+    {
+        "type": "single",
+        "question": "Exponential continuous attributes (like $Ae^{Bt}$) are typically normalized using:",
+        "options": [
+            "Logarithmic transformation",
+            "Z-score normalization",
+            "Min-max scaling",
+            "Discretization"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Attributes following an exponential scale are often transformed using a logarithm to linearize the range before distance calculation."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a basic method for Cluster Representation discussed?",
+        "options": [
+            "Centroid-based",
+            "Classification model-based",
+            "Based on common values",
+            "Based on support vector margins"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The slides list Centroid-based, Classification model-based (e.g., rules), and Common values-based as the typical representations."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary motivation for using Semi-Supervised Learning (LU Learning)?",
+        "options": [
+            "To avoid using any labeled data",
+            "To utilize abundant cheap unlabeled data to improve classifiers trained on scarce expensive labeled data",
+            "To speed up the training process by ignoring labels",
+            "To increase the dimensionality of the data"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "LU learning addresses the scenario where obtaining labeled data is expensive/slow, but unlabeled data is readily available, using the latter to improve model accuracy."
+    },
+    {
+        "type": "single",
+        "question": "In the context of evaluation, 'Purity' is defined as:",
+        "options": [
+            "The weighted sum of entropies",
+            "The maximum probability of a single class within a cluster",
+            "The distance between the cluster centroid and the dataset mean",
+            "The ratio of labeled to unlabeled data"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Purity of a cluster is the proportion of the most frequent class in that cluster ($max(Pr_i(c_j))$)."
+    },
+    {
+        "type": "single",
+        "question": "Which algorithm is suitable for clustering discrete data where means cannot be defined?",
+        "options": [
+            "K-means",
+            "K-modes",
+            "Single Link",
+            "Expectation Maximization"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "K-means relies on calculating means. For discrete data, the K-modes algorithm is the appropriate variant."
+    },
+    {
+        "type": "single",
+        "question": "Which statement about the 'Chaining effect' in clustering is true?",
+        "options": [
+            "It is a benefit of Complete Link clustering",
+            "It occurs in Single Link clustering when two clusters are merged due to a 'bridge' of noise points",
+            "It results in perfectly spherical clusters",
+            "It is solved by using Euclidean distance"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The chaining effect is a known weakness of Single Link clustering, where distinct clusters are merged because a chain of data points connects them."
+    },
+    {
+        "type": "single",
+        "question": "In the 'Spying' algorithm, how is the threshold 't' determined?",
+        "options": [
+            "It is strictly fixed at 0.5 regardless of distribution",
+            "It is based on the probabilities assigned to the 'spy' positive documents in the Unlabeled set",
+            "It is the average probability of the original Negative set",
+            "It is determined by Cross-Validation on P"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The threshold t is selected based on the probability distribution of the Spy documents (Positives hidden in U) to minimize false negatives."
+    },
+    {
+        "type": "single",
+        "question": "What metric is used to evaluate the 'Isolation' of clusters?",
+        "options": [
+            "Sum of Squared Errors (SSE)",
+            "The distance between centroids",
+            "The entropy of the cluster",
+            "The number of points in the cluster"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Isolation measures how distinct clusters are from one another, typically quantified by the distance between their centroids."
+    }
+]
