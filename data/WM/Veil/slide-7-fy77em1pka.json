@@ -1,0 +1,563 @@
+[
+    {
+        "type": "single",
+        "question": "What is the primary definition of Information Extraction (IE) as described in the lecture?",
+        "options": [
+            "Finding entities and relationships between them in a text",
+            "Classifying documents into predefined categories or topics",
+            "Translating text from one natural language to another",
+            "Summarizing long documents into short abstract paragraphs"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Information extraction is explicitly defined in the slides as the process of finding entities and the relationships between these entities in a text."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is listed as a core assumption of Information Extraction systems?",
+        "options": [
+            "Information is distributed globally across the document",
+            "Information is explicit and requires no complex inference",
+            "Information cannot be summarized by a small set of patterns",
+            "Information is implicit and requires complex inference"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The slides state the assumptions are: Information is presented explicitly (requires no inference), a small number of patterns can summarize content, and information appears locally."
+    },
+    {
+        "type": "single",
+        "question": "In the context of IE types, what does an 'Attribute' refer to?",
+        "options": [
+            "A property of an entity, such as title or age",
+            "A proper noun referring to a specific person",
+            "A relationship between two distinct entities",
+            "An occurrence such as a merger or earthquake"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Attributes are defined as properties of an entity, such as 'Title, age, type of organization...', whereas Events are occurrences and Facts are relationships."
+    },
+    {
+        "type": "single",
+        "question": "What is the correct order of the initial processing steps in the IE system architecture?",
+        "options": [
+            "Field Analysis -> Parsing -> Word Tokenize",
+            "Parsing -> Word Tokenize -> Field Analysis",
+            "Word Tokenize -> Parsing -> Field Analysis",
+            "Parsing -> Field Analysis -> Word Tokenize"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The architecture diagram shows the data flow starting with Word Tokenize, followed by Morphological/Semantic Analysis and Parsing, and ending with Field Analysis."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a significant disadvantage of Dictionary-based Named Entity Recognition?",
+        "options": [
+            "It is computationally too expensive to run",
+            "It cannot handle ambiguity in entity names",
+            "It cannot detect entities stored in the list",
+            "It requires a large amount of training data"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The slides highlight that dictionary-based methods 'Can't handle ambiguity' (e.g., 'Washington' could be a person, location, or organization)."
+    },
+    {
+        "type": "single",
+        "question": "In the BIO labeling scheme, what does the tag 'B' indicate?",
+        "options": [
+            "The word is inside a named entity",
+            "The beginning of a named entity",
+            "The word belongs to a background",
+            "The word is outside of any entity"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In BIO (or IOB) tagging, 'B' stands for 'Begin' (start of an entity), 'I' stands for 'Inside', and 'O' stands for 'Outside'."
+    },
+    {
+        "type": "single",
+        "question": "Which feature set is commonly used in standard Named Entity Recognition systems?",
+        "options": [
+            "Word forms, word types, and affixes",
+            "Audio frequency and sound wave patterns",
+            "Pixel intensity and image histogram data",
+            "Network packet headers and protocols"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Common NER features include word forms (capitalization), word types (numeric, symbol), affixes (prefixes/suffixes), and context windows."
+    },
+    {
+        "type": "single",
+        "question": "What is the main benefit of using a Bidirectional LSTM (BiLSTM) in Neural NER models?",
+        "options": [
+            "It allows the model to use both past and future context",
+            "It processes words only from left to right to save time",
+            "It removes the need for word embeddings entirely",
+            "It reduces the dimensionality of the input vector"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "BiLSTMs process the sequence in both directions, allowing the representation of a word to capture information from both the beginning (past) and end (future) of the sentence."
+    },
+    {
+        "type": "single",
+        "question": "How are character-level embeddings typically generated in the presented Neural NER architecture?",
+        "options": [
+            "By looking up a static dictionary of characters",
+            "By manually assigning a vector to each character",
+            "By averaging the word embeddings in the sentence",
+            "By using a CNN or BiLSTM on character sequences"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The slides describe generating character representations using a model architecture like a bidirectional LSTM or CNN that learns from the character sequence."
+    },
+    {
+        "type": "single",
+        "question": "What is the specific role of the CRF (Conditional Random Field) layer in a BiLSTM-CRF model?",
+        "options": [
+            "To perform the initial tokenization of text",
+            "To capture dependencies between output labels",
+            "To generate the word embeddings from text",
+            "To reduce the training time of the network"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The CRF layer is used on top of the BiLSTM to model the dependencies between labels (e.g., 'I-ORG' cannot follow 'B-PER'), ensuring valid tag sequences."
+    },
+    {
+        "type": "single",
+        "question": "According to the evaluation results (Table 4), which configuration achieved the highest F1 score?",
+        "options": [
+            "Without PoS and chunking tags",
+            "PoS and chunking tags by NNVLP",
+            "Default PoS and chunking tags",
+            "PoS and chunking tags by Underthesea"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "In the provided table, the 'Default PoS and chunking tags' configuration yielded the highest F1 score (93.93) compared to the others."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Snowball' algorithm primarily designed for?",
+        "options": [
+            "Manual annotation of large datasets",
+            "Supervised classification of documents",
+            "Visualizing high-dimensional data",
+            "Unsupervised extraction of relations"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Snowball is introduced as an 'Unsupervised relation extraction' system that improves upon earlier systems like DIPRE using a bootstrapping approach."
+    },
+    {
+        "type": "single",
+        "question": "The Snowball algorithm represents a pattern as a 5-tuple. What does this tuple contain?",
+        "options": [
+            "Subject, Verb, Object, Preposition, Conjunction",
+            "Sentence ID, Word Count, Char Count, POS, Lemma",
+            "Entity1, Relation, Entity2, Confidence, Source",
+            "Left context, Tag1, Middle context, Tag2, Right context"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The slides explicitly define the 5-tuple pattern structure as <left, tag 1, middle, tag 2, right>, representing the context and entity tags."
+    },
+    {
+        "type": "single",
+        "question": "In Snowball, how is the similarity between a text segment and a pattern calculated?",
+        "options": [
+            "Using the Jaccard similarity of their word sets",
+            "Using the Euclidean distance between their vectors",
+            "Using the dot product of their context weight vectors",
+            "Using the Levenshtein distance between strings"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The similarity function Match(t, t') is calculated as the sum of dot products of the respective context vectors: l·l' + m·m' + r·r'."
+    },
+    {
+        "type": "single",
+        "question": "What is the main idea behind 'Distant Supervision' for relation extraction?",
+        "options": [
+            "Using a knowledge base to automatically generate labeled data",
+            "Using only syntactic rules to extract relations",
+            "Using unsupervised clustering without any labels",
+            "Using crowd-workers located in different countries"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Distant supervision utilizes an existing knowledge base (like Freebase) to align facts with text, automatically creating a large set of labeled training data."
+    },
+    {
+        "type": "single",
+        "question": "What assumption does Distant Supervision make about entities and relations?",
+        "options": [
+            "Entities must appear in the same paragraph to be considered related",
+            "Relations can only be extracted if the sentence contains the exact relation name",
+            "If two entities are related in the KB, every sentence with them expresses that relation",
+            "If two entities are related in the KB, no sentence will express that relation"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The 'Distant Supervision Assumption' is that if two entities have a relationship in the Knowledge Base, any sentence containing both entities is likely to express that relationship."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are features used in the Distant Supervision model mentioned?",
+        "options": [
+            "Sequence of words between entities",
+            "Flag indicating if entities are in different sentences",
+            "Path in the dependency tree",
+            "Font size of the entity text"
+        ],
+        "answer": [
+            0,
+            2
+        ],
+        "explanation": "The slides list features such as the sequence of words between entities, part-of-speech tags, and the path between entities in the dependency tree. 'Font size' is not mentioned."
+    },
+    {
+        "type": "single",
+        "question": "What is the definition of Coreference Resolution?",
+        "options": [
+            "Translating a sentence into a logical form for querying",
+            "Identifying the grammatical subject and object of a sentence",
+            "Linking a web page to another relevant web page",
+            "Detecting pairs of phrases that refer to the same real-world entity"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Coreference resolution is defined as 'the process of detecting a pair of words or phrases in the text that refer to the same entity'."
+    },
+    {
+        "type": "single",
+        "question": "The phrase 'Phạm Nhật Vượng, Chủ tịch Vingroup' is an example of which coreference type?",
+        "options": [
+            "Apposition",
+            "Possessive pronoun",
+            "Relative clause",
+            "Demonstrative noun"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Apposition occurs when two noun phrases are placed side-by-side to describe the same entity, as in the example 'Phạm Nhật Vượng, Chủ tịch Vingroup'."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following sentences illustrates a 'Part-whole' coreference relationship?",
+        "options": [
+            "Apple released a new phone. It is very expensive.",
+            "The car has a new engine. The transmission is also new.",
+            "John went to the store. He bought some milk.",
+            "The president gave a speech. The audience clapped."
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The 'Part-whole' relationship implies one entity is a component of the other. 'Transmission' is a part of the 'car' (or the implied vehicle system context)."
+    },
+    {
+        "type": "single",
+        "question": "What is the goal of the 'End-to-end Neural Coreference Resolution' model?",
+        "options": [
+            "To rely heavily on complex syntactic parsers",
+            "To perform resolution without any training data",
+            "To minimize reliance on parsers and manual features",
+            "To use only character-level features for prediction"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The slides state the goal is to 'Limit the use of complex features' and 'Limit the use of parsers', aiming for an end-to-end differentiable system."
+    },
+    {
+        "type": "single",
+        "question": "In the End-to-end Coref model, what does the input vector for a word consist of?",
+        "options": [
+            "Fixed word embeddings and character-based embeddings",
+            "The dependency parse tree path of the word",
+            "Only the Part-of-Speech tag of the word",
+            "A random vector that is updated during training"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The input consists of 'Word Embeddings (GloVe + Turian)' concatenated with 'Character representations (CNN)'."
+    },
+    {
+        "type": "single",
+        "question": "What components make up the span representation ($g_i$) in the neural coref model?",
+        "options": [
+            "The vector of the first word in the sentence",
+            "Start/End tokens, soft head, and span width",
+            "The average vector of all words in the document",
+            "All words in the span concatenated together"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The span representation $g_i$ is constructed from the start and end word vectors ($x^*_{START}$, $x^*_{END}$), a soft head vector ($\tilde{x}_i$), and a width feature ($\\Phi(i)$)."
+    },
+    {
+        "type": "single",
+        "question": "How is the 'soft head' of a span calculated in the neural coref model?",
+        "options": [
+            "By using an external syntactic parser",
+            "By choosing the word with the highest TF-IDF",
+            "By selecting the middle word of the span",
+            "By using an attention mechanism over span words"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The soft head is calculated using an attention mechanism ($FFNN_{\\alpha}$) that assigns weights to words within the span to compute a weighted average."
+    },
+    {
+        "type": "single",
+        "question": "What does the 'Mention Score' ($s_m$) in the coreference model evaluate?",
+        "options": [
+            "The grammatical correctness of the sentence",
+            "The likelihood that a span is a valid entity mention",
+            "The similarity between two different spans",
+            "The length of the span in characters"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Mention Score $s_m(i)$ is a unary score that measures how likely a specific span $i$ is to be a mention of an entity, independent of other spans."
+    },
+    {
+        "type": "single",
+        "question": "Which operation is used to capture the similarity between span $g_i$ and span $g_j$ in the scoring function?",
+        "options": [
+            "Cosine similarity division ($g_i / g_j$)",
+            "Vector subtraction ($g_i - g_j$)",
+            "Element-wise multiplication ($g_i \\circ g_j$)",
+            "Vector concatenation only ($[g_i, g_j]$)"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The scoring function explicitly includes the term $g_i \\circ g_j$ (element-wise multiplication) alongside the individual span vectors to capture their interaction."
+    },
+    {
+        "type": "single",
+        "question": "According to the ablation study (Table Slide 63), removing which feature caused the largest performance drop?",
+        "options": [
+            "GloVe embeddings",
+            "Genre metadata",
+            "Distance and width features",
+            "Character-level CNN"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The table shows that removing 'distance and width features' resulted in the largest negative impact (-3.8) on the F1 score."
+    },
+    {
+        "type": "single",
+        "question": "What is the computational complexity challenge in End-to-end Coreference Resolution?",
+        "options": [
+            "The attention mechanism cannot be parallelized on GPUs",
+            "The vocabulary size grows exponentially with data size",
+            "The number of spans is quadratic ($O(N^2)$) relative to document length",
+            "The model requires infinite memory for word embeddings"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Since the model considers all possible text spans, the number of spans is $O(N^2)$, which requires pruning strategies to remain computationally feasible."
+    },
+    {
+        "type": "single",
+        "question": "What strategy is used to handle the large number of potential spans in the neural model?",
+        "options": [
+            "Randomly sampling 10% of the spans",
+            "Ignoring all spans longer than 3 words",
+            "Processing only the first 10 sentences of a document",
+            "Pruning to keep only the top K spans based on mention scores"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The model uses a pruning step (often beam search) to keep only the top $\\lambda N$ spans with the highest mention scores to reduce the search space."
+    },
+    {
+        "type": "single",
+        "question": "Which evaluation metric is NOT typically used for Coreference Resolution?",
+        "options": [
+            "B-cubed",
+            "BLEU score",
+            "CEAF",
+            "MUC"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "MUC, B-cubed, and CEAF are standard coreference metrics. BLEU is primarily used for evaluating machine translation and text generation."
+    },
+    {
+        "type": "single",
+        "question": "In the Snowball algorithm, what defines the 'Right' context in a tuple?",
+        "options": [
+            "The sequence of words strictly between the entities",
+            "The $k$ words preceding the entity pair",
+            "The $k$ words following the entity pair",
+            "The syntactic root of the sentence"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The 'Right' element of the 5-tuple is defined as the window of $k$ words appearing immediately to the right of the extracted entities."
+    },
+    {
+        "type": "single",
+        "question": "What indicates 'Semantic Drift' in iterative extraction algorithms like Snowball?",
+        "options": [
+            "The system cannot handle foreign languages",
+            "The system generates duplicate entities",
+            "The system runs slower with each iteration",
+            "The system starts extracting incorrect patterns/entities over time"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Semantic drift refers to the degradation of quality where the system progressively deviates from the original target relation and starts learning incorrect patterns."
+    },
+    {
+        "type": "single",
+        "question": "Why does the Neural NER model use a Convolutional Neural Network (CNN) for characters?",
+        "options": [
+            "To classify the sentiment of the word",
+            "To extract morphological features like prefixes and suffixes",
+            "To compress the image of the word",
+            "To predict the next word in the sequence"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "CNNs over characters are effective at capturing sub-word morphological information (like 'ing', 'pre', 'tion') that helps in identifying entity types."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'D' term in the coreference probability equation $P(y_1, ..., y_N | D)$?",
+        "options": [
+            "The decoding beam width",
+            "The dropout rate",
+            "The input document context",
+            "The dictionary size"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "In the probabilistic formulation of the model, $D$ stands for the Document, which serves as the condition for predicting the coreference clusters $y$."
+    },
+    {
+        "type": "single",
+        "question": "In Distant Supervision, what is the 'Negative' data typically composed of?",
+        "options": [
+            "Sentences that contain grammatical errors",
+            "Data manually labeled as incorrect by humans",
+            "Sentence pairs with entities not related in the Knowledge Base",
+            "Sentences that are too short to be useful"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Negative training examples are typically generated from pairs of entities that appear together in text but do not have a recorded relation in the Knowledge Base."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Antecedent Score' ($s_a$) in the coreference model?",
+        "options": [
+            "The probability of the span being a pronoun",
+            "The pairwise score indicating if span $j$ is the antecedent of span $i$",
+            "The score of the first mention in the document",
+            "The confidence of the named entity tagger"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Antecedent Score $s_a(i, j)$ measures the compatibility between a span $i$ and a candidate antecedent span $j$."
+    },
+    {
+        "type": "single",
+        "question": "What is the benefit of 'Field Analysis' after Parsing in the IE pipeline?",
+        "options": [
+            "It translates the document into English",
+            "It identifies the author of the document",
+            "It maps extracted text segments to specific database fields",
+            "It corrects spelling errors in the document"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Field analysis organizes the raw parsed structures or extracted fragments into the structured fields (e.g., Name, Date, Location) required by the final output schema."
+    },
+    {
+        "type": "single",
+        "question": "Which problem does 'Coreference Resolution' directly help solve in Information Extraction?",
+        "options": [
+            "Checking the factual accuracy of the text",
+            "Linking multiple mentions of an entity to a single identity",
+            "Removing duplicate documents from the corpus",
+            "Translating foreign entity names into English"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "By resolving coreferences (e.g., 'he' = 'Obama'), the system can link all information associated with the different mentions to the single underlying entity."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Snowball, what is a 'Seed Tuple'?",
+        "options": [
+            "A random pair of words selected for testing",
+            "The first word of every sentence in the corpus",
+            "The final output of the extraction process",
+            "A small set of known entity pairs used to start the bootstrapping"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Seed tuples (e.g., <Microsoft, Bill Gates>) are the initial known examples provided to the algorithm to begin the iterative pattern finding process."
+    },
+    {
+        "type": "single",
+        "question": "What does the 'Word Type' feature usually encode in a NER system?",
+        "options": [
+            "The specific font used for the word",
+            "Classes like 'All-Capitalized', 'Numeric', or 'Symbol'",
+            "The synonym of the word",
+            "The language the word belongs to"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Word type features capture orthographic categories, such as whether a word is fully capitalized, contains digits, or is a punctuation symbol."
+    }
+]
