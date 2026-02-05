@@ -1,0 +1,566 @@
+[
+    {
+        "type": "single",
+        "question": "In the context of Online Advertising revenue models, what does the acronym CPM specifically stand for?",
+        "options": [
+            "Cost Per iMpression",
+            "Cost Per Mile",
+            "Cost Per Media",
+            "Cost Per Management"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "CPM stands for Cost Per iMpression. In this revenue model, advertisers pay a set fee for every 1,000 times an advertisement is displayed to a user, regardless of clicks or conversions."
+    },
+    {
+        "type": "single",
+        "question": "Which advertising revenue model relies heavily on the 'Conversion Rate' to determine the cost effectiveness?",
+        "options": [
+            "Cost Per Click (CPC)",
+            "Cost Per Mile (CPM)",
+            "Cost Per Action (CPA)",
+            "Cost Per View (CPV)"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "CPA (Cost Per Action) is based on the user performing a specific action (like a purchase or sign-up). Therefore, its revenue calculation is directly dependent on the conversion rate, unlike CPM or CPC."
+    },
+    {
+        "type": "single",
+        "question": "According to the CPC revenue formula ($Revenue = N \\times CTR \\times CPC$), what does CTR represent?",
+        "options": [
+            "Cost To Rank",
+            "Click Through Rate",
+            "Content Type Ratio",
+            "Client Total Return"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "CTR stands for Click-Through Rate. It represents the probability or frequency with which users click on an advertisement when it is shown to them."
+    },
+    {
+        "type": "single",
+        "question": "In the online advertising ecosystem, which entity acts as the intermediary between Content Providers and Advertisers?",
+        "options": [
+            "The Internet Service Provider",
+            "The Ad Network",
+            "The Operating System",
+            "The Web Browser"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The Ad Network (e.g., Google, Yahoo, RightMedia) functions as the bridge, aggregating ad space from content providers and matching it with ads from advertisers."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following lists contains only examples of Ad Networks mentioned in the lecture slides?",
+        "options": [
+            "Google, Yahoo, MSN, RightMedia",
+            "Amazon, eBay, Alibaba, Craigslist",
+            "Facebook, Twitter, Instagram, TikTok",
+            "Firefox, Chrome, Safari, Edge"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The slides explicitly list Yahoo, Google, MSN, and RightMedia as examples of Ad Networks that connect publishers and advertisers."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary optimization goal for an advertising company when selecting which ads to display?",
+        "options": [
+            "Minimize the number of ads displayed",
+            "Maximize the total revenue generated",
+            "Maximize the user's session time",
+            "Minimize the server bandwidth usage"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The fundamental problem described is to select a set of ads that maximizes revenue, which involves balancing the bid price with the likelihood of a click (CTR)."
+    },
+    {
+        "type": "single",
+        "question": "When using Language Models to match ads to queries, which metric is commonly used to measure the difference between the Ad LM and Query LM?",
+        "options": [
+            "Levenshtein Edit Distance",
+            "Root Mean Square Error (RMSE)",
+            "Pearson Correlation Coefficient",
+            "Kullback-Leibler (KL) Divergence"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The slides illustrate using KL Divergence (denoted as $KL(ad LM || query LM)$) to calculate the distance or dissimilarity between the language model of the ad and the language model of the user's query."
+    },
+    {
+        "type": "single",
+        "question": "What is a major disadvantage of using a simple Language Model approach for ad selection without user logs?",
+        "options": [
+            "It is incompatible with mobile devices",
+            "It only works for English language ads",
+            "It cannot utilize historical user feedback",
+            "It requires too much storage space for text"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "A simple language model approach that only analyzes text content fails to leverage user feedback (click logs), which is a critical signal for determining actual ad relevance."
+    },
+    {
+        "type": "single",
+        "question": "In the Logistic Regression model for predicting ad clicks, what data is used to learn the weights ($W$)?",
+        "options": [
+            "The geographic location of the server",
+            "Historical user click-through data",
+            "The advertiser's total annual budget",
+            "The font size and color of the ad text"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The weights in the logistic regression model are trained using historical data on which ads were clicked by users for specific queries (User feedback)."
+    },
+    {
+        "type": "single",
+        "question": "Collaborative Filtering in advertising primarily recommends ads based on which of the following?",
+        "options": [
+            "The strict alphabetical order of keywords",
+            "The similarity of user interaction patterns",
+            "The semantic meaning of the ad copy",
+            "The length of the advertiser's website URL"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Collaborative filtering relies on the interaction matrix (e.g., who clicked what). It assumes that if users clicked similar ads in the past, they will have similar preferences in the future."
+    },
+    {
+        "type": "single",
+        "question": "Which algorithm is suggested in the slides for finding 'similar ads' within a Collaborative Filtering framework?",
+        "options": [
+            "Gradient Boosted Trees",
+            "Apriori Association Rules",
+            "k-Nearest Neighbors (kNN)",
+            "Convolutional Neural Networks"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The slides mention using the kNN (k-Nearest Neighbors) algorithm to identify ads that are close to each other in the feature space constructed from user interactions."
+    },
+    {
+        "type": "single",
+        "question": "According to the provided statistics, approximately what percentage of internet traffic is driven by search engines?",
+        "options": [
+            "About 21 percent",
+            "About 45 percent",
+            "About 10 percent",
+            "About 60 percent"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The slides present a statistic stating that 21% of internet traffic originates from search engines."
+    },
+    {
+        "type": "single",
+        "question": "What is the average length of a user's search query as noted in the lecture slides?",
+        "options": [
+            "4.5 words",
+            "2.4 words",
+            "1.2 words",
+            "6.0 words"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The slides highlight that search queries are typically short, with an average length of roughly 2.4 words."
+    },
+    {
+        "type": "single",
+        "question": "User feedback statistics indicate that 50% of users tend to click on which search result?",
+        "options": [
+            "The first result",
+            "The first result on page 2",
+            "The third result",
+            "The last result on page 1"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The data shows a strong bias towards the top position, with 50% of users clicking the very first link returned by the search engine."
+    },
+    {
+        "type": "single",
+        "question": "The slides mention a shift in search trends from 'Entertainment' towards which other category?",
+        "options": [
+            "Government",
+            "E-commerce",
+            "Education",
+            "Healthcare"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The slides note a trend where search interest has moved from purely entertainment towards e-commerce (product search)."
+    },
+    {
+        "type": "multi",
+        "question": "Which specific data points are typically captured during the 'Query Logging' process?",
+        "options": [
+            "The list of documents returned",
+            "The content of the query itself",
+            "The user's biometric data",
+            "The documents selected by the user"
+        ],
+        "answer": [
+            0,
+            1,
+            3
+        ],
+        "explanation": "Query logs typically contain the User ID, the Query content, the list of relevant documents returned, and the specific documents the user clicked on. Biometric data is not part of standard query logging."
+    },
+    {
+        "type": "single",
+        "question": "During query preprocessing, 'identifying a query session' involves distinguishing between which user behaviors?",
+        "options": [
+            "Desktop vs Mobile usage",
+            "Generalization vs Detailing",
+            "Typing vs Voice Input",
+            "Login vs Logout times"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Session identification analyzes consecutive queries to see if a user is broadening their search (Generalization), narrowing it down (Detailing), or switching topics."
+    },
+    {
+        "type": "single",
+        "question": "What is a primary characteristic used to identify and filter out 'Bot queries'?",
+        "options": [
+            "They only search for images",
+            "They have an unusually high query frequency",
+            "They originate from residential IP addresses",
+            "They use very polite language"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Bots are often detected by their non-human behavior patterns, specifically generating queries at a much higher rate and frequency than a human user could."
+    },
+    {
+        "type": "multi",
+        "question": "Which of the following are standard steps in the 'Standardize query' preprocessing phase?",
+        "options": [
+            "Translation to French",
+            "Removal of stop words",
+            "Restoring accents (for Vietnamese)",
+            "Stemming of words"
+        ],
+        "answer": [
+            1,
+            2,
+            3
+        ],
+        "explanation": "Standardization involves removing noise (stop words), normalizing word forms (stemming), and fixing language-specific issues like missing accents. Translation is a separate task."
+    },
+    {
+        "type": "single",
+        "question": "In a Unigram Language Model, how is the probability of a word calculated?",
+        "options": [
+            "Based on the word's independent frequency in the corpus",
+            "Based on the probability of the preceding word",
+            "Based on the grammatical structure of the sentence",
+            "Based on the semantic category of the document"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "A Unigram model treats each word independently. The probability $P(w)$ is calculated based on how often that word appears in the training corpus, ignoring context."
+    },
+    {
+        "type": "single",
+        "question": "Which Language Model calculates the probability of a word given the single preceding word ($P(w_i | w_{i-1})$)?",
+        "options": [
+            "Unigram Model",
+            "Trigram Model",
+            "Bigram Model",
+            "Skip-gram Model"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Bigram model looks at pairs of consecutive words, calculating the conditional probability of a word appearing given the word that came immediately before it."
+    },
+    {
+        "type": "single",
+        "question": "Why is 'Query expansion based solely on textual content' often considered insufficient?",
+        "options": [
+            "Users dislike having their queries changed",
+            "It requires expensive proprietary dictionaries",
+            "Short queries often lack sufficient semantic context",
+            "Computers cannot process text fast enough"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Queries are often very short (avg 2.4 words) and ambiguous. Pure text analysis may miss the user's intent, whereas behavioral data (clicks) provides better context."
+    },
+    {
+        "type": "single",
+        "question": "What is the core assumption behind using User Feedback for query expansion?",
+        "options": [
+            "Users randomly click links to explore new topics",
+            "Users click on documents that are semantically related to their query",
+            "Users prefer documents that have the exact same title as the query",
+            "Users only trust results from government websites"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The method assumes a transitive relationship: if a query term leads a user to select a document containing other terms, those document terms are likely related to the query term."
+    },
+    {
+        "type": "single",
+        "question": "In the extended query model formula, what does the term $f_{ik}^{(q)}(w_i^{(q)}, D_k)$ count?",
+        "options": [
+            "The total number of words in document $D_k$",
+            "The sessions where query $w_i$ led to selecting document $D_k$",
+            "The number of advertisers bidding on keyword $w_i$",
+            "The number of times query term $w_i$ appears in document $D_k$"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "This specific notation represents the co-occurrence count in user sessions: how often the specific query term $w_i$ resulted in the user clicking on document $D_k$."
+    },
+    {
+        "type": "single",
+        "question": "After calculating term weights in the 'Extend query model' process, what is the final step?",
+        "options": [
+            "Ask the user to manually select new keywords",
+            "Rank the documents based on file size",
+            "Discard the original query",
+            "Perform a new search with the constructed expansion query Q'"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Once the system identifies and weights related terms to form a new, expanded query Q', it executes a new search using Q' to retrieve better results."
+    },
+    {
+        "type": "single",
+        "question": "The Google Flu Trends example demonstrated the power of mining which type of data?",
+        "options": [
+            "Search engine query logs",
+            "Pharmacy sales records",
+            "Hospital admission logs",
+            "Social media status updates"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Google Flu Trends successfully predicted flu outbreaks by analyzing the frequency and location of search queries related to flu symptoms."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following describes 'Query Generalization'?",
+        "options": [
+            "Adding specific adjectives to narrow results",
+            "Modifying a query to search for a broader topic",
+            "Correcting a spelling mistake in the query",
+            "Translating the query into another language"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Query Generalization involves changing the query to cover a wider scope (e.g., changing 'Canon EOS 5D' to 'Digital Camera'), as opposed to detailing (narrowing)."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT listed as a basic unit for constructing Language Models in the slides?",
+        "options": [
+            "Syllable",
+            "Character",
+            "Word",
+            "Paragraph"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The slides list Word, Syllable, Demisyllable, and Character as basic units. 'Paragraph' is too large to be a standard basic unit for these probabilistic models."
+    },
+    {
+        "type": "single",
+        "question": "Who are the two primary parties that the Ad Network connects in an Ad Exchange?",
+        "options": [
+            "Data Miners and Server Hosts",
+            "Internet Service Providers and Users",
+            "Advertisers and Content Providers",
+            "Search Engines and Web Browsers"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Ad Network serves as a marketplace or exchange connecting Advertisers (who want to buy space) and Content Providers (who have space to sell)."
+    },
+    {
+        "type": "single",
+        "question": "In 'Sponsored Search' advertising, how are ads primarily targeted?",
+        "options": [
+            "Based on the user's social media profile",
+            "Based on the keywords in the user's current query",
+            "Based on the user's past purchase history",
+            "Based on the content of the website being visited"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Sponsored Search matches ads directly to the intent expressed in the user's search query (e.g., searching for 'shoes' triggers shoe ads)."
+    },
+    {
+        "type": "single",
+        "question": "The CPC (Cost Per Click) revenue model depends on which mechanism to determine prices?",
+        "options": [
+            "An auction mechanism",
+            "A random lottery system",
+            "A government-regulated tariff",
+            "A fixed-rate subscription"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "In CPC, the cost is not fixed; it is determined by an auction where advertisers bid on keywords, and the winner pays based on the bid and quality score."
+    },
+    {
+        "type": "single",
+        "question": "What is the mathematical function used for the 'Log-odds' in the Logistic Regression model?",
+        "options": [
+            "$f(x) = x^2 + 2x + 1$",
+            "$f(x) = 1 / (1 + e^{-x})$",
+            "$f(x) = log(x / (1 - x))$",
+            "$f(x) = x \\times log(x)$"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The log-odds (logit) function is defined as the logarithm of the probability of success divided by the probability of failure: $log(p / (1-p))$."
+    },
+    {
+        "type": "single",
+        "question": "In the Collaborative Filtering formula, what does the variable $r_{qa}$ represent?",
+        "options": [
+            "The reliability of the advertiser",
+            "The revenue generated by ad 'a'",
+            "The relevance of ad 'a' to query 'q'",
+            "The rank of the query in logs"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "In the context of the recommendation formula, $r_{qa}$ stands for the predicted relevance or interest level that a user issuing query 'q' would have for ad 'a'."
+    },
+    {
+        "type": "single",
+        "question": "The 'Long Tail' problem in Language Models for advertising refers to the difficulty in handling:",
+        "options": [
+            "Users who scroll deep into results",
+            "Ad descriptions that are too verbose",
+            "Websites with very long domain names",
+            "Rare or infrequent search queries"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The 'Long Tail' refers to the vast number of unique, rarely occurring queries that are difficult for models to learn from because there is very little historical data for them."
+    },
+    {
+        "type": "single",
+        "question": "The structure used to map Query Terms to Documents and then to Document Terms is best described as:",
+        "options": [
+            "A binary search tree",
+            "A linear linked list",
+            "A circular queue",
+            "A bipartite graph structure"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "The relationship is visualized as a graph connecting two distinct sets of nodes (Query Terms and Document Terms) via the documents/sessions, characteristic of a bipartite graph approach."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an example of a 'Demisyllable' unit given in the slides?",
+        "options": [
+            "'un' and 'dis'",
+            "'ing' and 'ed'",
+            "'ch' and 'ang'",
+            "'pre' and 'post'"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The slides explicitly provide 'ch' and 'ang' as examples of demisyllables, which are phonetic units smaller than a syllable but larger than a single phoneme/character."
+    },
+    {
+        "type": "single",
+        "question": "How does 'Content Match' advertising differ from 'Sponsored Search'?",
+        "options": [
+            "It matches ads to the webpage content, not a search query",
+            "It only displays video ads, never text ads",
+            "It does not cost the advertiser any money",
+            "It is used exclusively on mobile apps"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Content Match (Contextual Advertising) places ads on third-party websites based on the content of the page (e.g., car ads on a car blog), rather than matching a user's active search query."
+    },
+    {
+        "type": "single",
+        "question": "In the Query Suggestion example 'đại học bách khoa', what kind of suggestions are provided?",
+        "options": [
+            "Refinements like 'Hanoi', 'scores', or 'campuses'",
+            "The exact GPS coordinates of the school",
+            "A list of all students attending the university",
+            "Completely unrelated popular topics"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The example shows the search engine suggesting specific refinements or related information, such as 'điểm chuẩn' (scores), 'cơ sở 2' (campus 2), or location qualifiers."
+    },
+    {
+        "type": "single",
+        "question": "Why are 'Stopwords' typically removed during the query preprocessing stage?",
+        "options": [
+            "They are difficult for computers to render",
+            "They carry little unique semantic meaning",
+            "They increase the cost of the advertisement",
+            "They are offensive or inappropriate"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Stopwords (like 'the', 'is', 'at') are high-frequency words that serve grammatical purposes but usually contribute very little to the specific topic or intent of the query."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of 'Laplace Smoothing' (adding 1) in the Bigram probability formula?",
+        "options": [
+            "To compress the model size",
+            "To encrypt the data for security",
+            "To remove high-frequency words",
+            "To handle cases where a bigram count is zero"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Laplace smoothing adds 1 to the count to ensure that if a specific word pair (bigram) has never been seen in the training data, its probability is not zero, which would break the model."
+    }
+]
