@@ -1,0 +1,562 @@
+[
+    {
+        "type": "single",
+        "question": "In the context of Information Retrieval, what is the primary function of the 'Indexer' module?",
+        "options": [
+            "To transform raw documents into searchable data structures like inverted indices",
+            "To rank the retrieved documents based on their semantic similarity to the query",
+            "To strictly filter out documents that do not contain all the query terms",
+            "To automatically generate new queries based on user's search history"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The Indexer is responsible for processing the text database and creating efficient data structures (such as inverted files) that allow for fast searching, distinct from the ranking or query expansion processes."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a defining characteristic of the Boolean Retrieval Model?",
+        "options": [
+            "It provides a ranked list of documents based on relevance scores",
+            "It supports partial matching between the query and documents",
+            "It retrieves documents based on exact set-theoretic matches",
+            "It uses vector geometry to determine document similarity"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Boolean model is based on set theory and Boolean logic (AND, OR, NOT). It makes a binary decision (relevant or not) without ranking or partial matching."
+    },
+    {
+        "type": "single",
+        "question": "In the Vector Space Model, why is Inverse Document Frequency (IDF) applied to term weights?",
+        "options": [
+            "To increase the weight of terms that appear frequently in a single document",
+            "To decrease the weight of terms that appear in many documents in the collection",
+            "To normalize the document vectors to a length of one for easier comparison",
+            "To remove stop words from the index before the ranking process begins"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "IDF discriminates between terms. Terms that appear in many documents (like 'the', 'is') are less useful for distinguishing relevant documents, so their weight is reduced."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of 'Smoothing' (e.g., Jelinek-Mercer or Laplace) in Language Models for IR?",
+        "options": [
+            "To assign non-zero probabilities to query terms not present in a document",
+            "To reduce the dimensionality of the term-document matrix for faster processing",
+            "To average the relevance scores from multiple different search engines",
+            "To remove noise and outliers from the document frequency distribution"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Smoothing deals with the zero-probability problem. If a term in the query doesn't exist in a document, the document's probability would drop to zero without smoothing, which assigns a small probability to unseen terms."
+    },
+    {
+        "type": "single",
+        "question": "In the Rocchio algorithm for relevance feedback, what role does the parameter gamma (γ) play?",
+        "options": [
+            "It controls the weight given to the original query vector",
+            "It determines the influence of the relevant documents centroid",
+            "It determines the influence of the non-relevant documents centroid",
+            "It sets the threshold for determining if a document is relevant"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Rocchio formula adjusts the query vector by adding relevant document vectors and subtracting non-relevant ones. Gamma (γ) is the weight coefficient for the non-relevant document centroid."
+    },
+    {
+        "type": "single",
+        "question": "How is the integer 5 encoded using Unary coding?",
+        "options": [
+            "101",
+            "00001",
+            "11110",
+            "11111"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": ""
+    },
+    {
+        "type": "single",
+        "question": "Which compression algorithm divides a number into a quotient (encoded in unary) and a remainder (encoded in binary)?",
+        "options": [
+            "Elias Gamma Coding",
+            "Variable-Byte Coding",
+            "Golomb Coding",
+            "Huffman Coding"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Golomb coding uses a parameter b. It calculates q = floor(x/b) and r = x - qb. 'q' is encoded in unary, and 'r' is encoded in binary."
+    },
+    {
+        "type": "single",
+        "question": "In Latent Semantic Indexing (LSI), what mathematical technique is used to reduce the rank of the term-document matrix?",
+        "options": [
+            "Principal Component Analysis (PCA)",
+            "Singular Value Decomposition (SVD)",
+            "Linear Discriminant Analysis (LDA)",
+            "Fast Fourier Transform (FFT)"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "LSI relies on Singular Value Decomposition (SVD) to decompose the large term-document matrix into smaller matrices, keeping only the top-k singular values to capture semantic concepts."
+    },
+    {
+        "type": "single",
+        "question": "What is a potential disadvantage of using Stemming during text preprocessing?",
+        "options": [
+            "It significantly increases the size of the inverted index",
+            "It requires strictly supervised learning to implement",
+            "It may merge words with different meanings (over-stemming)",
+            "It cannot handle words that have never been seen before"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Stemming uses heuristics to chop off word endings. This can lead to 'over-stemming' where words with different meanings (e.g., 'organization' and 'organ') might be reduced to the same root improperly."
+    },
+    {
+        "type": "single",
+        "question": "Why is 'Anchor Text' considered a valuable resource in Web Search ranking?",
+        "options": [
+            "It is usually the text with the highest font size on the page",
+            "It represents a concise, independent description of the target page",
+            "It is strictly impossible for spammers to manipulate anchor text",
+            "It contains the full meta-data description of the linked website"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Anchor text is the clickable text in a hyperlink. It reflects how other people describe the target page, often providing a more accurate summary than the page provides for itself."
+    },
+    {
+        "type": "single",
+        "question": "Which Meta-search ranking method uses a voting system where the top document gets N points, the next N-1, down to 1?",
+        "options": [
+            "Condorcet Ranking",
+            "Borda Ranking",
+            "Reciprocal Ranking",
+            "CombMIN"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Borda Ranking is a positional voting method. If there are N candidates, the first preference gets N points, the second N-1, and so on. The points are summed to determine the winner."
+    },
+    {
+        "type": "single",
+        "question": "What characterizes the 'Honey Pot' technique in Link Spamming?",
+        "options": [
+            "Hiding keywords by making them the same color as the background",
+            "Creating high-quality pages to attract links, then passing authority to spam pages",
+            "Flooding a blog's comment section with links to the spam website",
+            "Hijacking a legitimate user's browser to click on ads automatically"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "A Honey Pot is a page designed to look legitimate and useful to attract natural links from other users. Once it gains authority, it links to the target spam pages to boost their ranking."
+    },
+    {
+        "type": "single",
+        "question": "In Information Retrieval evaluation, what does 'Recall' measure?",
+        "options": [
+            "The proportion of retrieved documents that are actually relevant",
+            "The proportion of relevant documents that were successfully retrieved",
+            "The speed at which the system returns the search results",
+            "The diversity of the topics covered in the search results"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Recall is the fraction of the relevant documents that are retrieved. (Recall = Relevant Retrieved / Total Relevant)."
+    },
+    {
+        "type": "single",
+        "question": "In Variable-byte coding, how is the end of a number's byte sequence typically indicated?",
+        "options": [
+            "By a reserved byte value of 0xFF",
+            "By a specific bit flag (e.g., the 8th bit) in the byte",
+            "By a sequence of two consecutive zero bytes",
+            "By the length prefix encoded at the start"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Variable-byte coding uses one bit (usually the most significant bit) of each byte to indicate if it is the last byte of the encoded number (e.g., 1 for the last byte, 0 otherwise)."
+    },
+    {
+        "type": "single",
+        "question": "Which type of data attribute allows for meaningful calculation of ratios (e.g., 'Value A is twice Value B')?",
+        "options": [
+            "Nominal",
+            "Ordinal",
+            "Interval",
+            "Ratio"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Ratio attributes have a fixed, absolute zero point (like weight, height, or money), which allows for valid ratio comparisons."
+    },
+    {
+        "type": "single",
+        "question": "How is the Interquartile Range (IQR) calculated?",
+        "options": [
+            "Mean minus Median",
+            "Maximum minus Minimum",
+            "Q3 (75th percentile) minus Q1 (25th percentile)",
+            "Variance divided by the Mean"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "IQR measures the statistical spread of the middle 50% of the data, calculated as the difference between the third quartile and the first quartile."
+    },
+    {
+        "type": "single",
+        "question": "In a standard Boxplot, what statistical value is represented by the line inside the box?",
+        "options": [
+            "The Mean",
+            "The Median",
+            "The Mode",
+            "The Standard Deviation"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The line inside the box of a Boxplot represents the median (the 50th percentile) of the dataset."
+    },
+    {
+        "type": "single",
+        "question": "Which visualization technique is most effective for identifying correlations between two continuous variables?",
+        "options": [
+            "Pie Chart",
+            "Histogram",
+            "Scatter Plot",
+            "Boxplot"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Scatter plots map two variables to the X and Y axes, making it easy to visually identify correlation, clusters, or outliers between them."
+    },
+    {
+        "type": "single",
+        "question": "In a Self-Organizing Map (SOM), which neurons update their weights during the learning process for a given input?",
+        "options": [
+            "Only the winning neuron (Best Matching Unit)",
+            "The winning neuron and its topological neighbors",
+            "All neurons in the network equally",
+            "Randomly selected neurons to prevent overfitting"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "SOM uses competitive learning where the 'winning' neuron (closest to input) and its neighbors in the map lattice are updated to move closer to the input vector."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is an example of a Nominal attribute?",
+        "options": [
+            "Temperature (Celsius)",
+            "Exam Grade (A, B, C, D)",
+            "Color (Red, Green, Blue)",
+            "Height (cm)"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Nominal attributes are labels or names without any intrinsic order or quantitative value. Colors are distinct categories with no rank."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary advantage of an Inverted Index compared to a linear scan of documents?",
+        "options": [
+            "It drastically reduces the time required to find documents containing a term",
+            "It automatically corrects spelling errors in the user's query",
+            "It stores the full semantic meaning of the sentences",
+            "It requires significantly less disk space than the raw text"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Inverted indices map terms to the documents that contain them, allowing the system to jump directly to relevant documents without reading every file, providing effectively constant or logarithmic search time."
+    },
+    {
+        "type": "single",
+        "question": "Which Meta-search combination method relies on pairwise comparisons to determine which document is 'better' than others?",
+        "options": [
+            "CombSUM",
+            "Borda Ranking",
+            "Condorcet Ranking",
+            "Weighted Average"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Condorcet Ranking is a voting method that compares every candidate (document) against every other candidate pair by pair. A document wins if it beats more opponents."
+    },
+    {
+        "type": "single",
+        "question": "How does 'Cloaking' work as a web spamming technique?",
+        "options": [
+            "It overloads the server with requests to crash the site",
+            "It serves different content to the search engine crawler than to the human user",
+            "It encrypts the website content so only specific users can read it",
+            "It automatically redirects users to a completely different domain"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Cloaking identifies search engine crawlers (via IP or User-Agent) and feeds them optimized content (often stuffed with keywords) while showing normal content to actual users."
+    },
+    {
+        "type": "single",
+        "question": "The F-measure (specifically F1) is the Harmonic Mean of which two metrics?",
+        "options": [
+            "Accuracy and Error Rate",
+            "Precision and Recall",
+            "Sensitivity and Specificity",
+            "True Positive Rate and False Positive Rate"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "F1 score is the harmonic mean of Precision and Recall. It is used to provide a single score that balances both concerns."
+    },
+    {
+        "type": "single",
+        "question": "In Pixel-based visualization techniques, how are different dimensions (attributes) typically handled?",
+        "options": [
+            "They are overlaid on top of each other with different opacities",
+            "They are displayed in separate sub-windows",
+            "They are combined into a single 3D vector",
+            "They are aggregated into a single color value"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Pixel-oriented techniques typically assign a separate window for each dimension. The data values for that dimension are mapped to the color of pixels within that window."
+    },
+    {
+        "type": "single",
+        "question": "What is the key feature of a 'Super Sphere Tree' visualization?",
+        "options": [
+            "It uses a fish-eye view to magnify the focus area while compressing the context",
+            "It displays data as a flat 2D grid of pixels without hierarchy",
+            "It relies solely on text-based descriptions of the tree structure",
+            "It forces all nodes to be the same size regardless of focus"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The Super Sphere Tree allows users to navigate large hierarchies by expanding the node of interest (focus) and diminishing the size of surrounding nodes (context), known as the fish-eye view."
+    },
+    {
+        "type": "single",
+        "question": "How is the 'Midrange' of a dataset calculated?",
+        "options": [
+            "The difference between the Maximum and Minimum values",
+            "The average of the Maximum and Minimum values",
+            "The value that appears most frequently in the set",
+            "The average of the first and third quartiles"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Midrange is a measure of center calculated as (Max + Min) / 2."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of 'Stopword Removal' in text preprocessing?",
+        "options": [
+            "To remove words that are offensive or inappropriate",
+            "To remove common words that carry little semantic meaning",
+            "To remove words that are not in the dictionary",
+            "To remove proper nouns and names from the text"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Stopwords (like 'and', 'the', 'is') appear in almost all documents and thus do not help distinguish between them. Removing them saves space and reduces noise."
+    },
+    {
+        "type": "single",
+        "question": "In Elias Gamma coding, how is the integer 9 typically encoded?",
+        "options": [
+            "0001001",
+            "1110001",
+            "1001",
+            "001001"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Gamma coding for 9: Length of binary 9 (1001) is 4. Unary code for length (4) is 0001 (or 1110 depending on convention). The offset is '001' (binary without MSB). Result: 0001001."
+    },
+    {
+        "type": "single",
+        "question": "Which statement best describes the 'Mode' of a dataset?",
+        "options": [
+            "It is the arithmetic average of all values",
+            "It is the middle value when the data is sorted",
+            "It is the value that occurs most frequently",
+            "It is the difference between the highest and lowest values"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Mode is defined as the value that appears with the highest frequency in the dataset."
+    },
+    {
+        "type": "single",
+        "question": "What problem does Latent Semantic Indexing (LSI) primarily aim to solve?",
+        "options": [
+            "The slow speed of boolean retrieval queries",
+            "The issues of synonymy and polysemy in keyword matching",
+            "The large storage requirements of image data",
+            "The inability to handle non-English languages"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Keyword matching fails when users use different words for the same concept (synonymy) or when words have multiple meanings (polysemy). LSI maps terms to a conceptual space to address this."
+    },
+    {
+        "type": "single",
+        "question": "What does Cosine Similarity measure in the Vector Space Model?",
+        "options": [
+            "The Euclidean distance between two document endpoints",
+            "The angle between the document vector and query vector",
+            "The number of shared terms between two documents",
+            "The ratio of the lengths of the two vectors"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Cosine similarity measures the cosine of the angle between two vectors. A value of 1 implies the vectors point in the same direction (high similarity), regardless of their magnitude."
+    },
+    {
+        "type": "single",
+        "question": "What is 'WEBSOM' specifically designed to organize and visualize?",
+        "options": [
+            "Large collections of text documents",
+            "Network traffic and packet flows",
+            "User navigational paths on a website",
+            "Hierarchical file systems"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "WEBSOM is an application of Self-Organizing Maps (SOM) applied to massive document collections, organizing them onto a 2D map where similar documents are grouped together."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is NOT a method for combining rankings in Meta-search?",
+        "options": [
+            "CombSUM",
+            "CombMNZ",
+            "PageRank",
+            "Borda Count"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "PageRank is a link analysis algorithm used by a single search engine (like Google) to score global importance. It is not a method for combining the result lists of multiple search engines."
+    },
+    {
+        "type": "single",
+        "question": "How is the Standard Deviation related to the Variance?",
+        "options": [
+            "Standard Deviation is the square of the Variance",
+            "Standard Deviation is the square root of the Variance",
+            "Standard Deviation is the Variance divided by N",
+            "Standard Deviation is the absolute value of the Variance"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Variance is the average squared deviation from the mean. Standard Deviation is the square root of the Variance, bringing the unit back to the original data scale."
+    },
+    {
+        "type": "single",
+        "question": "In a Q-Q (Quantile-Quantile) plot, what does it mean if the points lie on the line y = x?",
+        "options": [
+            "The two distributions being compared are identical",
+            "The two variables have a strong negative correlation",
+            "One distribution has a much higher variance than the other",
+            "The data consists mostly of outliers"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "A Q-Q plot compares the quantiles of two distributions. If points fall on the y=x line, the quantiles match perfectly, meaning the distributions are the same."
+    },
+    {
+        "type": "single",
+        "question": "Which technique is a form of 'Content Hiding' used in Web Spam?",
+        "options": [
+            "Using text that is the same color as the background",
+            "Creating a network of mutually linking websites",
+            "Redirecting the user to a different page upon loading",
+            "Buying expired domains with high authority"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Content hiding involves putting keywords in the page that are invisible to humans (e.g., white text on white background) but readable by search crawlers to manipulate ranking."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following examples best represents an Ordinal attribute?",
+        "options": [
+            "Customer ID numbers",
+            "T-shirt sizes (Small, Medium, Large)",
+            "Distance traveled in kilometers",
+            "Type of fruit (Apple, Orange, Banana)"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "T-shirt sizes have a clear order (Small < Medium < Large), but the difference between them is not mathematically quantified, making them Ordinal."
+    },
+    {
+        "type": "single",
+        "question": "In a perfectly symmetrical distribution, what is the relationship between Mean, Median, and Mode?",
+        "options": [
+            "Mean > Median > Mode",
+            "Mean < Median < Mode",
+            "Mean = Median = Mode",
+            "There is no predictable relationship"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "For a symmetric distribution (like a normal distribution), the center point is the average, the middle value, and the most frequent value; they are all the same."
+    },
+    {
+        "type": "single",
+        "question": "What assumption does 'Pseudo-Relevance Feedback' make?",
+        "options": [
+            "That the user will manually tag relevant documents",
+            "That the top 'k' retrieved documents are relevant",
+            "That only documents with high PageRank are relevant",
+            "That long documents are more relevant than short ones"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Pseudo-relevance feedback (or blind feedback) assumes the top-ranked documents from the initial search are relevant and uses them to refine the query without user intervention."
+    }
+]
