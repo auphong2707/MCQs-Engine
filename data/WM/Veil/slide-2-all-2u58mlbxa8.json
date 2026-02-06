@@ -1,0 +1,562 @@
+[
+    {
+        "type": "single",
+        "question": "In the context of Decision Tree construction, what is the primary role of Information Gain?",
+        "options": [
+            "To select the attribute that best separates the data into distinct classes",
+            "To calculate the accuracy of the model on the validation dataset",
+            "To assign weights to the leaf nodes based on class probability",
+            "To determine the maximum depth of the tree to prevent overfitting"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Information Gain is used as a criterion to select the attribute that results in the greatest reduction in entropy (uncertainty) when splitting the dataset, thereby separating the classes most effectively."
+    },
+    {
+        "type": "single",
+        "question": "Which statement best describes the 'Naive' assumption in the Naive Bayes classifier?",
+        "options": [
+            "It assumes that the decision boundary between classes is always linear",
+            "It assumes that the dataset contains no missing or noisy values",
+            "It assumes that attributes are conditionally independent given the class",
+            "It assumes that all attributes are equally important for classification"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The 'Naive' assumption posits that the value of a particular feature is independent of the value of any other feature, given the class variable, which simplifies the computation of probabilities."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of Laplace Smoothing (Add-One Smoothing) in Naive Bayes?",
+        "options": [
+            "To prevent the model from overfitting by pruning low-frequency branches",
+            "To reduce the influence of frequent words like 'the' and 'a' in the text",
+            "To normalize the term frequency vectors to unit length for cosine similarity",
+            "To handle the issue of zero probabilities for words not seen in the training set"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Laplace smoothing adds a small count (usually 1) to all probability estimates to ensure that unseen words in the test set do not result in a zero probability, which would zero out the entire posterior calculation."
+    },
+    {
+        "type": "single",
+        "question": "In Support Vector Machines (SVM), what is the 'Margin' that the algorithm attempts to maximize?",
+        "options": [
+            "The distance between the centroids of the positive and negative classes",
+            "The total area covered by the support vectors in the feature space",
+            "The distance between the decision boundary and the nearest data point of any class",
+            "The number of misclassified examples allowed within the decision boundary"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The margin is defined as the perpendicular distance between the separating hyperplane (decision boundary) and the closest data points (support vectors) from either class. SVM seeks the hyperplane that maximizes this distance."
+    },
+    {
+        "type": "single",
+        "question": "What is the function of the 'Kernel Trick' in SVMs?",
+        "options": [
+            "To map the input data into a higher-dimensional space to find a linear separator",
+            "To convert the classification problem into a regression problem",
+            "To automatically select the most relevant features for classification",
+            "To reduce the dimensionality of the input data to speed up training"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "The Kernel Trick allows SVMs to solve non-linear classification problems by implicitly mapping input vectors into a high-dimensional feature space where a linear hyperplane can separate the classes, without computing the coordinates explicitly."
+    },
+    {
+        "type": "single",
+        "question": "Why is the K-Nearest Neighbors (KNN) algorithm referred to as a 'Lazy Learner'?",
+        "options": [
+            "It iterates slowly through the training data to build a robust model",
+            "It delays the generalization process until a query is made to the system",
+            "It randomly guesses the class labels until it finds a pattern",
+            "It requires a large amount of computational power during the training phase"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "KNN is a lazy learner because it does not learn a discriminative function from the training data but stores the dataset and performs processing (calculating distances) only when a test query is received."
+    },
+    {
+        "type": "single",
+        "question": "Which evaluation metric is the harmonic mean of Precision and Recall?",
+        "options": [
+            "Accuracy",
+            "F-Measure",
+            "Specificity",
+            "Sensitivity"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "The F-Measure (or F1-score) is calculated as 2 * (Precision * Recall) / (Precision + Recall), acting as the harmonic mean to balance both metrics."
+    },
+    {
+        "type": "single",
+        "question": "In the context of Neural Networks, what problem does the Rectified Linear Unit (ReLU) activation function help mitigate compared to Sigmoid?",
+        "options": [
+            "The overfitting problem caused by too many parameters",
+            "The inability to handle negative input values",
+            "The vanishing gradient problem during backpropagation",
+            "The computational cost of matrix multiplication"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "ReLU helps mitigate the vanishing gradient problem because its gradient is either 0 or 1, unlike Sigmoid/Tanh where gradients become very small for large positive/negative inputs, slowing down learning in deep layers."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary purpose of the 'Pooling' layer in a Convolutional Neural Network (CNN)?",
+        "options": [
+            "To connect every neuron in the previous layer to the next layer",
+            "To normalize the input data to a standard distribution",
+            "To reduce the spatial dimensions and computation parameters",
+            "To apply non-linear transformations to the feature maps"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Pooling layers (like Max Pooling) are used to progressively reduce the spatial size of the representation, which reduces the number of parameters and computation in the network, and helps control overfitting."
+    },
+    {
+        "type": "single",
+        "question": "Which component of an LSTM (Long Short-Term Memory) network is responsible for deciding what information to discard from the cell state?",
+        "options": [
+            "Output Gate",
+            "Input Gate",
+            "Forget Gate",
+            "Update Gate"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Forget Gate in an LSTM uses a sigmoid layer to look at the previous hidden state and the current input, outputting a number between 0 and 1 for each number in the cell state to decide what to keep or discard."
+    },
+    {
+        "type": "single",
+        "question": "What distinguishes 'Bagging' from 'Boosting' in ensemble learning?",
+        "options": [
+            "Bagging trains models sequentially; Boosting trains models in parallel",
+            "Bagging uses different algorithms; Boosting uses the same algorithm",
+            "Bagging reduces bias; Boosting reduces variance",
+            "Bagging uses independent samples; Boosting focuses on misclassified examples"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Bagging (Bootstrap Aggregating) trains models independently on random subsets of data to reduce variance. Boosting trains models sequentially, where each new model focuses on the errors (misclassified examples) of the previous ones."
+    },
+    {
+        "type": "single",
+        "question": "In the AdaBoost algorithm, how are the weights of training examples updated after each iteration?",
+        "options": [
+            "Weights of correctly classified examples are increased",
+            "Weights of misclassified examples are increased",
+            "Weights are randomly assigned to prevent overfitting",
+            "All weights are reset to uniform distribution"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In AdaBoost, the weights of examples that were misclassified by the current weak learner are increased so that the subsequent weak learner focuses more on correctly classifying these difficult examples."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Vanishing Gradient' problem in Recurrent Neural Networks (RNNs)?",
+        "options": [
+            "The loss function converges to a local minimum too quickly",
+            "The gradients become exponentially small, preventing weights from updating",
+            "The network forgets the initial inputs immediately after processing",
+            "The gradients become too large, causing the weights to explode"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "In standard RNNs, during backpropagation through time, gradients can become exponentially smaller as they are propagated back through long sequences, effectively stopping the earlier layers from learning."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following is a characteristic of K-Means clustering?",
+        "options": [
+            "It requires the number of clusters 'k' to be specified in advance",
+            "It can effectively handle clusters of arbitrary shapes and sizes",
+            "It is insensitive to the initialization of cluster centroids",
+            "It guarantees finding the global optimal clustering solution"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "K-Means requires the user to define the number of clusters 'k' beforehand. It is also sensitive to initialization and assumes spherical clusters, often getting stuck in local optima."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Chaining Effect' observed in the Single Link (Nearest Neighbor) hierarchical clustering method?",
+        "options": [
+            "Clusters are forced to be spherical and compact",
+            "The algorithm enters an infinite loop and fails to converge",
+            "Two distinct clusters are merged due to a thin line of noise points connecting them",
+            "Small clusters are ignored and merged into a single large noise cluster"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Single Link clustering merges clusters based on the closest pair of points. This can lead to 'chaining,' where two separate clusters are joined because a chain of noise points bridges the gap between them."
+    },
+    {
+        "type": "single",
+        "question": "Which distance metric is most appropriate for high-dimensional text data (Bag of Words)?",
+        "options": [
+            "Manhattan Distance",
+            "Hamming Distance",
+            "Cosine Similarity",
+            "Euclidean Distance"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Cosine Similarity is preferred for text data because it measures the angle between vectors (direction) rather than magnitude, which effectively handles document length variations and high sparsity."
+    },
+    {
+        "type": "single",
+        "question": "What does 'Purity' measure in the evaluation of clustering results?",
+        "options": [
+            "The ratio of the dominant class size in a cluster to the cluster size",
+            "The number of clusters that contain only a single data point",
+            "The average distance between points within the same cluster",
+            "The similarity between the clustering structure and a random partition"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Purity evaluates how well a cluster matches a class. It is calculated by assigning each cluster to the class which is most frequent in it, and then measuring the accuracy of this assignment."
+    },
+    {
+        "type": "single",
+        "question": "In Semi-Supervised Learning, what is the 'Co-training' assumption regarding feature views?",
+        "options": [
+            "The feature set consists of two sufficient and conditionally independent views",
+            "The features must be highly correlated and dependent on each other",
+            "The features must be transformed into a lower-dimensional space",
+            "One view of features must be labeled while the other is unlabeled"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Co-training assumes the data has two distinct 'views' (sets of features) that are each sufficient to train a good classifier, and that these views are conditionally independent given the class."
+    },
+    {
+        "type": "single",
+        "question": "What is the main objective of the 'Spy Technique' in PU (Positive and Unlabeled) Learning?",
+        "options": [
+            "To validate the accuracy of the positive labels provided by the user",
+            "To artificially generate negative examples from the positive set",
+            "To identify reliable negative examples from the unlabeled dataset",
+            "To increase the weight of the positive examples during training"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "The Spy Technique involves adding a subset of 'spy' positive examples to the unlabeled set to determine a threshold. Unlabeled examples with scores lower than the spies are treated as reliable negatives."
+    },
+    {
+        "type": "single",
+        "question": "Which algorithm is a 'Divisive' hierarchical clustering method?",
+        "options": [
+            "DIANA (Divisive Analysis)",
+            "DBSCAN",
+            "K-Means Clustering",
+            "Agglomerative Clustering"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Divisive algorithms (like DIANA) work top-down. They start with all points in one cluster and recursively split them into smaller clusters, unlike agglomerative methods which merge points bottom-up."
+    },
+    {
+        "type": "single",
+        "question": "What is the definition of 'Recall' (Sensitivity) in a binary classification problem?",
+        "options": [
+            "The proportion of predicted positives that are actually positive",
+            "The proportion of correctly classified instances out of all instances",
+            "The proportion of actual positives that are correctly identified",
+            "The proportion of actual negatives that are correctly identified"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Recall measures the ability of the classifier to find all the positive samples. It is calculated as TP / (TP + FN), representing the ratio of correctly predicted positives to all actual positives."
+    },
+    {
+        "type": "single",
+        "question": "In Decision Trees, how is 'Entropy' used?",
+        "options": [
+            "To determine the number of trees in a random forest",
+            "To calculate the distance between leaf nodes",
+            "To optimize the learning rate of the algorithm",
+            "To measure the impurity or randomness of a dataset"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Entropy is a measure of impurity. A node with 0 entropy contains only one class (pure), while high entropy implies an equal mix of classes. Decision trees split to minimize this entropy."
+    },
+    {
+        "type": "single",
+        "question": "What is the primary characteristic of 'Hard Margin' SVM?",
+        "options": [
+            "It uses a non-linear kernel to handle overlapping classes",
+            "It allows for some misclassification to achieve a wider margin",
+            "It requires data to be perfectly linearly separable without errors",
+            "It assigns different weights to different classes"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Hard Margin SVM enforces a strict constraint that all data points must be correctly classified and lie outside the margin. It works only if the data is linearly separable and has no outliers."
+    },
+    {
+        "type": "single",
+        "question": "In the Backpropagation algorithm, what is propagated backward through the network?",
+        "options": [
+            "The error (gradient of the loss function)",
+            "The input feature values",
+            "The predicted class probabilities",
+            "The activation function parameters"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Backpropagation calculates the gradient of the loss function with respect to the weights. This error information is propagated backward from the output layer to the input layer to update weights."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Parameter Sharing' in Convolutional Neural Networks (CNNs)?",
+        "options": [
+            "Sharing the same hidden layers between multiple networks",
+            "Using the same learning rate for all layers in the network",
+            "Using the same filter weights across different regions of the input",
+            "Copying the input data to the output layer directly"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Parameter sharing means the same kernel (filter) is applied to the entire image. This significantly reduces the number of parameters compared to a fully connected layer."
+    },
+    {
+        "type": "single",
+        "question": "Which ensemble method relies on the principle of 'voting' among independent classifiers?",
+        "options": [
+            "Cascading",
+            "Stacking",
+            "Bagging",
+            "Boosting"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "Bagging (Bootstrap Aggregating) trains multiple classifiers independently (often in parallel) and aggregates their predictions, typically using majority voting for classification or averaging for regression."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Dendrogram' used for in Hierarchical Clustering?",
+        "options": [
+            "To plot the error rate as a function of the number of clusters",
+            "To visualize the distance between the final cluster centroids",
+            "To display the nested grouping of clusters and their similarity levels",
+            "To show the spatial distribution of data points in 2D"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "A dendrogram is a tree diagram that illustrates the arrangement of the clusters produced by hierarchical clustering. The height of the branches typically represents the distance at which clusters are merged."
+    },
+    {
+        "type": "single",
+        "question": "Why is data normalization (e.g., Min-Max scaling) critical for distance-based algorithms like KNN and K-Means?",
+        "options": [
+            "To ensure that features with larger numeric ranges do not dominate the distance metric",
+            "To remove outliers that might skew the cluster centroids",
+            "To reduce the number of features to speed up computation",
+            "To convert all categorical variables into numeric values"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Distance metrics like Euclidean distance are sensitive to scale. Without normalization, a feature with a range of 0-1000 would overpower a feature with a range of 0-1, leading to biased results."
+    },
+    {
+        "type": "single",
+        "question": "In Self-Training (Semi-Supervised Learning), how is the training set augmented?",
+        "options": [
+            "By generating synthetic examples using interpolation (e.g., SMOTE)",
+            "By adding all unlabeled examples with random labels",
+            "By asking a human expert to label uncertain examples",
+            "By adding unlabeled examples predicted with high confidence by the current model"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Self-training involves training a model on labeled data, using it to predict labels for unlabeled data, and then taking the most confidently predicted examples and adding them to the training set for the next iteration."
+    },
+    {
+        "type": "single",
+        "question": "What is 'Graph-Based' Semi-Supervised Learning?",
+        "options": [
+            "Using a neural network to learn the graph structure of the internet",
+            "Clustering data points based on their distance from the origin",
+            "Representing data as nodes and similarity as edges to propagate labels",
+            "Visualizing the decision boundary of a classifier as a graph"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "In graph-based methods, data points are vertices in a graph, and edges represent similarities. Learning involves propagating labels from labeled nodes to unlabeled nodes across high-density (strongly connected) regions."
+    },
+    {
+        "type": "single",
+        "question": "What is the main limitation of the Perceptron algorithm?",
+        "options": [
+            "It cannot handle binary input features",
+            "It is computationally more expensive than deep neural networks",
+            "It cannot solve problems that are not linearly separable (e.g., XOR)",
+            "It requires a very large amount of data to converge"
+        ],
+        "answer": [
+            2
+        ],
+        "explanation": "A single-layer Perceptron is a linear classifier. It can only classify data that is linearly separable. It fails on non-linear problems like the XOR function."
+    },
+    {
+        "type": "single",
+        "question": "In a Convolutional Neural Network, what is a 'Stride'?",
+        "options": [
+            "The number of pixels the filter moves across the input matrix",
+            "The size of the filter matrix used for convolution",
+            "The value added to the border of the input matrix (padding)",
+            "The number of filters used in a single convolutional layer"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Stride controls how the filter convolves around the input volume. A stride of 1 means the filter moves 1 pixel at a time; a stride of 2 means it jumps 2 pixels, reducing the output size."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Softmax' function typically used for?",
+        "options": [
+            "To convert the output logits into a probability distribution over classes",
+            "To initialize weights in the hidden layers",
+            "To compute the error gradient during backpropagation",
+            "To perform dimensionality reduction on the input data"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Softmax is used in the output layer of multi-class classification networks. It normalizes the output vector so that all elements are positive and sum to 1, representing probabilities."
+    },
+    {
+        "type": "single",
+        "question": "In Hierarchical Clustering, what does 'Complete Linkage' measure?",
+        "options": [
+            "The maximum distance between any two points in the clusters",
+            "The distance between the centroids of the two clusters",
+            "The average distance between all pairs of points in the clusters",
+            "The shortest distance between any two points in the clusters"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Complete Linkage (Max Linkage) defines the distance between two clusters as the maximum distance between any single point in the first cluster and any single point in the second cluster."
+    },
+    {
+        "type": "single",
+        "question": "What is the purpose of 'Pruning' in Decision Trees?",
+        "options": [
+            "To balance the tree so that all branches have equal depth",
+            "To remove sections of the tree that provide little power to classify instances",
+            "To convert the tree into a neural network structure",
+            "To increase the complexity of the tree for better training accuracy"
+        ],
+        "answer": [
+            1
+        ],
+        "explanation": "Pruning reduces the size of decision trees by removing parts of the tree (such as sub-nodes) that are non-critical and redundant, which helps to prevent overfitting and improves generalization."
+    },
+    {
+        "type": "single",
+        "question": "What is a 'Support Vector'?",
+        "options": [
+            "The center point of the margin between two classes",
+            "A weight vector that defines the direction of the hyperplane",
+            "Any data point that is correctly classified by the model",
+            "A data point that lies closest to the decision boundary (hyperplane)"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "Support vectors are the data points from each class that lie closest to the separating hyperplane. They are the most difficult to classify and essentially define the position and orientation of the hyperplane."
+    },
+    {
+        "type": "single",
+        "question": "Which of the following describes 'Web Usage Mining'?",
+        "options": [
+            "Discovering patterns from data generated by user interactions (e.g., server logs)",
+            "Extracting useful information from the text and multimedia content of web pages",
+            "Analyzing the link structure of the web to find authoritative pages",
+            "Crawling the web to index pages for search engines"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Web Usage Mining focuses on analyzing data generated by user interactions with the web, such as web server access logs, browser logs, and clickstreams, to discover user usage patterns."
+    },
+    {
+        "type": "single",
+        "question": "In standard K-Means, how is the new centroid calculated in each iteration?",
+        "options": [
+            "By choosing a random point from the cluster members",
+            "By taking the median of all points assigned to the cluster",
+            "By selecting the point closest to the center of the cluster",
+            "By taking the mean (average) of all points assigned to the cluster"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "In the update step of K-Means, the new centroid for each cluster is calculated as the mean (average coordinate values) of all data points currently assigned to that cluster."
+    },
+    {
+        "type": "single",
+        "question": "What is the 'Bias-Variance Tradeoff'?",
+        "options": [
+            "The balance between the number of features and the number of samples",
+            "The difference between supervised and unsupervised learning performance",
+            "The conflict between minimizing training time and maximizing accuracy",
+            "The tradeoff between a model's ability to fit training data and generalize to new data"
+        ],
+        "answer": [
+            3
+        ],
+        "explanation": "High bias leads to underfitting (model is too simple), while high variance leads to overfitting (model is too sensitive to noise). The goal is to find the optimal balance that minimizes total error."
+    },
+    {
+        "type": "single",
+        "question": "What characterizes 'Agglomerative' Hierarchical Clustering?",
+        "options": [
+            "It starts with each point as its own cluster and merges the closest pairs",
+            "It relies on probability density functions to form clusters",
+            "It assumes a fixed number of clusters k at the beginning",
+            "It starts with one large cluster and recursively splits it"
+        ],
+        "answer": [
+            0
+        ],
+        "explanation": "Agglomerative clustering is a 'bottom-up' approach where each observation starts in its own cluster, and pairs of clusters are merged as one moves up the hierarchy."
+    }
+]
